@@ -49,7 +49,7 @@
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url({{ specification.image_illustratif.url }});margin-bottom: 3em;">
 						<div class="banner_category" style= "opacity: 0.8;">
-							{% if specification.besoin_fondamental.besoin != "Habillement" or specification.besoin_fondamental.besoin != "Immobilier" %}
+							{% if specification.besoin_fondamental.besoin != "Habillement" ORs specification.besoin_fondamental.besoin != "Immobilier" %}
 								<a href="{% url 'ecommerce:specification-produits' specification.spécification %}" style="color: #ffffff; font-family: 'Permanent Marker', cursive;">{{ specification }}</a>
 								{% else %}
 								<a href="{% url 'ecommerce:specification-categories' specification.id %}" style="color: #ffffff; font-family: 'Permanent Marker', cursive;">{{ specification }}</a>
