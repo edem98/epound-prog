@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <!-- Titre de la page -->
+	<title>{% block title %}e-pounds{% endblock  %}</title>
+	{% block fichierCss %}
+	<!-- Chargement des fichiers css -->
+	{%  include 'layouts/head.html' %}
+	{% block add_css %}  {% endblock  %}
+	{% endblock %}
+    
+</head>
+
+<body>
+    <div class="super_container">
+        {% include 'layouts/header.html' %}
+		{% block content %}  {% endblock  %}
+		<footer>
+			{% include 'layouts/footer.html' %}
+		</footer>
+    </div>
+    {% block fichierJs %}
+		{% include 'layouts/jsImport.html' %}
+		{% block addjs %} {% endblock %}
+    {% endblock %}
+</body>
+	
+</html>
