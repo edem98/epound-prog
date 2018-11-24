@@ -39,7 +39,8 @@ class MembreViewSet(viewsets.ModelViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         data = {}
-        data["client"] = serializer.data
+        if serializer.data != None:
+            data["client"] = serializer.data
         data["type_client"] = type_client
         return Response(data)
 
