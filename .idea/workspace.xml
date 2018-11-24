@@ -45,7 +45,7 @@
         <counts>
           <entry key="css" value="681" />
           <entry key="dummy" value="6" />
-          <entry key="html" value="2048" />
+          <entry key="html" value="2064" />
           <entry key="js" value="291" />
           <entry key="py" value="17828" />
           <entry key="txt" value="5" />
@@ -54,7 +54,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="681" />
-          <entry key="HTML" value="2048" />
+          <entry key="HTML" value="2064" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="Python" value="17828" />
@@ -63,7 +63,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="16" />
-          <entry key="html" value="55" />
+          <entry key="html" value="56" />
           <entry key="jpeg" value="1" />
           <entry key="js" value="4" />
           <entry key="json" value="1" />
@@ -74,7 +74,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="16" />
-          <entry key="HTML" value="55" />
+          <entry key="HTML" value="56" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="4" />
@@ -87,10 +87,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="525">
               <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -101,6 +101,15 @@
                 <marker date="1543088601323" expanded="true" signature="5308:5313" ph="..." />
                 <marker date="1543088601323" expanded="true" signature="5474:5479" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/specification.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -226,7 +235,6 @@
         <option value="$PROJECT_DIR$/emision/models.py" />
         <option value="$PROJECT_DIR$/archive/models.py" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html" />
-        <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/specification.html" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html" />
         <option value="$PROJECT_DIR$/services/serializers.py" />
         <option value="$PROJECT_DIR$/static/styles/main_styles2.css" />
@@ -235,6 +243,7 @@
         <option value="$PROJECT_DIR$/templates/layouts/header.html" />
         <option value="$PROJECT_DIR$/static/styles/responsive.css" />
         <option value="$PROJECT_DIR$/services/views.py" />
+        <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/specification.html" />
       </list>
     </option>
   </component>
@@ -278,13 +287,20 @@
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
               <item name="epound" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
               <item name="epound" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="ecommerce" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
@@ -389,7 +405,7 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.23603871" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.23603871" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -400,7 +416,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952693" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.34584013" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.34584013" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32952693" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -657,13 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/specification.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="89" column="130" selection-start-line="89" selection-start-column="130" selection-end-line="89" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
@@ -784,7 +793,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="525">
           <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
@@ -795,6 +804,13 @@
             <marker date="1543088601323" expanded="true" signature="5308:5313" ph="..." />
             <marker date="1543088601323" expanded="true" signature="5474:5479" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/specification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
         </state>
       </provider>
     </entry>
