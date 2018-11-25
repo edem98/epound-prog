@@ -55,6 +55,8 @@
 								{% else %}
 								<a href="{% url 'ecommerce:specification-categories' specification.id %}" style="color: #ffffff; font-family: 'Permanent Marker', cursive;">{{ specification }}</a>
 								{% endif %}
+								{% else %}
+								<a href="{% url 'ecommerce:specification-categories' specification.id %}" style="color: #ffffff; font-family: 'Permanent Marker', cursive;">{{ specification }}</a>
 							{% endif %}
 						</div>
 					</div>
