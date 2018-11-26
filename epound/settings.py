@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'daterange_filter',
     'storages',
     'sorl.thumbnail',
-    'newsletter',
+    # 'newsletter',
     #mes apps
     'archive.apps.ArchiveConfig',
     'compte.apps.CompteConfig',
