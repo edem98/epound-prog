@@ -17,7 +17,7 @@ django-extra-views==0.11.0
 django-filter==2.0.0
 django-haystack==2.8.1
 django-jet==1.0.8
-django-newsletter==0.7
+#django-newsletter==0.7
 django-polymorphic==2.0.3
 django-storages==1.7.1
 django-suit-ckeditor==0.0.2
