@@ -44,6 +44,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('ecommerce/', include('ecommerce.urls')),
     path('api-auth/', include('rest_framework.urls')),
+    path('newsletter/', include('newsletter.urls')),
 
 
 ]

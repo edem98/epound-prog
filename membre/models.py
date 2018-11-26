@@ -153,9 +153,16 @@ class EntrepriseCommerciale(Membre):
 		l’obtention d’un compte e-b, d’un compte e-c.
 		avec un taux de contribution mensuel de 5%
 	"""
+	besoin_fondamental = models.ForeignKey('ecommerce.ExpressionBesoin', on_delete=models.CASCADE,
+									verbose_name="Domaine d'activité",
+									null=True,
+									blank=True,
+									)
+
 	besoin_gere = models.ForeignKey('ecommerce.SpécificationBesoin',on_delete = models.CASCADE,
 									verbose_name = "Domaine d'activité",
 									null = True,
+									blank = True,
 									)
 
 	compte_entreprise_commercial = models.OneToOneField(CompteEntrepriseCommerciale,

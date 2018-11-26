@@ -45,12 +45,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',
     'gunicorn',
     'djcelery',
     'django_celery_beat',
     'daterange_filter',
     'storages',
+    'sorl.thumbnail',
+    'newsletter',
     #mes apps
     'archive.apps.ArchiveConfig',
     'compte.apps.CompteConfig',
@@ -63,11 +66,6 @@ INSTALLED_APPS = [
     'ecommerce.apps.EcommerceConfig',
     'recette.apps.RecetteConfig',
     'faqs.apps.FaqsConfig',
-
-#apps installeés
-
-
-    
 ]
 
 
@@ -245,3 +243,17 @@ CELERY_BROKER_URL = 'redis://localhost:6379'
 #          #'schedule': crontab(hour=16, day_of_week=5),
 #         },
 # }
+
+SITE_ID = 1
+
+# Using django-imperavi
+NEWSLETTER_RICHTEXT_WIDGET = "suit_ckeditor.widgets.CKEditorWidget"
+
+# Amount of seconds to wait between each email. Here 100ms is used.
+NEWSLETTER_EMAIL_DELAY = 0.1
+
+# Amount of seconds to wait between each batch. Here one minute is used.
+NEWSLETTER_BATCH_DELAY = 60
+
+# Number of emails in one batch
+NEWSLETTER_BATCH_SIZE = 100
