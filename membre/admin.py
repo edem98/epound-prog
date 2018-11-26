@@ -208,7 +208,7 @@ class EntrepriseCommercialeeAdmin(PolymorphicChildModelAdmin):
 						'date_expiration_compte_business','activiter_compte_business',]
 	fieldsets = (
 		("Informations Relatifs a l'entreprise", {
-			'fields': ('besoin_gere','nom', 'code_membre','mdp',
+			'fields': ('besoin_fondamental','besoin_gere','nom', 'code_membre','mdp',
 					   'telephone','email',"emplacement",'slug','banniere_principal',
 					   'banniere_secondaire','banniere_trois','banniere_quatre',
 					   'banniere_cinq','date_expiration','actif',
