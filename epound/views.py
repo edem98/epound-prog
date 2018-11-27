@@ -7,7 +7,7 @@ from membre.models import EntrepriseCommerciale
 def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
-    new_produits = Produit.objects.all().order_by('-date_ajout')[:10]
+    new_produits = Produit.objects.all().order_by('-date_ajout')[:30]
     context['besoins'] = besoins
     context['produits'] = new_produits
     return render(request,'index.html',context)
