@@ -53,8 +53,8 @@ INSTALLED_APPS = [
     'daterange_filter',
     'storages',
     'sorl.thumbnail',
-    'imperavi',
-    'newsletter',
+    # 'imperavi',
+    # 'newsletter',
     # 'newsletter',
     #mes apps
     'archive.apps.ArchiveConfig',
