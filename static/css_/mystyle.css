@@ -428,4 +428,13 @@ Primary style
       display: block;
     }
   }
-  
+
+.lien_manuel{
+    color: #61C7F3;
+    text-transform: underline;
+}
+
+lien_manuel:hover{
+    color: #40A629;
+    text-decoration: none;
+}
