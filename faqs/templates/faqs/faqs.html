@@ -34,6 +34,9 @@
 								<a class="cd-faq-trigger" href="#0">{{ item.probleme }}</a>
 								<div class="cd-faq-content">
 									<p>{{ item.solution }}</p>
+									{% if item.manuel.url != None %}
+									<p>Pour plus d'informations<a href="{{ item.manuel.url }}">Manuel complet en pdf </a></p>
+									{% endif %}
 								</div> <!-- cd-faq-content -->
 							</li>
 						{% endif %}
