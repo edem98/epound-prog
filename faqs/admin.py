@@ -10,5 +10,5 @@ class SujetAdmin(admin.ModelAdmin):
 @admin.register(ProblemeSolution)
 class ProblemeSolutionAdmin(admin.ModelAdmin):
 	search_fields = ['sujet','probleme']
-	list_display = ['sujet','probleme','solution']
+	list_display = ['sujet','probleme','solution','manuel']
 	list_filter = ['sujet', ]

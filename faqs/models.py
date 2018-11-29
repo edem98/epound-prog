@@ -20,6 +20,7 @@ class ProblemeSolution(models.Model):
     sujet = models.ForeignKey(Sujet, on_delete = models.CASCADE,null = True)
     probleme = models.CharField(max_length =250,verbose_name="Question",null= True)
     solution = models.TextField(verbose_name="Réponse",null= True)
+    manuel = models.FileField(upload_to='manuels_utilisations/%Y/%m/%d/',null= True,blank= True)
 
     def __str__(self):
         return self.probleme
