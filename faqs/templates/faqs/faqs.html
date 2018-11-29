@@ -35,7 +35,9 @@
 								<div class="cd-faq-content">
 									<p>{{ item.solution }}</p>
 									{% if item.manuel.url != None %}
-									<p>Pour plus d'informations<a href="{{ item.manuel.url }}">Manuel complet en pdf </a></p>
+									<p>Pour plus d'informations
+										<a style="color: #61C7F3;text-decoration: underline;" href="{{ item.manuel.url }}">Manuel complet en pdf </a>
+									</p>
 									{% endif %}
 								</div> <!-- cd-faq-content -->
 							</li>

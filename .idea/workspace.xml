@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faqs/templates/faqs/faqs.html" beforeDir="false" afterPath="$PROJECT_DIR$/faqs/templates/faqs/faqs.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,7 +48,7 @@
         <counts>
           <entry key="css" value="688" />
           <entry key="dummy" value="6" />
-          <entry key="html" value="2188" />
+          <entry key="html" value="2237" />
           <entry key="js" value="291" />
           <entry key="py" value="17883" />
           <entry key="txt" value="7" />
@@ -58,7 +57,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="688" />
-          <entry key="HTML" value="2188" />
+          <entry key="HTML" value="2237" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="13" />
           <entry key="Python" value="17883" />
@@ -104,7 +103,10 @@
         <entry file="file://$PROJECT_DIR$/faqs/templates/faqs/faqs.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+              <caret line="38" column="92" selection-start-line="38" selection-start-column="92" selection-end-line="38" selection-end-column="92" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#p#1;n#div#0;n#li#1;n#ul#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -780,7 +782,10 @@
     <entry file="file://$PROJECT_DIR$/faqs/templates/faqs/faqs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+          <caret line="38" column="92" selection-start-line="38" selection-start-column="92" selection-end-line="38" selection-end-column="92" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#p#1;n#div#0;n#li#1;n#ul#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
