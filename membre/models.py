@@ -144,6 +144,7 @@ class ConsommateurEntreprise(Consommateur):
 		verbose_name_plural = "Entreprises"
 
 class EntrepriseCommerciale(Membre):
+
 	"""
 		Cette classe gère les entreprises commerciales
 		partenaires de Epound.Ce sont les vendeurs ou Offreurs
@@ -153,6 +154,14 @@ class EntrepriseCommerciale(Membre):
 		l’obtention d’un compte e-b, d’un compte e-c.
 		avec un taux de contribution mensuel de 5%
 	"""
+	es = 'es'
+	em = 'em'
+
+	type = [
+		(es, 'es'),
+		(em, 'em'),
+	]
+
 	besoin_fondamental = models.ForeignKey('ecommerce.ExpressionBesoin', on_delete=models.CASCADE,
 									verbose_name="Domaine d'activité",
 									null=True,
@@ -177,6 +186,9 @@ class EntrepriseCommerciale(Membre):
 	banniere_trois = models.ImageField(upload_to='banniere trois/', null=True, blank=True)
 	banniere_quatre = models.ImageField(upload_to='banniere quatre/', null=True, blank=True)
 	banniere_cinq = models.ImageField(upload_to='banniere cinq/', null=True, blank=True)
+	type_market = models.CharField(max_length = 50,
+					choices=type,
+					default=es, null = True)
 
 	def save(self, *args, **kwargs):
 		#recuperation de l'entreprise associér a ce compte

@@ -2,10 +2,6 @@ from django.contrib import admin
 from ecommerce.models import *
 from django.utils.html import format_html
 
-
-
-
-
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['nom', 'vendeur','code_article','prix','date_ajout']
 
