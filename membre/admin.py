@@ -211,7 +211,7 @@ class EntrepriseCommercialeeAdmin(PolymorphicChildModelAdmin):
 			'fields': ('besoin_fondamental','besoin_gere','nom', 'code_membre','mdp',
 					   'telephone','email',"emplacement",'slug','banniere_principal',
 					   'banniere_secondaire','banniere_trois','banniere_quatre',
-					   'banniere_cinq','date_expiration','actif',
+					   'banniere_cinq','date_expiration','actif','type_market',
 					   )
 		}),
 		("Compte d'entreprise", {
