@@ -175,34 +175,6 @@ STATICFILES_DIRS = [
 ]
 
 
-SUIT_CONFIG = {
-    #header
-    'ADMIN_NAME': 'epounds Prog',
-    'HEADER_DATE_FORMAT': 'l, j. F Y',
-    'HEADER_TIME_FORMAT': 'H:i',
-
-    # # #forms
-    # 'SHOW_REQUIRED_ASTERISK': True,  # Default True
-    # 'CONFIRM_UNSAVED_CHANGES': True, # Default True
-
-    # # #menu
-    # 'SEARCH_URL': '/admin/auth/user/',
-    # 'MENU_ICONS': {
-    #    'sites': 'icon-leaf',
-    #    'auth': 'icon-lock',
-    # },
-    # 'MENU_OPEN_FIRST_CHILD': True, # Default True
-    # # 'MENU_EXCLUDE': ('auth.group',),
-    # # 'MENU': (
-    # #     'sites',
-    # #     {'app': 'auth', 'icon':'icon-lock', 'models': ('user', 'group')},
-    # #     {'label': 'Settings', 'icon':'icon-cog', 'models': ('auth.user', 'auth.group')},
-    # #     {'label': 'Support', 'icon':'icon-question-sign', 'url': '/support/'},
-    # # ),
-
-    # # #misc
-    'LIST_PER_PAGE': 15
-}
 
 # REST_FRAMEWORK = {
 #     # Use Django's standard `django.contrib.auth` permissions,
@@ -230,21 +202,16 @@ CELERY_TIMEZONE = 'Europe/London'
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 CELERY_BROKER_URL = 'redis://localhost:6379'
 
-# CELERY_BEAT_SCHEDULE = {
-#  'afficher-hello': {
-#        'task': 'epound.tasks.hello_tasks',
-#         # There are 4 ways we can handle time, read further
-#        'schedule': 10.0,
-#         # If you're using any arguments
-#        'args': ("We don’t need any",),
-#     },
-#     # Executes every Friday at 4pm
-#     'addition-de-deux-nombres': {
-#          'task': 'epound.tasks.sum_two_numbers',
-#             #'schedule': 10.0,
-#          #'schedule': crontab(hour=16, day_of_week=5),
-#         },
-# }
+ADMINS = [('Serge', 'edemserge.kossi@gmail.com'),]
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'epoundcorporationtg@gmail.com'
+EMAIL_HOST_PASSWORD = 'epoundscorp2018'
+EMAIL_PORT = 587
+
 
 SITE_ID = 1
 

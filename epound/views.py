@@ -1,3 +1,5 @@
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
 from ecommerce.models import ExpressionBesoin, Produit
@@ -35,4 +37,16 @@ def faq(request):
     return render(request,'faqs/faqs.html',)
 
 def contact(request):
+    if request.method == "POST":
+        nom = request.POST.get('name')
+        mail_de = request.POST.get('email')
+        message = request.POST.get('message')
+        sujet = "Information sur la epound Corp"
+        if nom and message and mail_de:
+            try:
+                send_mail(sujet, message, mail_de, ['info.epounds@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+        else:
+            return HttpResponse('Make sure all fields are entered and valid.')
     return render(request,'contact.html')
