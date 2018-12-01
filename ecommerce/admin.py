@@ -7,7 +7,7 @@ from django.utils.html import format_html
 
 
 class ProductAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['nom', 'vendeur','code_article','prix','date_ajout']
 
 class ExpressionBesoinAdmin(admin.ModelAdmin):
     list_display = ['besoin','image_besoin',]
