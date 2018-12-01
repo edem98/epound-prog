@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/epound/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/epound/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/epound/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/epound/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +15,7 @@
     <session id="2083647428">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="47" />
+          <entry key="project.closed" value="48" />
           <entry key="project.open.time.112" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.23" value="1" />
@@ -27,7 +25,7 @@
           <entry key="project.open.time.38" value="5" />
           <entry key="project.open.time.39" value="2" />
           <entry key="project.open.time.40" value="6" />
-          <entry key="project.open.time.41" value="11" />
+          <entry key="project.open.time.41" value="12" />
           <entry key="project.open.time.42" value="8" />
           <entry key="project.open.time.43" value="4" />
           <entry key="project.open.time.44" value="3" />
@@ -45,7 +43,7 @@
           <entry key="project.open.time.60" value="1" />
           <entry key="project.open.time.67" value="1" />
           <entry key="project.open.time.71" value="1" />
-          <entry key="project.opened" value="66" />
+          <entry key="project.opened" value="67" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -54,7 +52,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="2266" />
           <entry key="js" value="291" />
-          <entry key="py" value="17962" />
+          <entry key="py" value="18036" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
@@ -64,7 +62,7 @@
           <entry key="HTML" value="2266" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="17962" />
+          <entry key="Python" value="18036" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -74,6 +72,7 @@
           <entry key="jpeg" value="1" />
           <entry key="js" value="4" />
           <entry key="json" value="1" />
+          <entry key="mailing" value="1" />
           <entry key="py" value="193" />
           <entry key="txt" value="6" />
         </counts>
@@ -85,7 +84,7 @@
           <entry key="Image" value="1" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="4" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="PLAIN_TEXT" value="7" />
           <entry key="Python" value="193" />
         </counts>
       </usages-collector>
@@ -97,10 +96,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/epound/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="212" column="16" lean-forward="true" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="16" />
+            <state relative-caret-position="274">
+              <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
               <folding>
-                <element signature="e#954#1849#0" />
                 <element signature="e#1866#2265#0" />
                 <element signature="e#2309#2967#0" />
                 <element signature="e#3104#3303#0" />
@@ -113,7 +111,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/faqs/templates/faqs/faqs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
+            <state relative-caret-position="319">
               <caret line="38" column="90" selection-start-line="38" selection-start-column="90" selection-end-line="38" selection-end-column="90" />
             </state>
           </provider>
@@ -127,8 +125,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/epound/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
+            <state relative-caret-position="75">
+              <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -186,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/recette/admin.py" />
         <option value="$PROJECT_DIR$/epound/prod_settings.py" />
         <option value="$PROJECT_DIR$/epound/storage_backends.py" />
         <option value="$PROJECT_DIR$/faqs/models.py" />
@@ -235,6 +232,7 @@
         <option value="$PROJECT_DIR$/static/styles/main_styles2.css" />
         <option value="$PROJECT_DIR$/static/css_/mystyle.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/mailing" />
         <option value="$PROJECT_DIR$/epound/views.py" />
         <option value="$PROJECT_DIR$/epound/settings.py" />
       </list>
@@ -405,13 +403,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/membre/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/octroi/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-87" />
@@ -718,23 +709,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/epound/settings.py">
+    <entry file="file://$PROJECT_DIR$/mailing">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="212" column="16" lean-forward="true" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="16" />
-          <folding>
-            <element signature="e#954#1849#0" />
-            <element signature="e#1866#2265#0" />
-            <element signature="e#2309#2967#0" />
-            <element signature="e#3104#3303#0" />
-            <element signature="e#3605#4001#0" />
-          </folding>
+        <state>
+          <caret column="69" selection-start-column="69" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/faqs/templates/faqs/faqs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
+        <state relative-caret-position="319">
           <caret line="38" column="90" selection-start-line="38" selection-start-column="90" selection-end-line="38" selection-end-column="90" />
         </state>
       </provider>
@@ -744,10 +728,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/epound/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
+        <state relative-caret-position="75">
+          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/epound/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="213" lean-forward="true" selection-start-line="213" selection-end-line="213" />
+          <folding>
+            <element signature="e#1866#2265#0" />
+            <element signature="e#2309#2967#0" />
+            <element signature="e#3104#3303#0" />
+            <element signature="e#3605#4001#0" />
           </folding>
         </state>
       </provider>

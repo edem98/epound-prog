@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
 from ecommerce.models import ExpressionBesoin, Produit
+from epound import settings
 from membre.models import EntrepriseCommerciale
 
 
@@ -40,11 +41,12 @@ def contact(request):
     if request.method == "POST":
         nom = request.POST.get('name')
         mail_de = request.POST.get('email')
+        settings.EMAIL_HOST_USER = mail_de
         message = request.POST.get('message')
         sujet = "Information sur la epound Corp"
         if nom and message and mail_de:
             try:
-                send_mail(sujet, message, mail_de, ['info.epounds@gmail.com'])
+                send_mail(sujet, message, mail_de, ['epoundcorporationtg@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
         else:
