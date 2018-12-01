@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ecommerce/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membre/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/membre/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/serializers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +51,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="2266" />
           <entry key="js" value="291" />
-          <entry key="py" value="18098" />
+          <entry key="py" value="18110" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
@@ -62,7 +61,7 @@
           <entry key="HTML" value="2266" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="18098" />
+          <entry key="Python" value="18110" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -73,7 +72,7 @@
           <entry key="js" value="4" />
           <entry key="json" value="1" />
           <entry key="mailing" value="1" />
-          <entry key="py" value="196" />
+          <entry key="py" value="197" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
@@ -85,7 +84,7 @@
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="4" />
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="196" />
+          <entry key="Python" value="197" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -107,16 +106,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/membre/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="146" column="4" lean-forward="true" selection-start-line="146" selection-start-column="4" selection-end-line="146" selection-end-column="4" />
+            <state relative-caret-position="199">
+              <caret line="145" column="36" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="36" />
               <folding>
                 <element signature="e#426#1172#0" />
                 <element signature="e#1199#2251#0" />
                 <element signature="e#2300#3600#0" />
                 <element signature="e#4778#5869#0" />
+                <element signature="e#5909#8684#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/services/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="146" column="71" selection-start-line="146" selection-start-column="71" selection-end-line="146" selection-end-column="71" />
+              <folding>
+                <element signature="e#1812#1939#0" />
+                <element signature="e#2014#3596#0" />
+                <element signature="e#3670#5207#0" />
+                <element signature="e#5283#5489#0" />
+                <element signature="e#5559#6256#0" />
               </folding>
             </state>
           </provider>
@@ -212,7 +228,6 @@
         <option value="$PROJECT_DIR$/archive/models.py" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html" />
-        <option value="$PROJECT_DIR$/services/serializers.py" />
         <option value="$PROJECT_DIR$/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css" />
         <option value="$PROJECT_DIR$/templates/layouts/header.html" />
         <option value="$PROJECT_DIR$/static/styles/responsive.css" />
@@ -232,6 +247,7 @@
         <option value="$PROJECT_DIR$/epound/settings.py" />
         <option value="$PROJECT_DIR$/ecommerce/admin.py" />
         <option value="$PROJECT_DIR$/membre/models.py" />
+        <option value="$PROJECT_DIR$/services/serializers.py" />
       </list>
     </option>
   </component>
@@ -276,12 +292,7 @@
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
               <item name="epound" type="462c0819:PsiDirectoryNode" />
-              <item name="membre" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
-              <item name="epound" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -569,13 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="57" column="61" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.6/dist-packages/django/db/models/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-356">
@@ -746,13 +750,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/membre/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="146" column="4" lean-forward="true" selection-start-line="146" selection-start-column="4" selection-end-line="146" selection-end-column="4" />
+        <state relative-caret-position="199">
+          <caret line="145" column="36" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="36" />
           <folding>
             <element signature="e#426#1172#0" />
             <element signature="e#1199#2251#0" />
             <element signature="e#2300#3600#0" />
             <element signature="e#4778#5869#0" />
+            <element signature="e#5909#8684#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="146" column="71" selection-start-line="146" selection-start-column="71" selection-end-line="146" selection-end-column="71" />
+          <folding>
+            <element signature="e#1812#1939#0" />
+            <element signature="e#2014#3596#0" />
+            <element signature="e#3670#5207#0" />
+            <element signature="e#5283#5489#0" />
+            <element signature="e#5559#6256#0" />
           </folding>
         </state>
       </provider>
