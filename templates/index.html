@@ -75,13 +75,13 @@
 								<div class="owl-item product_slider_item">
 										<div class="product-item">
 												<div class="product discount">
-													<div class="product_image">
-														<img src="{{ produit.image_produit.url }}" alt="">
+													<div class="product_image img-fluid">
+														<img class="img-fluid" src="{{ produit.image_produit.url }}" alt="">
 													</div>
 													<div class="product_info">
 														<h6 class="product_name"><a href="#">{{ produit.nom }}</a></h6>
 														<div class="product_price">
-																<p style="font-size:10px;color: green;margin-top: -0.5em;">Prix: 5000 epounds</p>
+																<p style="font-size:10px;color: green;margin-top: -0.5em;">Prix: {{ produit.prix }} epounds</p>
 																<p style="font-size:10px;color: green;margin-top: -1.5em;">Code article: {{ produit.code_article }}</p>
 														</div>
 														<p style="font-size:10px;color: green;margin-top: -1.5em;">Vendeur: {{ produit.vendeur }}</p>
