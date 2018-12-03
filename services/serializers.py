@@ -247,7 +247,7 @@ class PayementConsommateurSerializer(serializers.HyperlinkedModelSerializer):
     recepteur = EntrepriseCommercialeSerializer(read_only = True)
     class Meta:
         model = PayementConsomateur
-        fields = ('id','envoyeur_code','receveur_code',
+        fields = ('id','telephone_envoyeur','telephone_receveur',
                     'montant_envoyer','solde_apres_transaction',
                     'date_transaction','envoyeur','recepteur',)
 

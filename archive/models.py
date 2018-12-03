@@ -106,6 +106,9 @@ class PayementConsomateur(models.Model):
         Cette classe gère les payement effectués par
         les consommateurs à l'égard des vendeurs
     """
+    telephone_envoyeur = models.CharField(max_length=8,verbose_name="Téléphone de l'envoyeur",null=True)
+    telephone_receveur = models.CharField(max_length=8,verbose_name="Téléphone du receveur",null=True)
+
     envoyeur_code = models.PositiveIntegerField(verbose_name ="Code membre de l'envoyeur",null = True)
     
     receveur_code = models.PositiveIntegerField(verbose_name ="Code membre du bénéficiare",null = True)
@@ -135,8 +138,8 @@ class PayementConsomateur(models.Model):
     def save(self, *args, **kwargs):
         if self.id == None:
             with transaction.atomic():
-                self.receveur = EntrepriseCommerciale.objects.get(code_membre = self.receveur_code)
-                self.envoyeur = Consommateur.objects.get(code_membre = self.envoyeur_code)
+                self.receveur = EntrepriseCommerciale.objects.get(telephone = self.telephone_receveur)
+                self.envoyeur = Consommateur.objects.get(telephone = self.telephone_envoyeur)
                 self.receveur.compte_entreprise_commercial.compte_business.solde += self.montant_envoyer
                 self.receveur.compte_entreprise_commercial.compte_business.save()
                 self.envoyeur.compte_consommateur.solde -= self.montant_envoyer
