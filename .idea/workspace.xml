@@ -51,7 +51,7 @@
         <counts>
           <entry key="css" value="774" />
           <entry key="dummy" value="6" />
-          <entry key="html" value="2380" />
+          <entry key="html" value="2383" />
           <entry key="js" value="291" />
           <entry key="py" value="18247" />
           <entry key="txt" value="7" />
@@ -60,7 +60,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="774" />
-          <entry key="HTML" value="2380" />
+          <entry key="HTML" value="2383" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="13" />
           <entry key="Python" value="18247" />
