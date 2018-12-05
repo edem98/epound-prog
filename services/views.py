@@ -290,6 +290,21 @@ class ProduitViewSet(viewsets.ModelViewSet):
     serializer_class = ProduitSerializer
     lookup_field = "code_article"
 
+    def list(self, request):
+        queryset = Produit.objects.all()
+        serializer = ProduitSerializer(queryset, many=True)
+        data = {}
+        data["produitss"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, code_article=None):
+        queryset = Produit.objects.all()
+        produit = get_object_or_404(queryset, code_article=code_article)
+        serializer = ProduitSerializer(produit)
+        data = {}
+        data["produit"] = serializer.data
+        return Response(data)
+
 class CommandeClientViewSet(viewsets.ModelViewSet):
 
     queryset = CommandeClient.objects.all()
