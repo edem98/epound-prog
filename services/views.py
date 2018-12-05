@@ -294,7 +294,7 @@ class ProduitViewSet(viewsets.ModelViewSet):
         queryset = Produit.objects.all()
         serializer = ProduitSerializer(queryset, many=True)
         data = {}
-        data["produitss"] = serializer.data
+        data["produits"] = serializer.data
         return Response(data)
 
     def retrieve(self, request, code_article=None):
