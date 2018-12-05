@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from membre.models import ConsommateurParticulier,Membre,Trader
 from compte.models import Compte,CompteEntrepriseCommerciale
@@ -50,6 +51,21 @@ class ParticulierViewSet(viewsets.ModelViewSet):
     serializer_class = ParticulierSerializer
     lookup_field = "telephone"
 
+    def list(self, request):
+        queryset = ConsommateurParticulier.objects.all()
+        serializer = ParticulierSerializer(queryset, many=True)
+        data = {}
+        data["particuliers"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, telephone=None):
+        queryset = ConsommateurParticulier.objects.all()
+        particulier = get_object_or_404(queryset, telephone=telephone)
+        serializer = ParticulierSerializer(particulier)
+        data = {}
+        data["particulier"] = serializer.data
+        return Response(data)
+
 
     @action(methods=['get'], detail=True)
     def get_by_telephone(self, request, telephone=None):
@@ -66,6 +82,21 @@ class EntrepriseViewSet(viewsets.ModelViewSet):
     queryset = ConsommateurEntreprise.objects.all()
     serializer_class = EntrepriseSerializer
     lookup_field = "telephone"
+
+    def list(self, request):
+        queryset = ConsommateurEntreprise.objects.all()
+        serializer = EntrepriseSerializer(queryset, many=True)
+        data = {}
+        data["entreprises"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, telephone=None):
+        queryset = ConsommateurEntreprise.objects.all()
+        entreprise = get_object_or_404(queryset, telephone=telephone)
+        serializer = EntrepriseSerializer(entreprise)
+        data = {}
+        data["entreprise"] = serializer.data
+        return Response(data)
 
 
     @action(methods=['get'], detail=True)
@@ -88,39 +119,150 @@ class EntrepriseCommercialeViewSet(viewsets.ModelViewSet):
     serializer_class = EntrepriseCommercialeSerializer
     lookup_field = "telephone"
 
+    def list(self, request):
+        queryset = EntrepriseCommerciale.objects.all()
+        serializer = EntrepriseCommercialeSerializer(queryset, many=True)
+        data = {}
+        data["vendeurs"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, telephone=None):
+        queryset = EntrepriseCommerciale.objects.all()
+        vendeur = get_object_or_404(queryset, telephone=telephone)
+        serializer = EntrepriseCommercialeSerializer(vendeur)
+        data = {}
+        data["vendeur"] = serializer.data
+        return Response(data)
+
 class TraderViewSet(viewsets.ModelViewSet):
     queryset = Trader.objects.all()
     serializer_class = TraderSerializer
     lookup_field = "telephone"
+
+    def list(self, request):
+        queryset = Trader.objects.all()
+        serializer = TraderSerializer(queryset, many=True)
+        data = {}
+        data["traders"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, telephone=None):
+        queryset = Trader.objects.all()
+        trader = get_object_or_404(queryset, telephone=telephone)
+        serializer = TraderSerializer(trader)
+        data = {}
+        data["trader"] = serializer.data
+        return Response(data)
 
 class TransactionInterComsommateurViewSet(viewsets.ModelViewSet):
     queryset = TransactionInterComsommateur.objects.all()
     serializer_class = TransactionInterComsommateurSerializer
     lookup_field = "numero_envoyeur"
 
+    def list(self, request):
+        queryset = TransactionInterComsommateur.objects.all()
+        serializer = TransactionInterComsommateurSerializer(queryset, many=True)
+        data = {}
+        data["transactions"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, numero_envoyeur=None):
+        queryset = TransactionInterComsommateur.objects.all()
+        transaction = get_object_or_404(queryset, numero_envoyeur=numero_envoyeur)
+        serializer = TransactionInterComsommateurSerializer(transaction)
+        data = {}
+        data["transaction"] = serializer.data
+        return Response(data)
+
 class TransactionCommercialComsommateurViewSet(viewsets.ModelViewSet):
     queryset = TransactionCommercialComsommateur.objects.all()
     serializer_class = TransactionCommercialComsommateurSerializer
 
+    def list(self, request):
+        queryset = TransactionInterComsommateur.objects.all()
+        serializer = TransactionInterComsommateurSerializer(queryset, many=True)
+        data = {}
+        data["transactions"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, numero_envoyeur=None):
+        queryset = TransactionInterComsommateur.objects.all()
+        transaction = get_object_or_404(queryset, numero_envoyeur=numero_envoyeur)
+        serializer = TransactionInterComsommateurSerializer(transaction)
+        data = {}
+        data["transaction"] = serializer.data
+        return Response(data)
+
 class ConversionTraderViewSet(viewsets.ModelViewSet):
     queryset = ConversionTrader.objects.all()
-    serializer_class = ConversionTraderSerializer
+    serializer_class = ConversionTrader
+
+    def list(self, request):
+        queryset = ConversionTrader.objects.all()
+        serializer = ConversionTrader(queryset, many=True)
+        data = {}
+        data["conversions"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, numero_trader=None):
+        queryset = ConversionTrader.objects.all()
+        conversion = get_object_or_404(queryset, numero_trader=numero_trader)
+        serializer = ConversionTrader(conversion)
+        data = {}
+        data["conversion"] = serializer.data
+        return Response(data)
 
 class ReconversionTraderViewSet(viewsets.ModelViewSet):
     queryset = ReconversionTrader.objects.all()
-    serializer_class = ReconversionTraderSerializer
+    serializer_class = ReconversionTrader
+
+    def list(self, request):
+        queryset = ReconversionTrader.objects.all()
+        serializer = ReconversionTrader(queryset, many=True)
+        data = {}
+        data["reconversions"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, numero_trader=None):
+        queryset = ConversionTrader.objects.all()
+        reconversion = get_object_or_404(queryset, numero_trader=numero_trader)
+        serializer = ReconversionTrader(reconversion)
+        data = {}
+        data["reconversion"] = serializer.data
+        return Response(data)
 
 class NotificationViewSet(viewsets.ModelViewSet):
     queryset = Notification.objects.all()
     serializer_class = NotificationSerializer
 
+    def list(self, request):
+        queryset = Notification.objects.all()
+        serializer = NotificationSerializer(queryset, many=True)
+        data = {}
+        data["notifications"] = serializer.data
+        return Response(data)
+
 class PayementConsommateurViewSet(viewsets.ModelViewSet):
     queryset = PayementConsomateur.objects.all()
     serializer_class = PayementConsommateurSerializer
 
+    def list(self, request):
+        queryset = PayementConsomateur.objects.all()
+        serializer = PayementConsommateurSerializer(queryset, many=True)
+        data = {}
+        data["payements"] = serializer.data
+        return Response(data)
+
 class PayementInterCommercialViewSet(viewsets.ModelViewSet):
     queryset = PayementInterCommercial.objects.all()
     serializer_class = PayementInterCommercialSerializer
+
+    def list(self, request):
+        queryset = PayementInterCommercial.objects.all()
+        serializer = PayementInterCommercialSerializer(queryset, many=True)
+        data = {}
+        data["payements"] = serializer.data
+        return Response(data)
 
 class CreationParticulierParTraderViewSet(viewsets.ModelViewSet):
 
