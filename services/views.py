@@ -15,6 +15,44 @@ class MembreViewSet(viewsets.ModelViewSet):
     serializer_class = MembreSerializer
     lookup_field = "telephone"
 
+    @action(methods=['put'], detail=True)
+    def set_password(self, request, telephone=None,password=None):
+        data = {}
+        resultat ="echec"
+        try:
+            particulier = ConsommateurParticulier.objects.filter(telephone=telephone)
+            if str(particulier) != "<PolymorphicQuerySet []>":
+                particulier = particulier[0]
+                particulier.mdp = password
+                particulier.save()
+                resultat = "succes"
+
+            entreprise = ConsommateurEntreprise.objects.filter(telephone=telephone)
+            if str(entreprise) != "<PolymorphicQuerySet []>":
+                entreprise = entreprise[0]
+                entreprise.mdp = password
+                entreprise.save()
+                resultat = "succes"
+
+            vendeur = EntrepriseCommerciale.objects.filter(telephone=telephone)
+            if str(vendeur) != "<PolymorphicQuerySet []>":
+                vendeur = vendeur[0]
+                vendeur.mdp = password
+                vendeur.save()
+                resultat = "succes"
+
+            trader = Trader.objects.filter(telephone=telephone)
+            if str(trader) != "<PolymorphicQuerySet []>":
+                trader = trader[0]
+                trader.mdp = password
+                trader.save()
+                resultat = "succes"
+
+        except Membre.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        data["resultat"] = resultat
+        return Response(data)
+
     @action(methods=['get'], detail=True)
     def get_by_telephone(self, request, telephone=None):
         type_client = ""
