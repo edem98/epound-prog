@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/membre/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/membre/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +54,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="2412" />
           <entry key="js" value="291" />
-          <entry key="py" value="18481" />
+          <entry key="py" value="18507" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
@@ -64,7 +64,7 @@
           <entry key="HTML" value="2412" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="18481" />
+          <entry key="Python" value="18507" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -107,11 +107,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
+            <state relative-caret-position="1692">
               <caret line="322" column="99" selection-start-line="322" selection-start-column="99" selection-end-line="322" selection-end-column="99" />
               <folding>
-                <element signature="e#1812#1939#0" />
-                <element signature="e#2014#3596#0" />
+                <element signature="e#1865#1938#0" />
                 <element signature="e#3670#5207#0" />
                 <element signature="e#5283#5489#0" />
                 <element signature="e#5559#6256#0" />
@@ -129,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="296" column="21" selection-start-line="296" selection-start-column="21" selection-end-line="296" selection-end-column="21" />
+            <state relative-caret-position="208">
+              <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
                 <element signature="e#3020#4116#0" />
@@ -156,10 +155,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/membre/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="645">
               <caret line="51" column="75" lean-forward="true" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
             </state>
           </provider>
@@ -289,10 +288,10 @@
         <option value="$PROJECT_DIR$/archive/models.py" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html" />
-        <option value="$PROJECT_DIR$/services/views.py" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/specification.html" />
         <option value="$PROJECT_DIR$/services/serializers.py" />
         <option value="$PROJECT_DIR$/membre/models.py" />
+        <option value="$PROJECT_DIR$/services/views.py" />
       </list>
     </option>
   </component>
@@ -775,31 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="296" column="21" selection-start-line="296" selection-start-column="21" selection-end-line="296" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#3020#4116#0" />
-            <element signature="e#4167#4238#0" />
-            <element signature="e#4303#5009#0" />
-            <element signature="e#5059#5671#0" />
-            <element signature="e#5743#6531#0" />
-            <element signature="e#6608#7369#0" />
-            <element signature="e#7429#8068#0" />
-            <element signature="e#8130#8787#0" />
-            <element signature="e#8843#9163#0" />
-            <element signature="e#9227#9573#0" />
-            <element signature="e#9640#10000#0" />
-            <element signature="e#10073#10188#0" />
-            <element signature="e#10260#10373#0" />
-            <element signature="e#10424#10505#0" />
-            <element signature="e#10563#10654#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -837,13 +811,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/membre/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="51" column="75" lean-forward="true" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/services/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
+        <state relative-caret-position="1692">
           <caret line="322" column="99" selection-start-line="322" selection-start-column="99" selection-end-line="322" selection-end-column="99" />
           <folding>
-            <element signature="e#1812#1939#0" />
-            <element signature="e#2014#3596#0" />
+            <element signature="e#1865#1938#0" />
             <element signature="e#3670#5207#0" />
             <element signature="e#5283#5489#0" />
             <element signature="e#5559#6256#0" />
@@ -860,10 +840,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/membre/models.py">
+    <entry file="file://$PROJECT_DIR$/services/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="51" column="75" lean-forward="true" selection-start-line="51" selection-start-column="75" selection-end-line="51" selection-end-column="75" />
+          <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#3020#4116#0" />
+            <element signature="e#4167#4238#0" />
+            <element signature="e#4303#5009#0" />
+            <element signature="e#5059#5671#0" />
+            <element signature="e#5743#6531#0" />
+            <element signature="e#6608#7369#0" />
+            <element signature="e#7429#8068#0" />
+            <element signature="e#8130#8787#0" />
+            <element signature="e#8843#9163#0" />
+            <element signature="e#9227#9573#0" />
+            <element signature="e#9640#10000#0" />
+            <element signature="e#10073#10188#0" />
+            <element signature="e#10260#10373#0" />
+            <element signature="e#10424#10505#0" />
+            <element signature="e#10563#10654#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -36,6 +36,11 @@ class MembreViewSet(viewsets.ModelViewSet):
                 serializer = EntrepriseCommercialeSerializer(vendeur[0])
                 type_client = "vendeur"
 
+            trader = Trader.objects.filter(telephone=telephone)
+            if str(trader) != "<PolymorphicQuerySet []>":
+                serializer = TraderSerializer(vendeur[0])
+                type_client = "trader"
+
         except ConsommateurParticulier.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
