@@ -403,6 +403,13 @@ class NotificationViewSet(viewsets.ModelViewSet):
     queryset = Notification.objects.all()
     serializer_class = NotificationSerializer
 
+    def list(self, request):
+        queryset = Notification.objects.all()
+        serializer = NotificationSerializer(queryset, many=True)
+        data = {}
+        data["notifications"] = serializer.data
+        return Response(data)
+
     @action(methods=['get'], detail=True)
     def get_by_telephone(self, request, telephone=None):
         notifications = None

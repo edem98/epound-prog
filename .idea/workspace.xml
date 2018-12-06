@@ -54,7 +54,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="2412" />
           <entry key="js" value="291" />
-          <entry key="py" value="18513" />
+          <entry key="py" value="18530" />
           <entry key="txt" value="7" />
         </counts>
       </usages-collector>
@@ -64,7 +64,7 @@
           <entry key="HTML" value="2412" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="18513" />
+          <entry key="Python" value="18530" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -131,10 +131,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+            <state relative-caret-position="148">
+              <caret line="409" column="27" selection-start-line="409" selection-start-column="27" selection-end-line="409" selection-end-column="27" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
+                <element signature="e#458#2053#0" />
                 <element signature="e#3020#4116#0" />
                 <element signature="e#4167#4238#0" />
                 <element signature="e#4303#5009#0" />
@@ -150,6 +151,8 @@
                 <element signature="e#10260#10373#0" />
                 <element signature="e#10424#10505#0" />
                 <element signature="e#10563#10654#0" />
+                <element signature="e#10706#11340#0" />
+                <element signature="e#11399#14724#0" />
               </folding>
             </state>
           </provider>
@@ -842,10 +845,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+        <state relative-caret-position="148">
+          <caret line="409" column="27" selection-start-line="409" selection-start-column="27" selection-end-line="409" selection-end-column="27" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#458#2053#0" />
             <element signature="e#3020#4116#0" />
             <element signature="e#4167#4238#0" />
             <element signature="e#4303#5009#0" />
@@ -861,6 +865,8 @@
             <element signature="e#10260#10373#0" />
             <element signature="e#10424#10505#0" />
             <element signature="e#10563#10654#0" />
+            <element signature="e#10706#11340#0" />
+            <element signature="e#11399#14724#0" />
           </folding>
         </state>
       </provider>
