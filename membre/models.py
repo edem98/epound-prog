@@ -49,7 +49,7 @@ class Trader(Membre):
 			self.user.save()
 			groupe = Group.objects.get(name="Trader")	
 			groupe.user_set.add(self.user)
-			self.save(update_fields=['code_membre','compte_consommateur','user'])
+			self.save(update_fields=['code_membre','compte_trader','user'])
 		else:
 			return super(Trader,self).save(*args, **kwargs)
 	
