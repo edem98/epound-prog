@@ -38,7 +38,7 @@ class MembreViewSet(viewsets.ModelViewSet):
 
             trader = Trader.objects.filter(telephone=telephone)
             if str(trader) != "<PolymorphicQuerySet []>":
-                serializer = TraderSerializer(vendeur[0])
+                serializer = TraderSerializer(trader[0])
                 type_client = "trader"
 
         except ConsommateurParticulier.DoesNotExist:
