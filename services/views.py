@@ -238,11 +238,11 @@ class TransactionCommercialComsommateurViewSet(viewsets.ModelViewSet):
 
 class ConversionTraderViewSet(viewsets.ModelViewSet):
     queryset = ConversionTrader.objects.all()
-    serializer_class = ConversionTrader
+    serializer_class = ConversionTraderSerializer
 
     def list(self, request):
         queryset = ConversionTrader.objects.all()
-        serializer = ConversionTrader(queryset, many=True)
+        serializer = ConversionTraderSerializer(queryset, many=True)
         data = {}
         data["conversions"] = serializer.data
         return Response(data)
@@ -250,7 +250,7 @@ class ConversionTraderViewSet(viewsets.ModelViewSet):
     def retrieve(self, request, numero_trader=None):
         queryset = ConversionTrader.objects.all()
         conversion = get_object_or_404(queryset, numero_trader=numero_trader)
-        serializer = ConversionTrader(conversion)
+        serializer = ConversionTraderSerializer(conversion)
         data = {}
         data["conversion"] = serializer.data
         return Response(data)
