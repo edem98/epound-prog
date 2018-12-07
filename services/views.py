@@ -15,7 +15,7 @@ class MembreViewSet(viewsets.ModelViewSet):
     serializer_class = MembreSerializer
     lookup_field = "telephone"
 
-    @action(methods=['put'], detail=True)
+    @action(methods=['post'], detail=True)
     def set_password(self, request, password,telephone=None):
         data = {}
         resultat ="echec"
