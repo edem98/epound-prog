@@ -261,7 +261,7 @@ class ReconversionTraderViewSet(viewsets.ModelViewSet):
 
     def list(self, request):
         queryset = ReconversionTrader.objects.all()
-        serializer = ReconversionTrader(queryset, many=True)
+        serializer = ReconversionTraderSerializer(queryset, many=True)
         data = {}
         data["reconversions"] = serializer.data
         return Response(data)
@@ -269,7 +269,7 @@ class ReconversionTraderViewSet(viewsets.ModelViewSet):
     def retrieve(self, request, numero_trader=None):
         queryset = ConversionTrader.objects.all()
         reconversion = get_object_or_404(queryset, numero_trader=numero_trader)
-        serializer = ReconversionTrader(reconversion)
+        serializer = ReconversionTraderSerializer(reconversion)
         data = {}
         data["reconversion"] = serializer.data
         return Response(data)
