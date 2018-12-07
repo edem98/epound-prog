@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="220" column="34" selection-start-line="220" selection-start-column="6" selection-end-line="220" selection-end-column="34" />
+            <state relative-caret-position="214">
+              <caret line="228" column="63" lean-forward="true" selection-start-line="228" selection-start-column="63" selection-end-line="228" selection-end-column="63" />
               <folding>
                 <element signature="e#1865#1938#0" />
                 <element signature="e#3670#5207#0" />
@@ -118,8 +117,6 @@
                 <element signature="e#6341#7975#0" />
                 <element signature="e#8067#9041#0" />
                 <element signature="e#9138#10137#0" />
-                <element signature="e#10217#10594#0" />
-                <element signature="e#10676#11069#0" />
                 <element signature="e#11360#11727#0" />
                 <element signature="e#11811#12175#0" />
                 <element signature="e#12267#13049#0" />
@@ -132,8 +129,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="271" column="49" selection-start-line="271" selection-start-column="49" selection-end-line="271" selection-end-column="49" />
+            <state relative-caret-position="73">
+              <caret line="259" column="51" selection-start-line="259" selection-start-column="51" selection-end-line="259" selection-end-column="51" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -799,8 +796,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="220" column="34" selection-start-line="220" selection-start-column="6" selection-end-line="220" selection-end-column="34" />
+        <state relative-caret-position="214">
+          <caret line="228" column="63" lean-forward="true" selection-start-line="228" selection-start-column="63" selection-end-line="228" selection-end-column="63" />
           <folding>
             <element signature="e#1865#1938#0" />
             <element signature="e#3670#5207#0" />
@@ -809,8 +806,6 @@
             <element signature="e#6341#7975#0" />
             <element signature="e#8067#9041#0" />
             <element signature="e#9138#10137#0" />
-            <element signature="e#10217#10594#0" />
-            <element signature="e#10676#11069#0" />
             <element signature="e#11360#11727#0" />
             <element signature="e#11811#12175#0" />
             <element signature="e#12267#13049#0" />
@@ -821,8 +816,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="271" column="49" selection-start-line="271" selection-start-column="49" selection-end-line="271" selection-end-column="49" />
+        <state relative-caret-position="73">
+          <caret line="259" column="51" selection-start-line="259" selection-start-column="51" selection-end-line="259" selection-end-column="51" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>

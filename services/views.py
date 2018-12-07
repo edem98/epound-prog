@@ -257,7 +257,7 @@ class ConversionTraderViewSet(viewsets.ModelViewSet):
 
 class ReconversionTraderViewSet(viewsets.ModelViewSet):
     queryset = ReconversionTrader.objects.all()
-    serializer_class = ReconversionTrader
+    serializer_class = ReconversionTraderSerializer
 
     def list(self, request):
         queryset = ReconversionTrader.objects.all()
