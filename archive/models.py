@@ -262,7 +262,7 @@ class ConversionTrader(models.Model):
         if self.id == None:
             with transaction.atomic():
                 # Opération sur le trader
-                self.trader = Trader.objects.get(telepone = self.numero_trader)
+                self.trader = Trader.objects.get(telephone = self.numero_trader)
                 self.consommateur = Consommateur.objects.get(telephone = self.numero_receveur)
                 self.trader.compte_trader.solde = self.trader.compte_trader.solde - self.montant_converti
                 self.trader.compte_trader.save()

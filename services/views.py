@@ -16,7 +16,7 @@ class MembreViewSet(viewsets.ModelViewSet):
     lookup_field = "telephone"
 
     @action(methods=['put'], detail=True)
-    def set_password(self, request, telephone=None,password=None):
+    def set_password(self, request, password,telephone=None):
         data = {}
         resultat ="echec"
         try:
