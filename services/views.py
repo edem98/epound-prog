@@ -27,6 +27,7 @@ class MembreViewSet(viewsets.ModelViewSet):
                 particulier.save()
                 resultat = "succes"
                 data["resultat"] = resultat
+                data["mdp"] = password
                 return Response(data)
 
             entreprise = ConsommateurEntreprise.objects.filter(telephone=telephone)
@@ -36,6 +37,7 @@ class MembreViewSet(viewsets.ModelViewSet):
                 entreprise.save()
                 resultat = "succes"
                 data["resultat"] = resultat
+                data["mdp"] = password
                 return Response(data)
 
             vendeur = EntrepriseCommerciale.objects.filter(telephone=telephone)
@@ -45,6 +47,7 @@ class MembreViewSet(viewsets.ModelViewSet):
                 vendeur.save()
                 resultat = "succes"
                 data["resultat"] = resultat
+                data["mdp"] = password
                 return Response(data)
 
             trader = Trader.objects.filter(telephone=telephone)
@@ -54,6 +57,7 @@ class MembreViewSet(viewsets.ModelViewSet):
                 trader.save()
                 resultat = "succes"
                 data["resultat"] = resultat
+                data["mdp"] = password
                 return Response(data)
 
         except Membre.DoesNotExist:
