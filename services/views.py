@@ -26,6 +26,8 @@ class MembreViewSet(viewsets.ModelViewSet):
                 particulier.mdp = password
                 particulier.save()
                 resultat = "succes"
+                data["resultat"] = resultat
+                return Response(data)
 
             entreprise = ConsommateurEntreprise.objects.filter(telephone=telephone)
             if str(entreprise) != "<PolymorphicQuerySet []>":
@@ -33,6 +35,8 @@ class MembreViewSet(viewsets.ModelViewSet):
                 entreprise.mdp = password
                 entreprise.save()
                 resultat = "succes"
+                data["resultat"] = resultat
+                return Response(data)
 
             vendeur = EntrepriseCommerciale.objects.filter(telephone=telephone)
             if str(vendeur) != "<PolymorphicQuerySet []>":
@@ -40,6 +44,8 @@ class MembreViewSet(viewsets.ModelViewSet):
                 vendeur.mdp = password
                 vendeur.save()
                 resultat = "succes"
+                data["resultat"] = resultat
+                return Response(data)
 
             trader = Trader.objects.filter(telephone=telephone)
             if str(trader) != "<PolymorphicQuerySet []>":
@@ -47,6 +53,8 @@ class MembreViewSet(viewsets.ModelViewSet):
                 trader.mdp = password
                 trader.save()
                 resultat = "succes"
+                data["resultat"] = resultat
+                return Response(data)
 
         except Membre.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
