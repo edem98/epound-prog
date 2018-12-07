@@ -52,7 +52,7 @@
         <counts>
           <entry key="css" value="774" />
           <entry key="dummy" value="6" />
-          <entry key="html" value="2435" />
+          <entry key="html" value="2442" />
           <entry key="js" value="291" />
           <entry key="py" value="18751" />
           <entry key="txt" value="7" />
@@ -61,7 +61,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="774" />
-          <entry key="HTML" value="2435" />
+          <entry key="HTML" value="2442" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="13" />
           <entry key="Python" value="18751" />
@@ -177,8 +177,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/specification.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="51" column="250" selection-start-line="51" selection-start-column="250" selection-end-line="51" selection-end-column="250" />
+            <state relative-caret-position="150">
+              <caret line="54" column="200" selection-start-line="54" selection-start-column="200" selection-end-line="54" selection-end-column="200" />
             </state>
           </provider>
         </entry>
@@ -828,8 +828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/specification.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="51" column="250" selection-start-line="51" selection-start-column="250" selection-end-line="51" selection-end-column="250" />
+        <state relative-caret-position="150">
+          <caret line="54" column="200" selection-start-line="54" selection-start-column="200" selection-end-line="54" selection-end-column="200" />
         </state>
       </provider>
     </entry>
