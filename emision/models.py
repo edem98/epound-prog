@@ -119,7 +119,6 @@ class CreationParticulierParTrader(models.Model):
     trader = models.ForeignKey(Trader, on_delete = models.CASCADE,null = True)
     consommateur = models.ForeignKey(ConsommateurParticulier, on_delete = models.CASCADE,null = True)
     telephone = models.CharField(max_length =8,verbose_name ="Téléphone du client",null = True)
-    mdp = models.CharField(max_length = 50,verbose_name = "Mot de passe",null = True)
     date_emission = models.DateTimeField(auto_now_add=True,)
 
 
@@ -131,7 +130,7 @@ class CreationParticulierParTrader(models.Model):
                 self.solde_initial = self.trader.compte_trader.solde
                 self.trader.compte_trader.solde -= 3000
                 self.trader.compte_trader.save()
-                self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp =self.mdp)
+                self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp ="123456789")
                 super(CreationParticulierParTrader,self).save(*args, **kwargs)
 
     class Meta:

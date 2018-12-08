@@ -256,7 +256,7 @@ class CreationParticulierParTraderSerializer(serializers.HyperlinkedModelSeriali
     consommateur = ConsommateurSerializer(read_only = True)
     class Meta:
         model = CreationParticulierParTrader
-        fields = ('id','numero_trader','telephone','mdp','trader','consommateur',)
+        fields = ('id','numero_trader','telephone','trader','consommateur',)
 
     def create(self,validated_data):
         numero_trader = validated_data.get('numero_trader')
@@ -318,17 +318,6 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
     client = ConsommateurSerializer(read_only=True)
     produit = ProduitSerializer(read_only=True)
 
-    def create(self,validated_data):
-        vendeur = validated_data.pop("numero_vendeur")
-        vendeur = EntrepriseCommerciale.objects.get(telephone=vendeur)
-        client = validated_data.pop("numero_client")
-        client = Consommateur.objects.get(telephone=client)
-        produit = validated_data.pop("code_produit")
-        produit = Produit.objects.get(code_article=produit)
-        commande  = CommandeClient.objects.create(vendeur=vendeur,
-                                                client = client,produit=produit,
-                                                **validated_data)
-        return commande
 
     class Meta:
         model = CommandeClient
