@@ -376,6 +376,7 @@ class CommandeClient(models.Model):
     a_livrer = models.BooleanField(verbose_name="Article à liver")
     etat = models.PositiveIntegerField(default=0)
     valider = models.BooleanField(verbose_name="Valider",default=False)
+    date_commande =
 
     def save(self, *args, **kwargs):
         if self.id == None:

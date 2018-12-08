@@ -364,7 +364,7 @@ class CommandeClientViewSet(viewsets.ModelViewSet):
 
     queryset = CommandeClient.objects.all()
     serializer_class =CommandeClientSerializer
-    lookup_field = "numero_client"
+    lookup_field = "id"
 
     def list(self, request):
         queryset = CommandeClient.objects.all()
