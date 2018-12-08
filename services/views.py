@@ -366,6 +366,13 @@ class CommandeClientViewSet(viewsets.ModelViewSet):
     serializer_class =CommandeClientSerializer
     lookup_field = "numero_client"
 
+    def list(self, request):
+        queryset = CommandeClient.objects.all()
+        serializer = CommandeClientSerializer(queryset, many=True)
+        data = {}
+        data["commandes"] = serializer.data
+        return Response(data)
+
     @action(methods=['get'], detail=True)
     def get_commande_by_numero_vendeur(self, request, numero_client=None):
         commandes=None
