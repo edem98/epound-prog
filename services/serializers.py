@@ -318,9 +318,18 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
     client = ConsommateurSerializer(read_only=True)
     produit = ProduitSerializer(read_only=True)
 
+    def create(self,validated_data):
+        vendeur = validated_data.pop("vendeur")
+        client = validated_data.pop("client")
+        produit = validated_data.pop("produit")
+        commande  = CommandeClient.objects.create(vendeur=vendeur,
+                                                client = client,produit=produit,
+                                                **validated_data)
+        return commande
+
     class Meta:
         model = CommandeClient
-        fields = ('id','numero_client','numero_vendeur','code_produit','quantite','etat','valider','a_livrer','client','vendeur','produit')
+        fields = ('id','numero_client','numero_vendeur','code_produit','quantite','etat','valider','a_livrer','client','vendeur','produit',)
 
 class NotificationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
