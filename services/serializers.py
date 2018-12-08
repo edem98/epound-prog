@@ -319,9 +319,12 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
     produit = ProduitSerializer(read_only=True)
 
     def create(self,validated_data):
-        vendeur = validated_data.pop("vendeur")
-        client = validated_data.pop("client")
-        produit = validated_data.pop("produit")
+        vendeur = validated_data.pop("numero_vendeur")
+        vendeur = EntrepriseCommerciale.objects.get(telephone=vendeur)
+        client = validated_data.pop("numero_client")
+        client = Consommateur.objects.get(telephone=client)
+        produit = validated_data.pop("code_produit")
+        produit = Produit.objects.get(code_article=produit)
         commande  = CommandeClient.objects.create(vendeur=vendeur,
                                                 client = client,produit=produit,
                                                 **validated_data)
