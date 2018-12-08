@@ -261,11 +261,10 @@ class CreationParticulierParTraderSerializer(serializers.HyperlinkedModelSeriali
     def create(self,validated_data):
         numero_trader = validated_data.get('numero_trader')
         telephone = validated_data.get('telephone')
-        mdp = validated_data.get('mdp')
-        consommateur = ConsommateurParticulier(telephone = telephone,mdp = mdp,)
+        consommateur = ConsommateurParticulier(telephone = telephone,mdp = "123456789",)
         trader = Trader.objects.get(telephone = numero_trader)
         creation = CreationParticulierParTrader.objects.create(numero_trader = numero_trader,
-        telephone = telephone,mdp = mdp,consommateur = consommateur,trader = trader)
+        telephone = telephone,consommateur = consommateur,trader = trader)
         return creation
 
 class CreationEntrepriseParTraderSerializer(serializers.HyperlinkedModelSerializer):
