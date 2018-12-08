@@ -386,7 +386,7 @@ class CommandeClient(models.Model):
                 if self.client.compte_consommateur.solde < self.produit.prix:
                     return None
                 else:
-                    self.client.compte_consommateur.solde -= self.quanstite*self.produit.prix
+                    self.client.compte_consommateur.solde -= self.quantite*self.produit.prix
                     self.client.compte_consommateur.save()
                 if self.a_livrer:
                     self.vendeur = EntrepriseCommerciale.objects.get(telephone = "22222222")
