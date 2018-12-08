@@ -320,10 +320,12 @@ class ReconversionTrader(models.Model):
         if self.id == None:
             with transaction.atomic():
                 self.consommateur = Consommateur.objects.get(telephone = self.numero_receveur)
+                self.trader = Trader.objects.get(telephone=self.numero_trader)
                 self.montant_retourner = self.epound_reconverti-self.epound_reconverti*CompteConsommateur.TAUX_PERTE/100
                 self.consommateur.compte_consommateur.solde -= self.epound_reconverti
                 self.consommateur.compte_consommateur.save()
                 self.solde_consommateur_apres_reconversion = self.consommateur.compte_consommateur.solde
+
                 # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
                 absorbtion = TauxAbsorbtionGlobal.load()
                 absorbtion.epound_detenus -= self.epound_reconverti

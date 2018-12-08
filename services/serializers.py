@@ -90,7 +90,7 @@ class EntrepriseSerializer(serializers.HyperlinkedModelSerializer):
                 'telephone','email','raison_social','statut_juridique',
                 'objet_social','capital_social','numero_rccm',
                 'regime_fiscal','nif','siege_social',
-                '_bancaire','responsable','compte_consommateur',)
+                'numero_compte_bancaire','responsable','compte_consommateur',)
 
     def update(self, instance, validated_data):
         instance =  ConsommateurParticulier.objects.get(nom__icontains = validated_data.get('nom'))
@@ -264,7 +264,7 @@ class CreationParticulierParTraderSerializer(serializers.HyperlinkedModelSeriali
         mdp = validated_data.get('mdp')
         consommateur = ConsommateurParticulier(telephone = telephone,mdp = mdp,)
         trader = Trader.objects.get(telephone = numero_trader)
-        creation = CreationParticulierParTrader.objects.create(code_trader = numero_trader,
+        creation = CreationParticulierParTrader.objects.create(numero_trader = numero_trader,
         telephone = telephone,mdp = mdp,consommateur = consommateur,trader = trader)
         return creation
 

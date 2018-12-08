@@ -28,24 +28,24 @@ class CreanceMonetaireAdmin(admin.ModelAdmin):
 
 	list_display = ['cumul_bonification','compte_beta','compte_grenier','solde',]
 
-	def has_add_permission(self, request):
-		return False
+	# def has_add_permission(self, request):
+	# 	return False
 
 @admin.register(Remboursement)
 class RemboursementAdmin(admin.ModelAdmin):
 
 	list_display = ['entreprise','montant_emprunter','credit_actuel','montant_rembourser','reste','date_remboursement']
 
-	def has_add_permission(self, request):
-		return False
+	# def has_add_permission(self, request):
+	# 	return False
 
 @admin.register(IndiceDeConversion)
 class IndiceDeConversionAdmin(admin.ModelAdmin):
 
 	list_display = ['taux', 'total_reconversion', 'total_acheter',]
 
-	def has_add_permission(self, request):
-		return False
+	# def has_add_permission(self, request):
+	# 	return False
 
 @admin.register(ConsommationMensuelMoyenneConsommateurActuel)
 class ConsommationMensuelMoyenneConsommateurActuelAdmin(admin.ModelAdmin):
@@ -59,8 +59,8 @@ class ConsommationMensuelMoyenneConsommateurActuelAdmin(admin.ModelAdmin):
 
 	list_display = ['mois','epound_utiliser', 'nombre_de_mois', 'rapport', ]
 
-	def has_add_permission(self, request):
-		return False
+	# def has_add_permission(self, request):
+	# 	return False
 
 @admin.register(ConsommationMensuelMoyenneConsommateur)
 class ConsommationMensuelMoyenneConsommateurAdmin(admin.ModelAdmin):
@@ -70,8 +70,8 @@ class ConsommationMensuelMoyenneConsommateurAdmin(admin.ModelAdmin):
 
 	list_display = ['mois','epound_utiliser', 'nombre_mois', 'rapport',]
 
-	def has_add_permission(self, request):
-		return False
+	# def has_add_permission(self, request):
+	# 	return False
 
 
 @admin.register(ConsommationMensuelMoyenneVendeurActuel)
@@ -86,8 +86,8 @@ class ConsommationMensuelMoyenneVendeurActuelAdmin(admin.ModelAdmin):
 
 	list_display = ['mois','epound_utiliser', 'nombre_de_mois', 'rapport',]
 
-	def has_add_permission(self, request):
-		return False
+	# def has_add_permission(self, request):
+	# 	return False
 
 
 @admin.register(ConsommationMensuelMoyenneVendeur)
@@ -98,8 +98,8 @@ class ConsommationMensuelMoyenneVendeurAdmin(admin.ModelAdmin):
 
 	list_display = ['mois','epound_utiliser', 'nombre_mois', 'rapport',]
 
-	def has_add_permission(self, request):
-		return False
+	# def has_add_permission(self, request):
+	# 	return False
 
 @admin.register(TauxAbsorbtionGlobal)
 class TauxAbsorbtionGlobalAdmin(admin.ModelAdmin):
@@ -109,8 +109,8 @@ class TauxAbsorbtionGlobalAdmin(admin.ModelAdmin):
 	def rapport(self,obj):
 		return obj.epound_detenus/obj.epound_consommer
 
-	def has_add_permission(self, request):
-		return False
+	# def has_add_permission(self, request):
+	# 	return False
 
 
 @admin.register(TauxAbsorbtionGlobalMensuel)
@@ -121,5 +121,5 @@ class TauxAbsorbtionGlobalMensuelAdmin(admin.ModelAdmin):
 	def rapport(self,obj):
 		return obj.epound_detenus/obj.epound_consommer
 
-	def has_add_permission(self, request):
-		return False
+	# def has_add_permission(self, request):
+	# 	return False
