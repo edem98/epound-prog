@@ -21,7 +21,8 @@ class SpécificationBesoin(models.Model):
     verbose_name="image associé",null = True, blank = True,)
 
     class Meta:
-        verbose_name = "Spécifiaction des Besoins"
+        verbose_name = "Spécifiaction de Besoin"
+        verbose_name_plural = "Spécifiactions de Besoins"
 
     def __str__(self):
         return self.spécification
