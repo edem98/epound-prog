@@ -8,7 +8,8 @@ class ExpressionBesoin(models.Model):
     image_illustratif = models.ImageField(upload_to = 'besoins/',verbose_name="image associé",null = True)
 
     class Meta:
-        verbose_name = "Besoins Humains"
+        verbose_name = "Besoin Humain"
+        verbose_name_plural = "Besoins Humains"
 
     def __str__(self):
         return self.besoin
@@ -65,3 +66,7 @@ class Produit(models.Model):
 
     def __str__(self):
         return self.nom
+
+    class Meta:
+        verbose_name = "Article"
+        verbose_name_plural = "Articles"
