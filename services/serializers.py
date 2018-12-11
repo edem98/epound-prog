@@ -51,7 +51,7 @@ class MembreSerializer(serializers.HyperlinkedModelSerializer):
                     'telephone','actif',)
 
 class ParticulierSerializer(serializers.HyperlinkedModelSerializer):
-    compte_consommateur = CompteConsommateurSerializer()
+    compte_consommateur = CompteConsommateurSerializer(read_only = True)
     class Meta:
         model = ConsommateurParticulier
         fields = ('id','code_membre','mdp','nom', 
@@ -68,22 +68,34 @@ class ParticulierSerializer(serializers.HyperlinkedModelSerializer):
 
     def update(self, instance, validated_data):
         instance =  ConsommateurParticulier.objects.get(telephone = validated_data.get('telephone'))
-        instance.nom = validated_data.get('nom')
-        instance.prenoms = validated_data.get('prenoms')
-        instance.mdp = validated_data.get('mdp')
-        instance.telephone = validated_data.get('telephone')
-        instance.email = validated_data.get('email')
-        instance.lieu_residence = validated_data.get('lieu_residence')
-        instance.num_carte = validated_data.get('num_carte')
-        instance.formation = validated_data.get('formation')
-        instance.Profession = validated_data.get('profession')
-        instance.situation_matrimoniale = validated_data.get('situation_matrimoniale')
-        instance.actif = validated_data.get('actif')
-        instance.save()
+        if instance:
+            if validated_data.get('nom'):
+                instance.nom = validated_data.get('nom')
+            if validated_data.get('prenoms'):
+                instance.prenoms = validated_data.get('prenoms')
+            if validated_data.get('mdp'):
+                instance.mdp = validated_data.get('mdp')
+            if validated_data.get('telephone'):
+                instance.telephone = validated_data.get('telephone')
+            if validated_data.get('email'):
+                instance.email = validated_data.get('email')
+            if validated_data.get('lieu_residence'):
+                instance.lieu_residence = validated_data.get('lieu_residence')
+            if validated_data.get('num_carte'):
+                instance.num_carte = validated_data.get('num_carte')
+            if validated_data.get('formation'):
+                instance.formation = validated_data.get('formation')
+            if validated_data.get('profession'):
+                instance.Profession = validated_data.get('profession')
+            if validated_data.get('situation_matrimoniale'):
+                instance.situation_matrimoniale = validated_data.get('situation_matrimoniale')
+            if validated_data.get('actif'):
+                instance.actif = validated_data.get('actif')
+            instance.save()
         return instance
 
 class EntrepriseSerializer(serializers.HyperlinkedModelSerializer):
-    compte_consommateur = CompteConsommateurSerializer()
+    compte_consommateur = CompteConsommateurSerializer(read_only = True)
     class Meta:
         model = ConsommateurEntreprise
         fields = ('id','code_membre','mdp','nom', 
@@ -93,23 +105,39 @@ class EntrepriseSerializer(serializers.HyperlinkedModelSerializer):
                 'numero_compte_bancaire','responsable','compte_consommateur',)
 
     def update(self, instance, validated_data):
-        instance =  ConsommateurParticulier.objects.get(nom__icontains = validated_data.get('nom'))
-        instance.nom = validated_data.get('nom')
-        instance.prenoms = validated_data.get('prenoms')
-        instance.mdp = validated_data.get('mdp')
-        instance.telephone = validated_data.get('telephone')
-        instance.email = validated_data.get('email')
-        instance.raison_social = validated_data.get('raison_social')
-        instance.statut_juridique = validated_data.get('statut_juridique')
-        instance.objet_social = validated_data.get('objet_social')
-        instance.capital_social = validated_data.get('capital_social')
-        instance.numero_rccm = validated_data.get('numero_rccm')
-        instance.regime_fiscal = validated_data.get('regime_fiscal')
-        instance.nif = validated_data.get('nif')
-        instance.siege_social = validated_data.get('siege_social')
-        instance._bancaire = validated_data.get('_bancaire')
-        instance.responsable = validated_data.get('responsable')
-        instance.save()
+        instance =  ConsommateurEntreprise.objects.get(telephone = validated_data.get('telephone'))
+        if instance:
+            if validated_data.get('nom'):
+                instance.nom = validated_data.get('nom')
+            if validated_data.get('prenoms'):
+                instance.prenoms = validated_data.get('prenoms')
+            if validated_data.get('mdp'):
+                instance.mdp = validated_data.get('mdp')
+            if validated_data.get('telephone'):
+                instance.telephone = validated_data.get('telephone')
+            if validated_data.get('email'):
+                instance.email = validated_data.get('email')
+            if validated_data.get('raison_social'):
+                instance.raison_social = validated_data.get('raison_social')
+            if validated_data.get('statut_juridique'):
+                instance.statut_juridique = validated_data.get('statut_juridique')
+            if validated_data.get('objet_social'):
+                instance.objet_social = validated_data.get('objet_social')
+            if validated_data.get('capital_social'):
+                instance.capital_social = validated_data.get('capital_social')
+            if validated_data.get('numero_rccm'):
+                instance.numero_rccm = validated_data.get('numero_rccm')
+            if validated_data.get('regime_fiscal'):
+                instance.regime_fiscal = validated_data.get('regime_fiscal')
+            if validated_data.get('nif'):
+                instance.nif = validated_data.get('nif')
+            if validated_data.get('siege_social'):
+                instance.siege_social = validated_data.get('siege_social')
+            if validated_data.get('_bancaire'):
+                instance._bancaire = validated_data.get('_bancaire')
+            if validated_data.get('responsable'):
+                instance.responsable = validated_data.get('responsable')
+            instance.save()
         return instance
 
 class ConsommateurSerializer(serializers.HyperlinkedModelSerializer):
@@ -120,25 +148,32 @@ class ConsommateurSerializer(serializers.HyperlinkedModelSerializer):
                     'telephone','actif','compte_consommateur',)
 
 class TraderSerializer(serializers.HyperlinkedModelSerializer):
-    compte_trader = CompteTraderSerializer()
+    compte_trader = CompteTraderSerializer(read_only=True)
     class Meta:
         model = Trader
         fields = ('id','code_membre','mdp','nom','prenoms', 
                 'telephone','email','compte_trader',)
 
     def update(self, instance, validated_data): 
-        instance =  Trader.objects.get(nom__icontains = validated_data.get('nom'))
-        instance.nom = validated_data.get('nom')
-        instance.prenoms = validated_data.get('prenoms')
-        instance.mdp = validated_data.get('mdp')
-        instance.telephone = validated_data.get('telephone')
-        instance.email = validated_data.get('email')
-        instance.actif = validated_data.get('actif')
-        instance.save()
+        instance = Trader.objects.get(telephone=validated_data.get('telephone'))
+        if instance:
+            if validated_data.get('nom'):
+                instance.nom = validated_data.get('nom')
+            if validated_data.get('prenoms'):
+                instance.prenoms = validated_data.get('prenoms')
+            if validated_data.get('mdp'):
+                instance.mdp = validated_data.get('mdp')
+            if validated_data.get('telephone'):
+                instance.telephone = validated_data.get('telephone')
+            if validated_data.get('email'):
+                instance.email = validated_data.get('email')
+            if validated_data.get('actif'):
+                instance.actif = validated_data.get('actif')
+            instance.save()
         return instance
 
 class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
-    compte_entreprise_commercial = CompteEntrepriseCommercialeSerializer()
+    compte_entreprise_commercial = CompteEntrepriseCommercialeSerializer(read_only=True)
     class Meta:
         model = EntrepriseCommerciale
         depth = 1
@@ -161,11 +196,17 @@ class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
             return entreprise
 
     def update(self, instance, validated_data): 
-        instance =  EntrepriseCommerciale.objects.get(nom__icontains = validated_data.get('nom'))
-        instance.mdp = validated_data.get('mdp')
-        instance.telephone = validated_data.get('telephone')
-        instance.email = validated_data.get('email')
-        instance.actif = validated_data.get('actif')
+        instance =  EntrepriseCommerciale.objects.get(telephone=validated_data.get('telephone'))
+        if validated_data.get('nom'):
+            instance.nom = validated_data.get('nom')
+        if validated_data.get('mdp'):
+            instance.mdp = validated_data.get('mdp')
+        if validated_data.get('telephone'):
+            instance.telephone = validated_data.get('telephone')
+        if validated_data.get('email'):
+            instance.email = validated_data.get('email')
+        if validated_data.get('actif'):
+            instance.actif = validated_data.get('actif')
         instance.save()
         return instance
 

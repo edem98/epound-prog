@@ -374,10 +374,10 @@ class CommandeClientViewSet(viewsets.ModelViewSet):
         return Response(data)
 
     @action(methods=['get'], detail=True)
-    def get_commande_by_numero_vendeur(self, request, numero_client=None):
+    def get_commande_by_numero_vendeur(self, request, id=None):
         commandes=None
         try:
-            commandes = CommandeClient.objects.filter(numero_vendeur=numero_client)
+            commandes = CommandeClient.objects.filter(numero_vendeur=id)
 
         except CommandeClientSerializer.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
@@ -388,10 +388,10 @@ class CommandeClientViewSet(viewsets.ModelViewSet):
         return Response(data)
 
     @action(methods=['get'], detail=True)
-    def get_commande_by_numero_client(self, request, numero_client=None):
+    def get_commande_by_numero_client(self, request, id=None):
         commandes = None
         try:
-            commandes = CommandeClient.objects.filter(numero_client=numero_client)
+            commandes = CommandeClient.objects.filter(numero_client=id)
 
         except CommandeClientSerializer.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
@@ -401,59 +401,61 @@ class CommandeClientViewSet(viewsets.ModelViewSet):
         data["commandes"] = serializer.data
         return Response(data)
 
-    @action(methods=['post'], detail=True)
-    def valider_commande(self, request, numero_client=None):
-        data = {}
-        try:
-            commande = CommandeClient.objects.get(pk=numero_client)
-            if not commande.valider:
-                vendeur=EntrepriseCommerciale.objects.get(id = commande.vendeur)
-                vendeur.compte_entreprise_commercial.compte_business.solde += commande.quantite*commande.produit.prix
-                vendeur.compte_entreprise_commercial.compte_business.save()
-                commande.etat = 2
-                commande.vendeur=True
-                commande.save()
-            else:
-                data["echec"] = "Commande déja valider"
-                return Response(data)
-        except CommandeClientSerializer.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
-
-        data["succes"] = "Commande valider"
-        return Response(data)
-
-    @action(methods=['post'], detail=True)
-    def confirmer_disponibilite(self, request, numero_client=None):
-        data = {}
-        try:
-            commande = CommandeClient.objects.get(pk=numero_client)
-            commande.etat = 1
-            commande.save()
-        except CommandeClientSerializer.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
-        data["succes"] = "Commande valider"
-        return Response(data)
-
-    @action(methods=['post'], detail=True)
-    def commande_indisponible(self, request, numero_client=None):
-        data = {}
-        try:
-            commande = CommandeClient.objects.get(pk=numero_client)
-            if commande.etat != -1:
-                consommateur = Consommateur.objects.get(pk=commande.client)
-                consommateur.compte_consommateur.solde += commande.quantite*commande.produit.prix
-                consommateur.compte_consommateur.save()
-                commande.etat = -1
-                commande.save()
-            else:
-                return Response(data)
-        except CommandeClientSerializer.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-
-        data["succes"] = "Commande annulé"
-        return Response(data)
+    # @action(methods=['post','get'], detail=True)
+    # def valider_commande(self, request, id=None):
+    #     commande = CommandeClient.objects.get(pk=id)
+    #     serializer = CommandeClientSerializer(commande)
+    #     data = {}
+    #     try:
+    #         print(commande.etat)
+    #         if not commande.valider:
+    #             vendeur=EntrepriseCommerciale.objects.get(id = commande.vendeur.id)
+    #             vendeur.compte_entreprise_commercial.compte_business.solde += commande.quantite*commande.produit.prix
+    #             vendeur.compte_entreprise_commercial.compte_business.save()
+    #             commande.etat = 2
+    #             commande.valider = True
+    #             commande.save()
+    #             print(commande.etat)
+    #         else:
+    #             data["echec"] = "Commande déja valider"
+    #             return Response(data)
+    #     except CommandeClient.DoesNotExist:
+    #         return Response(status=status.HTTP_404_NOT_FOUND)
+    #     data["succes"] = "Commande valider"
+    #     data["commande"] = serializer.data
+    #     return Response(data)
+    #
+    # @action(methods=['post'], detail=True)
+    # def confirmer_disponibilite(self, request, numero_client=None):
+    #     data = {}
+    #     try:
+    #         commande = CommandeClient.objects.get(pk=numero_client)
+    #         commande.etat = 1
+    #         commande.save()
+    #     except CommandeClientSerializer.DoesNotExist:
+    #         return Response(status=status.HTTP_404_NOT_FOUND)
+    #
+    #     data["succes"] = "Commande valider"
+    #     return Response(data)
+    #
+    # @action(methods=['post'], detail=True)
+    # def commande_indisponible(self, request, numero_client=None):
+    #     data = {}
+    #     try:
+    #         commande = CommandeClient.objects.get(pk=numero_client)
+    #         if commande.etat != -1:
+    #             consommateur = Consommateur.objects.get(pk=commande.client)
+    #             consommateur.compte_consommateur.solde += commande.quantite*commande.produit.prix
+    #             consommateur.compte_consommateur.save()
+    #             commande.etat = -1
+    #             commande.save()
+    #         else:
+    #             return Response(data)
+    #     except CommandeClientSerializer.DoesNotExist:
+    #         return Response(status=status.HTTP_404_NOT_FOUND)
+    #
+    #     data["succes"] = "Commande annulé"
+    #     return Response(data)
 
 
 class NotificationViewSet(viewsets.ModelViewSet):
