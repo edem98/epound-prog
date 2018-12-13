@@ -398,4 +398,4 @@ class ReactivationClientSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = ReactivationClient
-        fields = ('id', 'numero_trader', 'telephone' , 'trader', 'consommateur',)
+        fields = ('id', 'numero_trader', 'numero_receveur', 'trader', 'consommateur', 'date_reabonnement',)
