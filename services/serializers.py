@@ -58,7 +58,7 @@ class ParticulierSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ConsommateurParticulier
         fields = ('id','code_membre','mdp','nom', 
-                    'prenoms','telephone','email','lieu_residence',
+                    'prenoms','sexe','ville_residence','telephone','email','lieu_residence',
                     'num_carte','formation','profession',
                     'situation_matrimoniale','compte_consommateur',)
 
@@ -155,7 +155,7 @@ class TraderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Trader
         fields = ('id','code_membre','mdp','nom','prenoms', 
-                'telephone','email','compte_trader',)
+                'sexe','ville_residence','telephone','email','compte_trader',)
 
     def update(self, instance, validated_data): 
         instance = Trader.objects.get(telephone=validated_data.get('telephone'))

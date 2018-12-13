@@ -31,7 +31,19 @@ class Trader(Membre):
 		être des personnes moraux ou des personnes
 		physiques et dispose d'un taux d'interêt de 10%
 	"""
+	feminin = 'Féminin'
+	masculin = 'Masculin'
 
+	liste_sexe = [
+		(feminin, 'Féminin'),
+		(masculin, 'Masculin'),
+	]
+
+	sexe = models.CharField(max_length = 50,
+					choices=liste_sexe,
+					default=feminin, null = True,verbose_name="Sexe")
+
+	ville_residence = models.CharField(max_length = 150, verbose_name = 'Ville de résidence', null = True)
 	# ajout du prénoms au cas ou la personne serait physique
 	prenoms = models.CharField(max_length = 150, verbose_name = 'Prénoms', null = True)
 	
@@ -84,7 +96,7 @@ class Consommateur(Membre,PolymorphicModel):
 					choices=liste_sexe,
 					default=feminin, null = True,verbose_name="Sexe")
 
-	ville_residence = models.CharField(max_length = 150, verbose_name = 'Prénoms', null = True)
+	ville_residence = models.CharField(max_length = 150, verbose_name = 'Ville de résidence', null = True)
 
 	nationalite = models.CharField(max_length = 50,
 					choices=liste_pays,
