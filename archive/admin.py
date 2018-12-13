@@ -139,6 +139,13 @@ class VendeurVenteAdmin(admin.ModelAdmin):
     def has_add_permission(self,request):
         return False
 
+class ReactivationClientAdmin(admin.ModelAdmin):
+    readonly_fields = ['numero_trader', 'numero_receveur', 'trader', 'consommateur', 'date_reabonnement', ]
+    list_display = ['numero_trader', 'numero_receveur', 'trader', 'consommateur', 'date_reabonnement', ]
+
+    def has_add_permission(self, request):
+        return False
+
 admin.site.register(PayementConsomateur,PayementConsomateurAdmin)
 
 admin.site.register(PayementInterCommercial,PayementInterCommercialAdmin)

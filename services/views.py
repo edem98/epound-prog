@@ -9,6 +9,10 @@ from rest_framework.decorators import action
 from rest_framework import status
 from rest_framework.response import Response
 
+from archive.models import ReactivationClient
+from services.serializers import ReactivationClientSerializer
+
+
 class MembreViewSet(viewsets.ModelViewSet):
 
     queryset = Membre.objects.all()
@@ -323,6 +327,11 @@ class CreationParticulierParTraderViewSet(viewsets.ModelViewSet):
 
     queryset = CreationParticulierParTrader.objects.all()
     serializer_class = CreationParticulierParTraderSerializer
+
+class ReactivationClientViewSet(viewsets.ModelViewSet):
+
+    queryset = ReactivationClient.objects.all()
+    serializer_class = ReactivationClientSerializer
 
 class CreationEntrepriseParTraderViewSet(viewsets.ModelViewSet):
 

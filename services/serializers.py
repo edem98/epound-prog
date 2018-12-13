@@ -6,6 +6,9 @@ from compte.models import *
 from ecommerce.models import *
 from rest_framework import permissions
 
+from archive.models import ReactivationClient
+
+
 class CompteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Compte
@@ -387,3 +390,12 @@ class VendeuVenteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = VendeurVente
         fields = ('id','numero_acheteur','numero_vendeur','montant','acheteur','vendeur',)
+
+class ReactivationClientSerializer(serializers.HyperlinkedModelSerializer):
+
+    trader = TraderSerializer(read_only=True)
+    consommateur = ConsommateurSerializer(read_only=True)
+
+    class Meta:
+        model = ReactivationClient
+        fields = ('id', 'numero_trader', 'telephone' , 'trader', 'consommateur',)

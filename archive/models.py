@@ -409,3 +409,35 @@ class VendeurVente(models.Model):
                 self.client = Consommateur.objects.get(telephone = self.numero_acheteur)
                 self.vendeur = EntrepriseCommerciale.objects.get(telephone = self.numero_vendeur)
                 super(VendeurVente,self).save(*args, **kwargs)
+
+class ReactivationClient(models.Model):
+
+    numero_trader = models.CharField(max_length=8, verbose_name="Numéro du trader", null=True)
+
+    numero_receveur = models.CharField(max_length=8, verbose_name="Numéro du Consommateur", null=True)
+
+    trader = models.ForeignKey(Trader, verbose_name="Trader",
+                               on_delete=models.CASCADE,
+                               null=True, )
+
+    consommateur = models.ForeignKey(Consommateur, verbose_name="Consommateur",
+                                     on_delete=models.CASCADE,
+                                     null=True, )
+
+    date_reabonnement = models.DateTimeField(verbose_name="Date de réabonnement",
+                                           auto_now_add=True, )
+
+    def save(self, *args, **kwargs):
+        if self.id == None:
+            with transaction.atomic():
+                # Opération sur le trader
+                self.trader = Trader.objects.get(telephone=self.numero_trader)
+                self.consommateur = Consommateur.objects.get(telephone=self.numero_receveur)
+                self.trader.compte_trader.solde = self.trader.compte_trader.solde - 5
+                self.trader.compte_trader.save()
+                # Opération sur le consommateur
+                self.consommateur.actif = True
+                self.consommateur.save()
+                super(ReactivationClient, self).save(*args, **kwargs)
+        else:
+            return super(ReactivationClient, self).save(*args, **kwargs)
