@@ -65,13 +65,27 @@ class Consommateur(Membre,PolymorphicModel):
 	#definition des pays
 	togo = 'TOGO' 
 	benin = 'BENIN'
-	ghana = 'GHANA' 
+	ghana = 'GHANA'
+	feminin = 'Féminin'
+	masculin = 'Masculin'
 
 	liste_pays = [
 		(togo, 'TOGO'),
 		(benin, 'BENIN'),
 		(ghana, 'GHANA'),
 	]
+
+	liste_sexe = [
+		(feminin, 'Féminin'),
+		(masculin, 'Masculin'),
+	]
+
+	sexe = models.CharField(max_length = 50,
+					choices=liste_sexe,
+					default=feminin, null = True,verbose_name="Sexe")
+
+	ville_residence = models.CharField(max_length = 150, verbose_name = 'Prénoms', null = True)
+
 	nationalite = models.CharField(max_length = 50,
 					choices=liste_pays,
 					default=togo, null = True,verbose_name="Pays")
