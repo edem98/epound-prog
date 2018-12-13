@@ -51,10 +51,15 @@ class IndiceDeConversionAdmin(admin.ModelAdmin):
 class ConsommationMensuelMoyenneConsommateurActuelAdmin(admin.ModelAdmin):
 
 	def nombre_de_mois(self,obj):
-		date = timezone.now().date()-obj.date_debut_consommation
-		return  int(date.days/30)
+		date = obj.date_debut_consommation-timezone.now().date()
+		if date.days < 1:
+			return 0
+		else:
+			return  int(date.days/30)
 
 	def rapport(self,obj):
+		if self.nombre_de_mois(obj) == 0:
+			return 0
 		return obj.epound_utiliser/self.nombre_de_mois(obj)
 
 	list_display = ['mois','epound_utiliser', 'nombre_de_mois', 'rapport', ]
@@ -78,10 +83,15 @@ class ConsommationMensuelMoyenneConsommateurAdmin(admin.ModelAdmin):
 class ConsommationMensuelMoyenneVendeurActuelAdmin(admin.ModelAdmin):
 
 	def nombre_de_mois(self,obj):
-		date = timezone.now().date() - obj.date_debut_consommation
-		return  int(date.days/30)
+		date = obj.date_debut_consommation-timezone.now().date()
+		if date.days < 1:
+			return 0
+		else:
+			return  int(date.days/30)
 
 	def rapport(self,obj):
+		if self.nombre_de_mois(obj) == 0:
+			return 0
 		return obj.epound_utiliser/self.nombre_de_mois(obj)
 
 	list_display = ['mois','epound_utiliser', 'nombre_de_mois', 'rapport',]

@@ -5,35 +5,43 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'styles/contact_styles.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'styles/contact_responsive.css' %}">
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 {% endblock  %}
+
+{% block addjs %}
+{% endblock %}
 
 {% block content %}
 	<div class="super_container">
-
-
 		<div class="container contact_container">
 			<div class="row">
 				<div class="col">
-
 					<!-- Breadcrumbs -->
-
 					<div class="breadcrumbs d-flex flex-row align-items-center">
 						<ul>
 							<li><a href="index.html">Accueil</a></li>
 							<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact</a></li>
 						</ul>
 					</div>
-
 				</div>
 			</div>
-
 			<!-- Map Container -->
-
 			<div class="row">
 				<div class="col">
 					<div id="google_map">
 						<div class="map_container">
-							<div id="map"></div>
+							<div id='map'></div>
+
+							<script>
+							mapboxgl.accessToken = 'pk.eyJ1IjoiZWRlbTk4IiwiYSI6ImNqcG1yeXplMTBmYnczeHF1aXlicG1pZzcifQ.LR6vW4QHNHUgza8kPLvBTg';
+							var map = new mapboxgl.Map({
+								container: 'map', // container id
+								style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+								center: [-74.50, 40], // starting position [lng, lat]
+								zoom: 9 // starting zoom
+							});
+							</script>
 						</div>
 					</div>
 				</div>
@@ -91,7 +99,6 @@
 
 			</div>
 		</div>
-
 	</div>
 {% endblock  %}
 

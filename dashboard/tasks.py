@@ -3,6 +3,7 @@ from django.utils import timezone
 from utils import CorrespondanceMois
 from .models import *
 
+@task
 def reinitialiserTauxAbsorbtionGlobal():
     """
         Cette fonction réinitialise le taux d'absotion global
@@ -16,6 +17,7 @@ def reinitialiserTauxAbsorbtionGlobal():
     absortion_actuel.save()
     return print("...done")
 
+@task
 def updateMoisConsommationMoyenneMensuelGlobal():
     """
         Cette fonction met a jour le mois de l'Objet
@@ -29,6 +31,7 @@ def updateMoisConsommationMoyenneMensuelGlobal():
     conso_global.save()
     return print("...done")
 
+@task
 def updateMoisVendeurMoyenneMensuelGlobal():
     """
         Cette fonction met a jour le mois de l'Objet

@@ -938,7 +938,7 @@ section
 	overflow: hidden;
 	box-shadow: 0px 27px 59px rgba(0, 0, 0, 0.15);
 }
-#map
+#maps
 {
 	width: 100%;
 	height: calc(100% + 30px);
