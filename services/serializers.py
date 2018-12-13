@@ -366,6 +366,16 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
         model = CommandeClient
         fields = ('id','numero_client','numero_vendeur','code_produit','quantite','etat','valider','a_livrer','client','vendeur','produit',)
 
+    def update(self, instance, validated_data):
+        instance =  CommandeClient.objects.get(pk = validated_data.get('id'))
+        if instance:
+            if validated_data.get('etat'):
+                instance.etat = validated_data.get('etat')
+            if validated_data.get('valider'):
+                instance.prenoms = validated_data.get('valider')
+            instance.save()
+        return instance
+
 class NotificationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Notification
