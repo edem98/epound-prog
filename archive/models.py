@@ -55,16 +55,13 @@ class TransactionCommercialComsommateur(models.Model):
         effectuées du compte consommateur
         d'un commerciale à un autre
     """
-    envoyeur_code = models.PositiveIntegerField(verbose_name ="Code membre de l'envoyeur",null = True)
-    
-    receveur_code = models.PositiveIntegerField(verbose_name ="Code membre du bénéficiare",null = True)
-
+    numero_envoyeur = models.CharField(max_length=8,verbose_name ="Numéro de l'envoyeur",null = True)
+    numero_receveur = models.CharField(max_length=8,verbose_name ="Numéro du bénéficiare",null = True)
     envoyeur = models.ForeignKey(EntrepriseCommerciale,
 								verbose_name="Envoyeur",
 								on_delete=models.CASCADE,
 								related_name = "envoyeur_commercial",
                                 null = True,)
-
     receveur = models.ForeignKey(Consommateur,
 								verbose_name="receveur_consommateur",
 								on_delete=models.CASCADE,
@@ -79,8 +76,8 @@ class TransactionCommercialComsommateur(models.Model):
     def save(self, *args, **kwargs):
         if self.id == None:
             with transaction.atomic():
-                self.envoyeur = EntrepriseCommerciale.objects.get(code_membre = self.envoyeur_code)
-                self.receveur = Consommateur.objects.get(code_membre = self.receveur_code)
+                self.envoyeur = EntrepriseCommerciale.objects.get(telephone = self.numero_envoyeur)
+                self.receveur = Consommateur.objects.get(telephone = self.numero_receveur)
                 self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_envoyer
                 self.envoyeur.compte_entreprise_commercial.compte_consommateur.save()
                 self.receveur.compte_consommateur.solde = self.receveur.compte_consommateur.solde + self.montant_envoyer

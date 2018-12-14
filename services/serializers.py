@@ -241,14 +241,14 @@ class TransactionCommercialComsommateurSerializer(serializers.HyperlinkedModelSe
                     'montant_envoyer','date_transaction',)
 
     def create(self,validated_data):
-        envoyeur_code = validated_data.get('envoyeur_code')
-        receveur_code = validated_data.get('receveur_code')
-        envoyeur = EntrepriseCommerciale.objects.get(code_membre = envoyeur_code)
-        receveur = Consommateur.objects.get(code_membre = receveur_code)
+        numero_envoyeur = validated_data.get('numero_envoyeur')
+        numero_receveur = validated_data.get('numero_receveur')
+        envoyeur = EntrepriseCommerciale.objects.get(telephone = numero_envoyeur)
+        receveur = Consommateur.objects.get(telephone = numero_receveur)
         solde = validated_data.get('montant_envoyer')
         transaction = TransactionCommercialComsommateur.objects.create(envoyeur = envoyeur,receveur = receveur,
-                                            montant_envoyer = solde,envoyeur_code = envoyeur_code,
-                                            receveur_code = receveur_code,)
+                                            montant_envoyer = solde,numero_envoyeur = numero_envoyeur,
+                                            numero_receveur = numero_receveur,)
         return transaction
 
 class ConversionTraderSerializer(serializers.HyperlinkedModelSerializer):
