@@ -372,9 +372,9 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
     def update(self, instance, validated_data):
         instance =  CommandeClient.objects.get(id = instance.id)
         if instance:
-            if validated_data.get('etat'):
+            if validated_data.get('etat') != None:
                 instance.etat = validated_data.get('etat')
-            if validated_data.get('valider'):
+            if validated_data.get('valider') != None:
                 instance.valider = validated_data.get('valider')
             instance.save()
         return instance
