@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/epound/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/epound/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/epound/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+            <state relative-caret-position="105">
+              <caret line="24" column="56" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="24" selection-end-column="56" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -179,7 +179,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
@@ -292,12 +292,12 @@
         <option value="$PROJECT_DIR$/compte/tasks.py" />
         <option value="$PROJECT_DIR$/dashboard/tasks.py" />
         <option value="$PROJECT_DIR$/dashboard/admin.py" />
-        <option value="$PROJECT_DIR$/epound/views.py" />
         <option value="$PROJECT_DIR$/archive/models.py" />
         <option value="$PROJECT_DIR$/services/serializers.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/epound/prod_settings.py" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/epound/views.py" />
       </list>
     </option>
   </component>
@@ -337,6 +337,11 @@
           <expand>
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound" type="462c0819:PsiDirectoryNode" />
               <item name="epound" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -741,16 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/epound/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -814,6 +809,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="27" lean-forward="true" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/epound/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="24" column="56" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="24" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

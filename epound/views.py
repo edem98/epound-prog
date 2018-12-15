@@ -3,26 +3,26 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
 
-# from dashboard.tasks import *
+from dashboard.tasks import *
 from ecommerce.models import ExpressionBesoin, Produit
 from epound import settings
 from membre.models import EntrepriseCommerciale
-# from compte.tasks import *
-# from octroi.tasks import remboursemment_automatique
+from compte.tasks import *
+from octroi.tasks import remboursemment_automatique
 
 
 def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
     new_produits = Produit.objects.all().order_by('-date_ajout')[:30]
-    # deductionensuelCompteConsommateur.delay()
-    # remboursemment_automatique.delay()
-    # reinitialiserTauxAbsorbtionGlobal.delay()
-    # updateMoisConsommationMoyenneMensuelGlobal.delay()
-    # updateMoisVendeurMoyenneMensuelGlobal.delay()
-    # sauvegarderTauxAbsorbtionMensuel.delay()
-    # sauvegarderConsommationMensuelMoyenneConsommateur.delay()
-    # sauvegarderVendeurMensuelMoyenneConsommateur.delay()
+    deductionensuelCompteConsommateur.delay()
+    remboursemment_automatique.delay()
+    reinitialiserTauxAbsorbtionGlobal.delay()
+    updateMoisConsommationMoyenneMensuelGlobal.delay()
+    updateMoisVendeurMoyenneMensuelGlobal.delay()
+    sauvegarderTauxAbsorbtionMensuel.delay()
+    sauvegarderConsommationMensuelMoyenneConsommateur.delay()
+    sauvegarderVendeurMensuelMoyenneConsommateur.delay()
     context['besoins'] = besoins
     context['produits'] = new_produits
     return render(request,'index.html',context)
