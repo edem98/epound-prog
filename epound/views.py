@@ -15,14 +15,6 @@ def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
     new_produits = Produit.objects.all().order_by('-date_ajout')[:30]
-    deductionensuelCompteConsommateur.delay()
-    remboursemment_automatique.delay()
-    reinitialiserTauxAbsorbtionGlobal.delay()
-    updateMoisConsommationMoyenneMensuelGlobal.delay()
-    updateMoisVendeurMoyenneMensuelGlobal.delay()
-    sauvegarderTauxAbsorbtionMensuel.delay()
-    sauvegarderConsommationMensuelMoyenneConsommateur.delay()
-    sauvegarderVendeurMensuelMoyenneConsommateur.delay()
     context['besoins'] = besoins
     context['produits'] = new_produits
     return render(request,'index.html',context)
