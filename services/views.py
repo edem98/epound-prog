@@ -247,7 +247,7 @@ class TransactionCommercialComsommateurViewSet(viewsets.ModelViewSet):
 
     def retrieve(self, request, pk=None):
         queryset = TransactionCommercialComsommateur.objects.all()
-        transaction = get_object_or_404(queryset, numero_envoyeur=numero_envoyeur)
+        transaction = get_object_or_404(queryset, pk=pk)
         serializer = TransactionCommercialComsommateurSerializer(transaction)
         data = {}
         data["transaction"] = serializer.data
