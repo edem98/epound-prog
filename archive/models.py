@@ -57,15 +57,10 @@ class TransactionCommercialComsommateur(models.Model):
     """
     numero_envoyeur = models.CharField(max_length=8,verbose_name ="Numéro de l'envoyeur",null = True)
     numero_receveur = models.CharField(max_length=8,verbose_name ="Numéro du bénéficiare",null = True)
-    envoyeur = models.ForeignKey(EntrepriseCommerciale,
-								verbose_name="Envoyeur",
-								on_delete=models.CASCADE,
+    envoyeur = models.ForeignKey(EntrepriseCommerciale,verbose_name="Envoyeur",on_delete=models.CASCADE,
 								related_name = "envoyeur_commercial",
                                 null = True,)
-    receveur = models.ForeignKey(Consommateur,
-								verbose_name="receveur_consommateur",
-								on_delete=models.CASCADE,
-								null = True,)
+    receveur = models.ForeignKey(Consommateur,verbose_name="receveur_consommateur",on_delete=models.CASCADE,null = True,)
 
     montant_envoyer = models.PositiveIntegerField(verbose_name="Montant transférer",null = True)
 
@@ -88,7 +83,7 @@ class TransactionCommercialComsommateur(models.Model):
                 absorbtion.epound_detenus += self.montant_envoyer
                 absorbtion.save()
                 #sauvegarder le transfert
-                super(TransactionCommercialComsommateur,self).save(*args, **kwargs)
+                return super(TransactionCommercialComsommateur,self).save(*args, **kwargs)
 
         else:
             return super(TransactionCommercialComsommateur,self).save(*args, **kwargs)
