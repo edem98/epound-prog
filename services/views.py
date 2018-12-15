@@ -236,7 +236,7 @@ class TransactionInterComsommateurViewSet(viewsets.ModelViewSet):
 class TransactionCommercialComsommateurViewSet(viewsets.ModelViewSet):
     queryset = TransactionCommercialComsommateur.objects.all()
     serializer_class = TransactionCommercialComsommateurSerializer
-    lookup_field = "id"
+    lookup_field = "pk"
 
     def list(self, request):
         queryset = TransactionCommercialComsommateur.objects.all()
