@@ -34,3 +34,15 @@ CACHES = {
          "LOCATION": os.environ.get('REDIS_URL'),
     }
 }
+
+celery_url = 'redis://h:pbbd2da2ab291ec09b122ec68ae11a84ccc97a8991f727b8a87fdaa9774eac775@ec2-54-209-190-123.compute-1.amazonaws.com:62509'
+
+BROKER_URL = celery_url
+CELERY_RESULT_BACKEND = celery_url
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/London'
+CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
+CELERY_BROKER_URL = celery_url
+
