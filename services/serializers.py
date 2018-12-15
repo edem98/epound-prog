@@ -282,7 +282,7 @@ class PayementInterCommercialSerializer(serializers.HyperlinkedModelSerializer):
     recepteur = EntrepriseCommercialeSerializer(read_only = True)
     class Meta:
         model = PayementInterCommercial
-        fields = ('id','envoyeur_code','receveur_code',
+        fields = ('id','numero_envoyeur','numero_receveur',
                     'montant_envoyer','solde_apres_transaction',
                     'date_transaction','envoyeur','recepteur',)
 

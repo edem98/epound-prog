@@ -169,9 +169,8 @@ class PayementInterCommercial(models.Model):
         vers le compte vendeur d'un autre
     """
 
-    envoyeur_code = models.PositiveIntegerField(verbose_name ="Code membre de l'envoyeur",null = True)
-    
-    receveur_code = models.PositiveIntegerField(verbose_name ="Code membre du bénéficiare",null = True)
+    numero_envoyeur = models.CharField(max_length=8, verbose_name="Numéro de l'envoyeur", null=True)
+    numero_receveur = models.CharField(max_length=8, verbose_name="Numéro du bénéficiare", null=True)
 
     envoyeur = models.ForeignKey(EntrepriseCommerciale,
 								verbose_name="Entreprise Acheteur",
@@ -198,8 +197,8 @@ class PayementInterCommercial(models.Model):
     def save(self, *args, **kwargs):
         if self.id == None:
             with transaction.atomic():
-                self.receveur = EntrepriseCommerciale.objects.get(code_membre = self.envoyeur_code)
-                self.envoyeur = EntrepriseCommerciale.objects.get(code_membre = self.receveur_code)
+                self.receveur = EntrepriseCommerciale.objects.get(telephone = self.numero_envoyeur)
+                self.envoyeur = EntrepriseCommerciale.objects.get(telephone = self.numero_receveur)
                 self.receveur.compte_entreprise_commercial.compte_business.solde += self.montant_envoyer
                 self.receveur.compte_entreprise_commercial.compte_business.save()
                 self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_envoyer
