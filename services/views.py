@@ -239,14 +239,14 @@ class TransactionCommercialComsommateurViewSet(viewsets.ModelViewSet):
     lookup_field = "id"
 
     def list(self, request):
-        queryset = TransactionInterComsommateur.objects.all()
+        queryset = TransactionCommercialComsommateur.objects.all()
         serializer = TransactionCommercialComsommateurSerializer(queryset, many=True)
         data = {}
         data["transactions"] = serializer.data
         return Response(data)
 
     def retrieve(self, request, numero_envoyeur=None):
-        queryset = TransactionInterComsommateur.objects.all()
+        queryset = TransactionCommercialComsommateur.objects.all()
         transaction = get_object_or_404(queryset, numero_envoyeur=numero_envoyeur)
         serializer = TransactionCommercialComsommateurSerializer(transaction)
         data = {}
