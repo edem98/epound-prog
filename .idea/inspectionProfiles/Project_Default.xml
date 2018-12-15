@@ -14,7 +14,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="52">
+          <list size="53">
             <item index="0" class="java.lang.String" itemvalue="django-polymorphic" />
             <item index="1" class="java.lang.String" itemvalue="django-autocomplete-light" />
             <item index="2" class="java.lang.String" itemvalue="SQLAlchemy" />
@@ -67,6 +67,7 @@
             <item index="49" class="java.lang.String" itemvalue="surlex" />
             <item index="50" class="java.lang.String" itemvalue="ldif3" />
             <item index="51" class="java.lang.String" itemvalue="unicodecsv" />
+            <item index="52" class="java.lang.String" itemvalue="django-redis-cache" />
           </list>
         </value>
       </option>

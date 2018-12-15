@@ -1,5 +1,6 @@
 from epound.settings import *
 import dj_database_url
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = True
@@ -25,5 +26,11 @@ DATABASES['default'] = dj_database_url.config()
 DEBUG = True
 TEMPLATE_DEBUG = True
 
-
 DATABASES['default'] = dj_database_url.config()
+
+CACHES = {
+    "default": {
+         "BACKEND": "redis_cache.RedisCache",
+         "LOCATION": os.environ.get('REDIS_URL'),
+    }
+}
