@@ -375,7 +375,9 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = CommandeClient
-        fields = ('id','numero_client','numero_vendeur','code_produit','quantite','etat','valider','a_livrer','client','vendeur','produit',)
+        fields = ('id','numero_client','numero_vendeur',
+                    'code_produit','quantite','etat','valider',
+                    'a_livrer','client','vendeur','produit','date_commande')
 
     def update(self, instance, validated_data):
         print("updating")
