@@ -77,10 +77,10 @@ class TraderAdmin(PolymorphicChildModelAdmin):
 @admin.register(Consommateur)
 class ConsommateurAdmin(PolymorphicParentModelAdmin,PolymorphicChildModelAdmin):
 	base_model = Consommateur
-	search_fields = ['nom','code_membre''actif',]
+	search_fields = ['nom','code_membre''actif','telephone']
 	child_models = (ConsommateurParticulier, ConsommateurEntreprise)
 	list_filter = (PolymorphicChildModelFilter,)
-	list_display = ['nom_membre','nationalite','compte_consommateur']
+	list_display = ['nom_membre','nationalite','compte_consommateur','telephone']
 
 	def nom_membre(self,obj):
 		membre = Membre.objects.get(id = obj.id)
@@ -147,7 +147,6 @@ class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 		kwargs['form'] = ConsommateurParticulierForm
 		return super().get_form(request, obj, **kwargs)
 
-	
 
 @admin.register(ConsommateurEntreprise)
 class ConsommateurEntrepriseAdmin(PolymorphicChildModelAdmin):

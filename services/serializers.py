@@ -1,3 +1,4 @@
+from docutils.nodes import transition
 from rest_framework import serializers
 from archive.models import *
 from emision.models import CreationParticulierParTrader
@@ -5,9 +6,9 @@ from membre.models import *
 from compte.models import *
 from ecommerce.models import *
 from rest_framework import permissions
+from rest_framework.response import Response
 
 from archive.models import ReactivationClient
-
 
 class CompteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -244,12 +245,19 @@ class TransactionCommercialComsommateurSerializer(serializers.HyperlinkedModelSe
         numero_envoyeur = validated_data.get('numero_envoyeur')
         numero_receveur = validated_data.get('numero_receveur')
         envoyeur = EntrepriseCommerciale.objects.get(telephone = numero_envoyeur)
-        receveur = Consommateur.objects.get(telephone = numero_receveur)
+        receveur = Consommateur.objects.get(telephone=numero_receveur)
         solde = validated_data.get('montant_envoyer')
         transaction = TransactionCommercialComsommateur.objects.create(envoyeur = envoyeur,receveur = receveur,
                                             montant_envoyer = solde,numero_envoyeur = numero_envoyeur,
-                                            numero_receveur = numero_receveur,)
-        return transaction
+                                                                       numero_receveur = numero_receveur)
+        if str(transaction) != "TransactionCommercialComsommateur object (None)":
+            return transaction
+        else:
+            data = {}
+            data['echec'] = "Montant insuffisant"
+            print("Montant insuffisant")
+
+            return Response(data)
 
 class ConversionTraderSerializer(serializers.HyperlinkedModelSerializer):
     trader = TraderSerializer(read_only = True)
@@ -370,13 +378,11 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id','numero_client','numero_vendeur','code_produit','quantite','etat','valider','a_livrer','client','vendeur','produit',)
 
     def update(self, instance, validated_data):
-        instance =  CommandeClient.objects.get(id = instance.id)
-        if instance:
-            if validated_data.get('etat') != None:
-                instance.etat = validated_data.get('etat')
-            if validated_data.get('valider') != None:
-                instance.valider = validated_data.get('valider')
-            instance.save()
+        print("updating")
+        instance = CommandeClient.objects.get(pk=instance.id)
+        instance.etat = validated_data['etat']
+        instance.valider = validated_data['valider']
+        instance.save()
         return instance
 
 class NotificationSerializer(serializers.HyperlinkedModelSerializer):

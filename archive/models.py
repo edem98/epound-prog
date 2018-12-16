@@ -73,18 +73,32 @@ class TransactionCommercialComsommateur(models.Model):
             with transaction.atomic():
                 self.envoyeur = EntrepriseCommerciale.objects.get(telephone = self.numero_envoyeur)
                 self.receveur = Consommateur.objects.get(telephone = self.numero_receveur)
-                self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_envoyer
-                self.envoyeur.compte_entreprise_commercial.compte_consommateur.save()
-                self.receveur.compte_consommateur.solde = self.receveur.compte_consommateur.solde + self.montant_envoyer
-                self.receveur.compte_consommateur.save()
-                self.solde_apres_transaction = self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde
-                #mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
-                absorbtion = TauxAbsorbtionGlobal.load()
-                absorbtion.epound_detenus += self.montant_envoyer
-                absorbtion.save()
-                #sauvegarder le transfert
-                return super(TransactionCommercialComsommateur,self).save(*args, **kwargs)
-
+                if self.envoyeur.compte_entreprise_commercial.compte_business.solde > self.montant_envoyer:
+                    self.envoyeur.compte_entreprise_commercial.compte_business.solde -= self.montant_envoyer
+                    self.envoyeur.compte_entreprise_commercial.compte_business.save()
+                    self.receveur.compte_consommateur.solde = self.receveur.compte_consommateur.solde + self.montant_envoyer
+                    self.receveur.compte_consommateur.save()
+                    self.solde_apres_transaction = self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde
+                    # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
+                    absorbtion = TauxAbsorbtionGlobal.load()
+                    absorbtion.epound_detenus += self.montant_envoyer
+                    absorbtion.save()
+                    # sauvegarder le transfert
+                    return super(TransactionCommercialComsommateur, self).save(*args, **kwargs)
+                elif self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde > self.montant_envoyer:
+                    self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_envoyer
+                    self.envoyeur.compte_entreprise_commercial.compte_consommateur.save()
+                    self.receveur.compte_consommateur.solde = self.receveur.compte_consommateur.solde + self.montant_envoyer
+                    self.receveur.compte_consommateur.save()
+                    self.solde_apres_transaction = self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde
+                    #mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
+                    absorbtion = TauxAbsorbtionGlobal.load()
+                    absorbtion.epound_detenus += self.montant_envoyer
+                    absorbtion.save()
+                    #sauvegarder le transfert
+                    return super(TransactionCommercialComsommateur,self).save(*args, **kwargs)
+                else:
+                    return TransactionCommercialComsommateur.objects.none()
         else:
             return super(TransactionCommercialComsommateur,self).save(*args, **kwargs)
 			
@@ -383,6 +397,8 @@ class CommandeClient(models.Model):
                 if self.a_livrer:
                     self.vendeur = EntrepriseCommerciale.objects.get(telephone = "22222222")
                 super(CommandeClient,self).save(*args, **kwargs)
+        else:
+            return super(CommandeClient,self).save(*args, **kwargs)
 
 class VendeurVente(models.Model):
 

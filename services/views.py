@@ -383,8 +383,11 @@ class CommandeClientViewSet(viewsets.ModelViewSet):
         data["commandes"] = serializer.data
         return Response(data)
 
+
+
     @action(methods=['get'], detail=True)
     def get_commande_by_numero_vendeur(self, request, id=None):
+
         commandes=None
         try:
             commandes = CommandeClient.objects.filter(numero_vendeur=id)
@@ -399,6 +402,7 @@ class CommandeClientViewSet(viewsets.ModelViewSet):
 
     @action(methods=['get'], detail=True)
     def get_commande_by_numero_client(self, request, id=None):
+
         commandes = None
         try:
             commandes = CommandeClient.objects.filter(numero_client=id)
@@ -466,7 +470,6 @@ class CommandeClientViewSet(viewsets.ModelViewSet):
     #
     #     data["succes"] = "Commande annulé"
     #     return Response(data)
-
 
 class NotificationViewSet(viewsets.ModelViewSet):
     queryset = Notification.objects.all()
