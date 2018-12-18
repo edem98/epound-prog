@@ -80,10 +80,10 @@ class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 		except Exception as e:
  			print("une erreur s'est produite"+ str(e))
 		consommateur = Consommateur.objects.get(compte_consommateur = obj)
-		if consommateur.nom == "":
+		if  consommateur.nom == "":
 			return consommateur.raison_social
 		else:
-			return str(consommateur.nom) +" "+str(consommateur.prenoms)
+			return str(consommateur.nom) 
 	
 	titulaire.short_description = "Titulaire du Compte"
 

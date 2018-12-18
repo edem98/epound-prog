@@ -59,7 +59,7 @@ class ParticulierSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ConsommateurParticulier
         fields = ('id','code_membre','mdp','nom', 
-                    'prenoms','sexe','ville_residence','telephone','email','lieu_residence',
+                    'prenoms','sexe','ville_residence','date_naissance','telephone','email','lieu_residence',
                     'num_carte','formation','profession',
                     'situation_matrimoniale','compte_consommateur',)
 
@@ -71,6 +71,7 @@ class ParticulierSerializer(serializers.HyperlinkedModelSerializer):
             return particulier
 
     def update(self, instance, validated_data):
+        print("changement en loading")
         instance =  ConsommateurParticulier.objects.get(telephone = validated_data.get('telephone'))
         if instance:
             if validated_data.get('nom'):
@@ -79,6 +80,10 @@ class ParticulierSerializer(serializers.HyperlinkedModelSerializer):
                 instance.prenoms = validated_data.get('prenoms')
             if validated_data.get('mdp'):
                 instance.mdp = validated_data.get('mdp')
+            if validated_data.get('ville_residence'):
+                instance.ville_residence = validated_data.get('ville_residence')
+            if validated_data.get('sexe'):
+                instance.sexe = validated_data.get('sexe')
             if validated_data.get('telephone'):
                 instance.telephone = validated_data.get('telephone')
             if validated_data.get('email'):
@@ -313,14 +318,17 @@ class CreationParticulierParTraderSerializer(serializers.HyperlinkedModelSeriali
     def create(self,validated_data):
         numero_trader = validated_data.get('numero_trader')
         telephone = validated_data.get('telephone')
-        client = Membre.objects.filter(telephone=telephone)
-        if client == []:
-            return
-        consommateur = ConsommateurParticulier(telephone = telephone,mdp = "123456789",)
-        trader = Trader.objects.get(telephone = numero_trader)
-        creation = CreationParticulierParTrader.objects.create(numero_trader = numero_trader,
-        telephone = telephone,consommateur = consommateur,trader = trader)
-        return creation
+        client = ConsommateurParticulier.objects.filter(telephone=telephone)
+        if client != []:
+            consommateur = ConsommateurParticulier(telephone=telephone, mdp="123456789", )
+            trader = Trader.objects.get(telephone=numero_trader)
+            creation = CreationParticulierParTrader.objects.create(numero_trader=numero_trader,
+                                                                   telephone=telephone, consommateur=consommateur,
+                                                                   trader=trader)
+            return creation
+        else:
+            return None
+
 
 class CreationEntrepriseParTraderSerializer(serializers.HyperlinkedModelSerializer):
     trader = TraderSerializer(read_only = True)
@@ -407,3 +415,9 @@ class ReactivationClientSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ReactivationClient
         fields = ('id', 'numero_trader', 'numero_receveur', 'trader', 'consommateur', 'date_reabonnement',)
+
+class MessageClientSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = MessageClient
+        fields = ('id','message',)

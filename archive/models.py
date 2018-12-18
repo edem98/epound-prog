@@ -1,5 +1,5 @@
 from django.db import models
-
+from rest_framework.response import Response
 from ecommerce.models import Produit
 from membre.models import *
 from compte.models import CompteConsommateur
@@ -390,7 +390,11 @@ class CommandeClient(models.Model):
                 self.vendeur = EntrepriseCommerciale.objects.get(telephone = self.numero_vendeur)
                 self.produit = Produit.objects.get(code_article = self.code_produit)
                 if self.client.compte_consommateur.solde < self.produit.prix:
-                    return None
+                    msg  = "Montant insuffusant pour effectuer cette commande"
+                    print(msg)
+                    data = {}
+                    data['msg'] = msg
+                    return Response(data['msg'])
                 else:
                     self.client.compte_consommateur.solde -= self.quantite*self.produit.prix
                     self.client.compte_consommateur.save()
@@ -448,3 +452,9 @@ class ReactivationClient(models.Model):
                 super(ReactivationClient, self).save(*args, **kwargs)
         else:
             return super(ReactivationClient, self).save(*args, **kwargs)
+
+class MessageClient(models.Model):
+    """
+        Cette classe permet aux utilisateur de nous envoyer des méssage ou des suggestions
+    """
+    message = models.TextField(verbose_name="Contenu du méssage", null=True)

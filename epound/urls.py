@@ -30,6 +30,8 @@ router.register(r'creation-entreprise-trader',CreationEntrepriseParTraderViewSet
 router.register(r'notification',NotificationViewSet)
 router.register(r'vente-vendeur',VendeurVenteViewSet)
 router.register(r'reactivation-client',ReactivationClientViewSet)
+router.register(r'message-client',MessageClientViewSet)
+
 
 
 
