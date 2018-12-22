@@ -84,8 +84,6 @@ class ParticulierSerializer(serializers.HyperlinkedModelSerializer):
                 instance.ville_residence = validated_data.get('ville_residence')
             if validated_data.get('sexe'):
                 instance.sexe = validated_data.get('sexe')
-            if validated_data.get('telephone'):
-                instance.telephone = validated_data.get('telephone')
             if validated_data.get('email'):
                 instance.email = validated_data.get('email')
             if validated_data.get('lieu_residence'):
