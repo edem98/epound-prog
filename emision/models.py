@@ -134,5 +134,5 @@ class CreationParticulierParTrader(models.Model):
                 super(CreationParticulierParTrader,self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = "Emission de code"
-        verbose_name_plural = "Emissions de codes"
+        verbose_name = "Adhésion"
+        verbose_name_plural = "Adhésions"

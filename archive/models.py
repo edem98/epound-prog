@@ -16,7 +16,7 @@ class TransactionInterComsommateur(models.Model):
     """
 
     envoyeur = models.ForeignKey(Consommateur,
-								verbose_name="Envoyeur",
+								verbose_name="Expéditeur",
 								on_delete=models.CASCADE,
 								related_name = "envoyeur_consommateur",
                                 null = True ,blank = True,)
@@ -46,8 +46,8 @@ class TransactionInterComsommateur(models.Model):
             return super(TransactionInterComsommateur,self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Transfert entre Consommateurs'
-        verbose_name_plural = 'Transferts entre Consommateurs'
+        verbose_name = 'Transfert Consommateurs vers Consommateurs'
+        verbose_name_plural = 'Transfert Consommateurs vers Consommateurs'
 
 class TransactionCommercialComsommateur(models.Model):
     """
@@ -57,10 +57,10 @@ class TransactionCommercialComsommateur(models.Model):
     """
     numero_envoyeur = models.CharField(max_length=8,verbose_name ="Numéro de l'envoyeur",null = True)
     numero_receveur = models.CharField(max_length=8,verbose_name ="Numéro du bénéficiare",null = True)
-    envoyeur = models.ForeignKey(EntrepriseCommerciale,verbose_name="Envoyeur",on_delete=models.CASCADE,
+    envoyeur = models.ForeignKey(EntrepriseCommerciale,verbose_name="Expéditeur",on_delete=models.CASCADE,
 								related_name = "envoyeur_commercial",
                                 null = True,)
-    receveur = models.ForeignKey(Consommateur,verbose_name="receveur_consommateur",on_delete=models.CASCADE,null = True,)
+    receveur = models.ForeignKey(Consommateur,verbose_name="Entreprise bénéficiaire",on_delete=models.CASCADE,null = True,)
 
     montant_envoyer = models.PositiveIntegerField(verbose_name="Montant transférer",null = True)
 
@@ -104,8 +104,8 @@ class TransactionCommercialComsommateur(models.Model):
 			
 
     class Meta:
-        verbose_name = 'Transfert Commercial Consommateur'
-        verbose_name_plural = 'Transferts Commercials Consommateurs'
+        verbose_name = 'Transfert Commercial vers Consommateur'
+        verbose_name_plural = 'Transferts Commercials vers Consommateurs'
 
 class PayementConsomateur(models.Model):
     """
@@ -120,7 +120,7 @@ class PayementConsomateur(models.Model):
     receveur_code = models.PositiveIntegerField(verbose_name ="Code membre du bénéficiare",null = True)
 
     envoyeur = models.ForeignKey(Consommateur,
-								verbose_name="envoyeur_consommateur",
+								verbose_name="Expéditeur",
 								on_delete=models.CASCADE,
 								null = True,)
 
@@ -137,8 +137,8 @@ class PayementConsomateur(models.Model):
     date_transaction = models.DateTimeField(auto_now_add = True,verbose_name = "Date de Transaction")
 
     class Meta:
-        verbose_name = "Transaction acheteur vers vendeur"
-        verbose_name_plural = "Transactions acheteurs vers vendeurs"
+        verbose_name = "Transaction consommateur vers vendeur"
+        verbose_name_plural = "Transactions consommateurs vers vendeurs"
 
 
     def save(self, *args, **kwargs):
@@ -182,7 +182,7 @@ class PayementInterCommercial(models.Model):
     numero_receveur = models.CharField(max_length=8, verbose_name="Numéro du bénéficiare", null=True)
 
     envoyeur = models.ForeignKey(EntrepriseCommerciale,
-								verbose_name="Entreprise Acheteur",
+								verbose_name="Entreprise Expéditeur",
 								on_delete=models.CASCADE,
 								related_name = "entreprise_envoyeur",
                                 null = True,)
@@ -289,8 +289,8 @@ class ConversionTrader(models.Model):
             return super(ConversionTrader,self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name ='Conversion'
-        verbose_name_plural = 'Conversions'
+        verbose_name ='Conversion Trader'
+        verbose_name_plural = 'Conversions Traders'
 
 class ReconversionTrader(models.Model):
     """
@@ -312,7 +312,7 @@ class ReconversionTrader(models.Model):
 
     epound_reconverti = models.PositiveIntegerField(verbose_name="Unités epouns Reconverties",)
 
-    montant_retourner = models.PositiveIntegerField(verbose_name=" Montant Retour"
+    montant_retourner = models.PositiveIntegerField(verbose_name=" Montant Retourner"
                                                     ,null = True)
 
     solde_consommateur_apres_reconversion = models.PositiveIntegerField(
@@ -329,7 +329,7 @@ class ReconversionTrader(models.Model):
                 self.montant_retourner = self.epound_reconverti-self.epound_reconverti*CompteConsommateur.TAUX_PERTE/100
                 self.consommateur.compte_consommateur.solde -= self.epound_reconverti
                 self.consommateur.compte_consommateur.save()
-                self.solde_consommateur_apres_reconversion = self.consommateur.compte_consommateur.solde
+                self.solde_consommateur_apres_reconversion = self.trader.compte_trader.solde
 
                 # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
                 absorbtion = TauxAbsorbtionGlobal.load()
