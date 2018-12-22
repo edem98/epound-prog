@@ -130,7 +130,8 @@ class CreationParticulierParTrader(models.Model):
                 self.solde_initial = self.trader.compte_trader.solde
                 self.trader.compte_trader.solde -= 3000
                 self.trader.compte_trader.save()
-                self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp ="123456789")
+                dernier = ConsommateurParticulier.objects.all().order_by("-code_membre")[0]
+                self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp ="123456789",code_membre = dernier.id+1)
                 super(CreationParticulierParTrader,self).save(*args, **kwargs)
 
     class Meta:
