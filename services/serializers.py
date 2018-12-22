@@ -329,7 +329,6 @@ class CreationParticulierParTraderSerializer(serializers.HyperlinkedModelSeriali
         else:
             return None
 
-
 class CreationEntrepriseParTraderSerializer(serializers.HyperlinkedModelSerializer):
     trader = TraderSerializer(read_only = True)
     consommateur = ConsommateurSerializer(read_only = True)
@@ -379,7 +378,6 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
     vendeur = EntrepriseCommercialeSerializer(read_only=True)
     client = ConsommateurSerializer(read_only=True)
     produit = ProduitSerializer(read_only=True)
-
 
     class Meta:
         model = CommandeClient
