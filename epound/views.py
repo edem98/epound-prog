@@ -16,11 +16,11 @@ def send_sms(to, message):
     client = Client(
         settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
     response = client.messages.create(
-        body=message, to=to, from_='+15005550006')
+        body=message, to=to, from_='+18639008466')
     return response
 
 def sms_sender(message,to):
-	to = "00228"+""+to
+	to = "+228"+""+to
 	response = send_sms(to, message)
 	print(response)
 
