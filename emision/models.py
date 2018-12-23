@@ -130,7 +130,7 @@ class CreationParticulierParTrader(models.Model):
                 self.trader.compte_trader.save()
                 dernier = ConsommateurParticulier.objects.all().order_by("-code_membre")[0]
                 self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp ="123456789",code_membre = dernier.id+1)
-                message = "Bienvenue sur epound\n"+"code membre: "+dernier.id+1+"\nmot de passe: "+"123456789"
+                message = "Bienvenue sur epound\n"+"code membre: "+str(dernier.id+1)+"\nmot de passe: "+"123456789"
                 to = self.telephone
                 sms_sender(message,to)
                 super(CreationParticulierParTrader,self).save(*args, **kwargs)
