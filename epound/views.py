@@ -6,14 +6,14 @@ from ecommerce.models import ExpressionBesoin, Produit
 from epound import settings
 from membre.models import EntrepriseCommerciale
 from django.conf import settings
-from twilio.rest import TwilioRestClient
+from twilio.rest import Client
 from django.template.loader import render_to_string
 
 def send_sms(to, message):
     '''sms utility method'''
 
     message = message.encode('utf-8')
-    client = TwilioRestClient(
+    client = Client(
         settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
     response = client.messages.create(
         body=message, to=to, from_='+18639008466')

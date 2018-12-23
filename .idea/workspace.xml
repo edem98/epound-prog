@@ -116,12 +116,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/epound/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            <state relative-caret-position="135">
+              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
-                <element signature="e#459#786#0" />
-                <marker date="1545568967709" expanded="true" signature="426:829" ph="..." />
+                <marker date="1545569364867" expanded="true" signature="416:809" ph="..." />
               </folding>
             </state>
           </provider>
@@ -802,12 +801,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/epound/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        <state relative-caret-position="135">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
-            <element signature="e#459#786#0" />
-            <marker date="1545568967709" expanded="true" signature="426:829" ph="..." />
+            <marker date="1545569364867" expanded="true" signature="416:809" ph="..." />
           </folding>
         </state>
       </provider>
