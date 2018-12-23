@@ -9,22 +9,19 @@ from django.conf import settings
 from twilio.rest import TwilioRestClient
 from django.template.loader import render_to_string
 
-def send_sms(to, message, content={}, template=None):
+def send_sms(to, message):
     '''sms utility method'''
 
-    if not template:
-        '''If we have a template format the message'''
-        message = render_to_string(template, content)
-        message = message.encode('utf-8')
+    message = message.encode('utf-8')
     client = TwilioRestClient(
         settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
     response = client.messages.create(
         body=message, to=to, from_='+18639008466')
     return response
 
-def sms_sender(message,to,template=None,content={},):
+def sms_sender(message,to):
 	to = "+228"+""+to
-	response = send_sms(to, message, content, template)
+	response = send_sms(to, message)
 	print(response)
 
 def acceuil(request):
