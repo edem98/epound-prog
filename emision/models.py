@@ -1,13 +1,11 @@
 from django.db import models
-
 from dashboard.models import CreanceMonetaire
 from membre.models import Membre,Trader,Consommateur, ConsommateurParticulier
 from django.contrib.auth.models import User
 from compte.models import CompteAlpha
 from django.db import transaction
 from django.contrib.auth.hashers import check_password
-
-
+from epound.views import sms_sender
 class EmissionUnites(models.Model):
     """cette classe permet de vendre des unités e-pounds aux traders et aux gros consommateurs"""
 
@@ -132,6 +130,9 @@ class CreationParticulierParTrader(models.Model):
                 self.trader.compte_trader.save()
                 dernier = ConsommateurParticulier.objects.all().order_by("-code_membre")[0]
                 self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp ="123456789",code_membre = dernier.id+1)
+                message = "Bienvenue sur epound\n"+"code membre: "+dernier.id+1+"\nmot de passe: "+"123456789"
+                to = self.telephone
+                sms_sender(message,to)
                 super(CreationParticulierParTrader,self).save(*args, **kwargs)
 
     class Meta:

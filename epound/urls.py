@@ -48,10 +48,6 @@ urlpatterns = [
     path('ecommerce/', include('ecommerce.urls')),
     path('api-auth/', include('rest_framework.urls')),
 
-    # Here we add our Twilio URLs
-    path('sms/', views.sms),
-    #path('ring/', views.ring),
-
     # path('newsletter/', include('newsletter.urls')),
     # path('imperavi/', include('imperavi.urls')),
 

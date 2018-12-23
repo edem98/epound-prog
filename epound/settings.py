@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'daterange_filter',
     'storages',
     'sorl.thumbnail',
+    'django_twilio',
     # 'imperavi',
     # 'newsletter',
     # 'newsletter',
@@ -227,3 +228,7 @@ NEWSLETTER_BATCH_DELAY = 60
 
 # Number of emails in one batch
 NEWSLETTER_BATCH_SIZE = 100
+
+#twilo sms credentials
+TWILIO_ACCOUNT_SID = 'ACfff60f15de8fe247009c9b9986b0aa97'
+TWILIO_AUTH_TOKEN = '31aaff118a5b772185dc425695c54d82'

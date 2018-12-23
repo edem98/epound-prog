@@ -1,5 +1,6 @@
 from django.db import models
-from django.core.cache import cache
+
+
 """ from compte import CompteBusiness
 from dashboard.models import Creance
 
@@ -80,3 +81,4 @@ class CorrespondanceMois():
 			return "Novembre"
 		elif mois == self.decembre:
 			return "Novembre"
+

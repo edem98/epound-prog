@@ -5,12 +5,27 @@ from django.views.generic import ListView
 from ecommerce.models import ExpressionBesoin, Produit
 from epound import settings
 from membre.models import EntrepriseCommerciale
-from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+from twilio.rest import TwilioRestClient
+from django.template.loader import render_to_string
 
-@csrf_exempt
-def sms(request):
-    twiml = '<Response><Message>Hello from your Django app!</Message></Response>'
-    return HttpResponse(twiml, content_type='text/xml')
+def send_sms(to, message, content={}, template=None):
+    '''sms utility method'''
+
+    if not template:
+        '''If we have a template format the message'''
+        message = render_to_string(template, content)
+        message = message.encode('utf-8')
+    client = TwilioRestClient(
+        settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+    response = client.messages.create(
+        body=message, to=to, from_='+18639008466')
+    return response
+
+def sms_sender(message,to,template=None,content={},):
+	to = "+228"+""+to
+	response = send_sms(to, message, content, template)
+	print(response)
 
 def acceuil(request):
     context = {}

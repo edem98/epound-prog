@@ -46,3 +46,4 @@ CELERY_TIMEZONE = 'Europe/London'
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 CELERY_BROKER_URL = celery_url
 
+
