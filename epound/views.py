@@ -20,7 +20,7 @@ def send_sms(to, message):
     return response
 
 def sms_sender(message,to):
-	to = "00228"+""+to
+	to = "+228"+""+to
 	response = send_sms(to, message)
 	print(response)
 
