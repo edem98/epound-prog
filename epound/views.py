@@ -2,14 +2,15 @@ from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
-
-from dashboard.tasks import *
 from ecommerce.models import ExpressionBesoin, Produit
 from epound import settings
 from membre.models import EntrepriseCommerciale
-from compte.tasks import *
-from octroi.tasks import remboursemment_automatique
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
+def sms(request):
+    twiml = '<Response><Message>Hello from your Django app!</Message></Response>'
+    return HttpResponse(twiml, content_type='text/xml')
 
 def acceuil(request):
     context = {}

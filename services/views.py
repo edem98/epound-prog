@@ -95,7 +95,7 @@ class MembreViewSet(viewsets.ModelViewSet):
                 serializer = TraderSerializer(trader[0])
                 type_client = "trader"
 
-        except ConsommateurParticulier.DoesNotExist:
+        except Membre.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         data = {}
@@ -117,23 +117,15 @@ class ParticulierViewSet(viewsets.ModelViewSet):
         data["particuliers"] = serializer.data
         return Response(data)
 
-    def retrieve(self, request, telephone=None):
-        queryset = ConsommateurParticulier.objects.all()
-        particulier = get_object_or_404(queryset, telephone=telephone)
-        serializer = ParticulierSerializer(particulier)
-        data = {}
-        data["particulier"] = serializer.data
-        return Response(data)
-
-
     @action(methods=['get'], detail=True)
     def get_by_telephone(self, request, telephone=None):
         try:
             particulier = ConsommateurParticulier.objects.get(telephone= telephone)
         except ConsommateurParticulier.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-
         serializer = ParticulierSerializer(particulier)
+        data = {}
+        data["particulier"] = serializer.data
         return Response(serializer.data)
 
 class EntrepriseViewSet(viewsets.ModelViewSet):
@@ -149,7 +141,8 @@ class EntrepriseViewSet(viewsets.ModelViewSet):
         data["entreprises"] = serializer.data
         return Response(data)
 
-    def retrieve(self, request, telephone=None):
+    @action(methods=['get'], detail=True)
+    def get_by_telephone(self, request, telephone=None):
         queryset = ConsommateurEntreprise.objects.all()
         entreprise = get_object_or_404(queryset, telephone=telephone)
         serializer = EntrepriseSerializer(entreprise)
@@ -185,7 +178,8 @@ class EntrepriseCommercialeViewSet(viewsets.ModelViewSet):
         data["vendeurs"] = serializer.data
         return Response(data)
 
-    def retrieve(self, request, telephone=None):
+    @action(methods=['get'], detail=True)
+    def get_by_telephone(self, request, telephone=None):
         queryset = EntrepriseCommerciale.objects.all()
         vendeur = get_object_or_404(queryset, telephone=telephone)
         serializer = EntrepriseCommercialeSerializer(vendeur)
@@ -205,7 +199,8 @@ class TraderViewSet(viewsets.ModelViewSet):
         data["traders"] = serializer.data
         return Response(data)
 
-    def retrieve(self, request, telephone=None):
+    @action(methods=['get'], detail=True)
+    def get_by_telephone(self, request, telephone=None):
         queryset = Trader.objects.all()
         trader = get_object_or_404(queryset, telephone=telephone)
         serializer = TraderSerializer(trader)
@@ -376,7 +371,8 @@ class CommandeClientViewSet(viewsets.ModelViewSet):
     serializer_class = CommandeClientSerializer
     lookup_field = "id"
 
-    def list(self, request):
+    @action(methods=['get'], detail=False)
+    def list_commande(self, request):
         queryset = CommandeClient.objects.all()
         serializer = CommandeClientSerializer(queryset, many=True)
         data = {}
