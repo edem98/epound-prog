@@ -457,4 +457,6 @@ class MessageClient(models.Model):
     """
         Cette classe permet aux utilisateur de nous envoyer des méssage ou des suggestions
     """
+    telephone = models.CharField(max_length=8, verbose_name="Téléphone du client", null=True)
     message = models.TextField(verbose_name="Contenu du méssage", null=True)
+    date_envoye = models.DateTimeField(auto_now_add=True,null=True)

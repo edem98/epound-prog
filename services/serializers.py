@@ -185,7 +185,7 @@ class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
         model = EntrepriseCommerciale
         depth = 1
         fields = ('id','code_membre',
-                    'nom','mdp','telephone','email',
+                    'nom','mdp','telephone','email','emplacement',
                     'actif','compte_entreprise_commercial','type_market')
 
     def create(self,validated_data):
@@ -416,4 +416,4 @@ class MessageClientSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = MessageClient
-        fields = ('id','message',)
+        fields = ('id','telephone','message','date_envoye')
