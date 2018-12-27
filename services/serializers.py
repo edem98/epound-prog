@@ -416,4 +416,4 @@ class MessageClientSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = MessageClient
-        fields = ('id','telephone','message','date_envoye')
+        fields = ('id','message','date_envoye')

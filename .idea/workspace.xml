@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/serializers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -143,7 +141,7 @@
         <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="418" column="57" selection-start-line="418" selection-start-column="57" selection-end-line="418" selection-end-column="57" />
+              <caret line="418" column="22" selection-start-line="418" selection-start-column="22" selection-end-line="418" selection-end-column="22" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
                 <element signature="e#1174#1863#0" />
@@ -813,7 +811,7 @@
     <entry file="file://$PROJECT_DIR$/services/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="418" column="57" selection-start-line="418" selection-start-column="57" selection-end-line="418" selection-end-column="57" />
+          <caret line="418" column="22" selection-start-line="418" selection-start-column="22" selection-end-line="418" selection-end-column="22" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
             <element signature="e#1174#1863#0" />
