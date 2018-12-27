@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/membre/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/membre/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/serializers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +114,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/membre/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
@@ -139,15 +139,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="418" column="48" lean-forward="true" selection-start-line="418" selection-start-column="48" selection-end-line="418" selection-end-column="48" />
+            <state relative-caret-position="126">
+              <caret line="161" column="37" selection-start-line="161" selection-start-column="37" selection-end-line="161" selection-end-column="37" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
                 <element signature="e#1174#1863#0" />
                 <element signature="e#1962#2069#0" />
+                <element signature="e#8602#10518#0" />
                 <element signature="e#10610#11584#0" />
                 <element signature="e#11681#12968#0" />
                 <element signature="e#13048#13425#0" />
@@ -162,6 +163,7 @@
                 <element signature="e#19017#19145#0" />
                 <element signature="e#19220#19467#0" />
                 <element signature="e#19550#19809#0" />
+                <element signature="e#19887#19963#0" />
               </folding>
             </state>
           </provider>
@@ -275,8 +277,8 @@
         <option value="$PROJECT_DIR$/epound/settings.py" />
         <option value="$PROJECT_DIR$/epound/views.py" />
         <option value="$PROJECT_DIR$/archive/models.py" />
-        <option value="$PROJECT_DIR$/services/serializers.py" />
         <option value="$PROJECT_DIR$/membre/models.py" />
+        <option value="$PROJECT_DIR$/services/serializers.py" />
       </list>
     </option>
   </component>
@@ -791,32 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="418" column="48" lean-forward="true" selection-start-line="418" selection-start-column="48" selection-end-line="418" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-            <element signature="e#1174#1863#0" />
-            <element signature="e#1962#2069#0" />
-            <element signature="e#10610#11584#0" />
-            <element signature="e#11681#12968#0" />
-            <element signature="e#13048#13425#0" />
-            <element signature="e#14646#15010#0" />
-            <element signature="e#15102#16110#0" />
-            <element signature="e#16201#16972#0" />
-            <element signature="e#17042#17193#0" />
-            <element signature="e#17270#17538#0" />
-            <element signature="e#17612#17767#0" />
-            <element signature="e#17838#18175#0" />
-            <element signature="e#18253#18941#0" />
-            <element signature="e#19017#19145#0" />
-            <element signature="e#19220#19467#0" />
-            <element signature="e#19550#19809#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/archive/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -834,6 +810,34 @@
             <element signature="e#2635#4277#0" />
             <element signature="e#4325#5404#0" />
             <element signature="e#5455#6546#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="161" column="37" selection-start-line="161" selection-start-column="37" selection-end-line="161" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#1174#1863#0" />
+            <element signature="e#1962#2069#0" />
+            <element signature="e#8602#10518#0" />
+            <element signature="e#10610#11584#0" />
+            <element signature="e#11681#12968#0" />
+            <element signature="e#13048#13425#0" />
+            <element signature="e#14646#15010#0" />
+            <element signature="e#15102#16110#0" />
+            <element signature="e#16201#16972#0" />
+            <element signature="e#17042#17193#0" />
+            <element signature="e#17270#17538#0" />
+            <element signature="e#17612#17767#0" />
+            <element signature="e#17838#18175#0" />
+            <element signature="e#18253#18941#0" />
+            <element signature="e#19017#19145#0" />
+            <element signature="e#19220#19467#0" />
+            <element signature="e#19550#19809#0" />
+            <element signature="e#19887#19963#0" />
           </folding>
         </state>
       </provider>
