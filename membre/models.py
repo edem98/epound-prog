@@ -46,6 +46,8 @@ class Trader(Membre):
 	ville_residence = models.CharField(max_length = 150, verbose_name = 'Ville de résidence', null = True)
 	# ajout du prénoms au cas ou la personne serait physique
 	prenoms = models.CharField(max_length = 150, verbose_name = 'Prénoms', null = True)
+
+	emplacement = models.CharField(max_length=200, verbose_name="Emplacement du Trader", null=True, )
 	
 	#Compte trader associer
 	compte_trader = models.OneToOneField(CompteTrader,on_delete = models.CASCADE,
