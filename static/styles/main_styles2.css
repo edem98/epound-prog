@@ -882,10 +882,16 @@ section
 	line-height: 40px;
 	width: 100%;
 }
+
 .shop_now_button
 {
 	width: 180px;
 	margin-top: 32px;
+}
+
+.commander_btn
+{
+	width: 150px;
 }
 
 /*********************************
@@ -1045,7 +1051,6 @@ section
 .product-item:hover::after
 {
 	box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15);
-	border: solid 2px rgba(235,235,235,1);
 }
 
 .product-item:hover span
@@ -1054,7 +1059,6 @@ section
 	background: green;
     color: white;
     border-radius: 8px;
-    margin-top: 10px;
     z-index: 1000;
     padding: 5px;
 }
@@ -1063,27 +1067,27 @@ section
     margin-right: 5px;
     margin-left: 5px;
 	width: 100%;
-	height: 340px;
+	height: 380px;
 	border-right: solid 1px #e9e9e9;
 }
 .product_image
 {
     margin: auto;
 	width: 90%;
-	height: 100%;
+	height: 60%;
 }
 .product_image img
 {
     margin: auto;
 	width: 100%;
-	height: 80%;
+	height: 100%;
 }
 .product_info
 {
 	text-align: center;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-top: -3.6em;
+
 }
 .product_name
 {

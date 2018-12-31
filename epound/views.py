@@ -9,6 +9,7 @@ from django.conf import settings
 from twilio.rest import Client
 from django.template.loader import render_to_string
 
+
 def send_sms(to, message):
     '''sms utility method'''
 
@@ -19,10 +20,12 @@ def send_sms(to, message):
         body=message, to=to, from_='+18639008466')
     return response
 
-def sms_sender(message,to):
-	to = "+228"+""+to
-	response = send_sms(to, message)
-	print(response)
+
+def sms_sender(message, to):
+    to = "+228" + "" + to
+    response = send_sms(to, message)
+    print(response)
+
 
 def acceuil(request):
     context = {}
@@ -30,11 +33,10 @@ def acceuil(request):
     new_produits = Produit.objects.all().order_by('-date_ajout')[:30]
     context['besoins'] = besoins
     context['produits'] = new_produits
-    return render(request,'index.html',context)
+    return render(request, 'index.html', context)
 
 
 class ListEntreprise(ListView):
-
     model = EntrepriseCommerciale
     template_name = "entreprise.html"
     context_object_name = "entreprises"
@@ -49,10 +51,11 @@ class ListEntreprise(ListView):
 
 
 def about(request):
-    return render(request,'index.html')
+    context = {}
+    new_produits = Produit.objects.all().order_by('-date_ajout')[:30]
+    context['produits'] = new_produits
+    return render(request, 'about.html', context)
 
-def faq(request):
-    return render(request,'faqs/faqs.html',)
 
 def contact(request):
     if request.method == "POST":
@@ -68,4 +71,4 @@ def contact(request):
                 return HttpResponse('Invalid header found.')
         else:
             return HttpResponse('Make sure all fields are entered and valid.')
-    return render(request,'contact.html')
+    return render(request, 'contact.html')
