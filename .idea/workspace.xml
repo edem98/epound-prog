@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles/main_styles2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/main_styles2.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,7 +55,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Procfile" value="3" />
-          <entry key="css" value="835" />
+          <entry key="css" value="836" />
           <entry key="dummy" value="6" />
           <entry key="html" value="2840" />
           <entry key="js" value="291" />
@@ -66,7 +65,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="835" />
+          <entry key="CSS" value="836" />
           <entry key="HTML" value="2840" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="23" />
@@ -158,7 +157,7 @@
         <entry file="file://$PROJECT_DIR$/static/styles/main_styles2.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="1023" column="21" selection-start-line="1023" selection-start-column="21" selection-end-line="1023" selection-end-column="21" />
+              <caret line="1023" column="20" selection-start-line="1023" selection-start-column="20" selection-end-line="1023" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -939,7 +938,7 @@
     <entry file="file://$PROJECT_DIR$/static/styles/main_styles2.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="1023" column="21" selection-start-line="1023" selection-start-column="21" selection-end-line="1023" selection-end-column="21" />
+          <caret line="1023" column="20" selection-start-line="1023" selection-start-column="20" selection-end-line="1023" selection-end-column="20" />
         </state>
       </provider>
     </entry>
