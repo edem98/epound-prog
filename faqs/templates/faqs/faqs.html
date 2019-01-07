@@ -35,9 +35,13 @@
 								<div class="cd-faq-content">
 									<p>{{ item.solution }}</p>
 									{% if item.manuel.url != None %}
-									<p>Pour plus d'informations
-										<a href="{{ item.manuel.url }}" class="lien_manuel">Manuel complet en pdf </a>
-									</p>
+										{% if ".apk" in item.manuel.url %}
+											<a href="{{ item.manuel.url }}" class="lien_manuel">Télécharger</a>
+										{% else %}
+											<p>Pour plus d'informations
+												<a href="{{ item.manuel.url }}" class="lien_manuel">Manuel complet en pdf </a>
+											</p>
+										{% endif %}
 									{% endif %}
 								</div> <!-- cd-faq-content -->
 							</li>

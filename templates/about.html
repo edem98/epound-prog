@@ -20,7 +20,7 @@
 							<!--text-align: center;">Une monnaie alternative et son économie au service de sa communauté</h3>-->
 						<!--<h1 style="color: #ffffff; margin-top: 25px;-->
 						<!--font-family: 'Permanent Marker', cursive; font-size: 30px; font-weight: 700">Bienvenue</h1>-->
-						<div class="red_button shop_now_button">
+						<div class="red_button shop_now_button" style="margin-top: 300px;">
 							<a href="{% url 'vendeurs' %}" style="font-family: 'Permanent Marker', cursive;padding-left:2%;padding-right:2%; font-weight: 900;font-size: 15px;">
 							Nos valeurs</a>
 						</div>
@@ -114,14 +114,19 @@
 														<img class="img-fluid" src="{{ produit.image_produit.url }}" alt="">
 													</div>
 													<div class="product_info">
-														<h6 class="product_name"><a href="#">{{ produit.nom }}</a></h6>
+														<h6 style="margin-top: 8px;color: black" class="product_name">{{ produit.nom }}</h6>
 														<div class="product_price">
-																<p style="font-size:10px;color: green;margin-top: -0.5em;">Prix: {{ produit.prix }} epounds</p>
-																<p style="font-size:10px;color: green;margin-top: -1.5em;">Code article: {{ produit.code_article }}</p>
+																<p style="font-size:12px;color: green;margin-top: -0.5em;">Prix: {{ produit.prix }} epounds</p>
+																<p style="font-size:12px;color: green;margin-top: -1.5em;">Code article: {{ produit.code_article }}</p>
 														</div>
-														<p style="font-size:10px;color: green;margin-top: -1.5em;">Vendeur: {{ produit.vendeur }}</p>
-														<p style="font-size:10px;color: green;margin-top: -1.5em;">Téléphone: {{ produit.vendeur.telephone }}</p>
-														<p style="font-size:10px;color: green;margin-top: -1.5em;">Emplacement: {{ produit.vendeur.emplacement }}</p>
+														<p style="font-size:12px;color: green;margin-top: -1.5em;">Vendeur: {{ produit.vendeur }}</p>
+														<p style="font-size:12px;color: green;margin-top: -1.5em;">Téléphone: {{ produit.vendeur.telephone }}</p>
+														<p style="font-size:12px;color: green;margin-top: -1.5em;">Emplacement: {{ produit.vendeur.emplacement }}</p>
+														<div class="red_button commander_btn">
+															<a href="epound://epound-prog.herokuapp.com/commander/?code_produit={{ produit.code_article }}&prix={{ produit.prix }}" style="font-family: 'Permanent Marker', cursive;padding-left:2%;padding-right:2%; font-weight: 900;font-size: 12px;">
+																Commander
+															</a>
+														</div>
 													</div>
 												</div>
 											</div>
