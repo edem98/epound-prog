@@ -401,7 +401,22 @@ class VendeuVenteSerializer(serializers.HyperlinkedModelSerializer):
     vendeur = EntrepriseCommercialeSerializer(read_only=True)
     class Meta:
         model = VendeurVente
-        fields = ('id','numero_acheteur','numero_vendeur','montant','acheteur','vendeur',)
+        fields = ('id','numero_acheteur','mdp_acheteur','numero_vendeur','montant','acheteur','vendeur',)
+
+    def create(self,validated_data):
+        numero_acheteur = validated_data.pop('numero_acheteur')
+        mdp_acheteur = validated_data.pop('mdp_acheteur')
+        if numero_acheteur and mdp_acheteur:
+            client = Consommateur.objects.get(telephone=numero_acheteur)
+            if client.mdp != mdp_acheteur:
+                data = {}
+                data["echec"]= "Le mot de passe ne correspond"
+                raise serializers.ValidationError(data)
+            else:
+                validated_data['numero_acheteur'] = numero_acheteur
+                validated_data['mdp_acheteur'] = mdp_acheteur
+                vente = VendeurVente.objects.create(**validated_data)
+                return vente
 
 class ReactivationClientSerializer(serializers.HyperlinkedModelSerializer):
 

@@ -409,6 +409,7 @@ class VendeurVente(models.Model):
     """Cette classe gère les ventes réaliser par les vendeur
     """
     numero_acheteur = models.CharField(max_length=8,verbose_name="Numéro de l'acheteur",null=True)
+    mdp_acheteur = models.CharField(max_length = 50,verbose_name = "Mot de passe client",null = True)
     numero_vendeur = models.CharField(max_length=8,verbose_name="Numéro du vendeur",null=True)
     acheteur = models.ForeignKey(Consommateur,on_delete=models.CASCADE,null=True)
     vendeur = models.ForeignKey(EntrepriseCommerciale,on_delete=models.CASCADE,null=True)
