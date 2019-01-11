@@ -420,7 +420,14 @@ class VendeurVente(models.Model):
             with transaction.atomic():
                 self.client = Consommateur.objects.get(telephone = self.numero_acheteur)
                 self.vendeur = EntrepriseCommerciale.objects.get(telephone = self.numero_vendeur)
-                super(VendeurVente,self).save(*args, **kwargs)
+                if self.client.compte_consommateur.solde > self.montant:
+                    self.client.compte_consommateur.solde -= self.montant
+                    self.client.compte_consommateur.save()
+                    self.vendeur.compte_entreprise_commercial.compte_consommateur.solde += self.montant
+                    self.vendeur.compte_entreprise_commercial.compte_consommateur.save()
+                    super(VendeurVente,self).save(*args, **kwargs)
+                else:
+                    return None
 
 class ReactivationClient(models.Model):
 
