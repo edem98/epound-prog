@@ -197,7 +197,6 @@ class EntrepriseCommerciale(Membre):
 	]
 
 	nature = [
-		(etablissement, 'Etablissement'),
 		(snc, 'SNC'),
 		(scs, 'SCS'),
 		(sarl, 'SARL'),
