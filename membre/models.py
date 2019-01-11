@@ -189,7 +189,6 @@ class EntrepriseCommerciale(Membre):
 	sa = 'SA'
 	sep = 'SEP'
 	spas = 'SPAS'
-	anonyme = 'Société anonyme'
 
 	type = [
 		(es, 'es'),
@@ -203,7 +202,6 @@ class EntrepriseCommerciale(Membre):
 		(sarl, 'SARL'),
 		(sarl, 'SARL'),
 		(sarl, 'SARL'),
-		(anonyme, 'Société anonyme'),
 	]
 
 	besoin_fondamental = models.ForeignKey('ecommerce.ExpressionBesoin', on_delete=models.CASCADE,
