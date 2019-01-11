@@ -291,3 +291,8 @@ class EntrepriseCommercialeeAdmin(PolymorphicChildModelAdmin):
 	def get_form(self, request, obj=None, **kwargs):
 		kwargs['form'] = EntrepriseCommercialeForm
 		return super().get_form(request, obj, **kwargs)
+
+@admin.register(Partenaire)
+class PartenaireAdmin(admin.ModelAdmin):
+	search_fields = ['nom',]
+	list_display = ['nom','logo',]

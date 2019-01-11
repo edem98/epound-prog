@@ -1,0 +1,51 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block add_css %}
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <!-- Slider -->
+    <div class="main_slider"
+		 style="background-image:url({% static 'images/logo.jpg' %}); margin: auto;" >
+		<div class="container fill_height">
+			<div class="row align-items-center fill_height">
+				<div class="col">
+					<div class="main_slider_content">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!-- Banner -->
+	<div class="row">
+		<div class="col text-center">
+			<div class="section_title nessw_arrivals_title">
+				<h2 style="font-family: 'Permanent Marker', cursive; margin-top: 20px;" >Nos Partenaires</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="banner">
+		<div class="container">
+			<div class="row">
+                {% for partenaire in partenaires %}
+                    <div class="product-item {{ entreprise.slug }}">
+                        <div class="product discount product_filter">
+                            <div class="product_image">
+                                <img src="{{ partenaire.logo.url }}" alt="">
+                            </div>
+                            <div class="product_info">
+                                <h6 style="margin-top: 8px;color: black" class="product_name">{{ partenaire.nom }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+	    </div>
+	</div>
+
+{% endblock  %}

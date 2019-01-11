@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from ecommerce.models import ExpressionBesoin, Produit
 from epound import settings
-from membre.models import EntrepriseCommerciale
+from membre.models import EntrepriseCommerciale, Partenaire
 from django.conf import settings
 from twilio.rest import Client
 from django.template.loader import render_to_string
@@ -74,3 +74,10 @@ def contact(request):
         else:
             return HttpResponse('Make sure all fields are entered and valid.')
     return render(request, 'contact.html')
+
+
+def partenaires(request):
+    context = {}
+    partners = Partenaire.objects.all()
+    context['partenaires'] = partners
+    return render(request, 'partenaire.html', context)
