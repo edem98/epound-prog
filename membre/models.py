@@ -9,8 +9,7 @@ from dashboard.models import Creance
 from django.contrib.auth.hashers import make_password
 
 class Membre(PolymorphicModel,TimeStamp):
-	user = models.OneToOneField(User,
-        on_delete=models.CASCADE,null = True,blank = True)
+	user = models.OneToOneField(User,on_delete=models.CASCADE,null = True,blank = True)
 	nom = models.CharField(max_length = 100,verbose_name = 'Nom',null = True,)
 	code_membre = models.PositiveIntegerField(unique = True,verbose_name ='Code membre',null = True,)
 	mdp = models.CharField(max_length = 80, verbose_name ='Mot de passe',null = True)
@@ -184,10 +183,19 @@ class EntrepriseCommerciale(Membre):
 	"""
 	es = 'es'
 	em = 'em'
+	etablissement = 'Etablissement'
+	sarl = 'SARL'
+	anonyme = 'Société anonyme'
 
 	type = [
 		(es, 'es'),
 		(em, 'em'),
+	]
+
+	nature = [
+		(etablissement, 'Etablissement'),
+		(sarl, 'SARL'),
+		(anonyme, 'Société anonyme'),
 	]
 
 	besoin_fondamental = models.ForeignKey('ecommerce.ExpressionBesoin', on_delete=models.CASCADE,
@@ -214,9 +222,15 @@ class EntrepriseCommerciale(Membre):
 	banniere_trois = models.ImageField(upload_to='banniere trois/', null=True, blank=True)
 	banniere_quatre = models.ImageField(upload_to='banniere quatre/', null=True, blank=True)
 	banniere_cinq = models.ImageField(upload_to='banniere cinq/', null=True, blank=True)
-	type_market = models.CharField(max_length = 50,
-					choices=type,
-					default=es, null = True)
+	type_market = models.CharField(max_length = 50,choices=type,default=es, null = True)
+	nature_jurique = models.CharField(max_length = 150,choices=nature,default=etablissement, null = True)
+	numero_rccm = models.CharField(max_length=100, verbose_name='Numéro RCCM', null=True)
+	regime_fiscal = models.CharField(max_length=100, verbose_name='Régime fiscal', null=True)
+	nif = models.CharField(max_length=100, verbose_name='NIF', null=True)
+	siege_social = models.CharField(max_length=100, verbose_name='Siège sociale', null=True)
+	numero_cnss = models.CharField(max_length=100, verbose_name='Numéro de CNSS', null=True)
+	responsable = models.CharField(max_length=100, verbose_name='Nom et Prénoms du Responsable', null=True)
+
 
 	def save(self, *args, **kwargs):
 		#recuperation de l'entreprise associér a ce compte

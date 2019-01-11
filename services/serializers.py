@@ -186,7 +186,9 @@ class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
         depth = 1
         fields = ('id','code_membre',
                     'nom','mdp','telephone','email','emplacement',
-                    'actif','compte_entreprise_commercial','type_market')
+                    'actif','compte_entreprise_commercial','type_market',
+                  'nature_jurique','numero_rccm','regime_fiscal','nif','siege_social',
+					'numero_cnss','responsable',)
 
     def create(self,validated_data):
         compte_entreprise_commercial = validated_data.pop('compte_entreprise_commercial')
