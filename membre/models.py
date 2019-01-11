@@ -11,7 +11,7 @@ from django.contrib.auth.hashers import make_password
 class Membre(PolymorphicModel,TimeStamp):
 	user = models.OneToOneField(User,on_delete=models.CASCADE,null = True,blank = True)
 	nom = models.CharField(max_length = 100,verbose_name = 'Nom',null = True,)
-	code_membre = models.PositiveIntegerField(unique = True,verbose_name ='Code membre',null = True,)
+	code_membre = models.CharField(max_length=50,unique = False,verbose_name ='Code membre',null = True,)
 	mdp = models.CharField(max_length = 80, verbose_name ='Mot de passe',null = True)
 	telephone = models.CharField(max_length =8,verbose_name ="Téléphone",null = True)
 	email = models.EmailField(max_length = 254,null = True)
