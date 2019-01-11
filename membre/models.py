@@ -183,8 +183,12 @@ class EntrepriseCommerciale(Membre):
 	"""
 	es = 'es'
 	em = 'em'
-	etablissement = 'Etablissement'
-	sarl = 'SARL'
+	snc = 'SNC'
+	scs = 'SCS'
+	sarl ='SARL'
+	sa = 'SA'
+	sep = 'SEP'
+	spas = 'SPAS'
 	anonyme = 'Société anonyme'
 
 	type = [
@@ -194,6 +198,11 @@ class EntrepriseCommerciale(Membre):
 
 	nature = [
 		(etablissement, 'Etablissement'),
+		(snc, 'SNC'),
+		(scs, 'SCS'),
+		(sarl, 'SARL'),
+		(sarl, 'SARL'),
+		(sarl, 'SARL'),
 		(sarl, 'SARL'),
 		(anonyme, 'Société anonyme'),
 	]
@@ -223,7 +232,7 @@ class EntrepriseCommerciale(Membre):
 	banniere_quatre = models.ImageField(upload_to='banniere quatre/', null=True, blank=True)
 	banniere_cinq = models.ImageField(upload_to='banniere cinq/', null=True, blank=True)
 	type_market = models.CharField(max_length = 50,choices=type,default=es, null = True)
-	nature_jurique = models.CharField(max_length = 150,choices=nature,default=etablissement, null = True)
+	nature_jurique = models.CharField(max_length = 150,choices=nature,default=snc, null = True)
 	numero_rccm = models.CharField(max_length=100, verbose_name='Numéro RCCM', null=True)
 	regime_fiscal = models.CharField(max_length=100, verbose_name='Régime fiscal', null=True)
 	nif = models.CharField(max_length=100, verbose_name='NIF', null=True)
