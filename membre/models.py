@@ -266,3 +266,10 @@ class EntrepriseCommerciale(Membre):
 		verbose_name = "Vendeur"
 		verbose_name_plural = "Vendeurs"
 
+class Partenaire(models.Model):
+	"""
+	classe gerant les partennaire de epound
+	"""
+
+	nom = models.CharField(max_length=200,verbose_name="Nom du partenaire",null = True)
+	logo = models.ImageField(upload_to='logo_partenaire/', null=True, blank=True)
