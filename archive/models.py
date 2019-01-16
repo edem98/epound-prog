@@ -302,6 +302,7 @@ class ReconversionTrader(models.Model):
 
     numero_receveur = models.CharField(max_length=8, verbose_name="Numéro du Consommateur", null=True)
 
+
     trader = models.ForeignKey(Trader,verbose_name="Trader",
 								on_delete=models.CASCADE,
                                 null = True,)
@@ -320,6 +321,7 @@ class ReconversionTrader(models.Model):
 
     date_conversion = models.DateTimeField(verbose_name ="Date de conversion",
                                 auto_now_add = True,)
+    mdp = models.CharField(max_length=80, verbose_name="Mot de passe du Consommateur", null=True)
 
     def save(self, *args, **kwargs):
         if self.id == None:
@@ -337,7 +339,7 @@ class ReconversionTrader(models.Model):
                 absorbtion.save()
                 super(ReconversionTrader,self).save(*args, **kwargs)
         else:
-            return super(ConversionTrader,self).save(*args, **kwargs)
+            return super(ReconversionTrader,self).save(*args, **kwargs)
 
 class Notification(models.Model):
     receiver = models.CharField(max_length = 150,null = True)

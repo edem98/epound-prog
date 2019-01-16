@@ -278,12 +278,29 @@ class ConversionTraderSerializer(serializers.HyperlinkedModelSerializer):
 class ReconversionTraderSerializer(serializers.HyperlinkedModelSerializer):
     trader = TraderSerializer(read_only = True)
     consommateur = ConsommateurSerializer(read_only = True)
+
+
     class Meta:
         model = ReconversionTrader
         fields = ('numero_trader','numero_receveur',
                     'epound_reconverti','montant_retourner',
                     'solde_consommateur_apres_reconversion',
-                    'date_conversion','trader','consommateur',)
+                    'date_conversion','trader','consommateur','mdp')
+
+    def create(self,validated_data):
+        numero_acheteur = validated_data.pop('numero_acheteur')
+        mdp_acheteur = validated_data.pop('mdp')
+        if numero_acheteur and mdp_acheteur:
+            client = Consommateur.objects.get(telephone=numero_acheteur)
+            if client.mdp != mdp_acheteur:
+                data = {}
+                data["echec"]= "Le mot de passe ne correspond"
+                raise serializers.ValidationError(data)
+            else:
+                validated_data['numero_acheteur'] = numero_acheteur
+                validated_data['mdp'] = mdp_acheteur
+                reconversion = ReconversionTrader.objects.create(**validated_data)
+                return reconversion
 
 class NotificationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
