@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/entreprise.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/entreprise.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +15,7 @@
     <session id="2083647428">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="81" />
+          <entry key="project.closed" value="83" />
           <entry key="project.open.time.112" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.2" value="1" />
@@ -28,8 +26,8 @@
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.38" value="7" />
-          <entry key="project.open.time.39" value="5" />
-          <entry key="project.open.time.40" value="9" />
+          <entry key="project.open.time.39" value="6" />
+          <entry key="project.open.time.40" value="10" />
           <entry key="project.open.time.41" value="15" />
           <entry key="project.open.time.42" value="10" />
           <entry key="project.open.time.43" value="6" />
@@ -55,7 +53,7 @@
           <entry key="project.open.time.69" value="1" />
           <entry key="project.open.time.71" value="3" />
           <entry key="project.open.time.85" value="1" />
-          <entry key="project.opened" value="111" />
+          <entry key="project.opened" value="113" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -110,7 +108,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/epound/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="540">
               <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
             </state>
           </provider>
@@ -119,8 +117,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="302" column="35" lean-forward="true" selection-start-line="302" selection-start-column="35" selection-end-line="302" selection-end-column="35" />
+            <state relative-caret-position="140">
+              <caret line="292" column="26" selection-start-line="292" selection-start-column="26" selection-end-line="292" selection-end-column="26" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
                 <element signature="e#449#542#0" />
@@ -140,7 +138,6 @@
                 <element signature="e#10760#11734#0" />
                 <element signature="e#11831#13118#0" />
                 <element signature="e#13198#13575#0" />
-                <element signature="e#19679#20345#0" />
               </folding>
             </state>
           </provider>
@@ -149,7 +146,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
+            <state relative-caret-position="465">
               <caret line="181" selection-start-line="181" selection-end-line="181" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
@@ -194,7 +191,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/archive/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="900">
               <caret line="341" column="43" selection-start-line="341" selection-start-column="43" selection-end-line="341" selection-end-column="43" />
               <folding>
                 <element signature="e#470#2154#0" />
@@ -202,11 +199,6 @@
                 <element signature="e#5957#9212#0" />
                 <element signature="e#9263#12474#0" />
                 <element signature="e#12518#15397#0" />
-                <element signature="e#17726#18068#0" />
-                <element signature="e#18123#19250#0" />
-                <element signature="e#19292#21341#0" />
-                <element signature="e#21382#22802#0" />
-                <element signature="e#22037#22802#0" />
               </folding>
             </state>
           </provider>
@@ -796,26 +788,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/epound/views.py">
+    <entry file="file://$PROJECT_DIR$/membre/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="335">
+          <caret line="268" column="16" selection-start-line="268" selection-start-column="6" selection-end-line="268" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compte/models.py">
+    <entry file="file://$PROJECT_DIR$/epound/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="540">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
+        <state relative-caret-position="465">
           <caret line="181" selection-start-line="181" selection-end-line="181" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
@@ -844,27 +833,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/membre/models.py">
+    <entry file="file://$PROJECT_DIR$/epound/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="268" column="16" selection-start-line="268" selection-start-column="6" selection-end-line="268" selection-end-column="16" />
+        <state relative-caret-position="1035">
+          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1547218272087" expanded="true" signature="10313:10315" ph="..." />
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/epound/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/archive/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="900">
           <caret line="341" column="43" selection-start-line="341" selection-start-column="43" selection-end-line="341" selection-end-column="43" />
           <folding>
             <element signature="e#470#2154#0" />
@@ -872,19 +853,21 @@
             <element signature="e#5957#9212#0" />
             <element signature="e#9263#12474#0" />
             <element signature="e#12518#15397#0" />
-            <element signature="e#17726#18068#0" />
-            <element signature="e#18123#19250#0" />
-            <element signature="e#19292#21341#0" />
-            <element signature="e#21382#22802#0" />
-            <element signature="e#22037#22802#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compte/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="302" column="35" lean-forward="true" selection-start-line="302" selection-start-column="35" selection-end-line="302" selection-end-column="35" />
+        <state relative-caret-position="140">
+          <caret line="292" column="26" selection-start-line="292" selection-start-column="26" selection-end-line="292" selection-end-column="26" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
             <element signature="e#449#542#0" />
@@ -904,7 +887,6 @@
             <element signature="e#10760#11734#0" />
             <element signature="e#11831#13118#0" />
             <element signature="e#13198#13575#0" />
-            <element signature="e#19679#20345#0" />
           </folding>
         </state>
       </provider>
