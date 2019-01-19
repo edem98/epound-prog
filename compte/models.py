@@ -34,6 +34,7 @@ class CompteGrenier(SingletonModel):
 	fonte = models.PositiveIntegerField(verbose_name="Fonte", null=True)
 	prelevement_reconversion = models.PositiveIntegerField(verbose_name="Prélevement sur Reconversion",null=True)
 	prelevement_vendeur = models.PositiveIntegerField(verbose_name="Prélevement sur Vendeur", null=True)
+	montant_reconverti_local = models.PositiveIntegerField(verbose_name="cumul des 70% des reconversions vendeurs", null=True)
 	recette = models.PositiveIntegerField(verbose_name = "Destruction Monaitaire",default = 0)
 
 

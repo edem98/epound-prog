@@ -31,7 +31,7 @@ class ReconversionEntrepriseCommerciale(models.Model):
 			compte_grenier = CompteGrenier.load()	
 			# ajout des 5% du compte buisiness au compte grenier
 			self.montant_a_prelever = self.montant_a_reconvertir*0.05
-			compte_grenier.solde += self.montant_a_prelever
+			compte_grenier.prelevement_vendeur += self.montant_a_prelever
 			compte_grenier.save()
 			# retrait des epounds à reconvertir
 			compte_entreprise_commercial = self.beneficiaire.compte_entreprise_commercial
@@ -41,6 +41,9 @@ class ReconversionEntrepriseCommerciale(models.Model):
 			self.montant_virer_sur_compte_conso = (self.epounds_a_reconvertir - self.montant_a_prelever)*0.3
 			compte_entreprise_commercial.compte_consommateur.solde += self.montant_virer_sur_compte_conso
 			compte_entreprise_commercial.compte_consommateur.save()
+			#transfert des 70% sur le compte grenier
+			compte_grenier.prelevement_vendeur += (self.epounds_a_reconvertir - self.montant_a_prelever)*0.3
+			compte_grenier.save()
 			# mise a jour du compte de l'entreprise
 			compte_entreprise_commercial.save()
 			self.montant_en_cfa = (self.epounds_a_reconvertir - self.montant_a_prelever)*0.7

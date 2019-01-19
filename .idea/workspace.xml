@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compte/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/compte/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reconversion/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/reconversion/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +17,7 @@
     <session id="2083647428">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="83" />
+          <entry key="project.closed" value="85" />
           <entry key="project.open.time.112" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.2" value="1" />
@@ -48,12 +50,13 @@
           <entry key="project.open.time.59" value="3" />
           <entry key="project.open.time.60" value="1" />
           <entry key="project.open.time.63" value="4" />
+          <entry key="project.open.time.64" value="1" />
           <entry key="project.open.time.66" value="1" />
           <entry key="project.open.time.67" value="2" />
           <entry key="project.open.time.69" value="1" />
           <entry key="project.open.time.71" value="3" />
           <entry key="project.open.time.85" value="1" />
-          <entry key="project.opened" value="113" />
+          <entry key="project.opened" value="114" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -63,7 +66,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="3421" />
           <entry key="js" value="291" />
-          <entry key="py" value="21624" />
+          <entry key="py" value="22008" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
@@ -73,7 +76,7 @@
           <entry key="HTML" value="3421" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="21624" />
+          <entry key="Python" value="22008" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -85,7 +88,7 @@
           <entry key="js" value="4" />
           <entry key="json" value="1" />
           <entry key="mailing" value="1" />
-          <entry key="py" value="256" />
+          <entry key="py" value="262" />
           <entry key="txt" value="9" />
         </counts>
       </usages-collector>
@@ -97,7 +100,7 @@
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="4" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="256" />
+          <entry key="Python" value="262" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -114,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="292" column="26" selection-start-line="292" selection-start-column="26" selection-end-line="292" selection-end-column="26" />
+            <state relative-caret-position="-1390">
+              <caret line="277" column="75" selection-start-line="277" selection-start-column="75" selection-end-line="277" selection-end-column="75" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
                 <element signature="e#449#542#0" />
@@ -138,6 +141,7 @@
                 <element signature="e#10760#11734#0" />
                 <element signature="e#11831#13118#0" />
                 <element signature="e#13198#13575#0" />
+                <element signature="e#13657#14772#0" />
               </folding>
             </state>
           </provider>
@@ -146,8 +150,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="181" selection-start-line="181" selection-end-line="181" />
+            <state relative-caret-position="-450">
+              <caret line="168" column="58" selection-start-line="168" selection-start-column="58" selection-end-line="168" selection-end-column="58" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
                 <element signature="e#568#4079#0" />
@@ -156,6 +160,7 @@
                 <element signature="e#4135#4978#0" />
                 <element signature="e#5033#6179#0" />
                 <element signature="e#6230#6301#0" />
+                <element signature="e#6366#7122#0" />
                 <element signature="e#6537#6748#0" />
                 <element signature="e#6857#7122#0" />
                 <element signature="e#7172#7834#0" />
@@ -171,6 +176,10 @@
                 <element signature="e#12301#12416#0" />
                 <element signature="e#12479#12574#0" />
                 <element signature="e#12646#12759#0" />
+                <element signature="e#12810#12891#0" />
+                <element signature="e#13092#13726#0" />
+                <element signature="e#13785#15175#0" />
+                <element signature="e#15231#16034#0" />
               </folding>
             </state>
           </provider>
@@ -179,7 +188,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/epound/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
+            <state relative-caret-position="350">
               <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
@@ -191,14 +200,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/archive/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="341" column="43" selection-start-line="341" selection-start-column="43" selection-end-line="341" selection-end-column="43" />
+            <state relative-caret-position="107">
+              <caret line="358" column="48" selection-start-line="358" selection-start-column="48" selection-end-line="358" selection-end-column="48" />
               <folding>
+                <element signature="e#0#28#0" expanded="true" />
                 <element signature="e#470#2154#0" />
                 <element signature="e#2215#5910#0" />
                 <element signature="e#5957#9212#0" />
                 <element signature="e#9263#12474#0" />
                 <element signature="e#12518#15397#0" />
+                <element signature="e#15443#17787#0" />
+                <element signature="e#18224#19351#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/reconversion/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="37" column="92" lean-forward="true" selection-start-line="37" selection-start-column="92" selection-end-line="37" selection-end-column="92" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -207,8 +231,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compte/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="210">
+              <caret line="35" column="23" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compte/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-171">
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#345#1965#0" />
+                <element signature="e#2051#2604#0" />
+                <element signature="e#2702#3419#0" />
+                <element signature="e#3509#4044#0" />
+                <element signature="e#4160#4998#0" />
+                <element signature="e#5072#5212#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -225,8 +269,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>produ</find>
-      <find>product_im</find>
       <find>product_</find>
       <find>for</find>
       <find>fill_</find>
@@ -255,6 +297,8 @@
       <find>contact</find>
       <find>&lt;div class=&quot;red_button add_to_cart_button&quot;&gt;&lt;a href=&quot;#&quot;&gt;add to cart&lt;/a&gt;&lt;/div&gt;</find>
       <find>serializers</find>
+      <find>grenier</find>
+      <find>TauxAbsorbtionGlobal</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -263,8 +307,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/membre/forms.py" />
-        <option value="$PROJECT_DIR$/octroi/forms.py" />
         <option value="$PROJECT_DIR$/reconversion/forms.py" />
         <option value="$PROJECT_DIR$/datadump.json" />
         <option value="$PROJECT_DIR$/dashboard/models.py" />
@@ -312,8 +354,10 @@
         <option value="$PROJECT_DIR$/templates/partenaire.html" />
         <option value="$PROJECT_DIR$/templates/layouts/header.html" />
         <option value="$PROJECT_DIR$/templates/entreprise.html" />
-        <option value="$PROJECT_DIR$/archive/models.py" />
         <option value="$PROJECT_DIR$/services/serializers.py" />
+        <option value="$PROJECT_DIR$/compte/models.py" />
+        <option value="$PROJECT_DIR$/archive/models.py" />
+        <option value="$PROJECT_DIR$/reconversion/models.py" />
       </list>
     </option>
   </component>
@@ -369,7 +413,12 @@
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
               <item name="epound" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="reconversion" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -460,7 +509,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.18466121" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
@@ -488,23 +536,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/lib/python3.6/dist-packages/django/db/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-356">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.6/dist-packages/django/db/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lib/python3.6/site-packages/django/forms/boundfield.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../lib/python3.6/site-packages/newsletter/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9825">
@@ -656,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/epound/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3435">
-          <caret line="231" column="22" selection-start-line="231" selection-start-column="22" selection-end-line="231" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/layouts/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-45" />
@@ -802,40 +826,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="181" selection-start-line="181" selection-end-line="181" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#568#4079#0" />
-            <element signature="e#785#2637#0" />
-            <element signature="e#2746#4079#0" />
-            <element signature="e#4135#4978#0" />
-            <element signature="e#5033#6179#0" />
-            <element signature="e#6230#6301#0" />
-            <element signature="e#6537#6748#0" />
-            <element signature="e#6857#7122#0" />
-            <element signature="e#7172#7834#0" />
-            <element signature="e#7906#8694#0" />
-            <element signature="e#8771#9537#0" />
-            <element signature="e#9597#10266#0" />
-            <element signature="e#10328#11015#0" />
-            <element signature="e#10462#10672#0" />
-            <element signature="e#10735#11015#0" />
-            <element signature="e#11071#11391#0" />
-            <element signature="e#11455#11801#0" />
-            <element signature="e#11868#12228#0" />
-            <element signature="e#12301#12416#0" />
-            <element signature="e#12479#12574#0" />
-            <element signature="e#12646#12759#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/epound/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
+        <state relative-caret-position="350">
           <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
@@ -843,31 +836,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archive/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="341" column="43" selection-start-line="341" selection-start-column="43" selection-end-line="341" selection-end-column="43" />
-          <folding>
-            <element signature="e#470#2154#0" />
-            <element signature="e#2215#5910#0" />
-            <element signature="e#5957#9212#0" />
-            <element signature="e#9263#12474#0" />
-            <element signature="e#12518#15397#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/compte/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="292" column="26" selection-start-line="292" selection-start-column="26" selection-end-line="292" selection-end-column="26" />
+        <state relative-caret-position="-1390">
+          <caret line="277" column="75" selection-start-line="277" selection-start-column="75" selection-end-line="277" selection-end-column="75" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
             <element signature="e#449#542#0" />
@@ -887,6 +859,105 @@
             <element signature="e#10760#11734#0" />
             <element signature="e#11831#13118#0" />
             <element signature="e#13198#13575#0" />
+            <element signature="e#13657#14772#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="168" column="58" selection-start-line="168" selection-start-column="58" selection-end-line="168" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#568#4079#0" />
+            <element signature="e#785#2637#0" />
+            <element signature="e#2746#4079#0" />
+            <element signature="e#4135#4978#0" />
+            <element signature="e#5033#6179#0" />
+            <element signature="e#6230#6301#0" />
+            <element signature="e#6366#7122#0" />
+            <element signature="e#6537#6748#0" />
+            <element signature="e#6857#7122#0" />
+            <element signature="e#7172#7834#0" />
+            <element signature="e#7906#8694#0" />
+            <element signature="e#8771#9537#0" />
+            <element signature="e#9597#10266#0" />
+            <element signature="e#10328#11015#0" />
+            <element signature="e#10462#10672#0" />
+            <element signature="e#10735#11015#0" />
+            <element signature="e#11071#11391#0" />
+            <element signature="e#11455#11801#0" />
+            <element signature="e#11868#12228#0" />
+            <element signature="e#12301#12416#0" />
+            <element signature="e#12479#12574#0" />
+            <element signature="e#12646#12759#0" />
+            <element signature="e#12810#12891#0" />
+            <element signature="e#13092#13726#0" />
+            <element signature="e#13785#15175#0" />
+            <element signature="e#15231#16034#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/epound/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="85" column="28" lean-forward="true" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compte/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compte/context_processors.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compte/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-171">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#345#1965#0" />
+            <element signature="e#2051#2604#0" />
+            <element signature="e#2702#3419#0" />
+            <element signature="e#3509#4044#0" />
+            <element signature="e#4160#4998#0" />
+            <element signature="e#5072#5212#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="358" column="48" selection-start-line="358" selection-start-column="48" selection-end-line="358" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#470#2154#0" />
+            <element signature="e#2215#5910#0" />
+            <element signature="e#5957#9212#0" />
+            <element signature="e#9263#12474#0" />
+            <element signature="e#12518#15397#0" />
+            <element signature="e#15443#17787#0" />
+            <element signature="e#18224#19351#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reconversion/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="37" column="92" lean-forward="true" selection-start-line="37" selection-start-column="92" selection-end-line="37" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
