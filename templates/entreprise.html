@@ -40,7 +40,7 @@
 				<div class="col text-center">
 					<div class="new_arrivals_sorting">
 						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">Tous</li>
+							<!--<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">Tous</li>-->
 							{% for entreprise in entreprises %}
 							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".{{ entreprise.slug }}">{{ entreprise.nom }}</li>
 							{% endfor %}
