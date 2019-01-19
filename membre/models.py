@@ -235,6 +235,8 @@ class EntrepriseCommerciale(Membre):
 	numero_rccm = models.CharField(max_length=100, verbose_name='Numéro RCCM', null=True,blank =True)
 	regime_fiscal = models.CharField(max_length=100, verbose_name='Régime fiscal', null=True,blank =True)
 	nif = models.CharField(max_length=100, verbose_name='NIF', null=True,blank =True)
+	num_cfe = models.CharField(max_length=100, verbose_name='Numéro CFE', null=True,blank =True)
+	date_creation = models.DateField(max_length=100, verbose_name='Date Création', null=True, blank=True)
 	siege_social = models.CharField(max_length=100, verbose_name='Siège sociale', null=True,blank =True)
 	numero_cnss = models.CharField(max_length=100, verbose_name='Numéro de CNSS', null=True,blank =True)
 	responsable = models.CharField(max_length=100, verbose_name='Nom et Prénoms du Responsable', null=True)
