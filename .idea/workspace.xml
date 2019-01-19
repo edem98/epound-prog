@@ -61,7 +61,7 @@
           <entry key="Procfile" value="3" />
           <entry key="css" value="836" />
           <entry key="dummy" value="6" />
-          <entry key="html" value="3421" />
+          <entry key="html" value="3424" />
           <entry key="js" value="291" />
           <entry key="py" value="22057" />
           <entry key="txt" value="14" />
@@ -70,7 +70,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="836" />
-          <entry key="HTML" value="3421" />
+          <entry key="HTML" value="3424" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="23" />
           <entry key="Python" value="22057" />
@@ -80,7 +80,7 @@
         <counts>
           <entry key="Procfile" value="1" />
           <entry key="css" value="24" />
-          <entry key="html" value="98" />
+          <entry key="html" value="99" />
           <entry key="jpeg" value="1" />
           <entry key="jpg" value="4" />
           <entry key="js" value="4" />
@@ -93,7 +93,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="24" />
-          <entry key="HTML" value="98" />
+          <entry key="HTML" value="99" />
           <entry key="Image" value="5" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="4" />
@@ -231,8 +231,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/entreprise.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="42" column="175" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="175" />
+            <state relative-caret-position="230">
+              <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="87" column="165" selection-start-line="86" selection-start-column="56" selection-end-line="87" selection-end-column="165" />
+              <folding>
+                <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -739,13 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="93" column="58" lean-forward="true" selection-start-line="79" selection-start-column="52" selection-end-line="93" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/partenaire.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -933,10 +943,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="87" column="165" selection-start-line="86" selection-start-column="56" selection-end-line="87" selection-end-column="165" />
+          <folding>
+            <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/entreprise.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="42" column="175" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="175" />
+        <state relative-caret-position="230">
+          <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

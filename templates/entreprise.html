@@ -42,7 +42,11 @@
 						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
 							<!--<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">Tous</li>-->
 							{% for entreprise in entreprises %}
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".{{ entreprise.slug }}">{{ entreprise.nom }}</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".{{ entreprise.slug }}">
+								{{ entreprise.nom }}
+								<p style="font-size:12px;color: green;">Téléphone: {{ produit.vendeur.telephone }}</p>
+								<p style="font-size:12px;color: green;">Emplacement: {{ produit.vendeur.emplacement }}</p>
+							</li>
 							{% endfor %}
 						</ul>
 					</div>
