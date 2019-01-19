@@ -239,8 +239,8 @@ class EntrepriseCommerciale(Membre):
 	siege_social = models.CharField(max_length=100, verbose_name='Siège sociale', null=True,blank =True)
 	numero_cnss = models.CharField(max_length=100, verbose_name='Numéro de CNSS', null=True,blank =True)
 	responsable = models.CharField(max_length=100, verbose_name='Nom et Prénoms du Responsable', null=True)
-	contact_1 = models.CharField(max_length =8,verbose_name ="Contact 1",null = True)
-	contact_2 = models.CharField(max_length =8,verbose_name ="Contact 2",null = True)
+	contact_1 = models.CharField(max_length =8,verbose_name ="Contact 1",null = True,blank =True)
+	contact_2 = models.CharField(max_length =8,verbose_name ="Contact 2",null = True,blank =True)
 
 
 	def save(self, *args, **kwargs):
