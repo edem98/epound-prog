@@ -11,7 +11,7 @@ from django.contrib.auth.hashers import make_password
 class Membre(PolymorphicModel,TimeStamp):
 	user = models.OneToOneField(User,on_delete=models.CASCADE,null = True,blank = True)
 	nom = models.CharField(max_length = 100,verbose_name = 'Nom',null = True,)
-	code_membre = models.CharField(max_length=50,unique = False,verbose_name ='Code membre',null = True,)
+	code_membre = models.CharField(max_length=50,unique = False,verbose_name ='Code membre',null = True,blank =True)
 	mdp = models.CharField(max_length = 80, verbose_name ='Mot de passe',null = True)
 	telephone = models.CharField(max_length =8,verbose_name ="Téléphone",null = True)
 	email = models.EmailField(max_length = 254,null = True)
@@ -181,6 +181,7 @@ class EntrepriseCommerciale(Membre):
 		l’obtention d’un compte e-b, d’un compte e-c.
 		avec un taux de contribution mensuel de 5%
 	"""
+	etablissement = 'Etablissement'
 	es = 'es'
 	em = 'em'
 	snc = 'SNC'
@@ -196,12 +197,13 @@ class EntrepriseCommerciale(Membre):
 	]
 
 	nature = [
+		(etablissement, 'Etablissement'),
 		(snc, 'SNC'),
 		(scs, 'SCS'),
+		(sa, 'SA'),
 		(sarl, 'SARL'),
-		(sarl, 'SARL'),
-		(sarl, 'SARL'),
-		(sarl, 'SARL'),
+		(sep, 'SEP'),
+		(spas, 'SPAS'),
 	]
 
 	besoin_fondamental = models.ForeignKey('ecommerce.ExpressionBesoin', on_delete=models.CASCADE,
@@ -229,12 +231,12 @@ class EntrepriseCommerciale(Membre):
 	banniere_quatre = models.ImageField(upload_to='banniere quatre/', null=True, blank=True)
 	banniere_cinq = models.ImageField(upload_to='banniere cinq/', null=True, blank=True)
 	type_market = models.CharField(max_length = 50,choices=type,default=es, null = True)
-	nature_jurique = models.CharField(max_length = 150,choices=nature,default=snc, null = True)
-	numero_rccm = models.CharField(max_length=100, verbose_name='Numéro RCCM', null=True)
-	regime_fiscal = models.CharField(max_length=100, verbose_name='Régime fiscal', null=True)
-	nif = models.CharField(max_length=100, verbose_name='NIF', null=True)
-	siege_social = models.CharField(max_length=100, verbose_name='Siège sociale', null=True)
-	numero_cnss = models.CharField(max_length=100, verbose_name='Numéro de CNSS', null=True)
+	nature_jurique = models.CharField(max_length = 150,choices=nature,default=snc, null = True,blank =True)
+	numero_rccm = models.CharField(max_length=100, verbose_name='Numéro RCCM', null=True,blank =True)
+	regime_fiscal = models.CharField(max_length=100, verbose_name='Régime fiscal', null=True,blank =True)
+	nif = models.CharField(max_length=100, verbose_name='NIF', null=True,blank =True)
+	siege_social = models.CharField(max_length=100, verbose_name='Siège sociale', null=True,blank =True)
+	numero_cnss = models.CharField(max_length=100, verbose_name='Numéro de CNSS', null=True,blank =True)
 	responsable = models.CharField(max_length=100, verbose_name='Nom et Prénoms du Responsable', null=True)
 
 
