@@ -105,7 +105,8 @@ class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 	fieldsets = (
 		("Informations Relatifs à l'utilisateur", {
 			'fields': ('user','code_membre','mdp','nom','prenoms','date_naissance',
-						'lieu_residence','telephone','email','num_carte','formation',
+						'lieu_residence','telephone','contact1','contact_2','email','num_carte','formation',
+						'lieu_residence','telephone','contact1','contact_2','email','num_carte','formation',
 						'profession','situation_matrimoniale','nationalite','date_expiration'),
 		}),
 		('Informations Relatifs à son Compte e-C', {
