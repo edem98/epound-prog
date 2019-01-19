@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/static/css/styles/main_styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles/main_styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/entreprise.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/entreprise.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,9 +60,9 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Procfile" value="3" />
-          <entry key="css" value="836" />
+          <entry key="css" value="837" />
           <entry key="dummy" value="6" />
-          <entry key="html" value="3424" />
+          <entry key="html" value="3425" />
           <entry key="js" value="291" />
           <entry key="py" value="22057" />
           <entry key="txt" value="14" />
@@ -69,8 +70,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="836" />
-          <entry key="HTML" value="3424" />
+          <entry key="CSS" value="837" />
+          <entry key="HTML" value="3425" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="23" />
           <entry key="Python" value="22057" />
@@ -79,7 +80,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Procfile" value="1" />
-          <entry key="css" value="24" />
+          <entry key="css" value="26" />
           <entry key="html" value="99" />
           <entry key="jpeg" value="1" />
           <entry key="jpg" value="4" />
@@ -92,7 +93,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="24" />
+          <entry key="CSS" value="26" />
           <entry key="HTML" value="99" />
           <entry key="Image" value="5" />
           <entry key="JSON" value="1" />
@@ -106,36 +107,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/serializers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="277" column="75" selection-start-line="277" selection-start-column="75" selection-end-line="277" selection-end-column="75" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-                <element signature="e#449#542#0" />
-                <element signature="e#624#729#0" />
-                <element signature="e#807#908#0" />
-                <element signature="e#984#1083#0" />
-                <element signature="e#1174#1863#0" />
-                <element signature="e#1942#2069#0" />
-                <element signature="e#2144#4581#0" />
-                <element signature="e#2603#2921#0" />
-                <element signature="e#2979#4581#0" />
-                <element signature="e#4655#7092#0" />
-                <element signature="e#5155#7092#0" />
-                <element signature="e#7168#7374#0" />
-                <element signature="e#7444#8531#0" />
-                <element signature="e#8616#10668#0" />
-                <element signature="e#10760#11734#0" />
-                <element signature="e#11831#13118#0" />
-                <element signature="e#13198#13575#0" />
-                <element signature="e#13657#14772#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/views.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -228,15 +199,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/entreprise.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+            <state relative-caret-position="185">
+              <caret line="44" column="58" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/css/styles/main_styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="965" column="13" selection-start-line="965" selection-start-column="13" selection-end-line="965" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -333,7 +313,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/reconversion/forms.py" />
         <option value="$PROJECT_DIR$/datadump.json" />
         <option value="$PROJECT_DIR$/dashboard/models.py" />
         <option value="$PROJECT_DIR$/emision/admin.py" />
@@ -384,6 +363,7 @@
         <option value="$PROJECT_DIR$/reconversion/models.py" />
         <option value="$PROJECT_DIR$/membre/models.py" />
         <option value="$PROJECT_DIR$/templates/entreprise.html" />
+        <option value="$PROJECT_DIR$/static/css/styles/main_styles.css" />
       </list>
     </option>
   </component>
@@ -424,6 +404,24 @@
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
               <item name="epound" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
@@ -523,7 +521,7 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.18466121" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -549,20 +547,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mailing">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="69" selection-start-column="69" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/styles/responsive.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="604" column="5" selection-start-line="604" selection-start-column="5" selection-end-line="604" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/octroi/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -954,14 +938,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/entreprise.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+        <state relative-caret-position="185">
+          <caret line="44" column="58" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="58" />
           <folding>
             <element signature="n#style#0;n#p#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/styles/main_styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="965" column="13" selection-start-line="965" selection-start-column="13" selection-end-line="965" selection-end-column="13" />
         </state>
       </provider>
     </entry>
