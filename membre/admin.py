@@ -208,7 +208,7 @@ class EntrepriseCommercialeeAdmin(PolymorphicChildModelAdmin):
 	fieldsets = (
 		("Informations Relatifs a l'entreprise", {
 			'fields': ('besoin_fondamental','besoin_gere','nom', 'code_membre','mdp',
-					   'telephone','contact_1','contact_2','email',"emplacement",'slug','nature_jurique','numero_rccm','regime_fiscal','nif','siege_social',
+					   'telephone','contact_1','contact_2','email',"emplacement",'slug','objet_social','nature_jurique','numero_rccm','regime_fiscal','nif','siege_social',
 					   'numero_cnss','responsable','banniere_principal',
 					   'banniere_secondaire','banniere_trois','banniere_quatre',
 					   'banniere_cinq','date_expiration','actif','type_market',

@@ -209,19 +209,22 @@ class EntrepriseCommerciale(Membre):
 									verbose_name="Domaine d'activité",
 									null=True,
 									blank=True,
-									)
+	)
 
 	besoin_gere = models.ForeignKey('ecommerce.SpécificationBesoin',on_delete = models.CASCADE,
 									verbose_name = "Domaine d'activité",
 									null = True,
 									blank = True,
-									)
+	)
 
 	compte_entreprise_commercial = models.OneToOneField(CompteEntrepriseCommerciale,
 									on_delete = models.CASCADE,
 									verbose_name = 'Compte e-B',
 									related_name = 'compteEntreprise_vers_entreprise',
-									null = True)
+									null = True
+	)
+
+	objet_social = models.TextField(verbose_name="Objet social",null=True,blank=True)
 	emplacement = models.CharField(max_length =200, verbose_name="Emplacement du Vendeur",null=True,)
 	slug = models.SlugField(verbose_name="Etiquette",null=True,max_length=80)
 	banniere_principal = models.ImageField(upload_to='banniere principal/', null=True, blank=True)
