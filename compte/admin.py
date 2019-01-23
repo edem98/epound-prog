@@ -5,7 +5,7 @@ from compte.forms import *
 from membre.models import EntrepriseCommerciale,Consommateur,Trader
 
 @admin.register(Compte)
-class MembreAdmin(PolymorphicParentModelAdmin):
+class CompteAdmin(PolymorphicParentModelAdmin):
 	base_model =  Compte 
 	child_models = (CompteTrader, CompteConsommateur, CompteEntrepriseCommerciale)
 	list_filter = (PolymorphicChildModelFilter,)
@@ -16,17 +16,17 @@ class MembreAdmin(PolymorphicParentModelAdmin):
 			try:
 				compte_entreprise = CompteEntrepriseCommerciale.objects.get( id = obj.id)
 				entreprise = compte_entreprise.compteEntreprise_vers_entreprise
-				print(entreprise.nom)
 				return entreprise.nom
 			except Exception as e:
 				print(e)
 		elif obj.polymorphic_ctype_id == 12:
 			try:
 				compte_conso = CompteConsommateur.objects.get(id = obj.id)
-				entreprise = compte_conso.compteConsommateur_vers_parent.compteEntreprise_vers_entreprise
+				entreprise = compte_conso.conso_vers_entreprise.compteEntreprise_vers_entreprise
+				print(entreprise.nom)
 				return entreprise.nom
 			except Exception as e:
-				pass
+				print(e)
 			consommateur = Consommateur.objects.get(compte_consommateur = obj)
 			if 'numero_rccm' in consommateur.__dict__ :
 				return str(consommateur.raison_social)
@@ -34,7 +34,7 @@ class MembreAdmin(PolymorphicParentModelAdmin):
 				return str(consommateur.nom)+" "+str(consommateur.prenoms)
 		elif obj.polymorphic_ctype_id == 11:
 			compte_vente = CompteBusiness.objects.get(id = obj.id)
-			entreprise = compte_vente.compteVente_vers_parent.compteEntreprise_vers_entreprise
+			entreprise = compte_vente.vente_vers_entreprise.compteEntreprise_vers_entreprise
 			return entreprise.nom
 		elif obj.polymorphic_ctype_id == 14:
 			compte_trader = CompteTrader.objects.get(id = obj.id)
@@ -75,15 +75,15 @@ class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 
 	def titulaire(self,obj):
 		try:
- 			entreprise = obj.compteConsommateur_vers_parent.compteEntreprise_vers_entreprise
- 			return entreprise.nom
+			entreprise = obj.conso_vers_entreprise.compteEntreprise_vers_entreprise
+			return entreprise.nom
 		except Exception as e:
- 			print("une erreur s'est produite"+ str(e))
+			print("une erreur s'est produite"+ str(e))
 		consommateur = Consommateur.objects.get(compte_consommateur = obj)
-		if  consommateur.nom == "":
+		if "raison_social" in consommateur.__dict__ :
 			return consommateur.raison_social
 		else:
-			return str(consommateur.nom) 
+			return str(consommateur.nom) +" "+ str(consommateur.prenoms)
 	
 	titulaire.short_description = "Titulaire du Compte"
 
@@ -99,7 +99,7 @@ class CompteBusinessAdmin(PolymorphicChildModelAdmin):
 
 	def titulaire(self,obj):
 		compte_vente = CompteBusiness.objects.get(id = obj.id)
-		entreprise = compte_vente.compteVente_vers_parent.compteEntreprise_vers_entreprise
+		entreprise = compte_vente.vente_vers_entreprise.compteEntreprise_vers_entreprise
 		print(str(entreprise))
 		return entreprise.nom
 	titulaire.short_description = "Titulaire du Compte"

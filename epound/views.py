@@ -30,7 +30,7 @@ def sms_sender(message, to):
 def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
-    new_produits = Produit.objects.all().order_by('-date_ajout')[:30]
+    new_produits = Produit.objects.all().order_by('-date_ajout')[:100]
     context['besoins'] = besoins
     context['produits'] = new_produits
     return render(request, 'index.html', context)
@@ -46,9 +46,6 @@ class ListEntreprise(ListView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        new_produits = Produit.objects.all().order_by('-date_ajout')[:30]
-        context['produits'] = new_produits
-        # Add in a QuerySet of all the books
         return context
 
 

@@ -98,12 +98,12 @@ class CompteEntrepriseCommerciale(Compte):
 	compte_consommateur = models.OneToOneField(CompteConsommateur,
 								verbose_name="Compte Achat",
 								on_delete=models.CASCADE,
-								related_name = "compteConsommateur_vers_parent")
+								related_name = "conso_vers_entreprise")
 	compte_business = models.OneToOneField(CompteBusiness,
 								verbose_name ="Compte Vente",
 								on_delete=models.CASCADE,
-								related_name = "compteVente_vers_parent")
-	credit = models.PositiveIntegerField(verbose_name ="Credit")
+								related_name = "vente_vers_entreprise")
+	credit = models.PositiveIntegerField(verbose_name ="Credit",default=0)
 	TAUX_REMBOURSEMENT = 0
 
 	class Meta():

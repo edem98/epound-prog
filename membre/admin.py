@@ -196,7 +196,7 @@ class ConsommateurEntrepriseAdmin(PolymorphicChildModelAdmin):
 		return super().get_form(request, obj, **kwargs)
 
 @admin.register(EntrepriseCommerciale)
-class EntrepriseCommercialeeAdmin(PolymorphicChildModelAdmin):
+class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 	base_model = EntrepriseCommerciale
 	prepopulated_fields = {"slug": ("nom",)}
 	search_fields = ['nom','code_membre','actif',]
@@ -250,7 +250,6 @@ class EntrepriseCommercialeeAdmin(PolymorphicChildModelAdmin):
 		return str(membre.compte_entreprise_commercial.compte_consommateur.solde)
 	solde_compte_consommateur.short_description = "Solde du compte"
 
-
 	def numero_compte_consommateur(self,obj):
 		membre = Membre.objects.get(id = obj.id)
 		return str(membre.compte_entreprise_commercial.compte_consommateur.id)
@@ -291,6 +290,22 @@ class EntrepriseCommercialeeAdmin(PolymorphicChildModelAdmin):
 	def get_form(self, request, obj=None, **kwargs):
 		kwargs['form'] = EntrepriseCommercialeForm
 		return super().get_form(request, obj, **kwargs)
+
+	def formfield_for_foreignkey(self, db_field, request, **kwargs):
+		id = str(request)
+		if "change" in id:
+			id = int(id.split("/")[4])
+			if db_field.name == "compte_entreprise_commercial":
+				entreprise = EntrepriseCommerciale.objects.get(pk=id)
+				id_compte = entreprise.compte_entreprise_commercial.id
+				kwargs["queryset"] = CompteEntrepriseCommerciale.objects.filter(id=id_compte)
+			return super().formfield_for_foreignkey(db_field, request, **kwargs)
+		else:
+			if db_field.name == "compte_entreprise_commercial":
+				kwargs["queryset"] = CompteEntrepriseCommerciale.objects.all()
+			return super().formfield_for_foreignkey(db_field, request, **kwargs)
+		return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
 
 @admin.register(Partenaire)
 class PartenaireAdmin(admin.ModelAdmin):

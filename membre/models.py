@@ -13,8 +13,8 @@ class Membre(PolymorphicModel,TimeStamp):
 	nom = models.CharField(max_length = 100,verbose_name = 'Nom',null = True,)
 	code_membre = models.CharField(max_length=50,unique = False,verbose_name ='Code membre',null = True,blank =True)
 	mdp = models.CharField(max_length = 80, verbose_name ='Mot de passe',null = True)
-	telephone = models.CharField(max_length =8,verbose_name ="Téléphone",null = True)
-	email = models.EmailField(max_length = 254,null = True)
+	telephone = models.CharField(max_length =8,verbose_name ="Téléphone",null = True,unique = True)
+	email = models.EmailField(max_length = 254,null = True,unique = True)
 	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",
 	default = datetime.datetime.now()+ datetime.timedelta(720))
 	actif = models.BooleanField(verbose_name = 'En activité',default = True,)
@@ -39,13 +39,13 @@ class Trader(Membre):
 
 	sexe = models.CharField(max_length = 50,
 					choices=liste_sexe,
-					default=feminin, null = True,verbose_name="Sexe")
+					default=feminin, null = True,verbose_name="Sexe",blank =True)
 
-	ville_residence = models.CharField(max_length = 150, verbose_name = 'Ville de résidence', null = True)
+	ville_residence = models.CharField(max_length = 150, verbose_name = 'Ville de résidence', null = True,blank =True)
 	# ajout du prénoms au cas ou la personne serait physique
 	prenoms = models.CharField(max_length = 150, verbose_name = 'Prénoms', null = True)
 
-	emplacement = models.CharField(max_length=200, verbose_name="Emplacement du Trader", null=True, )
+	emplacement = models.CharField(max_length=200, verbose_name="Emplacement du Trader", null=True,)
 	
 	#Compte trader associer
 	compte_trader = models.OneToOneField(CompteTrader,on_delete = models.CASCADE,
@@ -94,13 +94,13 @@ class Consommateur(Membre,PolymorphicModel):
 
 	sexe = models.CharField(max_length = 50,
 					choices=liste_sexe,
-					default=feminin, null = True,verbose_name="Sexe")
+					default=feminin, null = True,verbose_name="Sexe",blank =True)
 
-	ville_residence = models.CharField(max_length = 150, verbose_name = 'Ville de résidence', null = True)
+	ville_residence = models.CharField(max_length = 150, verbose_name = 'Ville de résidence', null = True,blank =True)
 
 	nationalite = models.CharField(max_length = 50,
 					choices=liste_pays,
-					default=togo, null = True,verbose_name="Pays")
+					default=togo, null = True,verbose_name="Pays",blank =True)
 	#compte consommateur
 	compte_consommateur = models.OneToOneField(CompteConsommateur,on_delete = models.CASCADE,
 										verbose_name = 'Compte e-C',null = True)
@@ -131,14 +131,14 @@ class ConsommateurParticulier(Consommateur):
 	# ajout du prénoms au cas ou la personne serait physique
 	prenoms = models.CharField(max_length = 150, verbose_name = 'Prénoms', null = True)
 	# informations supplementaire pour les particuliers
-	date_naissance = models.DateField(verbose_name="Date de naissance", null = True)
-	lieu_residence = models.CharField(max_length=150,verbose_name="Lieu de résidence", null = True)
-	num_carte = models.CharField(max_length=12,verbose_name="Numéro de carte d'indentité", null = True)
-	formation = models.CharField(max_length=100,verbose_name="Formation", null = True)
-	profession = models.CharField(max_length=100,verbose_name="Profession", null = True)
+	date_naissance = models.DateField(verbose_name="Date de naissance", null = True,blank =True)
+	lieu_residence = models.CharField(max_length=150,verbose_name="Lieu de résidence", null = True,blank =True)
+	num_carte = models.CharField(max_length=12,verbose_name="Numéro de carte d'indentité", null = True,unique=True)
+	formation = models.CharField(max_length=100,verbose_name="Formation", null = True,blank =True)
+	profession = models.CharField(max_length=100,verbose_name="Profession", null = True,blank =True)
 	situation_matrimoniale = models.CharField(max_length = 50,
 					choices=situation,
-					default=celibataire, null = True)
+					default=celibataire, null = True,blank =True)
 
 	class Meta:
 		verbose_name = "Particulier"
@@ -152,13 +152,13 @@ class ConsommateurEntreprise(Consommateur):
 
 	raison_social = models.CharField(max_length = 100,verbose_name = 'Raison sociale', null = True)
 	statut_juridique = models.CharField(max_length = 100,verbose_name = 'Statut juridique', null = True)
-	objet_social = models.CharField(max_length = 100,verbose_name = 'Objet sociale', null = True)
-	capital_social = models.PositiveIntegerField(verbose_name = 'Caplital sociale', null = True)
-	numero_rccm = models.CharField(max_length = 100,verbose_name = 'Numéro RCCM', null = True)
-	regime_fiscal = models.CharField(max_length = 100,verbose_name = 'Régime fiscal', null = True)
-	nif = models.CharField(max_length = 100,verbose_name = 'NIF', null = True)
+	objet_social = models.CharField(max_length = 100,verbose_name = 'Objet sociale', null = True,blank =True)
+	capital_social = models.PositiveIntegerField(verbose_name = 'Caplital sociale', null = True,blank =True)
+	numero_rccm = models.CharField(max_length = 100,verbose_name = 'Numéro RCCM', null = True,blank =True)
+	regime_fiscal = models.CharField(max_length = 100,verbose_name = 'Régime fiscal', null = True,blank =True)
+	nif = models.CharField(max_length = 100,verbose_name = 'NIF', null = True,blank =True)
 	siege_social = models.CharField(max_length = 100,verbose_name = 'Siège sociale', null = True)
-	numero_compte_bancaire = models.CharField(max_length = 100,verbose_name = 'Numéro de compte bancaire', null = True)
+	numero_compte_bancaire = models.CharField(max_length = 100,verbose_name = 'Numéro de compte bancaire', null = True,blank =True)
 	responsable = models.CharField(max_length = 100,verbose_name = 'Responsable', null = True)
 
 
@@ -224,7 +224,7 @@ class EntrepriseCommerciale(Membre):
 									null = True
 	)
 
-	objet_social = models.TextField(verbose_name="Objet social",null=True,blank=True)
+	objet_social = models.TextField(verbose_name="Objet social",null=True,blank=True,)
 	emplacement = models.CharField(max_length =200, verbose_name="Emplacement du Vendeur",null=True,)
 	slug = models.SlugField(verbose_name="Etiquette",null=True,max_length=80)
 	banniere_principal = models.ImageField(upload_to='banniere principal/', null=True, blank=True)
