@@ -159,7 +159,7 @@ class TraderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Trader
         fields = ('id','code_membre','mdp','nom','prenoms', 
-                'sexe','emplacement','ville_residence','telephone','email','compte_trader',)
+                'sexe','ville_residence','telephone','email','compte_trader',)
 
     def update(self, instance, validated_data): 
         instance = Trader.objects.get(telephone=validated_data.get('telephone'))

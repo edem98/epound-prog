@@ -29,49 +29,6 @@ class Membre(PolymorphicModel,TimeStamp):
 			self.save(update_fields=['date_expiration',])
 		else:
 			return super(Membre,self).save(*args, **kwargs)
-
-class Trader(Membre):
-	"""
-		La classe Trader gère les membres qui ont 
-		la fonction de grossiste. Ils peuvent soit 
-		être des personnes moraux ou des personnes
-		physiques et dispose d'un taux d'interêt de 10%
-	"""
-	feminin = 'Féminin'
-	masculin = 'Masculin'
-
-	liste_sexe = [
-		(feminin, 'Féminin'),
-		(masculin, 'Masculin'),
-	]
-
-	sexe = models.CharField(max_length = 50,
-					choices=liste_sexe,
-					default=feminin, null = True,verbose_name="Sexe",blank =True)
-
-	ville_residence = models.CharField(max_length = 150, verbose_name = 'Ville de résidence', null = True,blank =True)
-	# ajout du prénoms au cas ou la personne serait physique
-	prenoms = models.CharField(max_length = 150, verbose_name = 'Prénoms', null = True)
-
-	emplacement = models.CharField(max_length=200, verbose_name="Emplacement du Trader", null=True,)
-	
-	#Compte trader associer
-	compte_trader = models.OneToOneField(CompteTrader,on_delete = models.CASCADE,
-										verbose_name = 'Compte e-T',null = True)
-
-	def save(self, *args, **kwargs):
-		#recuperation de l'entreprise associér a ce compte
-		if self.id == None:
-			super(Trader,self).save(*args, **kwargs)
-			self.code_membre = self.id
-			self.user = User(username = str(self.nom)+"-"+str(self.code_membre),
-							last_name = str(self.nom),password = make_password(self.mdp))
-			self.user.save()
-			groupe = Group.objects.get(name="Trader")	
-			groupe.user_set.add(self.user)
-			self.save(update_fields=['code_membre','compte_trader','user'])
-		else:
-			return super(Trader,self).save(*args, **kwargs)
 	
 class Consommateur(Membre,PolymorphicModel):
 	"""
@@ -306,3 +263,47 @@ class EntrepriseCommerciale(Membre):
 	class Meta:
 		verbose_name = "Vendeur"
 		verbose_name_plural = "Vendeurs"
+
+class Trader(Membre):
+	"""
+		La classe Trader gère les membres qui ont
+		la fonction de grossiste. Ils peuvent soit
+		être des personnes moraux ou des personnes
+		physiques et dispose d'un taux d'interêt de 10%
+	"""
+	feminin = 'Féminin'
+	masculin = 'Masculin'
+
+	liste_sexe = [
+		(feminin, 'Féminin'),
+		(masculin, 'Masculin'),
+	]
+
+	emplacement = models.ForeignKey(Quartier, on_delete=models.CASCADE, related_name="quartier_trader", null=True)
+
+	sexe = models.CharField(max_length = 50,
+					choices=liste_sexe,
+					default=feminin, null = True,verbose_name="Sexe",blank =True)
+
+	ville_residence = models.CharField(max_length = 150, verbose_name = 'Ville de résidence', null = True,blank =True)
+	# ajout du prénoms au cas ou la personne serait physique
+	prenoms = models.CharField(max_length = 150, verbose_name = 'Prénoms', null = True)
+
+
+	#Compte trader associer
+	compte_trader = models.OneToOneField(CompteTrader,on_delete = models.CASCADE,
+										verbose_name = 'Compte e-T',null = True)
+
+	def save(self, *args, **kwargs):
+		#recuperation de l'entreprise associér a ce compte
+		if self.id == None:
+			super(Trader,self).save(*args, **kwargs)
+			self.code_membre = self.id
+			self.user = User(username = str(self.nom)+"-"+str(self.code_membre),
+							last_name = str(self.nom),password = make_password(self.mdp))
+			self.user.save()
+			groupe = Group.objects.get(name="Trader")
+			groupe.user_set.add(self.user)
+			self.save(update_fields=['code_membre','compte_trader','user'])
+		else:
+			return super(Trader,self).save(*args, **kwargs)

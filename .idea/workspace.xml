@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/compte/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/compte/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/membre/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/membre/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/serializers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +66,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="3597" />
           <entry key="js" value="291" />
-          <entry key="py" value="22790" />
+          <entry key="py" value="22805" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
@@ -75,7 +76,7 @@
           <entry key="HTML" value="3597" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="22790" />
+          <entry key="Python" value="22805" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -88,7 +89,7 @@
           <entry key="js" value="5" />
           <entry key="json" value="1" />
           <entry key="mailing" value="1" />
-          <entry key="py" value="289" />
+          <entry key="py" value="290" />
           <entry key="txt" value="9" />
         </counts>
       </usages-collector>
@@ -100,7 +101,7 @@
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="5" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="289" />
+          <entry key="Python" value="290" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -108,28 +109,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/membre/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="30" column="59" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="30" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/compte/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+            <state relative-caret-position="757">
+              <caret line="308" column="59" selection-start-line="308" selection-start-column="59" selection-end-line="308" selection-end-column="59" />
               <folding>
-                <element signature="e#230#582#0" />
-                <element signature="e#619#968#0" />
-                <element signature="e#1008#1644#0" />
-                <element signature="e#2097#2250#0" />
-                <element signature="e#2287#2398#0" />
-                <element signature="e#2431#3207#0" />
-                <element signature="e#2515#3159#0" />
+                <element signature="e#3068#4746#0" />
+                <element signature="e#4794#5945#0" />
+                <element signature="e#5996#7159#0" />
+                <element signature="e#7194#7407#0" />
+                <element signature="e#7434#7618#0" />
+                <element signature="e#7648#7935#0" />
+                <element signature="e#7976#12233#0" />
               </folding>
             </state>
           </provider>
@@ -138,12 +130,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/membre/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="1055">
               <caret line="202" column="41" selection-start-line="202" selection-start-column="41" selection-end-line="202" selection-end-column="41" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
                 <element signature="e#277#818#0" />
-                <element signature="e#894#2651#0" />
                 <element signature="e#2765#3345#0" />
                 <element signature="e#3455#5483#0" />
                 <element signature="e#5590#7421#0" />
@@ -155,17 +146,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/epound/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
+            <state relative-caret-position="101">
               <caret line="35" selection-start-line="35" selection-end-line="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/views.py">
+        <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2340">
-              <caret line="168" column="58" selection-start-line="168" selection-start-column="58" selection-end-line="168" selection-end-column="58" />
+            <state relative-caret-position="91">
+              <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
+              <folding>
+                <element signature="e#8616#10668#0" />
+                <element signature="e#10760#11734#0" />
+                <element signature="e#11831#13118#0" />
+                <element signature="e#13198#13575#0" />
+                <element signature="e#13657#14772#0" />
+                <element signature="e#14848#14976#0" />
+                <element signature="e#15063#15434#0" />
+                <element signature="e#15518#15882#0" />
+                <element signature="e#15974#16982#0" />
+                <element signature="e#17073#17844#0" />
+                <element signature="e#17914#18065#0" />
+                <element signature="e#18142#18410#0" />
+                <element signature="e#18484#18639#0" />
+                <element signature="e#18710#19047#0" />
+                <element signature="e#19125#19813#0" />
+                <element signature="e#19889#20017#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -182,8 +191,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main_sli</find>
-      <find>main_slider</find>
       <find>main_s</find>
       <find>main_slider_con</find>
       <find>main_slider_content</find>
@@ -212,6 +219,8 @@
       <find>grid_sorting_button</find>
       <find>None</find>
       <find>emplacement</find>
+      <find>trader</find>
+      <find>Trader</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -267,10 +276,10 @@
         <option value="$PROJECT_DIR$/templates/entreprise.html" />
         <option value="$PROJECT_DIR$/membre/migrations/0080_auto_20190123_1724.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/services/serializers.py" />
-        <option value="$PROJECT_DIR$/membre/models.py" />
         <option value="$PROJECT_DIR$/membre/admin.py" />
         <option value="$PROJECT_DIR$/compte/models.py" />
+        <option value="$PROJECT_DIR$/services/serializers.py" />
+        <option value="$PROJECT_DIR$/membre/models.py" />
       </list>
     </option>
   </component>
@@ -316,12 +325,7 @@
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
               <item name="epound" type="462c0819:PsiDirectoryNode" />
-              <item name="compte" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
-              <item name="epound" type="462c0819:PsiDirectoryNode" />
-              <item name="membre" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
@@ -420,7 +424,7 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -431,7 +435,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952693" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.41761827" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.41761827" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32952693" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -705,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2655">
-          <caret line="187" column="57" selection-start-line="187" selection-start-column="57" selection-end-line="187" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -726,21 +723,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/membre/models.py">
+    <entry file="file://$PROJECT_DIR$/compte/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="30" column="59" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="30" selection-end-column="59" />
+        <state relative-caret-position="135">
+          <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+          <folding>
+            <element signature="e#230#582#0" />
+            <element signature="e#619#968#0" />
+            <element signature="e#1008#1644#0" />
+            <element signature="e#1692#2393#0" />
+            <element signature="e#2097#2250#0" />
+            <element signature="e#2287#2398#0" />
+            <element signature="e#2431#3207#0" />
+            <element signature="e#2515#3159#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/membre/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="1055">
           <caret line="202" column="41" selection-start-line="202" selection-start-column="41" selection-end-line="202" selection-end-column="41" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
             <element signature="e#277#818#0" />
-            <element signature="e#894#2651#0" />
             <element signature="e#2765#3345#0" />
             <element signature="e#3455#5483#0" />
             <element signature="e#5590#7421#0" />
@@ -748,32 +754,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/epound/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2340">
+        <state relative-caret-position="15">
           <caret line="168" column="58" selection-start-line="168" selection-start-column="58" selection-end-line="168" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compte/models.py">
+    <entry file="file://$PROJECT_DIR$/epound/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+        <state relative-caret-position="101">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="161" column="22" selection-start-line="161" selection-start-column="22" selection-end-line="161" selection-end-column="22" />
           <folding>
-            <element signature="e#230#582#0" />
-            <element signature="e#619#968#0" />
-            <element signature="e#1008#1644#0" />
-            <element signature="e#2097#2250#0" />
-            <element signature="e#2287#2398#0" />
-            <element signature="e#2431#3207#0" />
-            <element signature="e#2515#3159#0" />
+            <element signature="e#8616#10668#0" />
+            <element signature="e#10760#11734#0" />
+            <element signature="e#11831#13118#0" />
+            <element signature="e#13198#13575#0" />
+            <element signature="e#13657#14772#0" />
+            <element signature="e#14848#14976#0" />
+            <element signature="e#15063#15434#0" />
+            <element signature="e#15518#15882#0" />
+            <element signature="e#15974#16982#0" />
+            <element signature="e#17073#17844#0" />
+            <element signature="e#17914#18065#0" />
+            <element signature="e#18142#18410#0" />
+            <element signature="e#18484#18639#0" />
+            <element signature="e#18710#19047#0" />
+            <element signature="e#19125#19813#0" />
+            <element signature="e#19889#20017#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/membre/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="308" column="59" selection-start-line="308" selection-start-column="59" selection-end-line="308" selection-end-column="59" />
+          <folding>
+            <element signature="e#3068#4746#0" />
+            <element signature="e#4794#5945#0" />
+            <element signature="e#5996#7159#0" />
+            <element signature="e#7194#7407#0" />
+            <element signature="e#7434#7618#0" />
+            <element signature="e#7648#7935#0" />
+            <element signature="e#7976#12233#0" />
           </folding>
         </state>
       </provider>
