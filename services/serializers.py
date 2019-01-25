@@ -185,7 +185,7 @@ class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
         model = EntrepriseCommerciale
         depth = 1
         fields = ('id','code_membre',
-                    'nom','mdp','telephone','email','emplacement',
+                    'nom','mdp','telephone','emplacement','email',
                     'actif','compte_entreprise_commercial','type_market',
                   'nature_jurique','numero_rccm','regime_fiscal','nif','siege_social',
 					'numero_cnss','responsable',)

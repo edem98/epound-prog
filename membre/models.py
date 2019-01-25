@@ -15,12 +15,20 @@ class Membre(PolymorphicModel,TimeStamp):
 	mdp = models.CharField(max_length = 80, verbose_name ='Mot de passe',null = True)
 	telephone = models.CharField(max_length =8,verbose_name ="Téléphone",null = True,unique = True)
 	email = models.EmailField(max_length = 254,null = True,unique = True)
-	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",
-	default = datetime.datetime.now()+ datetime.timedelta(720))
+	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",null = True,)
 	actif = models.BooleanField(verbose_name = 'En activité',default = True,)
 
 	def __str__(self):
 		return str(self.nom)
+
+	def save(self, *args, **kwargs):
+		#recuperation de l'entreprise associér a ce compte
+		if self.id == None:
+			super(Membre,self).save(*args, **kwargs)
+			self.date_expiration = self.date_add+datetime.timedelta(720)
+			self.save(update_fields=['date_expiration',])
+		else:
+			return super(Membre,self).save(*args, **kwargs)
 
 class Trader(Membre):
 	"""
@@ -169,14 +177,40 @@ class ConsommateurEntreprise(Consommateur):
 		verbose_name = "Entreprise"
 		verbose_name_plural = "Entreprises"
 
-class EntrepriseCommerciale(Membre):
+class Partenaire(models.Model):
+	"""
+	classe gerant les partennaire de epound
+	"""
+	nom = models.CharField(max_length=200,verbose_name="Nom du partenaire",null = True)
+	logo = models.ImageField(upload_to='logo_partenaire/', null=True, blank=True)
 
+class Ville(TimeStamp):
+	"""
+	Ville oû epound corpoation est en activite
+	"""
+	nom = models.CharField(max_length = 100,verbose_name = 'Nom de la ville',null = True,)
+
+	def __str__(self):
+		return str(self.nom)
+
+class Quartier(TimeStamp):
+	"""
+	Ville oû epound corpoation est en activite
+	"""
+	ville = models.ForeignKey(Ville,on_delete=models.CASCADE,related_name="ville_appartenance",null=True)
+	nom = models.CharField(max_length = 100,verbose_name = 'Nom du quartier',null = True,)
+
+	def __str__(self):
+		return str(self.nom)
+
+
+class EntrepriseCommerciale(Membre):
 	"""
 		Cette classe gère les entreprises commerciales
 		partenaires de Epound.Ce sont les vendeurs ou Offreurs
 		de biens et de services sur le réseau ; offrant leurs
 		produits contre les unités e-pounds des Consommateurs.
-		Elles disposent franchise leur donne droit à 
+		Elles disposent franchise leur donne droit à
 		l’obtention d’un compte e-b, d’un compte e-c.
 		avec un taux de contribution mensuel de 5%
 	"""
@@ -185,7 +219,7 @@ class EntrepriseCommerciale(Membre):
 	em = 'em'
 	snc = 'SNC'
 	scs = 'SCS'
-	sarl ='SARL'
+	sarl = 'SARL'
 	sa = 'SA'
 	sep = 'SEP'
 	spas = 'SPAS'
@@ -206,78 +240,69 @@ class EntrepriseCommerciale(Membre):
 	]
 
 	besoin_fondamental = models.ForeignKey('ecommerce.ExpressionBesoin', on_delete=models.CASCADE,
+										   verbose_name="Domaine d'activité",
+										   null=True,
+										   blank=True,
+										   )
+
+	besoin_gere = models.ForeignKey('ecommerce.SpécificationBesoin', on_delete=models.CASCADE,
 									verbose_name="Domaine d'activité",
 									null=True,
 									blank=True,
-	)
-
-	besoin_gere = models.ForeignKey('ecommerce.SpécificationBesoin',on_delete = models.CASCADE,
-									verbose_name = "Domaine d'activité",
-									null = True,
-									blank = True,
-	)
+									)
 
 	compte_entreprise_commercial = models.OneToOneField(CompteEntrepriseCommerciale,
-									on_delete = models.CASCADE,
-									verbose_name = 'Compte e-B',
-									related_name = 'compteEntreprise_vers_entreprise',
-									null = True
-	)
+														on_delete=models.CASCADE,
+														verbose_name='Compte e-B',
+														related_name='compteEntreprise_vers_entreprise',
+														null=True
+														)
 
-	objet_social = models.TextField(verbose_name="Objet social",null=True,blank=True,)
-	emplacement = models.CharField(max_length =200, verbose_name="Emplacement du Vendeur",null=True,)
-	slug = models.SlugField(verbose_name="Etiquette",null=True,max_length=80)
+	objet_social = models.TextField(verbose_name="Objet social", null=True, blank=True, )
+	emplacement = models.ForeignKey(Quartier, on_delete=models.CASCADE, related_name="quartier_entreprise", null=True)
+	slug = models.SlugField(verbose_name="Etiquette", null=True, max_length=80)
 	banniere_principal = models.ImageField(upload_to='banniere principal/', null=True, blank=True)
 	banniere_secondaire = models.ImageField(upload_to='banniere secondaire/', null=True, blank=True)
 	banniere_trois = models.ImageField(upload_to='banniere trois/', null=True, blank=True)
 	banniere_quatre = models.ImageField(upload_to='banniere quatre/', null=True, blank=True)
 	banniere_cinq = models.ImageField(upload_to='banniere cinq/', null=True, blank=True)
-	type_market = models.CharField(max_length = 50,choices=type,default=es, null = True)
-	nature_jurique = models.CharField(max_length = 150,choices=nature,default=snc, null = True,blank =True)
-	numero_rccm = models.CharField(max_length=100, verbose_name='Numéro RCCM', null=True,blank =True)
-	regime_fiscal = models.CharField(max_length=100, verbose_name='Régime fiscal', null=True,blank =True)
-	nif = models.CharField(max_length=100, verbose_name='NIF', null=True,blank =True)
-	num_cfe = models.CharField(max_length=100, verbose_name='Numéro CFE', null=True,blank =True)
+	type_market = models.CharField(max_length=50, choices=type, default=es, null=True)
+	nature_jurique = models.CharField(max_length=150, choices=nature, default=snc, null=True, blank=True)
+	numero_rccm = models.CharField(max_length=100, verbose_name='Numéro RCCM', null=True, blank=True)
+	regime_fiscal = models.CharField(max_length=100, verbose_name='Régime fiscal', null=True, blank=True)
+	nif = models.CharField(max_length=100, verbose_name='NIF', null=True, blank=True)
+	num_cfe = models.CharField(max_length=100, verbose_name='Numéro CFE', null=True, blank=True)
 	date_creation = models.DateField(max_length=100, verbose_name='Date Création', null=True, blank=True)
-	siege_social = models.CharField(max_length=100, verbose_name='Siège sociale', null=True,blank =True)
-	numero_cnss = models.CharField(max_length=100, verbose_name='Numéro de CNSS', null=True,blank =True)
+	siege_social = models.CharField(max_length=100, verbose_name='Siège sociale', null=True, blank=True)
+	numero_cnss = models.CharField(max_length=100, verbose_name='Numéro de CNSS', null=True, blank=True)
 	responsable = models.CharField(max_length=100, verbose_name='Nom et Prénoms du Responsable', null=True)
-	contact_1 = models.CharField(max_length =8,verbose_name ="Contact 1",null = True,blank =True)
-	contact_2 = models.CharField(max_length =8,verbose_name ="Contact 2",null = True,blank =True)
-
+	contact_1 = models.CharField(max_length=8, verbose_name="Contact 1", null=True, blank=True)
+	contact_2 = models.CharField(max_length=8, verbose_name="Contact 2", null=True, blank=True)
 
 	def save(self, *args, **kwargs):
-		#recuperation de l'entreprise associér a ce compte
+		# recuperation de l'entreprise associér a ce compte
 		if self.id == None:
-			super(EntrepriseCommerciale,self).save(*args, **kwargs)
+			super(EntrepriseCommerciale, self).save(*args, **kwargs)
 			self.code_membre = self.id
-			creance = Creance.objects.create(entreprise_associer = self)
+			creance = Creance.objects.create(entreprise_associer=self)
 			creance.save()
-			self.user = User(username = str(self.nom)+"-"+str(self.code_membre),
-							last_name = str(self.nom),password = make_password(self.mdp))
+			self.user = User(username=str(self.nom) + "-" + str(self.code_membre),
+							 last_name=str(self.nom), password=make_password(self.mdp))
 			self.user.save()
-			groupe = Group.objects.get(name="Commercial")	
+			groupe = Group.objects.get(name="Commercial")
 			groupe.user_set.add(self.user)
-			self.save(update_fields=['code_membre','compte_entreprise_commercial','user'])
+			self.save(update_fields=['code_membre', 'compte_entreprise_commercial', 'user'])
 		else:
-			return super(EntrepriseCommerciale,self).save(*args, **kwargs)
+			return super(EntrepriseCommerciale, self).save(*args, **kwargs)
 
 	def delete(self, *args, **kwargs):
-		#suppression du compte associér a ce vendeur
+		# suppression du compte associér a ce vendeur
 		self.compte_entreprise_commercial.delete()
-		super(EntrepriseCommerciale,self).delete(*args, **kwargs)
+		super(EntrepriseCommerciale, self).delete(*args, **kwargs)
 
-	
 	def __str__(self):
 		return str(self.nom)
+
 	class Meta:
 		verbose_name = "Vendeur"
 		verbose_name_plural = "Vendeurs"
-
-class Partenaire(models.Model):
-	"""
-	classe gerant les partennaire de epound
-	"""
-
-	nom = models.CharField(max_length=200,verbose_name="Nom du partenaire",null = True)
-	logo = models.ImageField(upload_to='logo_partenaire/', null=True, blank=True)

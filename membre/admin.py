@@ -199,7 +199,8 @@ class ConsommateurEntrepriseAdmin(PolymorphicChildModelAdmin):
 class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 	base_model = EntrepriseCommerciale
 	prepopulated_fields = {"slug": ("nom",)}
-	search_fields = ['nom','code_membre','actif',]
+	search_fields = ['nom','code_membre',]
+	list_filter = ['actif','emplacement',]
 	list_display = ['nom','besoin_gere','recette','prelevement','creance_dues','telephone','email',]
 	readonly_fields = ['numero_compte_consommateur','solde_compte_consommateur',
 						'date_expiration_compte_consommateur','activiter_compte_consommateur',
@@ -207,8 +208,8 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 						'date_expiration_compte_business','activiter_compte_business',]
 	fieldsets = (
 		("Informations Relatifs a l'entreprise", {
-			'fields': ('besoin_fondamental','besoin_gere','nom', 'code_membre','mdp',
-					   'telephone','contact_1','contact_2','email',"emplacement",'slug','objet_social','nature_jurique','numero_rccm','regime_fiscal','nif','siege_social',
+			'fields': ('besoin_fondamental','besoin_gere','nom','emplacement' ,'code_membre','mdp',
+					   'telephone','contact_1','contact_2','email','slug','objet_social','nature_jurique','numero_rccm','regime_fiscal','nif','siege_social',
 					   'numero_cnss','responsable','banniere_principal',
 					   'banniere_secondaire','banniere_trois','banniere_quatre',
 					   'banniere_cinq','date_expiration','actif','type_market',
@@ -311,3 +312,13 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 class PartenaireAdmin(admin.ModelAdmin):
 	search_fields = ['nom',]
 	list_display = ['nom','logo',]
+
+@admin.register(Ville)
+class VilleAdmin(admin.ModelAdmin):
+	search_fields = ['nom',]
+	list_display = ['nom',]
+
+@admin.register(Quartier)
+class QuartierAdmin(admin.ModelAdmin):
+	search_fields = ['nom',]
+	list_display = ['ville','nom',]
