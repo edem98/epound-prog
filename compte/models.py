@@ -47,8 +47,7 @@ class CompteGrenier(SingletonModel):
 			
 class Compte(PolymorphicModel,TimeStamp):
 	solde = models.PositiveIntegerField(default = 0)
-	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",
-	default = datetime.datetime.now()+ datetime.timedelta(720))
+	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",)
 	actif = models.BooleanField(verbose_name = 'En activité',default = True,)
 
 	def __str__(self):
@@ -56,6 +55,15 @@ class Compte(PolymorphicModel,TimeStamp):
 
 	class Meta():
 		verbose_name = "Compte"
+
+	def save(self, *args, **kwargs):
+		#recuperation de l'entreprise associér a ce compte
+		if self.id == None:
+			super(Compte,self).save(*args, **kwargs)
+			self.date_expiration = self.date_add+datetime.timedelta(720)
+			self.save(update_fields=['date_expiration',])
+		else:
+			return super(Compte,self).save(*args, **kwargs)
 
 
 class CompteTrader(Compte):
