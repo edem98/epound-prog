@@ -101,12 +101,83 @@ class ParticulierSerializer(serializers.HyperlinkedModelSerializer):
             instance.save()
         return instance
 
+class ConsommateurSerializer(serializers.HyperlinkedModelSerializer):
+    compte_consommateur = CompteConsommateurSerializer()
+    class Meta:
+        model = Membre
+        fields = ('id','code_membre','mdp','nom', 
+                    'telephone','actif','compte_consommateur',)
+
+class TransactionInterComsommateurSerializer(serializers.HyperlinkedModelSerializer):
+    envoyeur = ConsommateurSerializer(read_only = True)
+    receveur = ConsommateurSerializer(read_only = True)
+    class Meta:
+        model = TransactionInterComsommateur
+        fields = ('numero_envoyeur','numero_receveur','montant_envoyer','date_transaction','envoyeur','receveur')
+        
+
+    def create(self,validated_data):
+        numero_envoyeur = validated_data.get('numero_envoyeur')
+        numero_receveur = validated_data.get('numero_receveur')
+        envoyeur = Consommateur.objects.get(telephone = numero_envoyeur)
+        receveur = Consommateur.objects.get(telephone = numero_receveur)
+        solde = validated_data.get('montant_envoyer')
+        transaction = TransactionInterComsommateur.objects.create(envoyeur = envoyeur,receveur = receveur,
+                                            montant_envoyer = solde,numero_envoyeur = numero_envoyeur,
+                                            numero_receveur = numero_receveur,)
+        return transaction
+
+class NotificationSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Notification
+        fields = ('id','receiver','message','etat','date_notif','type_notif','sender',)
+
+class BesoinSerializer(serializers.HyperlinkedModelSerializer):
+    """ serializer de besoin prenant juste en compte le nom du besoin"""
+    class Meta:
+        model = ExpressionBesoin
+        fields = ('id','besoin',)
+
+class SpecificationSerializer(serializers.HyperlinkedModelSerializer):
+    """ serializer des specification des besoin prenant juste en compte le nom de la specification"""
+    besoin_fondamental = BesoinSerializer(read_only=True)
+    class Meta:
+        model = SpécificationBesoin
+        fields = ('id','spécification','besoin_fondamental')
+
+class CategorieSerializer(serializers.HyperlinkedModelSerializer):
+
+    specification = SpecificationSerializer(read_only = True)
+    class Meta:
+        model = Categorie
+        fields = ('id','nom_categorie','specification')
+
+class NotificationSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Notification
+        fields = ('id','receiver','message','etat','date_notif','type_notif','sender',)
+
+
+class VilleSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Ville
+        fields = ('id','nom',)
+
+class QuartierSerializer(serializers.HyperlinkedModelSerializer):
+    ville = VilleSerializer(read_only=True)
+
+    class Meta:
+        model = Quartier
+        fields = ('id','nom','ville')
+
 class EntrepriseSerializer(serializers.HyperlinkedModelSerializer):
     compte_consommateur = CompteConsommateurSerializer(read_only = True)
+    emplacement = QuartierSerializer(read_only = True)
     class Meta:
         model = ConsommateurEntreprise
-        fields = ('id','code_membre','mdp','nom', 
-                'telephone','email','raison_social','statut_juridique',
+        fields = ('id','code_membre','mdp','nom',
+                'telephone','email','raison_social','emplacement','statut_juridique',
                 'objet_social','capital_social','numero_rccm',
                 'regime_fiscal','nif','siege_social',
                 'numero_compte_bancaire','responsable','compte_consommateur',)
@@ -147,21 +218,15 @@ class EntrepriseSerializer(serializers.HyperlinkedModelSerializer):
             instance.save()
         return instance
 
-class ConsommateurSerializer(serializers.HyperlinkedModelSerializer):
-    compte_consommateur = CompteConsommateurSerializer()
-    class Meta:
-        model = Membre
-        fields = ('id','code_membre','mdp','nom', 
-                    'telephone','actif','compte_consommateur',)
-
 class TraderSerializer(serializers.HyperlinkedModelSerializer):
     compte_trader = CompteTraderSerializer(read_only=True)
+    emplacement = QuartierSerializer(read_only = True)
     class Meta:
         model = Trader
-        fields = ('id','code_membre','mdp','nom','prenoms', 
+        fields = ('id','code_membre','mdp','nom','prenoms',
                 'sexe','emplacement','ville_residence','telephone','email','compte_trader',)
 
-    def update(self, instance, validated_data): 
+    def update(self, instance, validated_data):
         instance = Trader.objects.get(telephone=validated_data.get('telephone'))
         if instance:
             if validated_data.get('nom'):
@@ -180,15 +245,14 @@ class TraderSerializer(serializers.HyperlinkedModelSerializer):
         return instance
 
 class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
+
     compte_entreprise_commercial = CompteEntrepriseCommercialeSerializer(read_only=True)
+    emplacement = QuartierSerializer(read_only=True)
     class Meta:
         model = EntrepriseCommerciale
         depth = 1
-        fields = ('id','code_membre',
-                    'nom','mdp','telephone','emplacement','email',
-                    'actif','compte_entreprise_commercial','type_market',
-                  'nature_jurique','numero_rccm','regime_fiscal','nif','siege_social',
-					'numero_cnss','responsable',)
+        fields = ('id','code_membre','nom','mdp','telephone','emplacement','email','actif','compte_entreprise_commercial',
+                  'type_market','nature_jurique','numero_rccm','regime_fiscal','nif','siege_social','numero_cnss','responsable',)
 
     def create(self,validated_data):
         compte_entreprise_commercial = validated_data.pop('compte_entreprise_commercial')
@@ -204,7 +268,7 @@ class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
                 compte_entreprise_commercial = compte, **validated_data)
             return entreprise
 
-    def update(self, instance, validated_data): 
+    def update(self, instance, validated_data):
         instance =  EntrepriseCommerciale.objects.get(telephone=validated_data.get('telephone'))
         if validated_data.get('nom'):
             instance.nom = validated_data.get('nom')
@@ -218,51 +282,6 @@ class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
             instance.actif = validated_data.get('actif')
         instance.save()
         return instance
-
-class TransactionInterComsommateurSerializer(serializers.HyperlinkedModelSerializer):
-    envoyeur = ConsommateurSerializer(read_only = True)
-    receveur = ConsommateurSerializer(read_only = True)
-    class Meta:
-        model = TransactionInterComsommateur
-        fields = ('numero_envoyeur','numero_receveur','montant_envoyer','date_transaction','envoyeur','receveur')
-        
-
-    def create(self,validated_data):
-        numero_envoyeur = validated_data.get('numero_envoyeur')
-        numero_receveur = validated_data.get('numero_receveur')
-        envoyeur = Consommateur.objects.get(telephone = numero_envoyeur)
-        receveur = Consommateur.objects.get(telephone = numero_receveur)
-        solde = validated_data.get('montant_envoyer')
-        transaction = TransactionInterComsommateur.objects.create(envoyeur = envoyeur,receveur = receveur,
-                                            montant_envoyer = solde,numero_envoyeur = numero_envoyeur,
-                                            numero_receveur = numero_receveur,)
-        return transaction
-
-class TransactionCommercialComsommateurSerializer(serializers.HyperlinkedModelSerializer):
-    envoyeur = EntrepriseCommercialeSerializer(read_only = True)
-    receveur = ConsommateurSerializer(read_only = True)
-    class Meta:
-        model = TransactionCommercialComsommateur
-        fields = ('envoyeur','receveur','numero_envoyeur','numero_receveur',
-                    'montant_envoyer','date_transaction',)
-
-    def create(self,validated_data):
-        numero_envoyeur = validated_data.get('numero_envoyeur')
-        numero_receveur = validated_data.get('numero_receveur')
-        envoyeur = EntrepriseCommerciale.objects.get(telephone = numero_envoyeur)
-        receveur = Consommateur.objects.get(telephone=numero_receveur)
-        solde = validated_data.get('montant_envoyer')
-        transaction = TransactionCommercialComsommateur.objects.create(envoyeur = envoyeur,receveur = receveur,
-                                            montant_envoyer = solde,numero_envoyeur = numero_envoyeur,
-                                                                       numero_receveur = numero_receveur)
-        if str(transaction) != "TransactionCommercialComsommateur object (None)":
-            return transaction
-        else:
-            data = {}
-            data['echec'] = "Montant insuffisant"
-            print("Montant insuffisant")
-
-            return Response(data)
 
 class ConversionTraderSerializer(serializers.HyperlinkedModelSerializer):
     trader = TraderSerializer(read_only = True)
@@ -301,29 +320,9 @@ class ReconversionTraderSerializer(serializers.HyperlinkedModelSerializer):
                 validated_data['mdp'] = mdp_acheteur
                 reconversion = ReconversionTrader.objects.create(**validated_data)
                 return reconversion
-
-class NotificationSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Notification
-        fields = ('id','receiver','message','etat','date_notif','type_notif','sender',)
-
-class PayementInterCommercialSerializer(serializers.HyperlinkedModelSerializer):
-    envoyeur = EntrepriseCommercialeSerializer(read_only = True)
-    recepteur = EntrepriseCommercialeSerializer(read_only = True)
-    class Meta:
-        model = PayementInterCommercial
-        fields = ('id','numero_envoyeur','numero_receveur',
-                    'montant_envoyer','solde_apres_transaction',
-                    'date_transaction','envoyeur','recepteur',)
-
-class PayementConsommateurSerializer(serializers.HyperlinkedModelSerializer):
-    envoyeur = ConsommateurSerializer(read_only = True)
-    recepteur = EntrepriseCommercialeSerializer(read_only = True)
-    class Meta:
-        model = PayementConsomateur
-        fields = ('id','telephone_envoyeur','telephone_receveur',
-                    'montant_envoyer','solde_apres_transaction',
-                    'date_transaction','envoyeur','recepteur',)
+        data = {}
+        data["echec"] = "Veillez spécifier le mot de passe du consommateur"
+        raise serializers.ValidationError(data)
 
 class CreationParticulierParTraderSerializer(serializers.HyperlinkedModelSerializer):
     trader = TraderSerializer(read_only = True)
@@ -363,25 +362,58 @@ class CreationEntrepriseParTraderSerializer(serializers.HyperlinkedModelSerializ
         telephone = telephone,mdp = mdp,consommateur = consommateur,trader = trader)
         return creation
 
-class BesoinSerializer(serializers.HyperlinkedModelSerializer):
-    """ serializer de besoin prenant juste en compte le nom du besoin"""
-    class Meta:
-        model = ExpressionBesoin
-        fields = ('id','besoin',)
+class ReactivationClientSerializer(serializers.HyperlinkedModelSerializer):
 
-class SpecificationSerializer(serializers.HyperlinkedModelSerializer):
-    """ serializer des specification des besoin prenant juste en compte le nom de la specification"""
-    besoin_fondamental = BesoinSerializer(read_only=True)
-    class Meta:
-        model = SpécificationBesoin
-        fields = ('id','spécification','besoin_fondamental')
+    trader = TraderSerializer(read_only=True)
+    consommateur = ConsommateurSerializer(read_only=True)
 
-class CategorieSerializer(serializers.HyperlinkedModelSerializer):
-
-    specification = SpecificationSerializer(read_only = True)
     class Meta:
-        model = Categorie
-        fields = ('id','nom_categorie','specification')
+        model = ReactivationClient
+        fields = ('id', 'numero_trader', 'numero_receveur', 'trader', 'consommateur', 'date_reabonnement',)
+
+class TransactionCommercialComsommateurSerializer(serializers.HyperlinkedModelSerializer):
+    envoyeur = EntrepriseCommercialeSerializer(read_only = True)
+    receveur = ConsommateurSerializer(read_only = True)
+    class Meta:
+        model = TransactionCommercialComsommateur
+        fields = ('envoyeur','receveur','numero_envoyeur','numero_receveur',
+                    'montant_envoyer','date_transaction',)
+
+    def create(self,validated_data):
+        numero_envoyeur = validated_data.get('numero_envoyeur')
+        numero_receveur = validated_data.get('numero_receveur')
+        envoyeur = EntrepriseCommerciale.objects.get(telephone = numero_envoyeur)
+        receveur = Consommateur.objects.get(telephone=numero_receveur)
+        solde = validated_data.get('montant_envoyer')
+        transaction = TransactionCommercialComsommateur.objects.create(envoyeur = envoyeur,receveur = receveur,
+                                            montant_envoyer = solde,numero_envoyeur = numero_envoyeur,
+                                                                       numero_receveur = numero_receveur)
+        if str(transaction) != "TransactionCommercialComsommateur object (None)":
+            return transaction
+        else:
+            data = {}
+            data['echec'] = "Montant insuffisant"
+            print("Montant insuffisant")
+
+            return Response(data)
+
+class PayementInterCommercialSerializer(serializers.HyperlinkedModelSerializer):
+    envoyeur = EntrepriseCommercialeSerializer(read_only = True)
+    recepteur = EntrepriseCommercialeSerializer(read_only = True)
+    class Meta:
+        model = PayementInterCommercial
+        fields = ('id','numero_envoyeur','numero_receveur',
+                    'montant_envoyer','solde_apres_transaction',
+                    'date_transaction','envoyeur','recepteur',)
+
+class PayementConsommateurSerializer(serializers.HyperlinkedModelSerializer):
+    envoyeur = ConsommateurSerializer(read_only = True)
+    recepteur = EntrepriseCommercialeSerializer(read_only = True)
+    class Meta:
+        model = PayementConsomateur
+        fields = ('id','telephone_envoyeur','telephone_receveur',
+                    'montant_envoyer','solde_apres_transaction',
+                    'date_transaction','envoyeur','recepteur',)
 
 class ProduitSerializer(serializers.HyperlinkedModelSerializer):
     vendeur = EntrepriseCommercialeSerializer(read_only=True)
@@ -410,11 +442,6 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
         instance.save()
         return instance
 
-class NotificationSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Notification
-        fields = ('id','receiver','message','etat','date_notif','type_notif','sender',)
-
 class VendeuVenteSerializer(serializers.HyperlinkedModelSerializer):
     acheteur = ConsommateurSerializer(read_only=True)
     vendeur = EntrepriseCommercialeSerializer(read_only=True)
@@ -436,15 +463,6 @@ class VendeuVenteSerializer(serializers.HyperlinkedModelSerializer):
                 validated_data['mdp_acheteur'] = mdp_acheteur
                 vente = VendeurVente.objects.create(**validated_data)
                 return vente
-
-class ReactivationClientSerializer(serializers.HyperlinkedModelSerializer):
-
-    trader = TraderSerializer(read_only=True)
-    consommateur = ConsommateurSerializer(read_only=True)
-
-    class Meta:
-        model = ReactivationClient
-        fields = ('id', 'numero_trader', 'numero_receveur', 'trader', 'consommateur', 'date_reabonnement',)
 
 class MessageClientSerializer(serializers.HyperlinkedModelSerializer):
 

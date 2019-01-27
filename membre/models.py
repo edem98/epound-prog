@@ -160,7 +160,6 @@ class Quartier(TimeStamp):
 	def __str__(self):
 		return str(self.nom)
 
-
 class EntrepriseCommerciale(Membre):
 	"""
 		Cette classe gère les entreprises commerciales

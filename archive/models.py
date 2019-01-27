@@ -317,7 +317,7 @@ class ReconversionTrader(models.Model):
                                                     ,null = True)
 
     solde_consommateur_apres_reconversion = models.PositiveIntegerField(
-        verbose_name ='Solde après Reconversion',null =True)
+        verbose_name ='Solde Trader après Reconversion',null =True)
 
     date_conversion = models.DateTimeField(verbose_name ="Date de conversion",
                                 auto_now_add = True,)
@@ -328,17 +328,17 @@ class ReconversionTrader(models.Model):
             with transaction.atomic():
                 self.consommateur = Consommateur.objects.get(telephone = self.numero_receveur)
                 self.trader = Trader.objects.get(telephone=self.numero_trader)
-                self.montant_retourner = self.epound_reconverti-self.epound_reconverti*CompteConsommateur.TAUX_PERTE/100
+                self.montant_retourner = self.epound_reconverti - (self.epound_reconverti * CompteConsommateur.TAUX_PERTE)/100
                 #retrait des epound du compte consommateurs
                 self.consommateur.compte_consommateur.solde -= self.epound_reconverti
                 self.consommateur.compte_consommateur.save()
                 #envoi des epound racheter sur le compte du trader
-                self.trader.compte_trader.solde += self.epound_reconverti- self.epound_reconvert/3
+                self.trader.compte_trader.solde += self.epound_reconverti - self.epound_reconverti/3
                 self.trader.compte_trader.save()
                 self.solde_consommateur_apres_reconversion = self.trader.compte_trader.solde
                 #envoi de la bonification au compte grenier
                 compte_grenier = CompteGrenier.load()
-                compte_grenier.prelevement_reconversion+= self.epound_reconvert/3
+                compte_grenier.prelevement_reconversion+= self.epound_reconverti/3
                 compte_grenier.save()
                 # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
                 absorbtion = TauxAbsorbtionGlobal.load()
