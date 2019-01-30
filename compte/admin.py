@@ -145,8 +145,8 @@ class CompteGrenierAdmin(admin.ModelAdmin):
 	list_display = ['fonte','prelevement_reconversion','prelevement_vendeur',]
 	readonly_fields = ['fonte','prelevement_reconversion','prelevement_vendeur','recette']
 
-	def has_add_permission(self,request):
-		return False
+	# def has_add_permission(self,request):
+	# 	return False
 
 @admin.register(CompteBeta)
 class CompteBetaAdmin(admin.ModelAdmin):
