@@ -76,6 +76,8 @@ class TransactionCommercialComsommateur(models.Model):
                 if self.envoyeur.compte_entreprise_commercial.compte_business.solde > self.montant_envoyer:
                     self.envoyeur.compte_entreprise_commercial.compte_business.solde -= self.montant_envoyer
                     self.envoyeur.compte_entreprise_commercial.compte_business.save()
+                    #mise a jour de la creance
+                    self.envoyeur.save()
                     self.receveur.compte_consommateur.solde = self.receveur.compte_consommateur.solde + self.montant_envoyer
                     self.receveur.compte_consommateur.save()
                     self.solde_apres_transaction = self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde
@@ -148,6 +150,9 @@ class PayementConsomateur(models.Model):
                 self.envoyeur = Consommateur.objects.get(telephone = self.telephone_envoyeur)
                 self.receveur.compte_entreprise_commercial.compte_business.solde += self.montant_envoyer
                 self.receveur.compte_entreprise_commercial.compte_business.save()
+                # mise a jour de la creance
+                self.receveur.save()
+                # retrait du compte du client
                 self.envoyeur.compte_consommateur.solde -= self.montant_envoyer
                 self.envoyeur.compte_consommateur.save()
                 self.solde_apres_transaction = self.receveur.compte_entreprise_commercial.compte_business.solde
@@ -208,11 +213,15 @@ class PayementInterCommercial(models.Model):
             with transaction.atomic():
                 self.receveur = EntrepriseCommerciale.objects.get(telephone = self.numero_envoyeur)
                 self.envoyeur = EntrepriseCommerciale.objects.get(telephone = self.numero_receveur)
+                # mise a jour de la creance envoyeur
                 self.receveur.compte_entreprise_commercial.compte_business.solde += self.montant_envoyer
                 self.receveur.compte_entreprise_commercial.compte_business.save()
+                self.receveur.save()
+                #mise a jour de la creance envoyeur
                 self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_envoyer
                 self.envoyeur.compte_entreprise_commercial.compte_consommateur.save()
                 self.solde_apres_transaction = self.receveur.compte_entreprise_commercial.compte_business.solde
+                self.envoyeur.save()
                 # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
                 absorbtion = TauxAbsorbtionGlobal.load()
                 absorbtion.epound_detenus -= self.montant_envoyer
@@ -434,6 +443,7 @@ class VendeurVente(models.Model):
                     self.client.compte_consommateur.save()
                     self.vendeur.compte_entreprise_commercial.compte_business.solde += self.montant
                     self.vendeur.compte_entreprise_commercial.compte_business.save()
+                    self.vendeur.save()
                     super(VendeurVente,self).save(*args, **kwargs)
                 else:
                     return None

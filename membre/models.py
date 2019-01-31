@@ -15,7 +15,7 @@ class Membre(PolymorphicModel,TimeStamp):
 	mdp = models.CharField(max_length = 80, verbose_name ='Mot de passe',null = True)
 	telephone = models.CharField(max_length =8,verbose_name ="Téléphone",null = True,unique = True)
 	email = models.EmailField(max_length = 254,null = True,unique = True)
-	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",null = True,)
+	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",null = True,blank =True)
 	actif = models.BooleanField(verbose_name = 'En activité',default = True,)
 
 	def __str__(self):
@@ -249,6 +249,12 @@ class EntrepriseCommerciale(Membre):
 			groupe.user_set.add(self.user)
 			self.save(update_fields=['code_membre', 'compte_entreprise_commercial', 'user'])
 		else:
+			# mise a jour de la Creance
+			creance = Creance.objects.get(entreprise_associer=self)
+			creance.epounds_retrancher = (self.compte_entreprise_commercial.compte_business.solde * 5) / 100
+			creance.voulume_convertible = ((self.compte_entreprise_commercial.compte_business.solde - creance.epounds_retrancher) * 70) / 100
+			creance.volume_retransferer = ((self.compte_entreprise_commercial.compte_business.solde - creance.epounds_retrancher) * 30) / 100
+			creance.save()
 			return super(EntrepriseCommerciale, self).save(*args, **kwargs)
 
 	def delete(self, *args, **kwargs):

@@ -25,7 +25,7 @@ class MembreAdmin(PolymorphicParentModelAdmin):
 @admin.register(Trader)
 class TraderAdmin(PolymorphicChildModelAdmin):
 	base_model = Trader
-	search_fields = ['nom','choix_personne','code_membre','actif',]
+	search_fields = ['nom','choix_personne','actif',]
 	list_display = ['nom_membre','code_membre','date_expiration']
 	readonly_fields = ['numero_compte_trader','solde_compte_trader',
 						'date_expiration_compte_trader','activiter_compte_trader',]
@@ -104,7 +104,7 @@ class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 
 	fieldsets = (
 		("Informations Relatifs à l'utilisateur", {
-			'fields': ('user','code_membre','mdp','nom','prenoms','date_naissance',
+			'fields': ('user','mdp','nom','prenoms','date_naissance',
 						'lieu_residence','telephone','email','num_carte','formation',
 						'profession','situation_matrimoniale','nationalite','date_expiration'),
 		}),
@@ -159,7 +159,7 @@ class ConsommateurEntrepriseAdmin(PolymorphicChildModelAdmin):
 
 	fieldsets = (
 		("Informations Relatifs à l'Entreprise", {
-			'fields': ('user','code_membre','mdp','raison_social','telephone','statut_juridique','objet_social',
+			'fields': ('user','mdp','raison_social','telephone','statut_juridique','objet_social',
 						'capital_social','numero_rccm','regime_fiscal','nif',
 						'siege_social','numero_compte_bancaire','responsable','date_expiration'),
 		}),
@@ -208,12 +208,11 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 						'date_expiration_compte_business','activiter_compte_business',]
 	fieldsets = (
 		("Informations Relatifs a l'entreprise", {
-			'fields': ('besoin_fondamental','besoin_gere','nom','emplacement' ,'code_membre','mdp',
+			'fields': ('besoin_fondamental','besoin_gere','nom','emplacement','mdp',
 					   'telephone','contact_1','contact_2','email','slug','objet_social','nature_jurique','numero_rccm','regime_fiscal','nif','siege_social',
 					   'numero_cnss','responsable','banniere_principal',
 					   'banniere_secondaire','banniere_trois','banniere_quatre',
 					   'banniere_cinq','date_expiration','actif','type_market',
-
 					   )
 		}),
 		("Compte d'entreprise", {

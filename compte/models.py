@@ -1,7 +1,7 @@
 from django.db import models
 from polymorphic.models import PolymorphicModel
+from membre.models import *
 from utils import TimeStamp
-from dashboard.models import Creance 
 from utils import SingletonModel
 import datetime
 
@@ -47,11 +47,11 @@ class CompteGrenier(SingletonModel):
 			
 class Compte(PolymorphicModel,TimeStamp):
 	solde = models.PositiveIntegerField(default = 0)
-	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",)
+	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",null=True,blank=True)
 	actif = models.BooleanField(verbose_name = 'En activité',default = True,)
 
 	def __str__(self):
-		return "identifiant du compte : "+ str(self.id)
+		return "Compte :"+ str(self.id)
 
 	class Meta():
 		verbose_name = "Compte"
@@ -61,7 +61,7 @@ class Compte(PolymorphicModel,TimeStamp):
 		if self.id == None:
 			super(Compte,self).save(*args, **kwargs)
 			self.date_expiration = self.date_add+datetime.timedelta(720)
-			self.save(update_fields=['date_expiration',])
+			self.save()
 		else:
 			return super(Compte,self).save(*args, **kwargs)
 
@@ -83,24 +83,20 @@ class CompteConsommateur(Compte):
 class CompteBusiness(Compte):
 	TAUX_CONTRIBUTION = 5
 	TAUX_RECONVERSION = 70
-	
-	def save(self, *args, **kwargs):
-		#recuperation de l'entreprise associér a ce compte
-		if self.id != None:
-			entreprise = self.compteVente_vers_parent.compteEntreprise_vers_entreprise
-			print("Entreprise"+str(entreprise))
-			#mise a jour de la Creance
-			creance = Creance.objects.get(entreprise_associer = entreprise)
-			print(creance)
-			creance.epounds_retrancher = (self.solde*5)/100
-			creance.voulume_convertible = ((self.solde - creance.epounds_retrancher)*70)/100
-			creance.volume_retransferer = ((self.solde - creance.epounds_retrancher)*30)/100
-			super(CompteBusiness,self).save(*args, **kwargs)
-			creance.save()
-		super(CompteBusiness,self).save(*args, **kwargs)
 
 	class Meta():
 		verbose_name = 'Compte Vente'
+
+	# def titulaire(self):
+	# 	print(self.id)
+	# 	from membre.models import EntrepriseCommerciale
+	# 	compte_entreprise = CompteEntrepriseCommerciale.objects.get(compte_business__id=self.id)
+	# 	entreprise = EntrepriseCommerciale.objects.get(compte_entreprise_commercial=compte_entreprise)
+	# 	return entreprise.nom
+	#
+	# def __str__(self):
+	# 	s = self.titulaire()
+	# 	return s
 
 class CompteEntrepriseCommerciale(Compte):
 	compte_consommateur = models.OneToOneField(CompteConsommateur,
@@ -116,3 +112,4 @@ class CompteEntrepriseCommerciale(Compte):
 
 	class Meta():
 		verbose_name = "Compte Entreprise Commerciale"
+
