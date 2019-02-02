@@ -13,12 +13,11 @@ def envoyer_sms(message,destinataire,expediteur="epound Corp"):
 
     payload = "username=ysms-epound&password=70011777&type=0&dlr=1&destination="+destinataire+"&source="+expediteur+"&message="+message
     headers = {
-        'apikey': "somerandomuniquekey",
         'content-type': "application/x-www-form-urlencoded",
         'cache-control': "no-cache"
     }
 
-    conn.request("POST", "/SMSApi/rest/send", payload, headers)
+    conn.request("POST", "/sendsms?", payload, headers)
 
     res = conn.getresponse()
     data = res.read()
