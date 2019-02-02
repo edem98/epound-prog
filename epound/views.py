@@ -9,7 +9,7 @@ from django.conf import settings
 import http.client
 
 def envoyer_sms(message,destinataire,expediteur="epound Corp"):
-    conn = http.client.HTTPSConnection("http://sms.easysbyskegroup.com:8080/sendsms?")
+    conn = http.client.HTTPSConnection("http://sms.easysbyskegroup.com:8080")
 
     payload = "username=ysms-epound&password=70011777&type=0&dlr=1&destination="+destinataire+"&source="+expediteur+"&message="+message
     headers = {
