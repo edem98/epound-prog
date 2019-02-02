@@ -6,12 +6,13 @@ from ecommerce.models import ExpressionBesoin, Produit
 from epound import settings
 from membre.models import EntrepriseCommerciale, Partenaire
 from django.conf import settings
-from urllib.request import Request, urlopen
+import requests
 
 def envoyer_sms(message,destinataire,expediteur="epound Corp"):
 
-    url = Request("http://sms.easysbyskegroup.com:8080/sendsms?username=ysms-epound&password=70011777&type=0&dlr=1&destination="+destinataire+"&source="+expediteur+"&message="+message, headers={'User-Agent': 'Mozilla/5.0'})
-    return urlopen(url).read()
+    url = "http://sms.easysbyskegroup.com:8080/sendsms?username=ysms-epound&password=70011777&type=0&dlr=1&destination="+destinataire+"&source="+expediteur+"&message="+message
+    resp = requests.request("POST",url)
+    return resp
 
 
 def send_sms(to, message):
