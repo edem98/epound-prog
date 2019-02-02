@@ -6,23 +6,14 @@ from ecommerce.models import ExpressionBesoin, Produit
 from epound import settings
 from membre.models import EntrepriseCommerciale, Partenaire
 from django.conf import settings
-import http.client
+import urllib.request
+import urllib.parse
 
 def envoyer_sms(message,destinataire,expediteur="epound Corp"):
-    conn = http.client.HTTPSConnection("http://sms.easysbyskegroup.com:8080")
 
-    payload = "username=ysms-epound&password=70011777&type=0&dlr=1&destination="+destinataire+"&source="+expediteur+"&message="+message
-    headers = {
-        'content-type': "application/x-www-form-urlencoded",
-        'cache-control': "no-cache"
-    }
-
-    conn.request("POST", "/sendsms?", payload, headers)
-
-    res = conn.getresponse()
-    data = res.read()
-
-    return data.decode("utf-8")
+    url = "http://sms.easysbyskegroup.com:8080/sendsms?username=ysms-epound&password=70011777&type=0&dlr=1&destination="+destinataire+"&source="+expediteur+"&message="+message
+    f = urllib.request.urlopen(url)
+    return f.read().decode('utf-8')
 
 
 def send_sms(to, message):

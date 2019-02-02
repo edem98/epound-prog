@@ -65,7 +65,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="3614" />
           <entry key="js" value="291" />
-          <entry key="py" value="23692" />
+          <entry key="py" value="23703" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
@@ -75,7 +75,7 @@
           <entry key="HTML" value="3614" />
           <entry key="JavaScript" value="291" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="23692" />
+          <entry key="Python" value="23703" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -134,11 +134,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/epound/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="210">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
-                <marker date="1549132936701" expanded="true" signature="429:908" ph="..." />
+                <element signature="e#462#721#0" />
+                <element signature="e#757#835#0" />
+                <marker date="1549133969689" expanded="true" signature="453:704" ph="..." />
               </folding>
             </state>
           </provider>
@@ -971,11 +973,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/epound/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="210">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
-            <marker date="1549132936701" expanded="true" signature="429:908" ph="..." />
+            <element signature="e#462#721#0" />
+            <element signature="e#757#835#0" />
+            <marker date="1549133969689" expanded="true" signature="453:704" ph="..." />
           </folding>
         </state>
       </provider>
