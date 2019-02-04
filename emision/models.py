@@ -138,7 +138,7 @@ class CreationParticulierParTrader(models.Model):
                 # Création de particuler
                 self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp =password,code_membre = code_membre)
                 # Création du méssage et envoie du méssage
-                message = "Bienvenue sur epound\n"+"code membre: "+str(code_membre)+"\nmot de passe: "+ password
+                message = "Bienvenue sur epound\n"+"code membre: "+str(self.consommateur.code_membre)+"\nmot de passe: "+ password
                 to = "228"+self.telephone
                 envoyer_sms(message,to)
                 # Retourner l'élément creer
