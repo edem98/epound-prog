@@ -131,11 +131,17 @@ class CreationParticulierParTrader(models.Model):
                 self.solde_initial = self.trader.compte_trader.solde
                 self.trader.compte_trader.solde -= 3000
                 self.trader.compte_trader.save()
-                dernier = ConsommateurParticulier.objects.all().order_by("-code_membre")[0]
-                self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp ="123456789",code_membre = dernier.id+1)
-                message = "Bienvenue sur epound\n"+"code membre: "+str(dernier.id+1)+"\nmot de passe: "+BaseUserManager().make_random_password()
+                # Génération du code membre et du password du nouveau client
+                code_membre = Membre.objects.all().order_by("-id")[0]
+                code_membre = code_membre.id + 1
+                password = BaseUserManager().make_random_password()
+                # Création de particuler
+                self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp =password,code_membre = code_membre)
+                # Création du méssage et envoie du méssage
+                message = "Bienvenue sur epound\n"+"code membre: "+str(code_membre)+"\nmot de passe: "+ password
                 to = "228"+self.telephone
                 envoyer_sms(message,to)
+                # Retourner l'élément creer
                 super(CreationParticulierParTrader,self).save(*args, **kwargs)
 
     class Meta:
