@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from compte.models import CompteAlpha
 from django.db import transaction
 from django.contrib.auth.hashers import check_password
-from epound.views import sms_sender, envoyer_sms
+from epound.views import envoyer_sms
+from django.contrib.auth.base_user import BaseUserManager
 
 
 class EmissionUnites(models.Model):
@@ -132,7 +133,7 @@ class CreationParticulierParTrader(models.Model):
                 self.trader.compte_trader.save()
                 dernier = ConsommateurParticulier.objects.all().order_by("-code_membre")[0]
                 self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp ="123456789",code_membre = dernier.id+1)
-                message = "Bienvenue sur epound\n"+"code membre: "+str(dernier.id+1)+"\nmot de passe: "+"123456789"
+                message = "Bienvenue sur epound\n"+"code membre: "+str(dernier.id+1)+"\nmot de passe: "+BaseUserManager().make_random_password()
                 to = "228"+self.telephone
                 envoyer_sms(message,to)
                 super(CreationParticulierParTrader,self).save(*args, **kwargs)

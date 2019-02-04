@@ -14,23 +14,6 @@ def envoyer_sms(message,destinataire,expediteur="epound Corp"):
     resp = requests.request("POST",url)
     return resp
 
-
-def send_sms(to, message):
-    '''sms utility method'''
-
-    media_url = "http://sms.easysbyskegroup.com:8080/sendsms?username=ysms-epound&password=70011777&type=0&dlr=1&destination=999999999&source=xxxxx&message=xxxxxxx"
-    message = message.encode('utf-8')
-    client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-    response = client.messages.create(body=message, to=to, from_='+18639008466')
-    return response
-
-
-def sms_sender(message, to):
-    to = "+228" + "" + to
-    response = send_sms(to, message)
-    print(response)
-
-
 def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
@@ -38,7 +21,6 @@ def acceuil(request):
     context['besoins'] = besoins
     context['produits'] = new_produits
     return render(request, 'index.html', context)
-
 
 class ListEntreprise(ListView):
     model = EntrepriseCommerciale
@@ -52,13 +34,11 @@ class ListEntreprise(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
-
 def about(request):
     context = {}
     new_produits = Produit.objects.all().order_by('-date_ajout')[:30]
     context['produits'] = new_produits
     return render(request, 'about.html', context)
-
 
 def contact(request):
     if request.method == "POST":
@@ -75,7 +55,6 @@ def contact(request):
         else:
             return HttpResponse('Make sure all fields are entered and valid.')
     return render(request, 'contact.html')
-
 
 def partenaires(request):
     context = {}

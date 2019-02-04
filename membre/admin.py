@@ -77,10 +77,10 @@ class TraderAdmin(PolymorphicChildModelAdmin):
 @admin.register(Consommateur)
 class ConsommateurAdmin(PolymorphicParentModelAdmin,PolymorphicChildModelAdmin):
 	base_model = Consommateur
-	search_fields = ['nom','code_membre''actif','telephone']
+	search_fields = ['nom','code_membre','actif','telephone']
 	child_models = (ConsommateurParticulier, ConsommateurEntreprise)
 	list_filter = (PolymorphicChildModelFilter,)
-	list_display = ['nom_membre','nationalite','compte_consommateur','telephone']
+	list_display = ['nom_membre','telephone','code_membre','nationalite','compte_consommateur',]
 
 	def nom_membre(self,obj):
 		membre = Membre.objects.get(id = obj.id)
@@ -91,20 +91,19 @@ class ConsommateurAdmin(PolymorphicParentModelAdmin,PolymorphicChildModelAdmin):
 		else:
 			return str(membre.nom)
 	nom_membre.short_description = "Membre"
-	
 
 @admin.register(ConsommateurParticulier)
 class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 	base_model = ConsommateurParticulier
-	search_fields = ['nom','code_membre''actif',]
-	list_display = ['nom','prenoms','num_carte','telephone',]
+	search_fields = ['nom','code_membre','actif',]
+	list_display = ['nom','prenoms','code_membre','telephone','num_carte',]
 
 	readonly_fields = ['numero_compte_consommateur','solde_compte_consommateur',
-						'date_expiration_compte_consommateur','activiter_compte_consommateur',]
+						'date_expiration_compte_consommateur','activiter_compte_consommateur','code_membre']
 
 	fieldsets = (
 		("Informations Relatifs à l'utilisateur", {
-			'fields': ('user','mdp','nom','prenoms','date_naissance',
+			'fields': ('user','code_membre','mdp','nom','prenoms','date_naissance',
 						'lieu_residence','telephone','email','num_carte','formation',
 						'profession','situation_matrimoniale','nationalite','date_expiration'),
 		}),
