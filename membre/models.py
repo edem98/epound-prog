@@ -19,7 +19,7 @@ class Membre(PolymorphicModel,TimeStamp):
 	actif = models.BooleanField(verbose_name = 'En activité',default = True,)
 
 	def __str__(self):
-		return str(self.nom)
+		return str(self.code_membre)
 
 	def save(self, *args, **kwargs):
 		#recuperation de l'entreprise associér a ce compte
@@ -82,6 +82,9 @@ class Consommateur(Membre,PolymorphicModel):
 			self.save(update_fields=['code_membre','compte_consommateur','user'])
 		else:
 			return super(Consommateur,self).save(*args, **kwargs)
+
+	def __str__(self):
+		return self.nom
 
 class ConsommateurParticulier(Consommateur):
 	#definition de la situation matrimonial

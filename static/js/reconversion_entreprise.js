@@ -1,3 +1,4 @@
+alert("hello")
 $(document).ready(function(){
 
   var montant_a_prelever = 0;
@@ -11,9 +12,9 @@ $(document).ready(function(){
     if($("#id_beneficiaire").val() != entreprise){
        entreprise = $("#id_beneficiaire").val()
        $.ajax({
-              type: 'GET',
-              url: '/membre/retourner-entreprise-info',
-             data:{
+            type: 'GET',
+            url: '/membre/retourner-entreprise-info',
+            data:{
                    'nom_membre': entreprise,
                    },
             success: function(data,textStatus, jqxhr){
@@ -24,7 +25,7 @@ $(document).ready(function(){
                    }
             })
     }
-    setTimeout(prix_entreprise,200);
+    setTimeout(prix_entreprise(),200);
   }
   prix_entreprise();
 

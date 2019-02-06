@@ -4,19 +4,21 @@ $(document).ready(function(){
   var montant_cfa = 0;
 
   $("#id_beneficiaire").on('change',function(){
+    var code = $(this).text();
     $.ajax({
               type: 'GET',
               url: '/membre/retourner-consommateur-info',
              data:{
-                   'code_membre': $(this).text(),
+                   'code_membre': code,
                    },
-            success: function(data,textStatus, jqxhr){ 
+            success: function(data,textStatus, jqxhr){
                       $("#id_epounds_disponible").val(data.epounds_dispo)
                     },
             error: function(data){
                      console.log(data)
                    }
             })
+     code = 0;
   })
 
      $("#id_epounds_a_reconvertir").on('keyup', function(){
