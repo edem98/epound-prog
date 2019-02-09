@@ -1,5 +1,4 @@
-alert("hello")
-$(document).ready(function(){
+jQuery(document).ready(function($){
 
   var montant_a_prelever = 0;
   var montant_a_reconvertir = 0;
@@ -8,14 +7,14 @@ $(document).ready(function(){
   var montant_virer = 0;
   var entreprise = 0;
 
-  var prix_entreprise = function(){
+  $("#id_beneficiaire").on('change',function(){
     if($("#id_beneficiaire").val() != entreprise){
        entreprise = $("#id_beneficiaire").val()
        $.ajax({
             type: 'GET',
             url: '/membre/retourner-entreprise-info',
             data:{
-                   'nom_membre': entreprise,
+                   'id': entreprise,
                    },
             success: function(data,textStatus, jqxhr){
                       $("#id_epounds_disponible").val(data.epounds_dispo)
@@ -24,10 +23,8 @@ $(document).ready(function(){
                      console.log(data)
                    }
             })
-    }
-    setTimeout(prix_entreprise(),200);
-  }
-  prix_entreprise();
+  }})
+
 
   $("#id_epounds_a_reconvertir").on('keyup', function(){
     if(!$(this).val()){
@@ -51,12 +48,12 @@ $(document).ready(function(){
 
   });
 
-    $("#id_epounds_a_reconvertir").on('focusout', function(){
+  $("#id_epounds_a_reconvertir").on('focusout', function(){
         if(parseInt($(this).val()) >  parseInt($("#id_epounds_disponible").val())){
           alert('le bénéficiare ne dispose pas du montant destiné à la reconversion.Veuillez spécifiez une autre valeur');
           $("#id_montant_a_prelever").val(0)
           $("#id_montant_en_cfa").val(0)
           $("#id_montant_virer_sur_compte_conso").val(0)
         }
-      });
-})
+  });
+});

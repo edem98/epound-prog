@@ -28,7 +28,6 @@ django-suit-ckeditor==0.0.2
 django-tables2==1.21.2
 django-timezone-field==3.0
 django-treebeard==4.3
-django-twilio==0.9.3
 django-widget-tweaks==1.4.3
 djangorestframework==3.8.2
 docutils==0.14
@@ -62,7 +61,6 @@ SQLAlchemy==1.2.12
 suit==2.0.2
 surlex==0.2.0
 text-unidecode==1.2
-twilio==6.22.0
 unicodecsv==0.14.1
 Unidecode==1.0.22
 urllib3==1.24

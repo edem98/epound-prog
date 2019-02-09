@@ -1,15 +1,15 @@
-$(document).ready(function(){
+jQuery(document).ready(function($){
   var montant_a_prelever = 0;
   var montant_a_reconvertir = 0;
   var montant_cfa = 0;
 
   $("#id_beneficiaire").on('change',function(){
-    var code = $(this).text();
+    var id = $(this).val();
     $.ajax({
               type: 'GET',
               url: '/membre/retourner-consommateur-info',
              data:{
-                   'code_membre': code,
+                   'id': id,
                    },
             success: function(data,textStatus, jqxhr){
                       $("#id_epounds_disponible").val(data.epounds_dispo)
@@ -40,4 +40,4 @@ $(document).ready(function(){
       });
 
 
-})
+});
