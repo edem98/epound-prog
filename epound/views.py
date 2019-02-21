@@ -61,3 +61,7 @@ def partenaires(request):
     partners = Partenaire.objects.all()
     context['partenaires'] = partners
     return render(request, 'partenaire.html', context)
+
+
+def politique(request):
+    return render(request, 'politique-de-confidentialite.html',)

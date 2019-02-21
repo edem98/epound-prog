@@ -44,6 +44,7 @@ urlpatterns = [
     path('partenaires', views.partenaires, name ="partenaires"),
     path('faqs', ListeSujetReponse.as_view(), name ="faqs"),
     path('contact/', views.contact, name = "contact"),
+    path('politique-confidentialite/', views.politique, name = "politique"),
     path('membre/', include('membre.urls'),),
     path('api/', include(router.urls)),
     path('ecommerce/', include('ecommerce.urls')),
