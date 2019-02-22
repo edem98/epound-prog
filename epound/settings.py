@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'daterange_filter',
     'storages',
     'sorl.thumbnail',
-    'django_twilio',
     # 'imperavi',
     # 'newsletter',
     # 'newsletter',
