@@ -5,7 +5,7 @@ from membre.models import *
 from compte.models import CompteConsommateur, CompteGrenier
 from django.db import transaction
 from dashboard.models import CreanceMonetaire, TauxAbsorbtionGlobal, ConsommationMensuelMoyenneConsommateurActuel, \
-    ConsommationMensuelMoyenneVendeurActuel
+    ConsommationMensuelMoyenneVendeurActuel , CreanceTotal
 from recette.models import Recette
 
 
@@ -85,6 +85,11 @@ class TransactionCommercialComsommateur(models.Model):
                     absorbtion = TauxAbsorbtionGlobal.load()
                     absorbtion.epound_detenus += self.montant_envoyer
                     absorbtion.save()
+                    # mise a jour de la creance total
+                    creance_total = CreanceTotal.load()
+                    creance_total.total_epounds_consommateur += self.montant_envoyer
+                    creance_total.total_epounds -= self.montant_envoyer
+                    creance_total.save()
                     # sauvegarder le transfert
                     return super(TransactionCommercialComsommateur, self).save(*args, **kwargs)
                 elif self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde > self.montant_envoyer:
@@ -97,6 +102,10 @@ class TransactionCommercialComsommateur(models.Model):
                     absorbtion = TauxAbsorbtionGlobal.load()
                     absorbtion.epound_detenus += self.montant_envoyer
                     absorbtion.save()
+                    # mise a jour de la creance total
+                    creance_total = CreanceTotal.load()
+                    creance_total.total_epounds_consommateur += self.montant_envoyer
+                    creance_total.save()
                     #sauvegarder le transfert
                     return super(TransactionCommercialComsommateur,self).save(*args, **kwargs)
                 else:
@@ -280,15 +289,19 @@ class ConversionTrader(models.Model):
                 self.consommateur = Consommateur.objects.get(telephone = self.numero_receveur)
                 self.trader.compte_trader.solde = self.trader.compte_trader.solde - self.montant_converti
                 self.trader.compte_trader.save()
-                # Mise a jour de la création monétaire
-                creance_monetaire = CreanceMonetaire.load()
-                creance_monetaire.cumul_bonification += self.montant_converti*CompteConsommateur.TAUX_GAIN/100
-                creance_monetaire.save()
                 # Opération sur le consommateur
-                self.epounds_transferer = self.montant_converti+self.montant_converti*CompteConsommateur.TAUX_GAIN/100
+                self.epounds_transferer = int(self.montant_converti+self.montant_converti*CompteConsommateur.TAUX_GAIN/100)
                 self.consommateur.compte_consommateur.solde += self.epounds_transferer
                 self.solde_apres_conversion = self.consommateur.compte_consommateur.solde
                 self.consommateur.compte_consommateur.save()
+                # Mise a jour de la création monétaire
+                creance_monetaire = CreanceMonetaire.load()
+                creance_monetaire.cumul_bonification += int(self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
+                creance_monetaire.save()
+                #mise a jour de la creance total
+                creance_total = CreanceTotal.load()
+                creance_total.total_epounds_consommateur += int(self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
+                creance_total.save()
                 # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
                 absorbtion = TauxAbsorbtionGlobal.load()
                 absorbtion.epound_detenus += self.epounds_transferer
@@ -349,6 +362,10 @@ class ReconversionTrader(models.Model):
                 compte_grenier = CompteGrenier.load()
                 compte_grenier.prelevement_reconversion+= int(self.epound_reconverti/3)
                 compte_grenier.save()
+                # mise a jour de la creance total
+                creance_total = CreanceTotal.load()
+                creance_total.total_epounds_consommateur -= self.epound_reconverti
+                creance_total.save()
                 # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
                 absorbtion = TauxAbsorbtionGlobal.load()
                 absorbtion.epound_detenus -= self.epound_reconverti
@@ -444,6 +461,11 @@ class VendeurVente(models.Model):
                     self.vendeur.compte_entreprise_commercial.compte_business.solde += self.montant
                     self.vendeur.compte_entreprise_commercial.compte_business.save()
                     self.vendeur.save()
+                    # mise a jour de la creance total
+                    creance_total = CreanceTotal.load()
+                    creance_total.total_epounds_consommateur -= self.montant
+                    creance_total.total_epounds += self.montant
+                    creance_total.save()
                     super(VendeurVente,self).save(*args, **kwargs)
                 else:
                     return None
@@ -471,10 +493,14 @@ class ReactivationClient(models.Model):
                 # Opération sur le trader
                 self.trader = Trader.objects.get(telephone=self.numero_trader)
                 self.consommateur = Consommateur.objects.get(telephone=self.numero_receveur)
-                self.trader.compte_trader.solde = self.trader.compte_trader.solde - 5
+                self.trader.compte_trader.solde = self.trader.compte_trader.solde - 5000
                 self.trader.compte_trader.save()
                 # Opération sur le consommateur
                 self.consommateur.actif = True
+                self.consommateur.date_desactivation = self.date_reabonnement+datetime.timedelta(360)
+                self.consommateur.date_expiration = self.date_reabonnement + datetime.timedelta(720)
+                self.consommateur.compte_consommateur.date_expiration = self.consommateur.date_expiration
+                self.consommateur.compte_consommateur.save()
                 self.consommateur.save()
                 super(ReactivationClient, self).save(*args, **kwargs)
         else:

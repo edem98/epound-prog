@@ -15,7 +15,8 @@ class Membre(PolymorphicModel,TimeStamp):
 	mdp = models.CharField(max_length = 80, verbose_name ='Mot de passe',null = True)
 	telephone = models.CharField(max_length =8,verbose_name ="Téléphone",null = True,unique = True)
 	email = models.EmailField(max_length = 254,null = True,unique = True)
-	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",null = True,blank =True)
+	date_desactivation = models.DateField(verbose_name="Date de desactivation", null=True, blank=True)
+	date_expiration = models.DateField(verbose_name = "Date d'expiration",null = True,blank =True)
 	actif = models.BooleanField(verbose_name = 'En activité',default = True,)
 
 	def __str__(self):
@@ -26,6 +27,7 @@ class Membre(PolymorphicModel,TimeStamp):
 		if self.id == None:
 			super(Membre,self).save(*args, **kwargs)
 			self.date_expiration = self.date_add+datetime.timedelta(720)
+			self.date_desactivation = self.date_add+datetime.timedelta(360)
 			self.save(update_fields=['date_expiration',])
 		else:
 			return super(Membre,self).save(*args, **kwargs)
@@ -74,7 +76,7 @@ class Consommateur(Membre,PolymorphicModel):
 		if self.id == None:
 			super(Consommateur,self).save(*args, **kwargs)
 			self.code_membre = self.id
-			self.user = User.objects.create(username = self.telephone+"-"+str(self.code_membre)
+			self.user = User.objects.create(username = self.nom+"_"+str(self.code_membre)
 							,password = make_password(self.mdp))
 			self.compte_consommateur = CompteConsommateur.objects.create()
 			groupe = Group.objects.get(name="Consommateur")	
@@ -307,7 +309,7 @@ class Trader(Membre):
 		if self.id == None:
 			super(Trader,self).save(*args, **kwargs)
 			self.code_membre = self.id
-			self.user = User(username = str(self.nom)+"-"+str(self.code_membre),
+			self.user = User(username = str(self.nom)+"_"+str(self.code_membre),
 							last_name = str(self.nom),password = make_password(self.mdp))
 			self.user.save()
 			groupe = Group.objects.get(name="Trader")

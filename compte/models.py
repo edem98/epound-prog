@@ -47,7 +47,7 @@ class CompteGrenier(SingletonModel):
 			
 class Compte(PolymorphicModel,TimeStamp):
 	solde = models.PositiveIntegerField(default = 0)
-	date_expiration = models.DateTimeField(verbose_name = "Date d'expiration",null=True,blank=True)
+	date_expiration = models.DateField(verbose_name = "Date d'expiration",null=True,blank=True)
 	actif = models.BooleanField(verbose_name = 'En activité',default = True,)
 
 	def __str__(self):
