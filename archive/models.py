@@ -434,7 +434,7 @@ class CommandeClient(models.Model):
                     self.client.compte_consommateur.solde -= self.quantite*self.produit.prix
                     self.client.compte_consommateur.save()
                 if self.a_livrer:
-                    self.vendeur = EntrepriseCommerciale.objects.get(telephone = "22222222")
+                    self.vendeur = EntrepriseCommerciale.objects.get(telephone = "70253154")
                 super(CommandeClient,self).save(*args, **kwargs)
         else:
             return super(CommandeClient,self).save(*args, **kwargs)
