@@ -76,7 +76,7 @@ class Consommateur(Membre,PolymorphicModel):
 		if self.id == None:
 			super(Consommateur,self).save(*args, **kwargs)
 			self.code_membre = self.id
-			self.user = User.objects.create(username = self.nom+"_"+str(self.code_membre)
+			self.user = User.objects.create(username = self.telephone+"_"+str(self.code_membre)
 							,password = make_password(self.mdp))
 			self.compte_consommateur = CompteConsommateur.objects.create()
 			groupe = Group.objects.get(name="Consommateur")	
