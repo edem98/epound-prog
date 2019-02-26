@@ -26,8 +26,8 @@ class Membre(PolymorphicModel,TimeStamp):
 		#recuperation de l'entreprise associér a ce compte
 		if self.id == None:
 			super(Membre,self).save(*args, **kwargs)
-			self.date_expiration = self.date_add+datetime.timedelta(720)
-			self.date_desactivation = self.date_add+datetime.timedelta(360)
+			self.date_expiration = self.date_add.date() + datetime.timedelta(720)
+			self.date_desactivation = self.date_add.date() + datetime.timedelta(360)
 			self.save(update_fields=['date_expiration',])
 		else:
 			return super(Membre,self).save(*args, **kwargs)

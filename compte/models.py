@@ -60,7 +60,7 @@ class Compte(PolymorphicModel,TimeStamp):
 		#recuperation de l'entreprise associér a ce compte
 		if self.id == None:
 			super(Compte,self).save(*args, **kwargs)
-			self.date_expiration = self.date_add+datetime.timedelta(720)
+			self.date_expiration = self.date_add.date() + datetime.timedelta(720)
 			self.save()
 		else:
 			return super(Compte,self).save(*args, **kwargs)
