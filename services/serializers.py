@@ -8,6 +8,7 @@ from ecommerce.models import *
 from rest_framework import permissions
 from rest_framework.response import Response
 
+
 from archive.models import ReactivationClient
 
 class CompteSerializer(serializers.HyperlinkedModelSerializer):
@@ -122,10 +123,16 @@ class TransactionInterComsommateurSerializer(serializers.HyperlinkedModelSeriali
         envoyeur = Consommateur.objects.get(telephone = numero_envoyeur)
         receveur = Consommateur.objects.get(telephone = numero_receveur)
         solde = validated_data.get('montant_envoyer')
-        transaction = TransactionInterComsommateur.objects.create(envoyeur = envoyeur,receveur = receveur,
-                                            montant_envoyer = solde,numero_envoyeur = numero_envoyeur,
-                                            numero_receveur = numero_receveur,)
-        return transaction
+        if envoyeur.compte_consommateur.solde > solde:
+            transaction = TransactionInterComsommateur.objects.create(envoyeur=envoyeur, receveur=receveur,
+                                                                      montant_envoyer=solde,
+                                                                      numero_envoyeur=numero_envoyeur,
+                                                                      numero_receveur=numero_receveur, )
+            return transaction
+        else:
+            data = {}
+            data["echec"] = "Solde insuffisant pour effectuer la transaction"
+            raise serializers.ValidationError(data)
 
 class NotificationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -165,7 +172,7 @@ class VilleSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id','nom',)
 
 class QuartierSerializer(serializers.HyperlinkedModelSerializer):
-    ville = VilleSerializer(read_only=True)
+    ville = VilleSerializer()
 
     class Meta:
         model = Quartier
@@ -173,7 +180,7 @@ class QuartierSerializer(serializers.HyperlinkedModelSerializer):
 
 class EntrepriseSerializer(serializers.HyperlinkedModelSerializer):
     compte_consommateur = CompteConsommateurSerializer(read_only = True)
-    emplacement = QuartierSerializer(read_only = True)
+    emplacement = QuartierSerializer()
     class Meta:
         model = ConsommateurEntreprise
         fields = ('id','code_membre','mdp','nom',
@@ -197,6 +204,8 @@ class EntrepriseSerializer(serializers.HyperlinkedModelSerializer):
                 instance.email = validated_data.get('email')
             if validated_data.get('raison_social'):
                 instance.raison_social = validated_data.get('raison_social')
+            if validated_data.get('emplacement'):
+                instance.raison_social = validated_data.get('emplacement')
             if validated_data.get('statut_juridique'):
                 instance.statut_juridique = validated_data.get('statut_juridique')
             if validated_data.get('objet_social'):
@@ -220,11 +229,11 @@ class EntrepriseSerializer(serializers.HyperlinkedModelSerializer):
 
 class TraderSerializer(serializers.HyperlinkedModelSerializer):
     compte_trader = CompteTraderSerializer(read_only=True)
-    emplacement = QuartierSerializer(read_only = True)
+    emplacement = QuartierSerializer()
     class Meta:
         model = Trader
         fields = ('id','code_membre','mdp','nom','prenoms',
-                'sexe','emplacement','ville_residence','telephone','email','compte_trader',)
+                'sexe','ville_residence','telephone','email','compte_trader','emplacement',)
 
     def update(self, instance, validated_data):
         instance = Trader.objects.get(telephone=validated_data.get('telephone'))

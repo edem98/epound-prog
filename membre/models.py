@@ -153,7 +153,7 @@ class Ville(TimeStamp):
 	nom = models.CharField(max_length = 100,verbose_name = 'Nom de la ville',null = True,)
 
 	def __str__(self):
-		return str(self.nom)
+		return self.nom
 
 class Quartier(TimeStamp):
 	"""
@@ -163,7 +163,7 @@ class Quartier(TimeStamp):
 	nom = models.CharField(max_length = 100,verbose_name = 'Nom du quartier',null = True,)
 
 	def __str__(self):
-		return str(self.nom)
+		return self.nom
 
 class EntrepriseCommerciale(Membre):
 	"""

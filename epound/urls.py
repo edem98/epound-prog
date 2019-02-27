@@ -9,6 +9,8 @@ from faqs.views import ListeSujetReponse
 
 router = routers.DefaultRouter()
 
+router.register(r'ville',VilleViewSet)
+router.register(r'quartier',QuartierViewSet)
 router.register(r'membre',MembreViewSet)
 router.register(r'particulier', ParticulierViewSet)
 router.register(r'entreprise', EntrepriseViewSet)
@@ -50,8 +52,7 @@ urlpatterns = [
     path('ecommerce/', include('ecommerce.urls')),
     path('api-auth/', include('rest_framework.urls')),
 
-    # path('newsletter/', include('newsletter.urls')),
-    # path('imperavi/', include('imperavi.urls')),
+
 
 
 ]
