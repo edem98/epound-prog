@@ -451,3 +451,10 @@ class QuartierViewSet(viewsets.ModelViewSet):
     queryset = Quartier.objects.all()
     serializer_class = QuartierSerializer
     lookup_field = "id"
+
+    def list(self, request):
+        queryset = Quartier.objects.all()
+        serializer = QuartierSerializer(queryset, many=True)
+        data = {}
+        data["quartiers"] = serializer.data
+        return Response(data)
