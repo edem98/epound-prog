@@ -7,6 +7,11 @@ from epound import settings
 from membre.models import EntrepriseCommerciale, Partenaire
 from django.conf import settings
 import requests
+from django.contrib.staticfiles.views import serve
+
+
+def view_function(request):
+   return serve(request, '../static/encryptkey')
 
 def envoyer_sms(message,destinataire,expediteur="epound Corp"):
 
