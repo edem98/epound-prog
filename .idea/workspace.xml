@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/epound/prod_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/epound/prod_settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,7 +15,7 @@
     <session id="2083647428">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="111" />
+          <entry key="project.closed" value="112" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.112" value="1" />
           <entry key="project.open.time.16" value="1" />
@@ -56,11 +57,12 @@
           <entry key="project.open.time.66" value="1" />
           <entry key="project.open.time.67" value="4" />
           <entry key="project.open.time.69" value="1" />
+          <entry key="project.open.time.70" value="1" />
           <entry key="project.open.time.71" value="3" />
           <entry key="project.open.time.72" value="1" />
           <entry key="project.open.time.74" value="1" />
           <entry key="project.open.time.85" value="2" />
-          <entry key="project.opened" value="148" />
+          <entry key="project.opened" value="149" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -70,7 +72,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="4294" />
           <entry key="js" value="412" />
-          <entry key="py" value="25072" />
+          <entry key="py" value="25076" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
@@ -80,7 +82,7 @@
           <entry key="HTML" value="4294" />
           <entry key="JavaScript" value="412" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="25072" />
+          <entry key="Python" value="25076" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -128,7 +130,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/epound/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
+            <state relative-caret-position="1440">
               <caret line="177" column="5" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
               <folding>
                 <element signature="e#954#1791#0" />
@@ -145,7 +147,7 @@
         <entry file="file://$PROJECT_DIR$/epound/prod_settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="62" lean-forward="true" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+              <caret line="7" column="83" lean-forward="true" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -156,8 +158,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="458" column="43" lean-forward="true" selection-start-line="458" selection-start-column="43" selection-end-line="458" selection-end-column="43" />
+            <state relative-caret-position="6750">
+              <caret line="458" column="43" selection-start-line="458" selection-start-column="43" selection-end-line="458" selection-end-column="43" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
                 <marker date="1551703496748" expanded="true" signature="16344:16350" ph="..." />
@@ -360,7 +362,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -387,6 +388,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -475,7 +477,7 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -486,7 +488,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952693" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3588907" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3588907" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32952693" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -771,6 +773,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/epound/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="177" column="5" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
+          <folding>
+            <element signature="e#954#1791#0" />
+            <element signature="e#1808#2207#0" />
+            <element signature="e#2251#2909#0" />
+            <element signature="e#3046#3245#0" />
+            <element signature="e#3547#3943#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6750">
+          <caret line="458" column="43" selection-start-line="458" selection-start-column="43" selection-end-line="458" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+            <marker date="1551703496748" expanded="true" signature="16344:16350" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/epound/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -820,35 +847,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="458" column="43" lean-forward="true" selection-start-line="458" selection-start-column="43" selection-end-line="458" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-            <marker date="1551703496748" expanded="true" signature="16344:16350" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/epound/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="177" column="5" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
-          <folding>
-            <element signature="e#954#1791#0" />
-            <element signature="e#1808#2207#0" />
-            <element signature="e#2251#2909#0" />
-            <element signature="e#3046#3245#0" />
-            <element signature="e#3547#3943#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/epound/prod_settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="62" lean-forward="true" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+          <caret line="7" column="83" lean-forward="true" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
