@@ -6,14 +6,12 @@ from rest_framework import status
 from rest_framework.response import Response
 from archive.models import ReactivationClient
 from services.serializers import ReactivationClientSerializer
-from rest_framework import permissions
 
 class MembreViewSet(viewsets.ModelViewSet):
 
     queryset = Membre.objects.all()
     serializer_class = MembreSerializer
     lookup_field = "telephone"
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
     @action(methods=['post'], detail=True)
     def set_password(self, request, password,telephone=None):
@@ -444,7 +442,6 @@ class VilleViewSet(viewsets.ModelViewSet):
     queryset = Ville.objects.all()
     serializer_class = VilleSerializer
     lookup_field = "id"
-
 
 class QuartierViewSet(viewsets.ModelViewSet):
 

@@ -403,8 +403,7 @@ class TransactionCommercialComsommateurSerializer(serializers.HyperlinkedModelSe
             data = {}
             data['echec'] = "Montant insuffisant"
             print("Montant insuffisant")
-
-            return Response(data)
+            raise serializers.ValidationError(data)
 
 class PayementInterCommercialSerializer(serializers.HyperlinkedModelSerializer):
     envoyeur = EntrepriseCommercialeSerializer(read_only = True)
