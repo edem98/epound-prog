@@ -38,6 +38,7 @@ router.register(r'message-client',MessageClientViewSet)
 
 
 urlpatterns = [
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
     path('', views.acceuil, name ="acceuil"),
