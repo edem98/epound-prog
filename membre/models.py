@@ -207,7 +207,7 @@ class EntrepriseCommerciale(Membre):
 										   )
 
 	besoin_gere = models.ForeignKey('ecommerce.SpécificationBesoin', on_delete=models.CASCADE,
-									verbose_name="Domaine d'activité",
+									verbose_name="Sous domaine d'activité",
 									null=True,
 									blank=True,
 									)

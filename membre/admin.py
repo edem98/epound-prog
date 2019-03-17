@@ -206,22 +206,23 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 						'numero_compte_business','solde_compte_business',
 						'date_expiration_compte_business','activiter_compte_business',]
 	fieldsets = (
-		("Informations Relatifs a l'entreprise", {
-			'fields': ('besoin_fondamental','besoin_gere','nom','emplacement','mdp',
-					   'telephone','contact_1','contact_2','email','slug','objet_social','nature_jurique','numero_rccm','regime_fiscal','nif','siege_social',
-					   'numero_cnss','responsable','banniere_principal',
-					   'banniere_secondaire','banniere_trois','banniere_quatre',
-					   'banniere_cinq','date_expiration','actif','type_market',
-					   )
-		}),
 		("Compte d'entreprise", {
 			'fields': ('compte_entreprise_commercial',),
 		}),
-		('Informations Relatifs au Compte e-C', {
+		("Informations entreprise", {
+			'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'mdp',
+					   'telephone', 'contact_1', 'contact_2', 'email', 'slug', 'objet_social', 'nature_jurique',
+					   'numero_rccm', 'regime_fiscal', 'nif', 'siege_social',
+					   'numero_cnss', 'responsable', 'banniere_principal',
+					   'banniere_secondaire', 'banniere_trois', 'banniere_quatre',
+					   'banniere_cinq', 'date_expiration', 'actif', 'type_market',
+					   )
+		}),
+		('Informations  Compte e-C', {
 			'fields': ('numero_compte_consommateur','solde_compte_consommateur',
 						'date_expiration_compte_consommateur','activiter_compte_consommateur',),
 		}),
-		('Informations Relatifs au Compte e-B', {
+		('Informations  Compte e-B', {
 			'fields': ('numero_compte_business','solde_compte_business',
 						'date_expiration_compte_business','activiter_compte_business',),
 		}),
