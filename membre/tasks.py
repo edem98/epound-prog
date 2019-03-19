@@ -1,5 +1,6 @@
 from celery.decorators import task
 from django.utils import timezone
+
 from .models import Membre
 
 @task
@@ -10,4 +11,6 @@ def desactiver_membre():
     cible = Membre.objects.filter(date_desactivation = timezone.now().date())
     for membre in cible:
         membre.actif = False
+        membre.save()
     return print("...done")
+

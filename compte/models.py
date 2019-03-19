@@ -76,6 +76,8 @@ class CompteConsommateur(Compte):
 	TAUX_GAIN = 50
 	TAUX_PERTE = 40
 	TAUX_FONTE_MENSUEL = 2
+	DEPENSE_MAX_MENSUEL = 100000
+	depense_epound_mensuel = models.PositiveIntegerField(verbose_name="Depense mensuel",default=0,)
 	
 	class Meta():
 		verbose_name = "Compte Consommateur"

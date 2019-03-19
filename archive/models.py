@@ -163,6 +163,7 @@ class PayementConsomateur(models.Model):
                 self.receveur.save()
                 # retrait du compte du client
                 self.envoyeur.compte_consommateur.solde -= self.montant_envoyer
+                self.envoyeur.compte_consommateur.depense_epound_mensuel += self.montant_envoyer
                 self.envoyeur.compte_consommateur.save()
                 self.solde_apres_transaction = self.receveur.compte_entreprise_commercial.compte_business.solde
                 # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
@@ -228,6 +229,7 @@ class PayementInterCommercial(models.Model):
                 self.receveur.save()
                 #mise a jour de la creance envoyeur
                 self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_envoyer
+                self.envoyeur.compte_entreprise_commercial.compte_consommateur.depense_epound_mensuel += self.montant_envoyer
                 self.envoyeur.compte_entreprise_commercial.compte_consommateur.save()
                 self.solde_apres_transaction = self.receveur.compte_entreprise_commercial.compte_business.solde
                 self.envoyeur.save()
@@ -469,6 +471,10 @@ class VendeurVente(models.Model):
                     super(VendeurVente,self).save(*args, **kwargs)
                 else:
                     return None
+
+    class Meta():
+        verbose_name = "Vente effectué"
+        verbose_name_plural = "Ventes effectuées"
 
 class ReactivationClient(models.Model):
 

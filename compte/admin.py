@@ -70,8 +70,8 @@ class CompteTraderAdmin(PolymorphicChildModelAdmin):
 @admin.register(CompteConsommateur)
 class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 	base_model = CompteConsommateur
-	search_fields = ['date_expiration']
-	list_display = ['titulaire','solde','date_expiration',]
+	search_fields = ['date_expiration','depense_epound_mensuel']
+	list_display = ['titulaire','solde','depense_epound_mensuel','date_expiration',]
 
 	def titulaire(self,obj):
 		try:
