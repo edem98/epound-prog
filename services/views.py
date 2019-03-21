@@ -431,6 +431,13 @@ class VendeurVenteViewSet(viewsets.ModelViewSet):
     serializer_class = VendeuVenteSerializer
     lookup_field = "id"
 
+    def list(self, request):
+        queryset = VendeurVente.objects.all()
+        serializer = VendeuVenteSerializer(queryset, many=True)
+        data = {}
+        data["vendeurs"] = serializer.data
+        return Response(data)
+
 class MessageClientViewSet(viewsets.ModelViewSet):
 
     queryset = MessageClient.objects.all()
