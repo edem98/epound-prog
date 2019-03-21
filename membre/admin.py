@@ -31,7 +31,7 @@ class TraderAdmin(PolymorphicChildModelAdmin):
 						'date_expiration_compte_trader','activiter_compte_trader',]
 	fieldsets = (
 		('Informations Relatifs au Trader', {
-			'fields': ('user','code_membre','nom','prenoms','mdp','telephone','email','date_expiration','actif')
+			'fields': ('user','code_membre','nom','prenoms','mdp','telephone','email','emplacement','date_expiration','actif')
 		}),
 		('Informations Relatifs au Compte e-T', {
 			'fields': ('compte_trader','numero_compte_trader','solde_compte_trader',
