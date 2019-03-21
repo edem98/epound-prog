@@ -24,8 +24,10 @@ def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
     new_produits = Produit.objects.all().order_by('-date_ajout')[:100]
+    partenaires = Partenaire.objects.all()[:4]
     context['besoins'] = besoins
     context['produits'] = new_produits
+    context['partenaires'] = partenaires
     return render(request, 'index.html', context)
 
 class ListEntreprise(ListView):
