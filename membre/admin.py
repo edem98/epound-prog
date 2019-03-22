@@ -108,7 +108,7 @@ class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 						'profession','situation_matrimoniale','nationalite','date_expiration'),
 		}),
 		('Informations Relatifs à son Compte e-C', {
-			'fields': ('compte_consommateur','numero_compte_consommateur','solde_compte_consommateur',
+			'fields': ('compte_consommateur','solde_compte_consommateur','depense_mensuel',
 						'date_expiration_compte_consommateur','activiter_compte_consommateur',),
 		}), 
 	)
@@ -118,10 +118,9 @@ class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 		return str(membre.compte_consommateur.solde)
 	solde_compte_consommateur.short_description = "Solde du compte"
 
-	def numero_compte_consommateur(self,obj):
-		membre = Membre.objects.get(id = obj.id)
-		return str(membre.compte_consommateur.numero_compte)
-	numero_compte_consommateur.short_description = "Numéro de compte"
+	def depense_mensuel(self,obj):
+		return str(obj.compte_consommateur.depense_epound_mensuel)
+	depense_mensuel.short_description = "Dépense du mois actuel"
 
 	def date_expiration_compte_consommateur(self,obj):
 		membre = Membre.objects.get(id = obj.id)
