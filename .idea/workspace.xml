@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membre/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/membre/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compte/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/compte/admin.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +15,7 @@
     <session id="2083647428">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="121" />
+          <entry key="project.closed" value="122" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.112" value="1" />
           <entry key="project.open.time.16" value="1" />
@@ -50,7 +50,7 @@
           <entry key="project.open.time.58" value="1" />
           <entry key="project.open.time.59" value="3" />
           <entry key="project.open.time.60" value="2" />
-          <entry key="project.open.time.61" value="2" />
+          <entry key="project.open.time.61" value="3" />
           <entry key="project.open.time.62" value="2" />
           <entry key="project.open.time.63" value="5" />
           <entry key="project.open.time.64" value="2" />
@@ -64,7 +64,7 @@
           <entry key="project.open.time.74" value="1" />
           <entry key="project.open.time.76" value="1" />
           <entry key="project.open.time.85" value="2" />
-          <entry key="project.opened" value="162" />
+          <entry key="project.opened" value="163" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -74,7 +74,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="4412" />
           <entry key="js" value="412" />
-          <entry key="py" value="26038" />
+          <entry key="py" value="26220" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
@@ -84,7 +84,7 @@
           <entry key="HTML" value="4412" />
           <entry key="JavaScript" value="412" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="26038" />
+          <entry key="Python" value="26220" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -131,12 +131,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/compte/admin.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="113" column="67" selection-start-line="113" selection-start-column="67" selection-end-line="113" selection-end-column="67" />
+              <folding>
+                <element signature="e#601#1905#0" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/membre/admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="130">
@@ -144,7 +151,6 @@
               <folding>
                 <element signature="e#894#2651#0" />
                 <element signature="e#2765#3361#0" />
-                <element signature="e#5586#7403#0" />
               </folding>
             </state>
           </provider>
@@ -153,7 +159,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="945">
               <caret line="394" column="53" selection-start-line="394" selection-start-column="53" selection-end-line="394" selection-end-column="53" />
               <folding>
                 <element signature="e#450#543#0" />
@@ -209,7 +215,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>product_slider_nav</find>
       <find>@permalink</find>
       <find>hei</find>
       <find>upda</find>
@@ -239,6 +244,7 @@
       <find>data</find>
       <find>particulier</find>
       <find>create</find>
+      <find>rows_updated</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -288,7 +294,6 @@
         <option value="$PROJECT_DIR$/epound/urls.py" />
         <option value="$PROJECT_DIR$/epound/settings.py" />
         <option value="$PROJECT_DIR$/membre/models.py" />
-        <option value="$PROJECT_DIR$/compte/admin.py" />
         <option value="$PROJECT_DIR$/compte/models.py" />
         <option value="$PROJECT_DIR$/services/serializers.py" />
         <option value="$PROJECT_DIR$/membre/tasks.py" />
@@ -298,6 +303,7 @@
         <option value="$PROJECT_DIR$/services/views.py" />
         <option value="$PROJECT_DIR$/archive/models.py" />
         <option value="$PROJECT_DIR$/membre/admin.py" />
+        <option value="$PROJECT_DIR$/compte/admin.py" />
       </list>
     </option>
   </component>
@@ -332,6 +338,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -342,7 +349,7 @@
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
               <item name="epound" type="462c0819:PsiDirectoryNode" />
-              <item name="archive" type="462c0819:PsiDirectoryNode" />
+              <item name="compte" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
@@ -363,7 +370,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,6 +456,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
@@ -462,7 +469,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952693" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3115824" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3898858" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32952693" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -773,19 +780,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compte/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archive/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2265">
-          <caret line="159" column="93" selection-start-line="159" selection-start-column="93" selection-end-line="159" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
+        <state relative-caret-position="945">
           <caret line="394" column="53" selection-start-line="394" selection-start-column="53" selection-end-line="394" selection-end-column="53" />
           <folding>
             <element signature="e#450#543#0" />
@@ -819,6 +816,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/archive/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2265">
+          <caret line="159" column="93" selection-start-line="159" selection-start-column="93" selection-end-line="159" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/membre/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -826,7 +830,16 @@
           <folding>
             <element signature="e#894#2651#0" />
             <element signature="e#2765#3361#0" />
-            <element signature="e#5586#7403#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compte/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="113" column="67" selection-start-line="113" selection-start-column="67" selection-end-line="113" selection-end-column="67" />
+          <folding>
+            <element signature="e#601#1905#0" />
           </folding>
         </state>
       </provider>

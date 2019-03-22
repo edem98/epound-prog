@@ -67,6 +67,38 @@ class CompteTraderAdmin(PolymorphicChildModelAdmin):
 		kwargs['form'] = CompteTraderForm
 		return super().get_form(request, obj, **kwargs)
 
+	def renitialiser_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(solde=0)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le solde du compte sélectionner a été mis à zéro"
+		else:
+			message_bit = "le solde de %s comptes ont été mis à zéro." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+
+	renitialiser_compte.short_description = "changer le status des voitures en : Louer"
+
+	def desactiver_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(actif=False)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le compte sélectionner a été désactiver"
+		else:
+			message_bit = "Les %s comptes sélectionnées ont été désactivés." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+
+	desactiver_compte.short_description = "Désactiver les comptes"
+
+	def activer_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(actif=False)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le compte sélectionner a été activer"
+		else:
+			message_bit = "Les %s comptes sélectionnées ont été activés." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+
+	activer_compte.short_description = "Activer les comptes"
+
+	actions = [renitialiser_compte,desactiver_compte,activer_compte]
+
 @admin.register(CompteConsommateur)
 class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 	base_model = CompteConsommateur
@@ -78,7 +110,7 @@ class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 			entreprise = obj.conso_vers_entreprise.compteEntreprise_vers_entreprise
 			return entreprise.nom
 		except Exception as e:
-			print("une erreur s'est produite"+ str(e))
+			pass
 		consommateur = Consommateur.objects.get(compte_consommateur = obj)
 		if "raison_social" in consommateur.__dict__ :
 			return consommateur.raison_social
@@ -90,6 +122,38 @@ class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 	def get_form(self, request, obj=None, **kwargs):
 		kwargs['form'] = CompteConsommateurForm
 		return super().get_form(request, obj, **kwargs)
+
+	def renitialiser_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(solde=0)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le solde du compte sélectionner a été mis à zéro"
+		else:
+			message_bit = "le solde de %s comptes ont été mis à zéro." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+
+	renitialiser_compte.short_description = "Mettre a zéro le solde"
+
+	def desactiver_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(actif=False)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le compte sélectionner a été désactiver"
+		else:
+			message_bit = "Les %s comptes sélectionnées ont été désactivés." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+
+	desactiver_compte.short_description = "Désactiver les comptes"
+
+	def activer_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(actif=False)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le compte sélectionner a été activer"
+		else:
+			message_bit = "Les %s comptes sélectionnées ont été activés." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+
+	activer_compte.short_description = "Activer les comptes"
+
+	actions = [renitialiser_compte,desactiver_compte,activer_compte]
 
 @admin.register(CompteBusiness)
 class CompteBusinessAdmin(PolymorphicChildModelAdmin):
@@ -107,6 +171,38 @@ class CompteBusinessAdmin(PolymorphicChildModelAdmin):
 	def get_form(self, request, obj=None, **kwargs):
 		kwargs['form'] = CompteConsommateurForm
 		return super().get_form(request, obj, **kwargs)
+
+	def renitialiser_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(solde=0)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le solde du compte sélectionner a été mis à zéro"
+		else:
+			message_bit = "le solde de %s comptes ont été mis à zéro." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+
+	renitialiser_compte.short_description = "Mettre a zéro le solde"
+
+	def desactiver_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(actif=False)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le compte sélectionner a été désactiver"
+		else:
+			message_bit = "Les %s comptes sélectionnées ont été désactivés." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+
+	desactiver_compte.short_description = "Désactiver les comptes"
+
+	def activer_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(actif=False)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le compte sélectionner a été activer"
+		else:
+			message_bit = "Les %s comptes sélectionnées ont été activés." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+
+	activer_compte.short_description = "Activer les comptes"
+
+	actions = [renitialiser_compte,desactiver_compte,activer_compte]
 
 @admin.register(CompteEntrepriseCommerciale)
 class CompteEntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
