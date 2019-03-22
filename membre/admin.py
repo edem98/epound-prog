@@ -98,7 +98,7 @@ class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 	search_fields = ['nom','code_membre','actif',]
 	list_display = ['nom','prenoms','code_membre','telephone','num_carte',]
 
-	readonly_fields = ['numero_compte_consommateur','solde_compte_consommateur',
+	readonly_fields = ['numero_compte_consommateur','solde_compte_consommateur','depense_mensuel',
 						'date_expiration_compte_consommateur','activiter_compte_consommateur','code_membre']
 
 	fieldsets = (
