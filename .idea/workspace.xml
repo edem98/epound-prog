@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/epound/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/epound/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/serializers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +73,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="4412" />
           <entry key="js" value="412" />
-          <entry key="py" value="26471" />
+          <entry key="py" value="26511" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
@@ -83,7 +83,7 @@
           <entry key="HTML" value="4412" />
           <entry key="JavaScript" value="412" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="26471" />
+          <entry key="Python" value="26511" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -130,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="139" column="63" lean-forward="true" selection-start-line="139" selection-start-column="63" selection-end-line="139" selection-end-column="63" />
+            <state relative-caret-position="204">
+              <caret line="351" column="13" lean-forward="true" selection-start-line="351" selection-start-column="13" selection-end-line="351" selection-end-column="13" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
                 <element signature="e#450#543#0" />
@@ -147,16 +147,17 @@
                 <element signature="e#4683#4889#0" />
                 <element signature="e#4981#6299#0" />
                 <element signature="e#6375#6503#0" />
+                <element signature="e#6573#6724#0" />
                 <element signature="e#6801#7069#0" />
                 <element signature="e#7143#7298#0" />
                 <element signature="e#7374#7502#0" />
                 <element signature="e#7572#7636#0" />
                 <element signature="e#7708#7813#0" />
+                <element signature="e#7887#10501#0" />
                 <element signature="e#10571#11695#0" />
                 <element signature="e#11781#13837#0" />
                 <element signature="e#13917#14294#0" />
                 <element signature="e#14376#15633#0" />
-                <element signature="e#15725#16733#0" />
                 <element signature="e#16824#17595#0" />
                 <element signature="e#17678#17937#0" />
                 <element signature="e#18034#19338#0" />
@@ -164,7 +165,7 @@
                 <element signature="e#20916#22285#0" />
                 <element signature="e#22356#22693#0" />
                 <element signature="e#22771#23459#0" />
-                <element signature="e#23843#24790#0" />
+                <element signature="e#23534#24790#0" />
                 <element signature="e#24587#24688#0" />
               </folding>
             </state>
@@ -176,15 +177,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="222">
               <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/epound/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -321,9 +313,9 @@
         <option value="$PROJECT_DIR$/membre/admin.py" />
         <option value="$PROJECT_DIR$/compte/admin.py" />
         <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/services/serializers.py" />
         <option value="$PROJECT_DIR$/archive/models.py" />
         <option value="$PROJECT_DIR$/epound/views.py" />
+        <option value="$PROJECT_DIR$/services/serializers.py" />
       </list>
     </option>
   </component>
@@ -483,7 +475,7 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -494,7 +486,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952693" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2822186" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.38662317" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32952693" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -829,10 +821,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/epound/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emision/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/services/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="139" column="63" lean-forward="true" selection-start-line="139" selection-start-column="63" selection-end-line="139" selection-end-column="63" />
+        <state relative-caret-position="204">
+          <caret line="351" column="13" lean-forward="true" selection-start-line="351" selection-start-column="13" selection-end-line="351" selection-end-column="13" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
             <element signature="e#450#543#0" />
@@ -845,16 +851,17 @@
             <element signature="e#4683#4889#0" />
             <element signature="e#4981#6299#0" />
             <element signature="e#6375#6503#0" />
+            <element signature="e#6573#6724#0" />
             <element signature="e#6801#7069#0" />
             <element signature="e#7143#7298#0" />
             <element signature="e#7374#7502#0" />
             <element signature="e#7572#7636#0" />
             <element signature="e#7708#7813#0" />
+            <element signature="e#7887#10501#0" />
             <element signature="e#10571#11695#0" />
             <element signature="e#11781#13837#0" />
             <element signature="e#13917#14294#0" />
             <element signature="e#14376#15633#0" />
-            <element signature="e#15725#16733#0" />
             <element signature="e#16824#17595#0" />
             <element signature="e#17678#17937#0" />
             <element signature="e#18034#19338#0" />
@@ -862,23 +869,9 @@
             <element signature="e#20916#22285#0" />
             <element signature="e#22356#22693#0" />
             <element signature="e#22771#23459#0" />
-            <element signature="e#23843#24790#0" />
+            <element signature="e#23534#24790#0" />
             <element signature="e#24587#24688#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/emision/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/epound/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
         </state>
       </provider>
     </entry>

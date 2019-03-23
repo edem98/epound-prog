@@ -350,7 +350,9 @@ class CreationParticulierParTraderSerializer(serializers.HyperlinkedModelSeriali
                                                                    trader=trader)
             return creation
         else:
-            return None
+            data = {}
+            data["echec"] = "Ce client est deja enregistré"
+            raise serializers.ValidationError(data)
 
 class CreationEntrepriseParTraderSerializer(serializers.HyperlinkedModelSerializer):
     trader = TraderSerializer(read_only = True)
