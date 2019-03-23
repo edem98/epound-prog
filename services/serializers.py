@@ -506,6 +506,10 @@ class VendeuVenteSerializer(serializers.HyperlinkedModelSerializer):
                 validated_data['montant'] = montant
                 vente = VendeurVente.objects.create(**validated_data)
                 return vente
+            elif int(montant) < 100000 and client.compte_consommateur.solde < montant:
+                data = {}
+                data["echec"] = "Montant insuffisant"
+                raise serializers.ValidationError(data)
             else:
                 data = {}
                 data["echec"] = "Service indisponible"
