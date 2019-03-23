@@ -37,11 +37,12 @@ class TransactionInterComsommateur(models.Model):
     def save(self, *args, **kwargs):
         if self.id == None:
             with transaction.atomic():
-                self.envoyeur.compte_consommateur.solde = self.envoyeur.compte_consommateur.solde - self.montant_envoyer
-                self.envoyeur.compte_consommateur.save()
-                self.receveur.compte_consommateur.solde = self.receveur.compte_consommateur.solde + self.montant_envoyer
-                self.receveur.compte_consommateur.save()
-                super(TransactionInterComsommateur,self).save(*args, **kwargs)
+                if self.envoyeur.compte_consommateur.solde > self.montant_envoyer:
+                    self.envoyeur.compte_consommateur.solde = self.envoyeur.compte_consommateur.solde - self.montant_envoyer
+                    self.envoyeur.compte_consommateur.save()
+                    self.receveur.compte_consommateur.solde = self.receveur.compte_consommateur.solde + self.montant_envoyer
+                    self.receveur.compte_consommateur.save()
+                    super(TransactionInterComsommateur,self).save(*args, **kwargs)
         else:
             return super(TransactionInterComsommateur,self).save(*args, **kwargs)
 
