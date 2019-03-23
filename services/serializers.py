@@ -493,17 +493,24 @@ class VendeuVenteSerializer(serializers.HyperlinkedModelSerializer):
     def create(self,validated_data):
         numero_acheteur = validated_data.pop('numero_acheteur')
         mdp_acheteur = validated_data.pop('mdp_acheteur')
+        montant = validated_data.pop('montant')
         if numero_acheteur and mdp_acheteur:
             client = Consommateur.objects.get(telephone=numero_acheteur)
             if client.mdp != mdp_acheteur:
                 data = {}
                 data["echec"]= "Le mot de passe ne correspond"
                 raise serializers.ValidationError(data)
-            else:
+            elif int(montant) < 100000 and client.compte_consommateur.solde > montant:
                 validated_data['numero_acheteur'] = numero_acheteur
                 validated_data['mdp_acheteur'] = mdp_acheteur
+                validated_data['montant'] = montant
                 vente = VendeurVente.objects.create(**validated_data)
                 return vente
+            else:
+                data = {}
+                data["echec"] = "Service indisponible"
+                raise serializers.ValidationError(data)
+
 
 class MessageClientSerializer(serializers.HyperlinkedModelSerializer):
 
