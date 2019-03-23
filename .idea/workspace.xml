@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/services/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/archive/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +73,7 @@
           <entry key="dummy" value="6" />
           <entry key="html" value="4412" />
           <entry key="js" value="412" />
-          <entry key="py" value="26368" />
+          <entry key="py" value="26401" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
@@ -83,7 +83,7 @@
           <entry key="HTML" value="4412" />
           <entry key="JavaScript" value="412" />
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="26368" />
+          <entry key="Python" value="26401" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -96,7 +96,7 @@
           <entry key="js" value="10" />
           <entry key="json" value="1" />
           <entry key="mailing" value="1" />
-          <entry key="py" value="382" />
+          <entry key="py" value="383" />
           <entry key="txt" value="10" />
         </counts>
       </usages-collector>
@@ -108,7 +108,7 @@
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="10" />
           <entry key="PLAIN_TEXT" value="12" />
-          <entry key="Python" value="382" />
+          <entry key="Python" value="383" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -116,39 +116,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compte/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="79" column="26" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="26" />
-              <folding>
-                <element signature="e#998#1634#0" />
-                <element signature="e#1682#2296#0" />
-                <element signature="e#2328#2481#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compte/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="241" column="13" lean-forward="true" selection-start-line="241" selection-start-column="13" selection-end-line="241" selection-end-column="13" />
-              <folding>
-                <element signature="e#345#1958#0" />
-                <element signature="e#601#1905#0" />
-                <element signature="e#2044#3880#0" />
-                <element signature="e#3978#6008#0" />
-                <element signature="e#6098#7895#0" />
-                <element signature="e#5139#5977#0" />
-                <element signature="e#6051#6191#0" />
-                <element signature="e#6558#6698#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/membre/admin.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -162,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="513" column="25" lean-forward="true" selection-start-line="513" selection-start-column="25" selection-end-line="513" selection-end-column="25" />
+            <state relative-caret-position="127">
+              <caret line="505" column="51" lean-forward="true" selection-start-line="505" selection-start-column="51" selection-end-line="505" selection-end-column="51" />
               <folding>
                 <element signature="e#450#543#0" />
                 <element signature="e#625#755#0" />
@@ -200,10 +167,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashboard/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1905">
+              <caret line="129" selection-start-line="129" selection-end-line="129" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/archive/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2265">
-              <caret line="159" column="93" selection-start-line="159" selection-start-column="93" selection-end-line="159" selection-end-column="93" />
+            <state relative-caret-position="289">
+              <caret line="473" column="39" lean-forward="true" selection-start-line="473" selection-start-column="39" selection-end-line="473" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -305,10 +281,10 @@
         <option value="$PROJECT_DIR$/epound/views.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/services/views.py" />
-        <option value="$PROJECT_DIR$/archive/models.py" />
         <option value="$PROJECT_DIR$/membre/admin.py" />
         <option value="$PROJECT_DIR$/compte/admin.py" />
         <option value="$PROJECT_DIR$/services/serializers.py" />
+        <option value="$PROJECT_DIR$/archive/models.py" />
       </list>
     </option>
   </component>
@@ -350,6 +326,16 @@
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
               <item name="epound" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound" type="462c0819:PsiDirectoryNode" />
+              <item name="archive" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="epound" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="epound" type="b2602c69:ProjectViewProjectNode" />
@@ -453,7 +439,7 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20402084" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -464,7 +450,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952693" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3898858" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33278957" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32952693" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -673,13 +659,6 @@
     <entry file="file://$PROJECT_DIR$/services/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/layouts/head.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -775,13 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archive/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2265">
-          <caret line="159" column="93" selection-start-line="159" selection-start-column="93" selection-end-line="159" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/compte/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -812,8 +784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="513" column="25" lean-forward="true" selection-start-line="513" selection-start-column="25" selection-end-line="513" selection-end-column="25" />
+        <state relative-caret-position="127">
+          <caret line="505" column="51" lean-forward="true" selection-start-line="505" selection-start-column="51" selection-end-line="505" selection-end-column="51" />
           <folding>
             <element signature="e#450#543#0" />
             <element signature="e#625#755#0" />
@@ -842,6 +814,20 @@
             <element signature="e#20916#22285#0" />
             <element signature="e#22356#22693#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1905">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="473" column="39" lean-forward="true" selection-start-line="473" selection-start-column="39" selection-end-line="473" selection-end-column="39" />
         </state>
       </provider>
     </entry>
