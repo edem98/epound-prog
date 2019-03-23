@@ -5,8 +5,6 @@ from emision.models import CreationParticulierParTrader
 from membre.models import *
 from compte.models import *
 from ecommerce.models import *
-from rest_framework import permissions
-from rest_framework.response import Response
 
 
 from archive.models import ReactivationClient
@@ -519,7 +517,6 @@ class VendeuVenteSerializer(serializers.HyperlinkedModelSerializer):
                 data = {}
                 data["echec"] = "Service indisponible"
                 raise serializers.ValidationError(data)
-
 
 class MessageClientSerializer(serializers.HyperlinkedModelSerializer):
 
