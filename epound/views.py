@@ -18,7 +18,7 @@ def envoyer_sms(message,destinataire,expediteur="epound Corp"):
     url = "http://sms.easysbyskegroup.com:8080/sendsms?username=ysms-epound&password=70011777&type=0&dlr=1&destination="+destinataire+"&source="+expediteur+"&message="+message
     resp = requests.request("POST",url)
     print(resp.status_code,resp.reason)
-    print(r.text[:300]+'...')
+    print(resp.text[:300]+'...')
 
 def acceuil(request):
     context = {}
