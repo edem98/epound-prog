@@ -461,6 +461,7 @@ class VendeurVente(models.Model):
                 if self.client.compte_consommateur.solde > self.montant:
                     try:
                         self.client.compte_consommateur.solde -= self.montant
+                        self.client.compte_consommateur.depense_epound_mensuel += self.montant
                         self.client.compte_consommateur.save()
                         self.vendeur.compte_entreprise_commercial.compte_business.solde += self.montant
                         self.vendeur.compte_entreprise_commercial.compte_business.save()

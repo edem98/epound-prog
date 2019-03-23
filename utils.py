@@ -26,7 +26,9 @@ class SingletonModel(models.Model):
 	@classmethod
 	def load(cls):
 		obj, created = cls.objects.get_or_create(pk = 1)
-		return obj
+		if not created:
+			return obj
+		return created
 
 class CorrespondanceMois():
 	"""

@@ -178,10 +178,10 @@ class QuartierSerializer(serializers.HyperlinkedModelSerializer):
 class EntrepriseSerializer(serializers.HyperlinkedModelSerializer):
     compte_consommateur = CompteConsommateurSerializer(read_only = True)
     emplacement = QuartierSerializer(read_only=True)
-    secteur_activite = BesoinSerializer(read_only=True)
+    besoin_fondamental = BesoinSerializer(read_only=True)
     class Meta:
         model = ConsommateurEntreprise
-        fields = ('id','code_membre','mdp','nom','secteur_activite'
+        fields = ('id','code_membre','mdp','nom','besoin_fondamental'
                 'telephone','email','raison_social','emplacement','statut_juridique',
                 'objet_social','capital_social','numero_rccm',
                 'regime_fiscal','nif','siege_social',
