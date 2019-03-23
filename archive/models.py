@@ -471,7 +471,7 @@ class VendeurVente(models.Model):
                         creance_total.total_epounds += self.montant
                         creance_total.save()
                         super(VendeurVente,self).save(*args, **kwargs)
-                    except Exception e:
+                    except Exception as e:
                         print(str(e))
                 else:
                     return None
