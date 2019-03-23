@@ -472,7 +472,7 @@ class VendeurVente(models.Model):
                         creance_total.save()
                         super(VendeurVente,self).save(*args, **kwargs)
                     except Exception as e:
-                        print(str(e))
+                        print(str(e)+ "*"*100)
                 else:
                     return None
 
