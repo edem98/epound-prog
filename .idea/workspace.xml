@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/epound.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/epound.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/membre/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/membre/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/membre/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/membre/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/membre/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-805">
-              <caret line="247" column="128" lean-forward="true" selection-start-line="247" selection-start-column="128" selection-end-line="247" selection-end-column="128" />
+            <state relative-caret-position="60">
+              <caret line="250" column="32" selection-start-line="250" selection-start-column="32" selection-end-line="250" selection-end-column="32" />
               <folding>
                 <element signature="e#1732#3449#0" />
                 <element signature="e#3497#4648#0" />
@@ -645,8 +642,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/membre/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-805">
-          <caret line="247" column="128" lean-forward="true" selection-start-line="247" selection-start-column="128" selection-end-line="247" selection-end-column="128" />
+        <state relative-caret-position="60">
+          <caret line="250" column="32" selection-start-line="250" selection-start-column="32" selection-end-line="250" selection-end-column="32" />
           <folding>
             <element signature="e#1732#3449#0" />
             <element signature="e#3497#4648#0" />
