@@ -14,7 +14,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="62">
+          <list size="69">
             <item index="0" class="java.lang.String" itemvalue="django-polymorphic" />
             <item index="1" class="java.lang.String" itemvalue="django-autocomplete-light" />
             <item index="2" class="java.lang.String" itemvalue="SQLAlchemy" />
@@ -77,6 +77,13 @@
             <item index="59" class="java.lang.String" itemvalue="requests" />
             <item index="60" class="java.lang.String" itemvalue="twilio" />
             <item index="61" class="java.lang.String" itemvalue="idna" />
+            <item index="62" class="java.lang.String" itemvalue="jmespath" />
+            <item index="63" class="java.lang.String" itemvalue="mysqlclient" />
+            <item index="64" class="java.lang.String" itemvalue="s3transfer" />
+            <item index="65" class="java.lang.String" itemvalue="django-chartit" />
+            <item index="66" class="java.lang.String" itemvalue="Unidecode" />
+            <item index="67" class="java.lang.String" itemvalue="python-dateutil" />
+            <item index="68" class="java.lang.String" itemvalue="docutils" />
           </list>
         </value>
       </option>

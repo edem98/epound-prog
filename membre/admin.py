@@ -209,7 +209,7 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 			'fields': ('compte_entreprise_commercial',),
 		}),
 		("Informations entreprise", {
-			'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'mdp',
+			'fields': ('user','besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'mdp',
 					   'telephone', 'contact_1', 'contact_2', 'email', 'slug', 'objet_social', 'nature_jurique',
 					   'numero_rccm', 'regime_fiscal', 'nif', 'siege_social',
 					   'numero_cnss', 'responsable', 'banniere_principal',
