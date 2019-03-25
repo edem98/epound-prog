@@ -243,14 +243,13 @@ class EntrepriseCommerciale(Membre):
 	def save(self, *args, **kwargs):
 		# recuperation de l'entreprise associér a ce compte
 		if self.code_membre == None:
-
+			super(EntrepriseCommerciale, self).save(*args, **kwargs)
+			self.code_membre = self.id
 			self.user = User(username=str(self.nom) + "-" + str(self.code_membre),
 							 last_name=str(self.nom), password=make_password(self.mdp))
 			self.user.save()
 			groupe = Group.objects.get(name="Commercial")
 			groupe.user_set.add(self.user)
-			super(EntrepriseCommerciale, self).save(*args, **kwargs)
-			self.code_membre = self.id
 			creance = Creance.objects.create(entreprise_associer=self)
 			creance.save()
 			super(EntrepriseCommerciale, self).save(*args, **kwargs)
