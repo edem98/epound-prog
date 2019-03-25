@@ -242,7 +242,7 @@ class EntrepriseCommerciale(Membre):
 
 	def save(self, *args, **kwargs):
 		# recuperation de l'entreprise associér a ce compte
-		if self.id == None:
+		if self.code_membre == None:
 
 			self.user = User(username=str(self.nom) + "-" + str(self.code_membre),
 							 last_name=str(self.nom), password=make_password(self.mdp))
@@ -255,8 +255,6 @@ class EntrepriseCommerciale(Membre):
 			creance.save()
 			super(EntrepriseCommerciale, self).save(*args, **kwargs)
 		else:
-			print(str(self.id)+"------------------------------------------------------------------")
-			print(str(self.code_membre)+"------------------------------------------------------------------")
 			# mise a jour de la Creance
 			creance = Creance.objects.get(entreprise_associer=self)
 			creance.epounds_retrancher = (self.compte_entreprise_commercial.compte_business.solde * 5) / 100
