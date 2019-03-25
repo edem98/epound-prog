@@ -249,7 +249,7 @@ class EntrepriseCommerciale(Membre):
 				self.user = User(username = str(self.nom)+"-"+str(self.code_membre),
 							last_name = str(self.nom),password = make_password(self.mdp))
 				self.user.save()
-			print(self.user.id+"*****************************************************")
+			print(str(self.user.id)+"*****************************************************")
 			groupe = Group.objects.get(name="Commercial")
 			groupe.user_set.add(self.user)
 			creance = Creance.objects.create(entreprise_associer=self)
