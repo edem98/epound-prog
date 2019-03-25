@@ -459,23 +459,17 @@ class VendeurVente(models.Model):
                 self.client = Consommateur.objects.get(telephone = self.numero_acheteur)
                 self.vendeur = EntrepriseCommerciale.objects.get(telephone = self.numero_vendeur)
                 if self.client.compte_consommateur.solde > self.montant:
-                    try:
-                        self.client.compte_consommateur.solde -= self.montant
-                        self.client.compte_consommateur.depense_epound_mensuel += self.montant
-                        self.client.compte_consommateur.save()
-                        self.vendeur.compte_entreprise_commercial.compte_business.solde += self.montant
-                        self.vendeur.compte_entreprise_commercial.compte_business.save()
-                        self.vendeur.save()
-                        # mise a jour de la creance total
-                        creance_total = CreanceTotal.load()
-                        creance_total.total_epounds_consommateur -= self.montant
-                        creance_total.total_epounds += self.montant
-                        creance_total.save()
-                        super(VendeurVente,self).save(*args, **kwargs)
-                    except Exception as e:
-                        print(str(e)+ "*"*100)
-                else:
-                    return None
+                    self.client.compte_consommateur.solde -= self.montant
+                    self.client.compte_consommateur.depense_epound_mensuel += self.montant
+                    self.client.compte_consommateur.save()
+                    self.vendeur.compte_entreprise_commercial.compte_business.solde += self.montant
+                    self.vendeur.compte_entreprise_commercial.compte_business.save()
+                    # mise a jour de la creance total
+                    creance_total = CreanceTotal.load()
+                    creance_total.total_epounds_consommateur -= self.montant
+                    creance_total.total_epounds += self.montant
+                    creance_total.save()
+                    super(VendeurVente,self).save(*args, **kwargs)
 
     class Meta():
         verbose_name = "Vente effectué"

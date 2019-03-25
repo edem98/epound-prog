@@ -243,8 +243,6 @@ class EntrepriseCommerciale(Membre):
 	def save(self, *args, **kwargs):
 		# recuperation de l'entreprise associér a ce compte
 		if self.id == None:
-			super(EntrepriseCommerciale, self).save(*args, **kwargs)
-			self.code_membre = self.id
 			creance = Creance.objects.create(entreprise_associer=self)
 			creance.save()
 			self.user = User(username=str(self.nom) + "-" + str(self.code_membre),
@@ -252,7 +250,9 @@ class EntrepriseCommerciale(Membre):
 			self.user.save()
 			groupe = Group.objects.get(name="Commercial")
 			groupe.user_set.add(self.user)
-			self.save(update_fields=['code_membre', 'compte_entreprise_commercial', 'user'])
+			super(EntrepriseCommerciale, self).save(*args, **kwargs)
+			self.code_membre = self.id
+			super(EntrepriseCommerciale, self).save(*args, **kwargs)
 		else:
 			# mise a jour de la Creance
 			creance = Creance.objects.get(entreprise_associer=self)

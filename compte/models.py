@@ -112,6 +112,12 @@ class CompteEntrepriseCommerciale(Compte):
 	credit = models.PositiveIntegerField(verbose_name ="Credit",default=0)
 	TAUX_REMBOURSEMENT = 0
 
+	def delete(self, *args, **kwargs):
+		# suppression du compte associér a ce vendeur
+		self.compte_consommateur.delete()
+		self.compte_business.delete()
+		super(CompteEntrepriseCommerciale, self).delete(*args, **kwargs)
+
 	class Meta():
 		verbose_name = "Compte Entreprise Commerciale"
 
