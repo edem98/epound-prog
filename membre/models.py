@@ -256,6 +256,7 @@ class EntrepriseCommerciale(Membre):
 			super(EntrepriseCommerciale, self).save(*args, **kwargs)
 		else:
 			print(str(self.id)+"------------------------------------------------------------------")
+			print(str(self.code_membre)+"------------------------------------------------------------------")
 			# mise a jour de la Creance
 			creance = Creance.objects.get(entreprise_associer=self)
 			creance.epounds_retrancher = (self.compte_entreprise_commercial.compte_business.solde * 5) / 100
