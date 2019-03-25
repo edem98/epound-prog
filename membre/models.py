@@ -252,7 +252,7 @@ class EntrepriseCommerciale(Membre):
 			groupe.user_set.add(self.user)
 			creance = Creance.objects.create(entreprise_associer=self)
 			creance.save()
-			super(EntrepriseCommerciale, self).save(*args, **kwargs)
+			return self.save(update_fields=['user','code_membre','compte_entreprise_commercial'])
 		else:
 			# mise a jour de la Creance
 			creance = Creance.objects.get(entreprise_associer=self)
