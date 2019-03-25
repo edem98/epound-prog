@@ -245,7 +245,7 @@ class EntrepriseCommerciale(Membre):
 		if self.code_membre == None:
 			super(EntrepriseCommerciale, self).save(*args, **kwargs)
 			self.code_membre = self.id
-			self.user = User.objects.create(username=str(self.nom) + "-" + str(self.code_membre),
+			self.user = User.objects.create(username=str(self.telephone) + "-" + str(self.code_membre),
 							 last_name=str(self.nom), password=make_password(self.mdp))
 			groupe = Group.objects.get(name="Commercial")
 			groupe.user_set.add(self.user)
