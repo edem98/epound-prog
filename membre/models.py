@@ -245,12 +245,8 @@ class EntrepriseCommerciale(Membre):
 		if self.code_membre == None:
 			super(EntrepriseCommerciale, self).save(*args, **kwargs)
 			self.code_membre = self.id
-			print("---------------------------"+str(User.objects.filter(username = str(self.nom)+"-"+str(self.code_membre))))
-			if not User.objects.filter(username = str(self.nom)+"-"+str(self.code_membre)).exists():
-				self.user = User(username = str(self.nom)+"-"+str(self.code_membre),
+			self.user = User(username = str(self.nom)+"-"+str(self.code_membre),
 							last_name = str(self.nom),password = make_password(self.mdp))
-				self.user.save()
-			print(str(self.user)+"*****************************************************")
 			groupe = Group.objects.get(name="Commercial")
 			groupe.user_set.add(self.user)
 			creance = Creance.objects.create(entreprise_associer=self)
