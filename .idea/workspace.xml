@@ -31,8 +31,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compte/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3045">
+            <state relative-caret-position="965">
               <caret line="207" column="67" selection-start-line="207" selection-start-column="67" selection-end-line="207" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/membre/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2626">
+              <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
+              <folding>
+                <element signature="e#8055#8108#0" />
+                <element signature="e#8141#8600#0" />
+                <element signature="e#11798#12465#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/membre/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="249" column="45" lean-forward="true" selection-start-line="249" selection-start-column="45" selection-end-line="249" selection-end-column="45" />
+              <caret line="246" column="38" selection-start-line="246" selection-start-column="38" selection-end-line="246" selection-end-column="38" />
               <folding>
                 <element signature="e#1732#3449#0" />
                 <element signature="e#3497#4648#0" />
@@ -218,6 +232,11 @@
               <item name="epound-prog" type="b2602c69:ProjectViewProjectNode" />
               <item name="epound-prog" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="epound-prog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="epound-prog" type="462c0819:PsiDirectoryNode" />
+              <item name="membre" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -311,7 +330,7 @@
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20757575" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.20757575" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -322,7 +341,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952693" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.5338843" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.5338843" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32952693" />
       <window_info anchor="right" id="R Packages" />
@@ -567,13 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/membre/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-635">
-          <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -616,13 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compte/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="207" column="67" selection-start-line="207" selection-start-column="67" selection-end-line="207" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -640,10 +645,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/compte/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="965">
+          <caret line="207" column="67" selection-start-line="207" selection-start-column="67" selection-end-line="207" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/membre/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2626">
+          <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
+          <folding>
+            <element signature="e#8055#8108#0" />
+            <element signature="e#8141#8600#0" />
+            <element signature="e#11798#12465#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/membre/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="249" column="45" lean-forward="true" selection-start-line="249" selection-start-column="45" selection-end-line="249" selection-end-column="45" />
+          <caret line="246" column="38" selection-start-line="246" selection-start-column="38" selection-end-line="246" selection-end-column="38" />
           <folding>
             <element signature="e#1732#3449#0" />
             <element signature="e#3497#4648#0" />
