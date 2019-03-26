@@ -229,11 +229,8 @@ class CompteEntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 		return super().get_form(request, obj, **kwargs)
 
 	def supprimer_compte(self, request, queryset):
-		compte_mise_a_jour = queryset.delete()
-		if compte_mise_a_jour == 1:
-			message_bit = "Le compte sélectionner a été supprimer"
-		else:
-			message_bit = "Les %s comptes sélectionnées ont été supprimer." % compte_mise_a_jour
+		queryset.delete()
+		message_bit = "Les comptes sélectionnées ont été supprimer."
 		self.message_user(request, "%s " % message_bit)
 
 	supprimer_compte.short_description = "Supprimer les comptes"
