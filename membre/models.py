@@ -28,7 +28,7 @@ class Membre(PolymorphicModel,TimeStamp):
 			super(Membre,self).save(*args, **kwargs)
 			self.date_expiration = self.date_add.date() + datetime.timedelta(720)
 			self.date_desactivation = self.date_add.date() + datetime.timedelta(360)
-			self.save(update_fields=['date_expiration',])
+			super(Membre, self).save(*args, **kwargs)
 		else:
 			return super(Membre,self).save(*args, **kwargs)
 	
