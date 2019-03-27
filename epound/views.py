@@ -45,7 +45,9 @@ class ListEntreprise(ListView):
 def about(request):
     context = {}
     new_produits = Produit.objects.all().order_by('-date_ajout')[:30]
+    partenaires = Partenaire.objects.all()[:4]
     context['produits'] = new_produits
+    context['partenaires'] = partenaires
     return render(request, 'about.html', context)
 
 def contact(request):

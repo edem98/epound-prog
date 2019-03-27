@@ -159,50 +159,18 @@
 	<div class="benefit">
 		<div class="container">
 			<div class="row benefit_row">
+				{% for partenaire in partenaires %}
 				<div class="col-lg-3 benefit_col">
 					<div class="benefit_item d-flex flex-row align-items-center">
 						<div class="benefit_icon">
-							<i class="fa fa-truck" aria-hidden="true" style="color:#76CEF4;"></i>
+                            <img src="{{ partenaire.logo.url }}" alt="logo de {{ partenaire }}" style="height: 40px;width: 40px;">
 						</div>
 						<div class="benefit_content">
-							<h6>Metamorphoo Consulting</h6>
-							<p>Slogan Metamorphoo Consulting</p>
+							<h6>{{ partenaire.nom }}</h6>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-money" aria-hidden="true" style="color:#76CEF4;"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>T-Mobile</h6>
-							<p>Slogan T-Mobile</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-undo" aria-hidden="true" style="color:#76CEF4;"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>LG</h6>
-							<p>Life's Good</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-clock-o" aria-hidden="true" style="color:#76CEF4;"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>Facebook</h6>
-							<p>Slogan Facebook</p>
-						</div>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
