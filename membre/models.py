@@ -176,6 +176,8 @@ class EntrepriseCommerciale(Membre):
 		avec un taux de contribution mensuel de 5%
 	"""
 	etablissement = 'Etablissement'
+	ei = 'EI'
+	ets = 'ETS'
 	es = 'es'
 	em = 'em'
 	snc = 'SNC'
@@ -193,6 +195,8 @@ class EntrepriseCommerciale(Membre):
 	nature = [
 		(etablissement, 'Etablissement'),
 		(snc, 'SNC'),
+		(ei, 'EI'),
+		(ets, 'ETS'),
 		(scs, 'SCS'),
 		(sa, 'SA'),
 		(sarl, 'SARL'),
