@@ -343,7 +343,7 @@ class CreationParticulierParTraderSerializer(serializers.HyperlinkedModelSeriali
         numero_trader = validated_data.get('numero_trader')
         telephone = validated_data.get('telephone')
         client = ConsommateurParticulier.objects.filter(telephone=telephone)
-        if client == []:
+        if not client.exists():
             consommateur = ConsommateurParticulier(telephone=telephone, mdp="123456789", )
             trader = Trader.objects.get(telephone=numero_trader)
             creation = CreationParticulierParTrader.objects.create(numero_trader=numero_trader,
