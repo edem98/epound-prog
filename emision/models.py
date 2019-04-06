@@ -118,7 +118,7 @@ class CreationParticulierParTrader(models.Model):
     numero_trader = models.CharField(max_length=8,verbose_name = "Numero du Trader",null = True)
     solde_initial = models.PositiveIntegerField(verbose_name = "Solde initial du Trader",null = True,editable=False)
     trader = models.ForeignKey(Trader, on_delete = models.CASCADE,null = True)
-    consommateur = models.ForeignKey(ConsommateurParticulier, on_delete = models.CASCADE,null = True)
+    consommateur = models.ForeignKey(ConsommateurParticulier, on_delete = models.CASCADE,null = True,blank=True)
     telephone = models.CharField(max_length =8,verbose_name ="Téléphone du client",null = True)
     date_emission = models.DateTimeField(auto_now_add=True,)
 
@@ -127,7 +127,6 @@ class CreationParticulierParTrader(models.Model):
     def save(self, *args, **kwargs):
         if self.id == None:
             with transaction.atomic():
-                self.trader = Trader.objects.get(telephone = self.numero_trader)
                 self.solde_initial = self.trader.compte_trader.solde
                 self.trader.compte_trader.solde -= 3000
                 self.trader.compte_trader.save()
@@ -136,7 +135,8 @@ class CreationParticulierParTrader(models.Model):
                 code_membre = code_membre.id + 1
                 password = BaseUserManager().make_random_password()
                 # Création de particuler
-                self.consommateur = ConsommateurParticulier.objects.create(telephone = self.telephone, mdp =password,code_membre = code_membre)
+                self.consommateur = ConsommateurParticulier(telephone = self.telephone, mdp =password,code_membre = code_membre)
+                self.consommateur.save()
                 # Création du méssage et envoie du méssage
                 message = "Bienvenue sur epound\n"+"code membre: "+str(self.consommateur.code_membre)+"\nmot de passe: "+ password
                 to = "228"+self.telephone

@@ -317,6 +317,7 @@ class CreationParticulierParTraderViewSet(viewsets.ModelViewSet):
 
     queryset = CreationParticulierParTrader.objects.all()
     serializer_class = CreationParticulierParTraderSerializer
+    lookup_field = "id"
 
 class ReactivationClientViewSet(viewsets.ModelViewSet):
 

@@ -81,12 +81,12 @@ class Consommateur(Membre,PolymorphicModel):
 			self.compte_consommateur = CompteConsommateur.objects.create()
 			groupe = Group.objects.get(name="Consommateur")	
 			groupe.user_set.add(self.user)
-			self.save(update_fields=['code_membre','compte_consommateur','user'])
+			super(Consommateur, self).save(*args, **kwargs)
 		else:
 			return super(Consommateur,self).save(*args, **kwargs)
 
 	def __str__(self):
-		return self.nom
+		return str(self.nom)
 
 class ConsommateurParticulier(Consommateur):
 	#definition de la situation matrimonial
