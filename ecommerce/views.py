@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from ecommerce.models import *
-from membre.models import EntrepriseCommerciale
+from membre.models import EntrepriseCommerciale, Partenaire
+
 
 def specification_besoin(request, besoin):
     context = {}
@@ -13,6 +14,8 @@ def specification_besoin(request, besoin):
     context['besoin'] = besoin
     context['specifications'] = specifications
     context['produits'] = new_produits
+    partenaires = Partenaire.objects.all()[:4]
+    context['partenaires'] = partenaires
     return render(request,'ecommerce/specification.html',context)
 
 def categorie_specification(request, id_specification):
@@ -23,6 +26,8 @@ def categorie_specification(request, id_specification):
     context['categories'] = categories
     context['specification'] = specification
     context['produits'] = new_produits
+    partenaires = Partenaire.objects.all()[:4]
+    context['partenaires'] = partenaires
     return render(request,'ecommerce/categorie.html',context)
 
 def produit_par_specification(request, specification):
@@ -45,6 +50,8 @@ def produit_par_categorie(request, id_categorie):
     produits = Produit.objects.filter(categorie=categorie)
     context['produits'] = produits
     context['categorie'] = categorie
+    partenaires = Partenaire.objects.all()[:4]
+    context['partenaires'] = partenaires
     return render(request,'ecommerce/products-categorie.html',context)
 
 
