@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'faqs.apps.FaqsConfig',
 ]
 
+SECURE_SSL_REDIRECT = True
 
 
 MIDDLEWARE = [
