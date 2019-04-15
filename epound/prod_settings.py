@@ -9,8 +9,8 @@ ALLOWED_HOSTS = ['epound-prog.herokuapp.com','epoundtogo.com','www.epoundtogo.co
 
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 
-AWS_ACCESS_KEY_ID = 'AKIAIGR4ZJQ3GGLIG6BQ'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = 'AKIAZCEUNS6HSFVNYVME's
+AWS_SECRET_ACCESS_KEY = '4j/w+l7aP6BzG+Nwj5/JZ0OmLbwCUqThLadYA82Bs'
 AWS_STORAGE_BUCKET_NAME = 'epound-prog'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
