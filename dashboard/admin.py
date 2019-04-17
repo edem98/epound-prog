@@ -82,19 +82,19 @@ class ConsommationMensuelMoyenneConsommateurAdmin(admin.ModelAdmin):
 @admin.register(ConsommationMensuelMoyenneVendeurActuel)
 class ConsommationMensuelMoyenneVendeurActuelAdmin(admin.ModelAdmin):
 
-	def nombre_de_mois(self,obj):
-		date = obj.date_debut_consommation-timezone.now().date()
-		if date.days < 1:
-			return 0
-		else:
-			return  int(date.days/30)
+	# def nombre_de_mois(self,obj):
+	# 	date = obj.date_debut_consommation-timezone.now().date()
+	# 	if date.days < 1:
+	# 		return 0
+	# 	else:
+	# 		return  int(date.days/30)
+	#
+	# def rapport(self,obj):
+	# 	if self.nombre_de_mois(obj) == 0:
+	# 		return 0
+	# 	return obj.epound_utiliser/self.nombre_de_mois(obj)
 
-	def rapport(self,obj):
-		if self.nombre_de_mois(obj) == 0:
-			return 0
-		return obj.epound_utiliser/self.nombre_de_mois(obj)
-
-	list_display = ['mois','epound_utiliser', 'nombre_de_mois', 'rapport',]
+	list_display = ['mois','epound_utiliser',]
 
 	# def has_add_permission(self, request):
 	# 	return False
