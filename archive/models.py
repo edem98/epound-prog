@@ -222,8 +222,8 @@ class PayementInterCommercial(models.Model):
     def save(self, *args, **kwargs):
         if self.id == None:
             with transaction.atomic():
-                self.receveur = EntrepriseCommerciale.objects.get(telephone = self.numero_envoyeur)
-                self.envoyeur = EntrepriseCommerciale.objects.get(telephone = self.numero_receveur)
+                self.receveur = EntrepriseCommerciale.objects.get(telephone = self.numero_receveur)
+                self.envoyeur = EntrepriseCommerciale.objects.get(telephone = self.numero_envoyeur)
                 # mise a jour de la creance envoyeur
                 self.receveur.compte_entreprise_commercial.compte_business.solde += self.montant_envoyer
                 self.receveur.compte_entreprise_commercial.compte_business.save()
