@@ -55,6 +55,7 @@ class Produit(models.Model):
     description = models.TextField(null = True,blank=True)
     image_produit = models.ImageField(upload_to = 'produits/',verbose_name = "Image",null = True,)
     date_ajout = models.DateTimeField(auto_now_add = True,)
+    disponible = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         # recuperation de l'entreprise associér a ce compte

@@ -8,7 +8,7 @@ from membre.models import EntrepriseCommerciale,Consommateur,Trader
 class CompteAdmin(PolymorphicParentModelAdmin):
 	base_model =  Compte 
 	child_models = (CompteTrader, CompteConsommateur, CompteEntrepriseCommerciale)
-	list_filter = (PolymorphicChildModelFilter,)
+	list_filter = (PolymorphicChildModelFilter,'actif','date_expiration')
 	list_display = ['titulaire','solde','date_expiration','polymorphic_ctype_id']
 
 	def titulaire(self,obj):
@@ -51,6 +51,7 @@ class CompteAdmin(PolymorphicParentModelAdmin):
 class CompteTraderAdmin(PolymorphicChildModelAdmin):
 	base_model = CompteTrader
 	search_fields = ['date_expiration']
+	list_filter = ['date_expiration','actif',]
 	list_display = ['titulaire','solde','date_expiration',]
 
 	def titulaire(self,obj):
@@ -103,6 +104,7 @@ class CompteTraderAdmin(PolymorphicChildModelAdmin):
 class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 	base_model = CompteConsommateur
 	search_fields = ['date_expiration','depense_epound_mensuel']
+	list_filter = ['date_expiration','actif',]
 	list_display = ['titulaire','solde','depense_epound_mensuel','date_expiration',]
 
 	def titulaire(self,obj):
@@ -130,7 +132,6 @@ class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 		else:
 			message_bit = "le solde de %s comptes ont été mis à zéro." % compte_mise_a_jour
 		self.message_user(request, "%s " % message_bit)
-
 	renitialiser_compte.short_description = "Mettre a zéro le solde"
 
 	def desactiver_compte(self, request, queryset):
@@ -140,7 +141,6 @@ class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 		else:
 			message_bit = "Les %s comptes sélectionnées ont été désactivés." % compte_mise_a_jour
 		self.message_user(request, "%s " % message_bit)
-
 	desactiver_compte.short_description = "Désactiver les comptes"
 
 	def activer_compte(self, request, queryset):
@@ -150,7 +150,6 @@ class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 		else:
 			message_bit = "Les %s comptes sélectionnées ont été activés." % compte_mise_a_jour
 		self.message_user(request, "%s " % message_bit)
-
 	activer_compte.short_description = "Activer les comptes"
 
 	actions = [renitialiser_compte,desactiver_compte,activer_compte]
@@ -159,12 +158,12 @@ class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 class CompteBusinessAdmin(PolymorphicChildModelAdmin):
 	base_model = CompteBusiness
 	search_fields = ['date_expiration']
+	list_filter = ['actif','date_expiration',]
 	list_display = ['titulaire','solde','date_expiration',]
 
 	def titulaire(self,obj):
 		compte_vente = CompteBusiness.objects.get(id = obj.id)
 		entreprise = compte_vente.vente_vers_entreprise.compteEntreprise_vers_entreprise
-		print(str(entreprise))
 		return entreprise.nom
 	titulaire.short_description = "Titulaire du Compte"
 
@@ -232,10 +231,36 @@ class CompteEntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 		queryset.delete()
 		message_bit = "Les comptes sélectionnées ont été supprimer."
 		self.message_user(request, "%s " % message_bit)
-
 	supprimer_compte.short_description = "Supprimer les comptes"
 
-	actions = [supprimer_compte,]
+	def renitialiser_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(compte_consommateur__solde=0,compte_business__solde=0)
+		if compte_mise_a_jour == 1:
+			message_bit = "Les solde du compte sélectionner a été mis à zéro"
+		else:
+			message_bit = "les solde de %s comptes ont été mis à zéro." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+	renitialiser_compte.short_description = "Mettre a zéro le solde"
+
+	def desactiver_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(actif=False)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le compte sélectionner a été désactiver"
+		else:
+			message_bit = "Les %s comptes sélectionnées ont été désactivés." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+	desactiver_compte.short_description = "Désactiver les comptes"
+
+	def activer_compte(self, request, queryset):
+		compte_mise_a_jour = queryset.update(actif=False)
+		if compte_mise_a_jour == 1:
+			message_bit = "Le compte sélectionner a été activer"
+		else:
+			message_bit = "Les %s comptes sélectionnées ont été activés." % compte_mise_a_jour
+		self.message_user(request, "%s " % message_bit)
+	activer_compte.short_description = "Activer les comptes"
+
+	actions = [renitialiser_compte,desactiver_compte,activer_compte]
 
 @admin.register(CompteAlpha)
 class CompteAlphaAdmin(admin.ModelAdmin):

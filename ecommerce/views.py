@@ -10,7 +10,7 @@ def specification_besoin(request, besoin):
     context = {}
     besoin = ExpressionBesoin.objects.get(besoin = besoin)
     specifications = SpécificationBesoin.objects.filter(besoin_fondamental = besoin)
-    new_produits = Produit.objects.all().order_by('-date_ajout')[:10]
+    new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:20]
     context['besoin'] = besoin
     context['specifications'] = specifications
     context['produits'] = new_produits
@@ -22,7 +22,7 @@ def categorie_specification(request, id_specification):
     context = {}
     specification = SpécificationBesoin.objects.get(id = id_specification)
     categories = Categorie.objects.filter(specification = specification)
-    new_produits = Produit.objects.all().order_by('-date_ajout')[:10]
+    new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:20]
     context['categories'] = categories
     context['specification'] = specification
     context['produits'] = new_produits
@@ -34,7 +34,7 @@ def produit_par_specification(request, specification):
     context = {}
     if specification != "Alimentation générale":
         specification = SpécificationBesoin.objects.get(spécification=specification)
-        produits = Produit.objects.filter(categorie_besoin__spécification = specification)
+        produits = Produit.objects.filter(categorie_besoin__spécification = specification,disponible=True)
         context['produits'] = produits
         context['specification'] = specification
         return render(request,'ecommerce/products-specification.html',context)
@@ -47,7 +47,7 @@ def produit_par_specification(request, specification):
 def produit_par_categorie(request, id_categorie):
     context = {}
     categorie = Categorie.objects.get(id = id_categorie)
-    produits = Produit.objects.filter(categorie=categorie)
+    produits = Produit.objects.filter(categorie=categorie,disponible=True)
     context['produits'] = produits
     context['categorie'] = categorie
     partenaires = Partenaire.objects.all()[:4]
