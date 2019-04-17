@@ -415,8 +415,8 @@ class PayementInterCommercialSerializer(serializers.HyperlinkedModelSerializer):
                     'date_transaction','envoyeur','recepteur',)
 
     def create(self,validated_data):
-        telephone_envoyeur = validated_data.pop('telephone_envoyeur')
-        telephone_receveur = validated_data.pop('telephone_receveur')
+        telephone_envoyeur = validated_data.pop('numero_envoyeur')
+        telephone_receveur = validated_data.pop('numero_receveur')
         montant_envoyer = validated_data.pop('montant_envoyer')
         if telephone_envoyeur and telephone_receveur:
             client = EntrepriseCommerciale.objects.get(telephone=telephone_envoyeur)
@@ -425,8 +425,8 @@ class PayementInterCommercialSerializer(serializers.HyperlinkedModelSerializer):
                 data["echec"]= "vous avez atteind le plafond mensuel de 100.000 epound"
                 raise serializers.ValidationError(data)
         else:
-            validated_data['telephone_envoyeur'] = telephone_envoyeur
-            validated_data['telephone_receveur'] = telephone_receveur
+            validated_data['numero_envoyeur'] = telephone_envoyeur
+            validated_data['numero_receveur'] = telephone_receveur
             validated_data['montant_envoyer'] = montant_envoyer
             payement = PayementInterCommercial.objects.create(**validated_data)
             return payement
