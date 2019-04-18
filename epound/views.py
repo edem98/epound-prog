@@ -23,7 +23,7 @@ def envoyer_sms(message,destinataire,expediteur="epound Corp"):
 def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
-    new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:100]
+    new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:20]
     partenaires = Partenaire.objects.all()[:4]
     context['besoins'] = besoins
     context['produits'] = new_produits
@@ -48,7 +48,6 @@ def about(request):
     context = {}
     new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:30]
     partenaires = Partenaire.objects.all()[:4]
-    context['produits'] = new_produits
     context['partenaires'] = partenaires
     return render(request, 'about.html', context)
 

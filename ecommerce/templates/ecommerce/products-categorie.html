@@ -4,6 +4,8 @@
 {% block add_css %}
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+ 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -11,7 +13,7 @@
 <div class="super_container">
 
 	<div style="smargin-top: 10em; text-align: center;">
-		<h1 style="font-family: 'Permanent Marker', cursive;text-transform: uppercase; color: green;">{{ categorie.nom_categorie }}</h1>
+		<h1 style="font-family: 'Orbitron', sans-serif;text-transform: uppercase; color: green;">{{ categorie.nom_categorie }}</h1>
 	</div>
 
 	<!-- New Arrivals -->
@@ -38,12 +40,12 @@
 								<div class="product_info">
 									<h6 style="margin-top: 8px;color: black" class="product_name">{{ produit.nom }}</h6>
 									<div class="product_price">
-										<p style="font-size:12px;color: green;margin-top: -0.5em;">Prix: {{ produit.prix }} epounds</p>
-										<p style="font-size:12px;color: green;margin-top: -1.5em;">Code article: {{ produit.code_article }}</p>
+										<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Prix: {{ produit.prix }} epounds</p>
+										<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Code article: {{ produit.code_article }}</p>
 									</div>
-									<p style="font-size:12px;color: green;margin-top: -1.5em;">Vendeur: {{ produit.vendeur }}</p>
-									<p style="font-size:12px;color: green;margin-top: -1.5em;">Téléphone: {{ produit.vendeur.telephone }}</p>
-									<p style="font-size:12px;color: green;margin-top: -1.5em;">Emplacement: {{ produit.vendeur.emplacement }}</p>
+									<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Vendeur: {{ produit.vendeur }}</p>
+									<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Téléphone: {{ produit.vendeur.telephone }}</p>
+									<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Emplacement: {{ produit.vendeur.emplacement }}</p>
 									<div class="red_button commander_btn">
 										<a href="epound://epound-prog.herokuapp.com/commander/?code_produit={{ produit.code_article }}&prix={{ produit.prix }}" style="font-family: 'Permanent Marker', cursive;padding-left:2%;padding-right:2%; font-weight: 900;font-size: 12px;">
 											Commander

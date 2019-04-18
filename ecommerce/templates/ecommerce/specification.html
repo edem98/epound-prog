@@ -9,37 +9,6 @@
 {% endblock %}
 
 {% block content %}
-	<!--&lt;!&ndash; Slider &ndash;&gt;-->
-	<!--<div class="main_slider img-responsive"-->
-		 <!--style="background-image:url({{ besoin.image_illustratif.url }}); margin: auto;">-->
-		<!--<div class="container fill_height">-->
-			<!--<div class="row align-items-center fill_height">-->
-				<!--<div class="col">-->
-					<!--<div class="main_slider_content">-->
-						<!--<h3 style="color: white;font-family: 'Lobster', cursive; font-size:30px;-->
-							<!--font-weight: 900px;-->
-							<!--;">Une monnaie alternative et son économie au service de sa communauté</h3>-->
-						<!--<h1 style="color: #ffffff; margin-top: 25px;font-family: 'Permanent Marker', cursive; font-size: 30px; font-weight: 700">Bienvenue</h1>-->
-						<!--<div class="red_button shop_now_button">-->
-							<!--<a href="{% url 'vendeurs' %}" style="font-family: 'Kaushan Script', cursive;padding-left:2%;padding-right:2%; font-weight: 900;font-size: 15px;">-->
-							<!--Nos valeurs</a>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</div>-->
-
-
-	<!--&lt;!&ndash; Banner &ndash;&gt;-->
-
-	<!--<div class="row">-->
-		<!--<div class="col text-center">-->
-			<!--<div class="section_title new_arrivals_title">-->
-				<!--<h2 style="color: rgb(57, 134, 235); font-size: 25px;">Exprimez votre besoin d'achat</h2>-->
-			<!--</div>-->
-		<!--</div>-->
-	<!--</div>-->
 	<div style="margin-top: 8em; text-align: center;">
 		<h1 style="font-family: 'Orbitron', sans-serif;text-transform: uppercase; color: green;">{{ besoin.besoin }}</h1>
 	</div>
@@ -88,12 +57,12 @@
 													<div class="product_info">
 														<h6 style="margin-top: 8px;color: black" class="product_name">{{ produit.nom }}</h6>
 														<div class="product_price">
-																<p style="font-size:12px;color: green;margin-top: -0.5em;">Prix: {{ produit.prix }} epounds</p>
-																<p style="font-size:12px;color: green;margin-top: -1.5em;">Code article: {{ produit.code_article }}</p>
+																<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Prix: {{ produit.prix }} epounds</p>
+																<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Code article: {{ produit.code_article }}</p>
 														</div>
-														<p style="font-size:12px;color: green;margin-top: -1.5em;">Vendeur: {{ produit.vendeur }}</p>
-														<p style="font-size:12px;color: green;margin-top: -1.5em;">Téléphone: {{ produit.vendeur.telephone }}</p>
-														<p style="font-size:12px;color: green;margin-top: -1.5em;">Emplacement: {{ produit.vendeur.emplacement }}</p>
+														<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Vendeur: {{ produit.vendeur }}</p>
+														<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Téléphone: {{ produit.vendeur.telephone }}</p>
+														<p style="font-size:12px;color: green;margin-top: -1.5em;font-family: 'Titillium Web', sans-serif;">Emplacement: {{ produit.vendeur.emplacement }}</p>
 														<div class="red_button commander_btn">
 															<a href="epound://epound-prog.herokuapp.com/commander/?code_produit={{ produit.code_article }}&prix={{ produit.prix }}" style="font-family: 'Permanent Marker', cursive;padding-left:2%;padding-right:2%; font-weight: 900;font-size: 12px;">
 																Commander
@@ -128,24 +97,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="benefit">
-		<div class="container">
-			<div class="row benefit_row">
-				{% for partenaire in partenaires %}
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-                            <img src="{{ partenaire.logo.url }}" alt="logo de {{ partenaire }}" style="height: 40px;width: 40px">
-						</div>
-						<div class="benefit_content">
-							<h6>{{ partenaire.nom }}</h6>
-						</div>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-	</div>
+
 	
 {% endblock  %}
 
