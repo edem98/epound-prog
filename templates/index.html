@@ -80,7 +80,12 @@
 													<div class="product_image img-fluid">
 														<img class="img-fluid" src="{{ produit.image_produit.url }}" alt="">
 													</div>
-													<div class="product_info">
+													<div class="product-item">
+							<div class="product discount">
+								<div class="product_image img-fluid">
+									<img class="img-fluid" src="{{ produit.image_produit.url }}" alt="">
+								</div>
+								<div class="product_info">
 														<h6 style="margin-top: 8px;color: black;font-family: 'Permanent Marker', cursive;" class="product_name">{{ produit.nom }}</h6>
 														<div class="product_price">
 																<p style="font-size:12px;color: green;margin-top: -0.5em;font-family: 'Titillium Web', sans-serif;">Prix: {{ produit.prix }} epounds</p>
@@ -95,6 +100,8 @@
 															</a>
 														</div>
 													</div>
+							</div>
+						</div>
 												</div>
 											</div>
 								</div>
