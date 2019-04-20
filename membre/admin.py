@@ -125,7 +125,7 @@ class TraderAdmin(PolymorphicChildModelAdmin):
 	actions = [desactiver_membre, activer_membre]
 
 
-@admin.register(Consommateur)
+# @admin.register(Consommateur)
 class ConsommateurAdmin(PolymorphicParentModelAdmin, PolymorphicChildModelAdmin):
 	base_model = Consommateur
 	search_fields = ['nom', 'code_membre', 'actif', 'telephone']
