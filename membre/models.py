@@ -34,8 +34,8 @@ class Membre(PolymorphicModel, TimeStamp):
             return super(Membre, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = "Utilisateurs"
-        verbose_name_plural = "Utilisateurs"
+        verbose_name = "Tous les Utilisateurs"
+        verbose_name_plural = "Tous les Utilisateurs"
 
 
 class Consommateur(Membre, PolymorphicModel):
