@@ -2,4 +2,5 @@ from django.apps import AppConfig
 
 
 class MembreConfig(AppConfig):
-    name = 'Utilisateur'
+    name = 'membre'
+    verbose_name = "Utilisateur"
