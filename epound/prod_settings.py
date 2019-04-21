@@ -2,8 +2,8 @@ from epound.settings import *
 import dj_database_url
 import os
 
-DEBUG = True
-TEMPLATE_DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['epound-prog.herokuapp.com','epoundtogo.com','www.epoundtogo.com']
 

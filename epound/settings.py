@@ -191,7 +191,7 @@ CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 CELERY_BROKER_URL = 'redis://localhost:6379'
 
 
-ADMINS = [('Serge', 'edemserge.kossi@gmail.com'),]
+ADMINS = [('Serge', 'edemserge.kossi@gmail.com'),('Serge', 'edems.kossi@gmail.com'),]
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
