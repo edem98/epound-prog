@@ -407,6 +407,9 @@ jQuery(document).ready(function($)
     			loop:false,
     			dots:false,
     			nav:false,
+    			autoplay:true,
+                autoplayTimeout:1000,
+                autoplayHoverPause:true,
     			responsive:
 				{
 					0:{items:1},
