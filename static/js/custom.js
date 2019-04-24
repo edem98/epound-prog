@@ -404,7 +404,7 @@ jQuery(document).ready(function($)
     		var slider1 = $('.product_slider');
 
     		slider1.owlCarousel({
-    			loop:false,
+    			loop:true,
     			dots:false,
     			nav:false,
     			autoplay:true,
