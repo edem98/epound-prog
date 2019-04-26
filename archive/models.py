@@ -502,8 +502,8 @@ class ReactivationClient(models.Model):
                 self.trader.compte_trader.save()
                 # Opération sur le consommateur
                 self.consommateur.actif = True
-                self.consommateur.date_desactivation = self.date_reabonnement+datetime.timedelta(360)
-                self.consommateur.date_expiration = self.date_reabonnement + datetime.timedelta(720)
+                self.consommateur.date_desactivation = self.date_reabonnement.date() + datetime.timedelta(360).date()
+                self.consommateur.date_expiration = self.date_reabonnement.date() + datetime.timedelta(720).date()
                 self.consommateur.compte_consommateur.date_expiration = self.consommateur.date_expiration
                 self.consommateur.compte_consommateur.save()
                 self.consommateur.save()
