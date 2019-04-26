@@ -229,9 +229,9 @@ class PayementInterCommercial(models.Model):
                 self.receveur.compte_entreprise_commercial.compte_business.save()
                 self.receveur.save()
                 #mise a jour de la creance envoyeur
-                self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_envoyer
-                self.envoyeur.compte_entreprise_commercial.compte_consommateur.depense_epound_mensuel += self.montant_envoyer
-                self.envoyeur.compte_entreprise_commercial.compte_consommateur.save()
+                self.envoyeur.compte_entreprise_commercial.compte_business.solde -= self.montant_envoyer
+                self.envoyeur.compte_entreprise_commercial.compte_business.depense_epound_mensuel += self.montant_envoyer
+                self.envoyeur.compte_entreprise_commercial.compte_business.save()
                 self.solde_apres_transaction = self.receveur.compte_entreprise_commercial.compte_business.solde
                 self.envoyeur.save()
                 # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
