@@ -230,7 +230,6 @@ class PayementInterCommercial(models.Model):
                 self.receveur.save()
                 #mise a jour de la creance envoyeur
                 self.envoyeur.compte_entreprise_commercial.compte_business.solde -= self.montant_envoyer
-                self.envoyeur.compte_entreprise_commercial.compte_business.depense_epound_mensuel += self.montant_envoyer
                 self.envoyeur.compte_entreprise_commercial.compte_business.save()
                 self.solde_apres_transaction = self.receveur.compte_entreprise_commercial.compte_business.solde
                 self.envoyeur.save()
