@@ -455,7 +455,6 @@ class TransactionConsommateurCommercialSerializer(serializers.HyperlinkedModelSe
                 validated_data['numero_receveur'] = numero_receveur
                 validated_data['montant_envoyer'] = montant_envoyer
                 transition = TransactionConsommateurCommercial.objects.create(**validated_data)
-                print("------------------------------"+transition)
                 return transition
         else:
             data = {}

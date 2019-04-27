@@ -281,7 +281,7 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 	prepopulated_fields = {"slug": ("nom",)}
 	search_fields = ['nom', 'code_membre', ]
 	list_filter = ['actif', 'emplacement', ]
-	list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'email',  'code_qr']
+	list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'email', 'code_qr']
 	readonly_fields = ['numero_compte_consommateur', 'solde_compte_consommateur',
 					   'date_expiration_compte_consommateur', 'activiter_compte_consommateur',
 					   'numero_compte_business', 'solde_compte_business',
@@ -291,7 +291,7 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 			'fields': ('compte_entreprise_commercial',),
 		}),
 		("Informations entreprise", {
-			'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'mdp', 'code_qr'
+			'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'mdp', 'code_qr',
 					   'telephone', 'contact_1', 'contact_2', 'email', 'slug', 'objet_social', 'nature_jurique',
 					   'numero_rccm', 'regime_fiscal', 'nif', 'siege_social',
 					   'numero_cnss', 'responsable', 'banniere_principal',
