@@ -113,7 +113,7 @@ class ConsommateurSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Membre
-        fields = ('id', 'code_membre', 'mdp', 'nom', 'code_qr'
+        fields = ('id', 'code_membre', 'mdp', 'nom', 'code_qr',
                   'telephone', 'actif', 'compte_consommateur',)
 
 

@@ -31,7 +31,7 @@ class Membre(PolymorphicModel, TimeStamp):
             super(Membre, self).save(*args, **kwargs)
             self.date_expiration = self.date_add.date() + datetime.timedelta(720)
             self.date_desactivation = self.date_add.date() + datetime.timedelta(360)
-            self.code_qr = password = BaseUserManager().make_random_password(20)
+            self.code_qr = str(BaseUserManager().make_random_password(20))
             super(Membre, self).save(*args, **kwargs)
         else:
             return super(Membre, self).save(*args, **kwargs)
