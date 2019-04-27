@@ -25,7 +25,7 @@ router.register(r'transaction-commercial-consommateur',TransactionCommercialComs
 router.register(r'conversion-trader',ConversionTraderViewSet)
 router.register(r'reconversion-trader',ReconversionTraderViewSet)
 router.register(r'notification',NotificationViewSet)
-router.register(r'payement-consommateur-entreprise',PayementConsommateurViewSet)
+router.register(r'transfert-consommateur-entreprise',TransactionConsommateurCommercialViewSet)
 router.register(r'payement-inter-entreprise',PayementInterCommercialViewSet)
 router.register(r'creation-particulier-trader',CreationParticulierParTraderViewSet)
 router.register(r'creation-entreprise-trader',CreationEntrepriseParTraderViewSet)

@@ -111,7 +111,7 @@ class ReconversionTraderAdmin(admin.ModelAdmin):
     def has_add_permission(self,request):
         return False
 
-class PayementConsomateurAdmin(admin.ModelAdmin):
+class TransactionConsommateurCommercialAdmin(admin.ModelAdmin):
     readonly_fields = ['envoyeur','receveur','montant_envoyer','date_transaction',]
     list_display = ['envoyeur','receveur','montant_envoyer','date_transaction',]
 
@@ -146,7 +146,7 @@ class ReactivationClientAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return False
 
-admin.site.register(PayementConsomateur,PayementConsomateurAdmin)
+admin.site.register(TransactionConsommateurCommercial,TransactionConsommateurCommercialAdmin)
 
 admin.site.register(PayementInterCommercial,PayementInterCommercialAdmin)
 

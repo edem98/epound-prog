@@ -431,30 +431,30 @@ class PayementInterCommercialSerializer(serializers.HyperlinkedModelSerializer):
                 payement = PayementInterCommercial.objects.create(**validated_data)
                 return payement
 
-class PayementConsommateurSerializer(serializers.HyperlinkedModelSerializer):
+class TransactionConsommateurCommercialSerializer(serializers.HyperlinkedModelSerializer):
     envoyeur = ConsommateurSerializer(read_only = True)
     recepteur = EntrepriseCommercialeSerializer(read_only = True)
     class Meta:
-        model = PayementConsomateur
-        fields = ('id','telephone_envoyeur','telephone_receveur',
+        model = TransactionConsommateurCommercial
+        fields = ('id','numero_envoyeur','telephone_receveur',
                     'montant_envoyer','solde_apres_transaction',
                     'date_transaction','envoyeur','recepteur',)
 
     def create(self,validated_data):
-        telephone_envoyeur = validated_data.pop('telephone_envoyeur')
-        telephone_receveur = validated_data.pop('telephone_receveur')
+        numero_envoyeur = validated_data.pop('numero_envoyeur')
+        numero_receveur = validated_data.pop('numero_receveur')
         montant_envoyer = validated_data.pop('montant_envoyer')
-        if telephone_envoyeur and telephone_receveur:
-            client = ConsommateurParticulier.objects.get(telephone=telephone_envoyeur)
+        if numero_envoyeur and numero_receveur:
+            client = ConsommateurParticulier.objects.get(telephone=numero_envoyeur)
             if client.compte_consommateur.depense_epound_mensuel + int(montant_envoyer) > CompteConsommateur.DEPENSE_MAX_MENSUEL:
                 data = {}
                 data["echec"]= "vous avez atteind le plafond mensuel de 100.000 epound"
                 raise serializers.ValidationError(data)
         else:
-            validated_data['telephone_envoyeur'] = telephone_envoyeur
-            validated_data['telephone_receveur'] = telephone_receveur
+            validated_data['numero_envoyeur'] = numero_envoyeur
+            validated_data['numero_receveur'] = numero_receveur
             validated_data['montant_envoyer'] = montant_envoyer
-            payement = PayementConsomateur.objects.create(**validated_data)
+            payement = TransactionConsommateurCommercial.objects.create(**validated_data)
             return payement
 
 class ProduitSerializer(serializers.HyperlinkedModelSerializer):
