@@ -300,11 +300,11 @@ class NotificationViewSet(viewsets.ModelViewSet):
 
 class TransactionConsommateurCommercialViewSet(viewsets.ModelViewSet):
     queryset = TransactionConsommateurCommercial.objects.all()
-    serializer_class = TransactionConsommateurCommercialSerialzer
+    serializer_class = TransactionConsommateurCommercialSerializer
 
     def list(self, request):
         queryset = TransactionConsommateurCommercial.objects.all()
-        serializer = TransactionConsommateurCommercialSerialzer(queryset, many=True)
+        serializer = TransactionConsommateurCommercialSerializer(queryset, many=True)
         data = {}
         data["transactions"] = serializer.data
         return Response(data)
