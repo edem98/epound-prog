@@ -185,7 +185,6 @@ class TransactionConsommateurCommercial(models.Model):
                 update_consommation_mensuel_moyenne_consommateur_actuel(self.montant_envoyer)
                 # enrégistrement du payement
                 super(TransactionConsommateurCommercial, self).save(*args, **kwargs)
-
         else:
             return super(TransactionConsommateurCommercial, self).save(*args, **kwargs)
 

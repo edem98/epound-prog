@@ -444,20 +444,23 @@ class TransactionConsommateurCommercialSerializer(serializers.HyperlinkedModelSe
         numero_envoyeur = validated_data.pop('numero_envoyeur')
         numero_receveur = validated_data.pop('numero_receveur')
         montant_envoyer = validated_data.pop('montant_envoyer')
-        transition = None
         if numero_envoyeur and numero_receveur:
             client = ConsommateurParticulier.objects.get(telephone=numero_envoyeur)
-            if client.compte_consommateur.depense_epound_mensuel + int(montant_envoyer) > CompteConsommateur.DEPENSE_MAX_MENSUEL:
+            if client.compte_consommateur.solde < montant_envoyer:
                 data = {}
-                data["echec"]= "vous avez atteind le plafond mensuel de 100.000 epound"
+                data["echec"]= "Vous disposez pas d'unité epound suffisante pour effectuer cette opération"
                 raise serializers.ValidationError(data)
+            else:
+                validated_data['numero_envoyeur'] = numero_envoyeur
+                validated_data['numero_receveur'] = numero_receveur
+                validated_data['montant_envoyer'] = montant_envoyer
+                transition = TransactionConsommateurCommercial.objects.create(**validated_data)
+                print("------------------------------"+transition)
+                return transition
         else:
-            validated_data['numero_envoyeur'] = numero_envoyeur
-            validated_data['numero_receveur'] = numero_receveur
-            validated_data['montant_envoyer'] = montant_envoyer
-            transition = TransactionConsommateurCommercial.objects.create(**validated_data)
-            print(transition)
-        return transition
+            data = {}
+            data["echec"] = "Opération echouer"
+            raise serializers.ValidationError(data)
 
 
 class ProduitSerializer(serializers.HyperlinkedModelSerializer):
