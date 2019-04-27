@@ -7,6 +7,7 @@ from utils import TimeStamp
 import datetime
 from dashboard.models import Creance
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.base_user import BaseUserManager
 
 
 class Membre(PolymorphicModel, TimeStamp):
@@ -14,6 +15,7 @@ class Membre(PolymorphicModel, TimeStamp):
     nom = models.CharField(max_length=100, verbose_name='Nom', null=True, )
     code_membre = models.CharField(max_length=50, unique=True, verbose_name='Code membre', null=True, blank=True)
     mdp = models.CharField(max_length=80, verbose_name='Mot de passe', null=True)
+    code_qr = models.CharField(max_length=30,verbose_name="Qr code",null=True,blank=True)
     telephone = models.CharField(max_length=8, verbose_name="Téléphone", null=True, unique=True)
     email = models.EmailField(max_length=254, null=True, unique=True)
     date_desactivation = models.DateField(verbose_name="Date de desactivation", null=True, blank=True)
@@ -29,6 +31,7 @@ class Membre(PolymorphicModel, TimeStamp):
             super(Membre, self).save(*args, **kwargs)
             self.date_expiration = self.date_add.date() + datetime.timedelta(720)
             self.date_desactivation = self.date_add.date() + datetime.timedelta(360)
+            self.code_qr = password = BaseUserManager().make_random_password(20)
             super(Membre, self).save(*args, **kwargs)
         else:
             return super(Membre, self).save(*args, **kwargs)

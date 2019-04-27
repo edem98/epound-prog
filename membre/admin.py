@@ -56,7 +56,7 @@ class TraderAdmin(PolymorphicChildModelAdmin):
 	fieldsets = (
 		('Informations Relatifs au Trader', {
 			'fields': (
-				'user', 'code_membre', 'nom', 'prenoms', 'mdp', 'telephone', 'email', 'emplacement', 'date_expiration',
+				'user', 'code_membre', 'nom', 'prenoms', 'mdp',  'code_qr', 'telephone', 'email', 'emplacement', 'date_expiration',
 				'actif')
 		}),
 		('Informations Relatifs au Compte e-T', {
@@ -131,7 +131,7 @@ class ConsommateurAdmin(PolymorphicParentModelAdmin, PolymorphicChildModelAdmin)
 	search_fields = ['nom', 'code_membre', 'actif', 'telephone']
 	child_models = (ConsommateurParticulier, ConsommateurEntreprise)
 	list_filter = (PolymorphicChildModelFilter,)
-	list_display = ['nom_membre', 'telephone', 'code_membre', 'nationalite', 'compte_consommateur', ]
+	list_display = ['nom_membre', 'telephone', 'code_membre', 'nationalite', 'compte_consommateur', 'code_qr']
 
 	def nom_membre(self, obj):
 		membre = Membre.objects.get(id=obj.id)
@@ -149,14 +149,14 @@ class ConsommateurAdmin(PolymorphicParentModelAdmin, PolymorphicChildModelAdmin)
 class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 	base_model = ConsommateurParticulier
 	search_fields = ['nom', 'code_membre', 'actif', ]
-	list_display = ['nom', 'prenoms', 'code_membre', 'telephone', 'num_carte', ]
+	list_display = ['nom', 'prenoms', 'code_membre', 'telephone', 'num_carte',  'code_qr']
 	list_filter = ['actif', ]
 	readonly_fields = ['solde_compte_consommateur', 'depense_mensuel',
 					   'date_expiration_compte_consommateur', 'activiter_compte_consommateur', 'code_membre']
 
 	fieldsets = (
 		("Informations Relatifs à l'utilisateur", {
-			'fields': ('user', 'code_membre', 'mdp', 'nom', 'prenoms', 'date_naissance',
+			'fields': ('user', 'code_membre', 'mdp',  'code_qr', 'nom', 'prenoms', 'date_naissance',
 					   'lieu_residence', 'telephone', 'email', 'num_carte', 'formation',
 					   'profession', 'situation_matrimoniale', 'nationalite', 'date_expiration'),
 		}),
@@ -281,7 +281,7 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 	prepopulated_fields = {"slug": ("nom",)}
 	search_fields = ['nom', 'code_membre', ]
 	list_filter = ['actif', 'emplacement', ]
-	list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'email', ]
+	list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'email',  'code_qr']
 	readonly_fields = ['numero_compte_consommateur', 'solde_compte_consommateur',
 					   'date_expiration_compte_consommateur', 'activiter_compte_consommateur',
 					   'numero_compte_business', 'solde_compte_business',
@@ -291,7 +291,7 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 			'fields': ('compte_entreprise_commercial',),
 		}),
 		("Informations entreprise", {
-			'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'mdp',
+			'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'mdp', 'code_qr'
 					   'telephone', 'contact_1', 'contact_2', 'email', 'slug', 'objet_social', 'nature_jurique',
 					   'numero_rccm', 'regime_fiscal', 'nif', 'siege_social',
 					   'numero_cnss', 'responsable', 'banniere_principal',
