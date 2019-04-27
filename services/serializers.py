@@ -283,9 +283,11 @@ class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = EntrepriseCommerciale
         depth = 1
-        fields = ('id', 'code_membre', 'nom', 'mdp', 'code_qr', 'telephone', 'emplacement', 'email', 'besoin_fondamental', 'actif',
-                  'compte_entreprise_commercial',
-                  'type_market', 'nature_jurique', 'numero_rccm', 'regime_fiscal', 'nif', 'siege_social', 'numero_cnss',
+        fields = ('id', 'code_membre', 'nom', 'mdp', 'code_qr',
+                  'telephone', 'emplacement', 'email', 'besoin_fondamental',
+                  'actif', 'compte_entreprise_commercial',
+                  'type_market', 'nature_jurique', 'numero_rccm',
+                  'regime_fiscal', 'nif', 'siege_social', 'numero_cnss',
                   'responsable',)
 
     def create(self, validated_data):
