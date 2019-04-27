@@ -436,7 +436,7 @@ class TransactionConsommateurCommercialSerializer(serializers.HyperlinkedModelSe
     recepteur = EntrepriseCommercialeSerializer(read_only = True)
     class Meta:
         model = TransactionConsommateurCommercial
-        fields = ('id','numero_envoyeur','telephone_receveur',
+        fields = ('id','numero_envoyeur','numero_receveur',
                     'montant_envoyer','solde_apres_transaction',
                     'date_transaction','envoyeur','recepteur',)
 
