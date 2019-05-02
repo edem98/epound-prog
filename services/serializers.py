@@ -544,6 +544,7 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
             # mise a jour de l'etat
             instance.etat = etat
             instance.save()
+            return instance
         elif etat == 2:
             # recuperer les infos necessaires pour le virement sur le compte du vendeur
             vendeur = EntrepriseCommerciale.objects.get(id=instance.vendeur.id)
@@ -556,6 +557,7 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
             instance.etat = etat
             instance.valider = validated_data['valider']
             instance.save()
+            return instance
         return instance
 
 
