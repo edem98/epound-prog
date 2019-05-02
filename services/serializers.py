@@ -552,8 +552,8 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
             produit = instance.produit
             prix = produit.prix
             # credit du compte du vendeur
-            vendeur.compte_entreprise_commerciale.compte_business.solde += int(quantite) * int(prix)
-            vendeur.compte_entreprise_commerciale.compte_business.save()
+            vendeur.compte_entreprise_commercial.compte_business.solde += int(quantite) * int(prix)
+            vendeur.compte_entreprise_commercial.compte_business.save()
             instance.etat = etat
             instance.valider = validated_data['valider']
             instance.save()
