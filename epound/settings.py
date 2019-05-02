@@ -195,11 +195,12 @@ ADMINS = [('Serge', 'edemserge.kossi@gmail.com'),('Serge', 'edems.kossi@gmail.co
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'epoundtg'
+SEND_GRID_API_KEY = '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'
 EMAIL_HOST_PASSWORD = 'epoundscorp2018'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
 
 SITE_ID = 1
 
