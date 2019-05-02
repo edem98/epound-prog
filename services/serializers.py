@@ -530,9 +530,24 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
 
     def update(self, instance, validated_data):
         instance = CommandeClient.objects.get(pk=instance.id)
-        instance.etat = validated_data['etat']
-        instance.valider = validated_data['valider']
-        instance.save()
+        etat = validated_data['etat']
+        etat = int(etat)
+        if etat == 99:
+            # recuperer les infos necessaires pour le remboursement du client
+            client = Consommateur.objects.get(id=instance.client)
+            quantite = instance.quantite
+            produit = instance.produit
+            prix = produit.prix
+            # credit du compte du client
+            client.compte_consommateur.solde += int(quantite)*int(prix)
+            client.compte_consommateur.save()
+            # mise a jour de l'etat
+            instance.etat = 99
+            instance.save()
+        elif etat == 2:
+            instance.etat = validated_data['etat']
+            instance.valider = validated_data['valider']
+            instance.save()
         return instance
 
 
