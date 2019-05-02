@@ -529,7 +529,6 @@ class CommandeClientSerializer(serializers.HyperlinkedModelSerializer):
                   'a_livrer', 'client', 'vendeur', 'produit', 'date_commande')
 
     def update(self, instance, validated_data):
-        print("updating")
         instance = CommandeClient.objects.get(pk=instance.id)
         instance.etat = validated_data['etat']
         instance.valider = validated_data['valider']
