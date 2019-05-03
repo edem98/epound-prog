@@ -4,6 +4,7 @@
 
 {% block add_css %}
 <link rel="stylesheet" href="{% static 'css_/mystyle.css' %}"> <!-- Resource style -->
+<link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
 {% endblock %}
 
 {% block addjs %}
@@ -17,9 +18,9 @@
 			<ul class="cd-faq-categories">
 				{% for sujet in sujets %}
 					{% if forloop.first %}
-					<li><a class="selected" href="#{{ sujet.slug }}">{{ sujet.sujet }}</a></li>
+					<li><a class="selected" style="font-family: 'Gugi', cursive;" href="#{{ sujet.slug }}">{{ sujet.sujet }}</a></li>
 					{% else %}
-					<li><a href="#{{ sujet.slug }}">{{ sujet.sujet }}</a></li>
+					<li><a href="#{{ sujet.slug }}" style="font-family: 'Gugi', cursive;">{{ sujet.sujet }}</a></li>
 					{% endif %}
 				{% endfor %}
 			</ul> <!-- cd-faq-categories -->
