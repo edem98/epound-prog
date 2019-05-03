@@ -20,7 +20,7 @@
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url({{ specification.image_illustratif.url }});margin-bottom: 3em;">
 						<div class="banner_category" style= "opacity: 0.8;">
-							{% if specification.besoin_fondamental.besoin == "Habillement" or specification.besoin_fondamental.besoin == "Electronique" or specification.spécification == "Boissons" or specification.spécification == "Jeux Videos et accessoires" or specification.spécification == "Haute couture" %}
+							{% if specification.besoin_fondamental.besoin == "Habillement" or specification.besoin_fondamental.besoin == "Electronique" or specification.spécification == "Boissons" or specification.spécification == "Jeux Videos et accessoires" or specification.spécification == "Haute couture	" %}
 							<a href="{% url 'ecommerce:specification-categories' specification.id %}" style="color: #ffffff; font-family: 'Righteous', cursive;">{{ specification }}</a>
 							{% else %}
 							<a href="{% url 'ecommerce:specification-produits' specification.spécification %}" style="color: #ffffff; font-family: 'Righteous', cursive;">{{ specification }}</a>
