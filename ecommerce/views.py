@@ -35,8 +35,10 @@ def produit_par_specification(request, specification):
     if specification != "Alimentation générale":
         specification = SpécificationBesoin.objects.get(spécification=specification)
         produits = Produit.objects.filter(categorie_besoin__spécification = specification,disponible=True)
+        partenaires = Partenaire.objects.all()[:4]
         context['produits'] = produits
         context['specification'] = specification
+        context['partenaires'] = partenaires
         return render(request,'ecommerce/products-specification.html',context)
     else:
         print(specification)
@@ -53,5 +55,3 @@ def produit_par_categorie(request, id_categorie):
     partenaires = Partenaire.objects.all()[:4]
     context['partenaires'] = partenaires
     return render(request,'ecommerce/products-categorie.html',context)
-
-

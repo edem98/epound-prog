@@ -3,12 +3,13 @@
 
 {% block add_css %}
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
 	<div style="margin-top: 10em; text-align: center;">
-		<h1 style="font-family: 'Permanent Marker', cursive;text-transform: uppercase; color: green;">{{ specification.spécification }}</h1>
+		<h1 style="font-family: 'Orbitron', sans-serif;text-transform: uppercase; color: green;">{{ specification.spécification }}</h1>
 	</div>
 
 	<div class="banner">
@@ -18,7 +19,7 @@
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url({{ categorie.image_categorie.url }});margin-bottom: 3em;">
 						<div class="banner_category" style= "opacity: 0.8;">
-							<a href="{% url 'ecommerce:categories-produits' categorie.id %}" style="color: #ffffff; ffont-family: 'Righteous', cursive;">{{ categorie }}</a>
+							<a href="{% url 'ecommerce:categories-produits' categorie.id %}" style="color: #ffffff; font-family: 'Righteous', cursive;">{{ categorie }}</a>
 						</div>
 					</div>
 				</div>
@@ -27,61 +28,6 @@
 		</div>
 	</div>
 
-	<!-- Nouveaux Poeduits -->
-	<div class="best_sellers">
-		<div class="container">
-			<div class="row">
-				<div class="col text-center">
-					<div class="section_title new_arrivals_title">
-						<h2>Nouveaux produits</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<div class="product_slider_container">
-						<div class="owl-carousel owl-theme product_slider">
-								{% for produit in produits %}
-								<div class="owl-item product_slider_item">
-										<div class="product-item">
-												<div class="product discount">
-													<div class="product_image img-fluid">
-														<img class="img-fluid" src="{{ produit.image_produit.url }}" alt="">
-													</div>
-													<div class="product_info">
-														<h6 style="margin-top: 8px;color: black" class="product_name">{{ produit.nom }}</h6>
-														<div class="product_price">
-																<p style="font-size:12px;color: green;margin-top: -0.5em;">Prix: {{ produit.prix }} epounds</p>
-																<p style="font-size:12px;color: green;margin-top: -1.5em;">Code article: {{ produit.code_article }}</p>
-														</div>
-														<p style="font-size:12px;color: green;margin-top: -1.5em;">Vendeur: {{ produit.vendeur }}</p>
-														<p style="font-size:12px;color: green;margin-top: -1.5em;">Téléphone: {{ produit.vendeur.telephone }}</p>
-														<p style="font-size:12px;color: green;margin-top: -1.5em;">Emplacement: {{ produit.vendeur.emplacement }}</p>
-														<div class="red_button commander_btn">
-															<a href="epound://epound-prog.herokuapp.com/commander/?code_produit={{ produit.code_article }}&prix={{ produit.prix }}" style="font-family: 'Permanent Marker', cursive;padding-left:2%;padding-right:2%; font-weight: 900;font-size: 12px;">
-																Commander
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-								</div>
-								{% endfor %}
-						</div>
-
-						<!-- Slider Navigation -->
-
-						<div class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
-							<i class="fa fa-chevron-left" aria-hidden="true"></i>
-						</div>
-						<div class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
-							<i class="fa fa-chevron-right" aria-hidden="true"></i>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<!-- Benefit -->
 	<div class="row">
@@ -93,54 +39,20 @@
 	</div>
 	<div class="benefit">
 		<div class="container">
-
 			<div class="row benefit_row">
+				{% for partenaire in partenaires %}
 				<div class="col-lg-3 benefit_col">
 					<div class="benefit_item d-flex flex-row align-items-center">
 						<div class="benefit_icon">
-							<i class="fa fa-truck" aria-hidden="true" style="color:#76CEF4;"></i>
+                            <img src="{{ partenaire.logo.url }}" alt="logo de {{ partenaire }}" style="height: 40px;width: 40px">
 						</div>
 						<div class="benefit_content">
-							<h6>RAMCO</h6>
-							<p>Slogan RAMCO</p>
+							<h6 style="font-family: 'Righteous', cursive;">{{ partenaire.nom }}</h6>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-money" aria-hidden="true" style="color:#76CEF4;"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>CHAMPION</h6>
-							<p>Slogan Champion</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-undo" aria-hidden="true" style="color:#76CEF4;"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>LG</h6>
-							<p>Life's Good</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-							<i class="fa fa-clock-o" aria-hidden="true" style="color:#76CEF4;"></i>
-						</div>
-						<div class="benefit_content">
-							<h6>TOTAL</h6>
-							<p>Slogan TOTAL</p>
-						</div>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
-
 {% endblock  %}
