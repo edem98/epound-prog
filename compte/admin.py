@@ -265,7 +265,7 @@ class CompteEntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 @admin.register(CompteAlpha)
 class CompteAlphaAdmin(admin.ModelAdmin):
 	list_display = ['proprietaire','solde',]
-	readonly_fields = ['proprietaire','solde',]
+	# readonly_fields = ['proprietaire','solde',]
 
 	def has_add_permission(self,request):
 		return False
@@ -273,7 +273,7 @@ class CompteAlphaAdmin(admin.ModelAdmin):
 @admin.register(CompteGrenier)
 class CompteGrenierAdmin(admin.ModelAdmin):
 	list_display = ['fonte','prelevement_reconversion','prelevement_vendeur',]
-	readonly_fields = ['fonte','prelevement_reconversion','prelevement_vendeur','recette']
+	# readonly_fields = ['fonte','prelevement_reconversion','prelevement_vendeur','recette']
 
 	def has_add_permission(self,request):
 		return False
@@ -281,7 +281,7 @@ class CompteGrenierAdmin(admin.ModelAdmin):
 @admin.register(CompteBeta)
 class CompteBetaAdmin(admin.ModelAdmin):
 	list_display = ['proprietaire','solde',]
-	readonly_fields = ['proprietaire','solde',]
+	# readonly_fields = ['proprietaire','solde',]
 
 	def has_add_permission(self,request):
 		return False
