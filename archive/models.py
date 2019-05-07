@@ -305,7 +305,9 @@ class ConversionTrader(models.Model):
                     self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
                 creance_total.save()
                 # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
-                update_total_epound_taux_absortion(self.epounds_transferer)
+                absorbtion = TauxAbsorbtionGlobal.load()
+                absorbtion.epound_detenus += self.epounds_transferer
+                absorbtion.save()
                 super(ConversionTrader, self).save(*args, **kwargs)
         else:
             return super(ConversionTrader, self).save(*args, **kwargs)
