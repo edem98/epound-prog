@@ -4,6 +4,7 @@
 
 {% block add_css %}
 <link rel="stylesheet" href="{% static 'css_/mystyle.css' %}"> <!-- Resource style -->
+<link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
 {% endblock %}
 
 {% block addjs %}
@@ -17,9 +18,9 @@
 			<ul class="cd-faq-categories">
 				{% for sujet in sujets %}
 					{% if forloop.first %}
-					<li><a class="selected" href="#{{ sujet.slug }}">{{ sujet.sujet }}</a></li>
+					<li><a class="selected" style="font-family: 'Gugi', cursive;text-transform: uppercase;" href="#{{ sujet.slug }}">{{ sujet.sujet }}</a></li>
 					{% else %}
-					<li><a href="#{{ sujet.slug }}">{{ sujet.sujet }}</a></li>
+					<li><a href="#{{ sujet.slug }}" style="font-family: 'Gugi', cursive;text-transform: uppercase;">{{ sujet.sujet }}</a></li>
 					{% endif %}
 				{% endfor %}
 			</ul> <!-- cd-faq-categories -->
@@ -27,19 +28,20 @@
 			<div class="cd-faq-items">
 				{% for sujet in sujets %} 
 				<ul id="{{ sujet.slug }}" class="cd-faq-group">
-					<li class="cd-faq-title"><h2>{{ sujet.sujet }}</h2></li>
+					<li class="cd-faq-title">
+						<h2 style="font-family: 'Righteous', cursive;">{{ sujet.sujet }}</h2></li>
 					{% for item in sujet_items %}
 						{% if item.sujet == sujet %}
 							<li>
 								<a class="cd-faq-trigger" href="#0">{{ item.probleme }}</a>
 								<div class="cd-faq-content">
-									<p>{{ item.solution }}</p>
+									<p style="font-family: 'Righteous', cursive;">{{ item.solution }}</p>
 									{% if item.manuel.url != None %}
 										{% if ".apk" in item.manuel.url %}
 											<a href="{{ item.manuel.url }}" class="lien_manuel">Télécharger</a>
 										{% else %}
 											<p>Pour plus d'informations
-												<a href="{{ item.manuel.url }}" class="lien_manuel">Manuel complet en pdf </a>
+												<a style="font-family: 'Righteous', cursive;" href="{{ item.manuel.url }}" class="lien_manuel">Manuel complet en pdf </a>
 											</p>
 										{% endif %}
 									{% endif %}
