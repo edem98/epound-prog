@@ -53,7 +53,7 @@ class TransactionInterComsommateur(models.Model):
     def save(self, *args, **kwargs):
         if self.id == None:
             with transaction.atomic():
-                if self.envoyeur.compte_consommateur.solde > self.montant_envoyer:
+                if self.envoyeur.compte_consommateur.solde >= self.montant_envoyer:
                     self.envoyeur.compte_consommateur.solde = self.envoyeur.compte_consommateur.solde - self.montant_envoyer
                     self.envoyeur.compte_consommateur.save()
                     self.receveur.compte_consommateur.solde = self.receveur.compte_consommateur.solde + self.montant_envoyer
@@ -92,7 +92,7 @@ class TransactionCommercialComsommateur(models.Model):
             with transaction.atomic():
                 self.envoyeur = EntrepriseCommerciale.objects.get(telephone=self.numero_envoyeur)
                 self.receveur = Consommateur.objects.get(telephone=self.numero_receveur)
-                if self.envoyeur.compte_entreprise_commercial.compte_business.solde > self.montant_envoyer:
+                if self.envoyeur.compte_entreprise_commercial.compte_business.solde >= self.montant_envoyer:
                     self.envoyeur.compte_entreprise_commercial.compte_business.solde -= self.montant_envoyer
                     self.envoyeur.compte_entreprise_commercial.compte_business.save()
                     # mise a jour de la creance
@@ -110,7 +110,7 @@ class TransactionCommercialComsommateur(models.Model):
                     creance_total.save()
                     # sauvegarder le transfert
                     return super(TransactionCommercialComsommateur, self).save(*args, **kwargs)
-                elif self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde > self.montant_envoyer:
+                elif self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde >= self.montant_envoyer:
                     self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_envoyer
                     self.envoyeur.compte_entreprise_commercial.compte_consommateur.save()
                     # chargement du compte du receveur
