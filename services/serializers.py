@@ -131,7 +131,7 @@ class TransactionInterComsommateurSerializer(serializers.HyperlinkedModelSeriali
         envoyeur = Consommateur.objects.get(telephone=numero_envoyeur)
         receveur = Consommateur.objects.get(telephone=numero_receveur)
         solde = validated_data.get('montant_envoyer')
-        if envoyeur.compte_consommateur.solde > solde:
+        if envoyeur.compte_consommateur.solde >= solde:
             transaction = TransactionInterComsommateur.objects.create(envoyeur=envoyeur, receveur=receveur,
                                                                       montant_envoyer=solde,
                                                                       numero_envoyeur=numero_envoyeur,
