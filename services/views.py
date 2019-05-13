@@ -321,6 +321,17 @@ class PayementInterCommercialViewSet(viewsets.ModelViewSet):
         data["payements"] = serializer.data
         return Response(data)
 
+class PayementInterCommercialAvecCompteConsommationViewSet(viewsets.ModelViewSet):
+    queryset = PayementInterCommercialAvecCompteConsommation.objects.all()
+    serializer_class = PayementInterCommercialAvecCompteConsommationSerializer
+
+    def list(self, request):
+        queryset = PayementInterCommercialAvecCompteConsommation.objects.all()
+        serializer = PayementInterCommercialAvecCompteConsommationSerializer(queryset, many=True)
+        data = {}
+        data["payements"] = serializer.data
+        return Response(data)
+
 
 class CreationParticulierParTraderViewSet(viewsets.ModelViewSet):
     queryset = CreationParticulierParTrader.objects.all()
