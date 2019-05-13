@@ -7,7 +7,6 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('membre', '0092_membre_code_qr'),
         ('archive', '0031_auto_20190319_0407'),
     ]
 
