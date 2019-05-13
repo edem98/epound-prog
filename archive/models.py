@@ -192,7 +192,7 @@ class TransactionConsommateurCommercial(models.Model):
 class PayementInterCommercial(models.Model):
     """
         Cette classe gere les payemements effectués
-        du compte consommateurs d'un vendeur
+        du compte vendeur d'un vendeur
         vers le compte vendeur d'un autre
     """
 
@@ -249,6 +249,68 @@ class PayementInterCommercial(models.Model):
 
         else:
             return super(PayementInterCommercial, self).save(*args, **kwargs)
+
+
+class PayementInterCommercialAvecCompteConsommation(models.Model):
+    """
+        Cette classe gere les payemements effectués
+        du compte consommateurs d'un vendeur
+        vers le compte vendeur d'un autre
+    """
+
+    numero_envoyeur = models.CharField(max_length=8, verbose_name="Numéro de l'envoyeur", null=True)
+    numero_receveur = models.CharField(max_length=8, verbose_name="Numéro du bénéficiare", null=True)
+
+    envoyeur = models.ForeignKey(EntrepriseCommerciale,
+                                 verbose_name="Entreprise Expéditeur",
+                                 on_delete=models.CASCADE,
+                                 related_name="entreprise_envoyeur_sur_compte_conso",
+                                 null=True, )
+
+    receveur = models.ForeignKey(EntrepriseCommerciale,
+                                 verbose_name="Entreprise bénéficiaire",
+                                 on_delete=models.CASCADE,
+                                 related_name="entreprise_beneficiaire_sur_compte_vente",
+                                 null=True, )
+
+    montant_envoyer = models.PositiveIntegerField(verbose_name="Montant transférer", null=True)
+
+    solde_apres_transaction = models.PositiveIntegerField(verbose_name="Solde après transaction", null=True)
+
+    date_transaction = models.DateTimeField(auto_now_add=True, verbose_name="Date de Transaction")
+
+    class Meta:
+        verbose_name = "Transaction vendeur vers vendeur"
+        verbose_name_plural = "Transactions vendeurs vers vendeurs"
+
+    def save(self, *args, **kwargs):
+        if self.id == None:
+            with transaction.atomic():
+                self.receveur = EntrepriseCommerciale.objects.get(telephone=self.numero_receveur)
+                self.envoyeur = EntrepriseCommerciale.objects.get(telephone=self.numero_envoyeur)
+                # mise a jour de la creance envoyeur
+                self.receveur.compte_entreprise_commercial.compte_business.solde += self.montant_envoyer
+                self.receveur.compte_entreprise_commercial.compte_business.save()
+                self.receveur.save()
+                # mise a jour de la creance envoyeur
+                self.envoyeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_envoyer
+                self.envoyeur.compte_entreprise_commercial.compte_consommateur.save()
+                self.solde_apres_transaction = self.receveur.compte_entreprise_commercial.compte_business.solde
+                self.envoyeur.save()
+                # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
+                update_total_epound_taux_absortion(self.montant_envoyer)
+                # Creer et enregister la recette effectuer
+                recette = Recette(entreprise=self.receveur, recette=self.montant_envoyer,
+                                  prelevement=self.montant_envoyer * 0.05,
+                                  creance=(self.montant_envoyer - (self.montant_envoyer * 0.05)) * 0.7)
+                recette.save()
+                # Mise a jour de la consommation mensuel moyenne vendeur actuel
+                update_consommation_mensuel_moyenne_vendeur_actuel(self.montant_envoyer)
+                # save the objects
+                super(PayementInterCommercialAvecCompteConsommation, self).save(*args, **kwargs)
+
+        else:
+            return super(PayementInterCommercialAvecCompteConsommation, self).save(*args, **kwargs)
 
 
 class ConversionTrader(models.Model):
