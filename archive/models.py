@@ -521,7 +521,7 @@ class VendeurVente(models.Model):
             with transaction.atomic():
                 self.client = Consommateur.objects.get(telephone=self.numero_acheteur)
                 self.vendeur = EntrepriseCommerciale.objects.get(telephone=self.numero_vendeur)
-                if self.client.compte_consommateur.solde > self.montant:
+                if self.client.compte_consommateur.solde >= self.montant:
                     self.client.compte_consommateur.solde -= self.montant
                     self.client.compte_consommateur.depense_epound_mensuel += self.montant
                     self.client.compte_consommateur.save()
