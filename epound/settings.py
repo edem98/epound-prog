@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'daterange_filter',
     'storages',
     'sorl.thumbnail',
-    'django_extensions',
+    # 'django_extensions',
     #mes apps
     'archive.apps.ArchiveConfig',
     'compte.apps.CompteConfig',

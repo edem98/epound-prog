@@ -146,6 +146,13 @@ class ReactivationClientAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return False
 
+class MessageClientAdmin(admin.ModelAdmin):
+
+    list_display = ['telephone', 'message', 'date_envoye', ]
+
+    def has_add_permission(self, request):
+        return False
+
 admin.site.register(TransactionConsommateurCommercial,TransactionConsommateurCommercialAdmin)
 
 admin.site.register(PayementInterCommercial,PayementInterCommercialAdmin)
@@ -161,3 +168,5 @@ admin.site.register(ReconversionTrader,ReconversionTraderAdmin)
 admin.site.register(CommandeClient,CommandeClientAdmin)
 
 admin.site.register(VendeurVente,VendeurVenteAdmin)
+
+admin.site.register(MessageClient,MessageClientAdmin)
