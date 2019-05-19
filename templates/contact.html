@@ -10,6 +10,7 @@
 {% endblock  %}
 
 {% block addjs %}
+	<script src="{% static 'js/send_mail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -82,7 +83,7 @@
 					<div class="get_in_touch_contents">
 						<h2>Envoyer-nous un email</h2>
 						<p style="margin-top: 1em;">Remplissez les informations ci-dessous pour vos inquiétudes</p>
-						<form method="POST" action="{% url 'contact' %}">
+						<form method="POST" action="{% url 'contact' %}" id="mail_form">
 							{% csrf_token %}
 							<div>
 								<input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Nom" required="required" data-error="Le nom est requis.">

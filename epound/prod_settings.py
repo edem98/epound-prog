@@ -17,6 +17,9 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+
 DEFAULT_FILE_STORAGE = 'epound.storage_backends.MediaStorage'
 
 MEDIA_URL = ''

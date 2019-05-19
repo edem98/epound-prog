@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'daterange_filter',
     'storages',
     'sorl.thumbnail',
+    'django_extensions',
     #mes apps
     'archive.apps.ArchiveConfig',
     'compte.apps.CompteConfig',
@@ -68,7 +69,7 @@ INSTALLED_APPS = [
     'faqs.apps.FaqsConfig',
 ]
 
-SECURE_SSL_REDIRECT = True
+
 
 
 MIDDLEWARE = [
@@ -161,7 +162,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
+HOST_SCHEME= "http://"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
