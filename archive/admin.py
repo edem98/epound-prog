@@ -87,6 +87,7 @@ class ConversionTraderAdmin(admin.ModelAdmin):
     readonly_fields = ['trader','consommateur',
                         'montant_converti','epounds_transferer',
                         'solde_apres_conversion','date_conversion']
+    list_filter = ['trader', 'consommateur',]
 
     def bonification(self,obj):
         return str(obj.montant_converti * 0.5)
@@ -103,6 +104,7 @@ class ReconversionTraderAdmin(admin.ModelAdmin):
     readonly_fields = ['trader','consommateur',
                         'epound_reconverti','montant_retourner',
                         'solde_consommateur_apres_reconversion','date_conversion']
+    list_filter = ['trader', 'consommateur', ]
 
     list_display = ['trader', 'consommateur',
                        'epound_reconverti', 'montant_retourner',

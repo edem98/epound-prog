@@ -72,7 +72,6 @@ class Compte(PolymorphicModel, TimeStamp):
 class CompteTrader(Compte):
     taux_gain = models.FloatField(verbose_name="Taux d'intérêt",
                                   editable=False, default=1.1)
-
     class Meta():
         verbose_name = "Compte Trader"
 
