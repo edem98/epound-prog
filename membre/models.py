@@ -99,8 +99,8 @@ class Consommateur(Membre, PolymorphicModel):
         return str(self.nom)
 
     class Meta:
-        verbose_name = "Particuliers et Entreprises"
-        verbose_name_plural = "Particuliers et Entreprises"
+        verbose_name = "Consommateur"
+        verbose_name_plural = "Consommateurs"
 
 
 class ConsommateurParticulier(Consommateur):
