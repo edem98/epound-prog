@@ -128,7 +128,7 @@ class CreationParticulierParTrader(models.Model):
         if self.id == None:
             with transaction.atomic():
                 self.solde_initial = self.trader.compte_trader.solde
-                self.trader.compte_trader.solde -= 3000
+                self.trader.compte_trader.solde -= 5000
                 self.trader.compte_trader.save()
                 # Génération du code membre et du password du nouveau client
                 code_membre = Membre.objects.all().order_by("-id")[0]
