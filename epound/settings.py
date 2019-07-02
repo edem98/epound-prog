@@ -111,13 +111,13 @@ WSGI_APPLICATION = 'epound.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'epound',
-        'USER': 'root',
-        'PASSWORD': '',
+'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': "epound",
+        'USER': "postgres",
+        'PASSWORD': "root",
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
 
