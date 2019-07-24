@@ -7,6 +7,7 @@ from django.db import transaction
 from django.contrib.auth.hashers import check_password
 from epound.views import envoyer_sms
 from django.contrib.auth.base_user import BaseUserManager
+import string
 
 
 class EmissionUnites(models.Model):
@@ -128,12 +129,12 @@ class CreationParticulierParTrader(models.Model):
         if self.id == None:
             with transaction.atomic():
                 self.solde_initial = self.trader.compte_trader.solde
-                self.trader.compte_trader.solde -= 5000
+                self.trader.compte_trader.solde -= 1000
                 self.trader.compte_trader.save()
                 # Génération du code membre et du password du nouveau client
                 code_membre = Membre.objects.all().order_by("-id")[0]
                 code_membre = code_membre.id + 1
-                password = BaseUserManager().make_random_password()
+                password = BaseUserManager().make_random_password(5)
                 # Création de particuler
                 self.consommateur = ConsommateurParticulier(telephone = self.telephone, mdp =password,code_membre = code_membre)
                 self.consommateur.save()

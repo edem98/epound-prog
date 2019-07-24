@@ -60,7 +60,7 @@ class Consommateur(Membre, PolymorphicModel):
     liste_pays = [
         (togo, 'TOGO'),
         (benin, 'BENIN'),
-        (ghana, 'GHANA'),
+
     ]
 
     liste_sexe = [
