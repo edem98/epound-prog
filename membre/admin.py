@@ -148,9 +148,9 @@ class ConsommateurAdmin(PolymorphicParentModelAdmin, PolymorphicChildModelAdmin)
 @admin.register(ConsommateurParticulier)
 class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 	base_model = ConsommateurParticulier
-	search_fields = ['nom', 'code_membre', 'actif', ]
+	search_fields = ['nom', 'code_membre', 'actif', 'telephone', 'profession']
 	list_display = ['nom', 'prenoms', 'code_membre', 'mdp', 'telephone', 'num_carte',  'code_qr']
-	list_filter = ['actif', ]
+	list_filter = ['actif', 'sexe', 'nationalite', 'situation_matrimoniale']
 	readonly_fields = ['solde_compte_consommateur', 'depense_mensuel',
 					   'date_expiration_compte_consommateur', 'activiter_compte_consommateur', 'code_membre']
 
