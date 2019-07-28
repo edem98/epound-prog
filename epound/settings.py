@@ -113,9 +113,9 @@ WSGI_APPLICATION = 'epound.wsgi.application'
 DATABASES = {
 'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "epound",
-        'USER': "postgres",
-        'PASSWORD': "root",
+        'NAME': "epound_prog",
+        'USER': "serge",
+        'PASSWORD': "sergedem",
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
