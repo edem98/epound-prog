@@ -74,7 +74,7 @@ class Produit(models.Model):
         verbose_name_plural = "Articles"
 
 
-class ProduitTroc(models.Models):
+class ProduitTroc(models.Model):
     nom = models.CharField(max_length=100, verbose_name="Nom de l'article")
     vendeur = models.ForeignKey(ConsommateurParticulier, on_delete=models.CASCADE, null=True)
     code_article = models.CharField(max_length=100, verbose_name="Code de l'article", unique=True, blank=True)
