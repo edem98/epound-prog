@@ -1,5 +1,5 @@
 from django.db import models
-from membre.models import EntrepriseCommerciale
+from membre.models import EntrepriseCommerciale, ConsommateurParticulier
 
 
 
@@ -72,3 +72,23 @@ class Produit(models.Model):
     class Meta:
         verbose_name = "Article"
         verbose_name_plural = "Articles"
+
+
+class ProduitTroc(models.Models):
+    nom = models.CharField(max_length=100, verbose_name="Nom de l'article")
+    vendeur = models.ForeignKey(ConsommateurParticulier, on_delete=models.CASCADE, null=True)
+    code_article = models.CharField(max_length=100, verbose_name="Code de l'article", unique=True, blank=True)
+    prix = models.PositiveIntegerField(verbose_name="Prix de l'article", null=True)
+    marque = models.CharField(max_length=50, null=True, blank=True)
+    modele = models.CharField(max_length=50, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    image_produit = models.ImageField(upload_to='produits/', verbose_name="Image", null=True, )
+    date_ajout = models.DateTimeField(auto_now_add=True, )
+    disponible = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nom
+
+    class Meta:
+        verbose_name = "Article Troqué"
+        verbose_name_plural = "Articles Troqués"

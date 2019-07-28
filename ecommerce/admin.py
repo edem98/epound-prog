@@ -26,7 +26,7 @@ class ProductAdmin(admin.ModelAdmin):
             message_bit = "Les %s produits sélectionnées ont été activés." % produits
         self.message_user(request, "%s " % message_bit)
 
-    desactiver_produit.short_description = "Activer produits selectionners"
+    activer_produit.short_description = "Activer produits selectionners"
 
     actions = [desactiver_produit, activer_produit, ]
 
@@ -69,7 +69,36 @@ class CategorieAdmin(admin.ModelAdmin):
             return format_html('Aucune image disponible')
 
 
+class ProductTrocAdmin(admin.ModelAdmin):
+    list_display = ['nom', 'vendeur', 'code_article', 'prix', 'disponible', 'date_ajout']
+    search_fields = ['nom', 'code_article', 'prix', ]
+    list_filter = ['disponible', 'date_ajout', 'vendeur',]
+
+    def desactiver_produit(self, request, queryset):
+        produits = queryset.update(disponible=False)
+        if produits == 1:
+            message_bit = "Le produit sélectionner a été desactiver"
+        else:
+            message_bit = "Les %s produits sélectionnées ont été desactivés." % produits
+        self.message_user(request, "%s " % message_bit)
+
+    desactiver_produit.short_description = "Desactiver produits selectionners"
+
+    def activer_produit(self, request, queryset):
+        produits = queryset.update(disponible=True)
+        if produits == 1:
+            message_bit = "Le produit sélectionner a été activer"
+        else:
+            message_bit = "Les %s produits sélectionnées ont été activés." % produits
+        self.message_user(request, "%s " % message_bit)
+
+    activer_produit.short_description = "Activer produits selectionners"
+
+    actions = [desactiver_produit, activer_produit, ]
+
+
 admin.site.register(Produit, ProductAdmin)
+admin.site.register(ProduitTroc, ProductTrocAdmin)
 admin.site.register(ExpressionBesoin, ExpressionBesoinAdmin)
 admin.site.register(SpécificationBesoin, SpécificationBesoinAdmin)
 admin.site.register(Categorie, CategorieAdmin)
