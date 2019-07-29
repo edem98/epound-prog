@@ -82,9 +82,18 @@ class ProduitTroc(models.Model):
     marque = models.CharField(max_length=50, null=True, blank=True)
     modele = models.CharField(max_length=50, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    image_produit = models.ImageField(upload_to='produits/', verbose_name="Image", null=True, )
+    image_produit = models.ImageField(upload_to='produitsTroques/', verbose_name="Image", null=True, )
     date_ajout = models.DateTimeField(auto_now_add=True, )
     disponible = models.BooleanField(default=True)
+
+    def save(self, *args, **kwargs):
+        # recuperation de l'entreprise associér a ce compte
+        if self.id == None:
+            super(ProduitTroc, self).save(*args, **kwargs)
+            self.code_article = str(self.id)+""+str(self.vendeur.code_membre)
+            self.save(update_fields=['code_article',])
+        else:
+            return super(ProduitTroc, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.nom

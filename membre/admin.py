@@ -7,7 +7,7 @@ from membre.forms import *
 @admin.register(Membre)
 class MembreAdmin(PolymorphicParentModelAdmin):
 	base_model = Membre
-	child_models = (EntrepriseCommerciale, Trader, Consommateur)
+	child_models = (EntrepriseCommerciale, Trader, ConsommateurParticulier, ConsommateurEntreprise)
 	list_filter = (PolymorphicChildModelFilter, 'date_expiration', 'actif',)
 	search_fields = ['nom', 'code_membre', 'actif', ]
 	list_display = ['nom_membre', 'code_membre', 'date_expiration', ]

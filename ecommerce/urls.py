@@ -4,6 +4,8 @@ from . import views
 app_name = 'ecommerce'
 
 urlpatterns = [
+    path('troc/login', views.login_troc, name ="troc-login"),
+    path('troc/home', views.troc_home, name ="troc-home"),
     path('<str:besoin>/', views.specification_besoin, name ="besoin-specification"),
     path('categories/<int:id_specification>/', views.categorie_specification, name="specification-categories"),
     path('produits-categories/<int:id_categorie>/', views.produit_par_categorie, name="categories-produits"),
