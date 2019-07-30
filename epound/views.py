@@ -24,7 +24,7 @@ def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
     new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:20]
-    partenaires = Partenaire.objects.all()[:4]
+    partenaires = Partenaire.objects.all()
     context['besoins'] = besoins
     context['produits'] = new_produits
     context['partenaires'] = partenaires
