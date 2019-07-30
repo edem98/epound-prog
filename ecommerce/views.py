@@ -43,7 +43,8 @@ def troc_home(request):
         context['consommateur'] = consommateur
         context['produits'] = produits
         return render(request, 'ecommerce/troc_home.html', context)
-    except Exception:
+    except Exception as e:
+        print(e)
         return redirect('ecommerce:troc-login')
 
 

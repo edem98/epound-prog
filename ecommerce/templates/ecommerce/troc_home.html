@@ -20,7 +20,7 @@
 {% block content %}
 <!-- Slider -->
 	<div class="main_slider"
-		 style="background-image:url({% static 'images/slider_principale.jpg' %}); margin: auto;" >
+		 style="background-image:url({% static 'images/slider_principale.jpeg' %}); margin: auto;" >
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height">
 				<div class="col">
@@ -43,6 +43,7 @@
 <!-- End Slider -->
 <!-- Product display -->
     <div class="container-fluid">
+        {% if produits|length > 0 %}
         <div class="mb-3 mt-5 text-center">
             <h2 > Nouveaux Articles </h2>
         </div>
@@ -72,9 +73,11 @@
                           </strong>
                       </h5>
 
-                      <h4 class="font-weight-bold text-success">
+                      <h5 class="font-weight-bold text-success">
                           <strong>{{ produit.prix }} epounds</strong>
-                      </h4>
+                      </h5>
+
+                      <a href="#" class="btn btn-success btn-sm" style="border-radius: 15px;"> achetez </a>
 
                   </div>
                   <!--Card content-->
@@ -86,6 +89,11 @@
           <!--Fourth column-->
         {% endfor  %}
         </div>
+        {% else %}
+        <div>
+            <h2 > Aucun Articles Disponible</h2>
+        </div>
+        {% endif %}
     </div>
 
 <!--end Product display -->
