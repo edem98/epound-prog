@@ -15,7 +15,6 @@
 
 {% block content %}
 	<!-- Slider -->
-
 	<div class="main_slider"
 		 style="background-image:url({% static 'images/slider_principale.jpg' %}); margin: auto;" >
 		<div class="container fill_height">
@@ -131,13 +130,10 @@
 		<div class="container">
 			<div class="row benefit_row">
 				{% for partenaire in partenaires %}
-				<div class="col-lg-3 benefit_col">
+				<div class="col-lg-1 benefit_col">
 					<div class="benefit_item d-flex flex-row align-items-center">
 						<div class="benefit_icon">
-                            <img src="{{ partenaire.logo.url }}" alt="logo de {{ partenaire }}" style="height: 40px;width: 40px">
-						</div>
-						<div class="benefit_content">
-							<h6 style="font-family: 'Righteous', cursive;">{{ partenaire.nom }}</h6>
+                            <img src="{{ partenaire.logo.url }}" alt="logo de {{ partenaire }}" style="height: 40px;width: 40px"/>
 						</div>
 					</div>
 				</div>

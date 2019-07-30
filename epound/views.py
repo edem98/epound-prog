@@ -40,7 +40,7 @@ class ListEntreprise(ListView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        partenaires = Partenaire.objects.all()[:4]
+        partenaires = Partenaire.objects.all()
         context['partenaires'] = partenaires
         return context
 

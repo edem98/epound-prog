@@ -39,10 +39,22 @@ def troc_home(request):
     context = {}
     try:
         consommateur = ConsommateurParticulier.objects.get(user=request.user)
-        produit_dispo = ProduitTroc.objects.filter(vendeur=consommateur,disponible=True)
+        produits = ProduitTroc.objects.filter(disponible=True).exclude(vendeur=consommateur)
+        context['consommateur'] = consommateur
+        context['produits'] = produits
+        return render(request, 'ecommerce/troc_home.html', context)
+    except Exception:
+        return redirect('ecommerce:troc-login')
+
+
+def gerer_mes_articles(request):
+    context = {}
+    try:
+        consommateur = ConsommateurParticulier.objects.get(user=request.user)
+        produit_dispo = ProduitTroc.objects.filter(vendeur=consommateur, disponible=True)
         context['consommateur'] = consommateur
         context['produit_dispo'] = produit_dispo
-        return render(request, 'ecommerce/troc_home.html', context)
+        return render(request, 'ecommerce/gerer_articles.html', context)
     except Exception:
         return redirect('ecommerce:troc-login')
 
