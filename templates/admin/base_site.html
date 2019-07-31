@@ -1,7 +1,7 @@
 {% extends "admin/base.html" %}
 {% load static i18n %}
 
-{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block title %}Epound|Administration{% endblock %}
 
 {% block branding %}
     <h1 id="site-name">
@@ -13,6 +13,7 @@
     {{ block.super }}
     <link rel="stylesheet" type="text/css" href="{% static "core/css/branding.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "core/css/icons/style.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/admin_custom.css" %}" />
 {% endblock %}
 
 {% block nav-global %}
