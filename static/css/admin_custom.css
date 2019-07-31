@@ -54,3 +54,30 @@ a, a:visited, a:hover, a:focus {
 .sidebar-title {
     color: #ffffff;
 }
+table thead th {
+    background: #378027;
+}
+
+#changelist .actions .button, #changelist .actions .button:visited, #changelist .actions .button:hover {
+    background-color: #489437;
+}
+
+#toolbar form input[type="submit"], #toolbar form input[type="submit"]:visited, #toolbar form input[type="submit"]:hover {
+    background-color: #489437;
+}
+.button:hover, .button:focus, input[type="submit"]:hover, input[type="submit"]:focus, input[type="button"]:hover, input[type="button"]:focus, .object-tools a:hover, .object-tools a:focus {
+    background-color: #378027;
+    color: #fff;
+}
+
+.button, .button:visited, .button:hover, input[type="submit"], input[type="submit"]:visited, input[type="submit"]:hover, input[type="button"], input[type="button"]:visited, input[type="button"]:hover, .object-tools a, .object-tools a:visited, .object-tools a:hover {
+    background-color: #426f8f;
+    color: #ffffff;
+    transition: background .3s;
+}
+input[type=checkbox]+label:before {
+    color: #ffffff;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="url"], input[type="number"], textarea, select, .vTextField {
+    border: 1px solid #378027;
+}
