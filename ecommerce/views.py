@@ -1,6 +1,7 @@
 from PIL.PngImagePlugin import _idat
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.hashers import check_password
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from .forms import LoginForm
@@ -71,6 +72,20 @@ def specification_besoin(request, besoin):
     partenaires = Partenaire.objects.all()[:4]
     context['partenaires'] = partenaires
     return render(request, 'ecommerce/specification.html', context)
+
+
+def specification_besoin_json(request):
+    besoin = request.GET.get('besoin')
+    besoin = ExpressionBesoin.objects.get(pk=besoin)
+    specifications = SpécificationBesoin.objects.filter(besoin_fondamental=besoin)
+    specification_retournees = []
+    for specification in specifications:
+        specification_retournees.append({
+            'id': specification.pk,
+            'label': specification.spécification,
+        })
+    data = {'specifications': specification_retournees}
+    return JsonResponse(data)
 
 
 def categorie_specification(request, id_specification):

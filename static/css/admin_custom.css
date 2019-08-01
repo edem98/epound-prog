@@ -37,7 +37,7 @@
 }
 body {
     background: #ffffff;
-    color: #00c0ff;
+    color: #62d400;
 }
 .module ul.actionlist {
     background: #426f8f;
@@ -80,4 +80,12 @@ input[type=checkbox]+label:before {
 }
 input[type="text"], input[type="email"], input[type="password"], input[type="url"], input[type="number"], textarea, select, .vTextField {
     border: 1px solid #378027;
+
+}
+#changelist table tbody tr.selected {
+    border-color: #f4f4f4;
+    background-color: #378027;
+}
+.changelist-footer {
+    background: #ffffff;
 }

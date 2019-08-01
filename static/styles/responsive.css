@@ -416,7 +416,9 @@
 
 @media only screen and (max-width: 539px)
 {
-	
+	.welcome{
+        margin-top: 25em;
+    }
 }
 
 /************
@@ -425,7 +427,9 @@
 
 @media only screen and (max-width: 480px)
 {
-	
+	.welcome{
+        margin-top: 25em;
+    }
 }
 
 /************
@@ -689,6 +693,9 @@
 		margin-top: 5px;
 		margin-bottom: 30px;
 	}
+	.welcome{
+        margin-top: 36em;
+    }
 }
 
 /************
@@ -697,5 +704,13 @@
 
 @media only screen and (max-width: 400px)
 {
-	
+	.welcome{
+        margin-top: 37em;
+    }
+}
+
+@media all and (orientation:landscape) {
+    .welcome{
+        margin-top: 24em;
+    }
 }

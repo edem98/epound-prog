@@ -2,25 +2,31 @@ from django import forms
 from django.forms import ModelForm
 from membre.models import *
 
-class MembreForm(forms.ModelForm):
-	"""docstring for ReservationOnLineForm"""
 
-	class Meta():
-		model = Membre
-		fields = '__all__'
+class MembreForm(forms.ModelForm):
+    """docstring for ReservationOnLineForm"""
+
+    class Meta():
+        model = Membre
+        fields = '__all__'
 
 
 class TraderForm(MembreForm):
-	pass
+    pass
+
 
 class ConsommateurForm(MembreForm):
-	pass
+    pass
+
 
 class ConsommateurParticulierForm(ConsommateurForm):
-	pass
+    pass
+
 
 class ConsommateurEntrepriseForm(ConsommateurForm):
-	pass
+    pass
+
 
 class EntrepriseCommercialeForm(MembreForm):
-	pass
+    class Media:
+        js = ('js/jquery-3.2.1.min.js','js/select_filtering.js',)

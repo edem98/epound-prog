@@ -6,6 +6,8 @@ from services.views import *
 from . import settings
 from django.conf.urls.static import static
 from faqs.views import ListeSujetReponse
+from django.contrib.auth import views as auth_views
+
 
 router = routers.DefaultRouter()
 
@@ -36,11 +38,30 @@ router.register(r'reactivation-client',ReactivationClientViewSet)
 router.register(r'message-client',MessageClientViewSet)
 
 
-
-
 urlpatterns = [
+
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('jet/', include('jet.urls', 'jet')),
+    path(
+        'admin/password_reset/',
+        auth_views.PasswordResetView.as_view(),
+        name='admin_password_reset',
+    ),
+    path(
+        'admin/password_reset/done/',
+        auth_views.PasswordResetDoneView.as_view(),
+        name='password_reset_done',
+    ),
+    path(
+        'reset/<uidb64>/<token>/',
+        auth_views.PasswordResetConfirmView.as_view(),
+        name='password_reset_confirm',
+    ),
+    path(
+        'reset/done/',
+        auth_views.PasswordResetCompleteView.as_view(),
+        name='password_reset_complete',
+    ),
     path('admin/', admin.site.urls),
     path('', views.acceuil, name ="acceuil"),
     path('vendeurs', views.ListEntreprise.as_view(), name ="vendeurs"),
@@ -54,9 +75,6 @@ urlpatterns = [
     path('ecommerce/', include('ecommerce.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('.well-known/acme-challenge/Bb28gXPkiX4IFQtrlDwUSJNtKDAhjDbX2VmyVvwQ6tA', views.view_function),
-
-
-
 
 ]
 
