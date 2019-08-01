@@ -45,8 +45,11 @@ body {
 table {
     background: #426f8f;
 }
-a, a:visited, a:hover, a:focus {
-    color: #ffffff;
+a {
+    color: #fff;
+}
+a:visited, a:hover, a:focus {
+    color: #426f8f;
 }
 .sidebar-right-arrow {
     color: #ffffff;
@@ -56,6 +59,10 @@ a, a:visited, a:hover, a:focus {
 }
 table thead th {
     background: #378027;
+    box-shadow: 0 2px 0 0 #fff;
+    box-shadow: 0 0.14286rem 0 0 #fff;
+    margin-bottom: 2px;
+    margin-bottom: 0.14286rem;
 }
 
 #changelist .actions .button, #changelist .actions .button:visited, #changelist .actions .button:hover {
@@ -71,15 +78,16 @@ table thead th {
 }
 
 .button, .button:visited, .button:hover, input[type="submit"], input[type="submit"]:visited, input[type="submit"]:hover, input[type="button"], input[type="button"]:visited, input[type="button"]:hover, .object-tools a, .object-tools a:visited, .object-tools a:hover {
-    background-color: #426f8f;
+    background-color: #47bac1;
     color: #ffffff;
     transition: background .3s;
+    cursor: grab;
 }
 input[type=checkbox]+label:before {
     color: #ffffff;
 }
 input[type="text"], input[type="email"], input[type="password"], input[type="url"], input[type="number"], textarea, select, .vTextField {
-    border: 1px solid #378027;
+    border: 1px solid #426f8f;
 
 }
 #changelist table tbody tr.selected {
@@ -88,4 +96,37 @@ input[type="text"], input[type="email"], input[type="password"], input[type="url
 }
 .changelist-footer {
     background: #ffffff;
+}
+#content-main {
+    color: #426f8f;
+}
+
+table a{
+    color: #fff;
+}
+tr {
+    color: #fff;
+}
+
+th a{
+    color: #fff;
+}
+.addlink{
+    color: #fff;
+}
+.changeform-tabs-item.selected a, .changeform-tabs-item.selected a:hover, .changeform-tabs-item.selected a:visited {
+    color: #426f8f;
+    border-color: #426f8f;
+}
+fieldset.module {
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-radius: 0.28571rem;
+    padding: 14px;
+    padding: 1rem;
+    border: 0;
+}
+
+fieldset.module a {
+    color: #426f8f;
 }
