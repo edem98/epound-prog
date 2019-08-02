@@ -27,7 +27,7 @@
 		  </div>
 		  <div class="modal-body mx-3">
 			  <form class="form-inline" action="{% url 'ecommerce:rechercher-produit' %}">
-				  <select class="form-control mb-2 mr-sm-2">
+				  <select class="form-control mb-2 mr-sm-2" name="categorie">
 					  <option value="" disabled selected>Selectionner une catégorie</option>
 					  {% for cat in categories %}
 					  <option value="{{ cat.pk }}">{{ cat.nom_categorie }}</option>

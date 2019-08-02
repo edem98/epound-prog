@@ -106,6 +106,8 @@ def rechercher_produit(request):
         categorie = int(categorie)
     produits = Produit.objects.filter(nom__icontains=produit,categorie=categorie)
     context = {'produits': produits}
+    categories = Categorie.objects.all()
+    context['categories'] = categories
     return render(request, 'ecommerce/product_found.html', context)
 
 

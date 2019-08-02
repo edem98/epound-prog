@@ -52,11 +52,11 @@ class TraderAdmin(PolymorphicChildModelAdmin):
 	search_fields = ['nom', 'choix_personne', 'actif', ]
 	list_display = ['nom_membre', 'code_membre', 'date_expiration']
 	readonly_fields = ['numero_compte_trader', 'solde_compte_trader',
-					   'date_expiration_compte_trader', 'activiter_compte_trader', ]
+					   'date_expiration_compte_trader', 'activiter_compte_trader', 'code_membre']
 	fieldsets = (
 		('Informations Relatifs au Trader', {
 			'fields': (
-				'user', 'code_membre', 'nom', 'prenoms', 'mdp',  'code_qr', 'telephone', 'email', 'emplacement', 'date_expiration',
+				'user', 'code_membre', 'nom', 'prenoms', 'telephone', 'email', 'emplacement', 'date_expiration',
 				'actif')
 		}),
 		('Informations Relatifs au Compte e-T', {
@@ -152,11 +152,11 @@ class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 	list_display = ['nom', 'prenoms', 'code_membre', 'mdp', 'telephone', 'num_carte',]
 	list_filter = ['actif', 'sexe', 'nationalite', 'situation_matrimoniale']
 	readonly_fields = ['solde_compte_consommateur', 'depense_mensuel',
-					   'date_expiration_compte_consommateur', 'activiter_compte_consommateur', 'code_membre']
+					   'date_expiration_compte_consommateur', 'activiter_compte_consommateur', 'code_membre', 'code_membre']
 
 	fieldsets = (
 		("Informations Relatifs à l'utilisateur", {
-			'fields': ('user', 'code_membre', 'mdp',  'code_qr', 'nom', 'prenoms', 'date_naissance',
+			'fields': ('user', 'code_membre','nom', 'prenoms', 'date_naissance',
 					   'lieu_residence', 'telephone', 'email', 'num_carte', 'formation',
 					   'profession', 'situation_matrimoniale', 'nationalite', 'date_expiration'),
 		}),
@@ -229,14 +229,14 @@ class ConsommateurParticulierAdmin(PolymorphicChildModelAdmin):
 class ConsommateurEntrepriseAdmin(PolymorphicChildModelAdmin):
 	base_model = ConsommateurEntreprise
 	search_fields = ['nom', 'code_membre''actif', ]
-	list_display = ['raison_social', 'statut_juridique', 'nif', 'siege_social', ]
+	list_display = ['raison_social', 'statut_juridique', 'nif', 'siege_social', 'code_membre']
 
 	readonly_fields = ['numero_compte_consommateur', 'solde_compte_consommateur',
 					   'date_expiration_compte_consommateur', 'activiter_compte_consommateur', ]
 
 	fieldsets = (
 		("Informations Relatifs à l'Entreprise", {
-			'fields': ('user', 'mdp', 'raison_social', 'telephone', 'statut_juridique', 'objet_social',
+			'fields': ('user', 'raison_social', 'telephone', 'statut_juridique', 'objet_social',
 					   'capital_social', 'numero_rccm', 'regime_fiscal', 'nif',
 					   'siege_social', 'numero_compte_bancaire', 'responsable', 'date_expiration'),
 		}),
@@ -285,13 +285,13 @@ class EntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
 	readonly_fields = ['numero_compte_consommateur', 'solde_compte_consommateur',
 					   'date_expiration_compte_consommateur', 'activiter_compte_consommateur',
 					   'numero_compte_business', 'solde_compte_business',
-					   'date_expiration_compte_business', 'activiter_compte_business', ]
+					   'date_expiration_compte_business', 'activiter_compte_business', 'code_membre']
 	fieldsets = (
 		("Compte d'entreprise", {
 			'fields': ('compte_entreprise_commercial',),
 		}),
 		("Informations entreprise", {
-			'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'mdp', 'code_qr',
+			'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement',
 					   'telephone', 'contact_1', 'contact_2', 'email', 'slug', 'objet_social', 'nature_jurique',
 					   'numero_rccm', 'regime_fiscal', 'nif', 'siege_social',
 					   'numero_cnss', 'responsable', 'banniere_principal',
