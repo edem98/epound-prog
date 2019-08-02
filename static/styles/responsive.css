@@ -712,14 +712,8 @@
     }
 }
 
-@media only screen and (orientation:landscape) {
+@media all and (orientation:landscape) {
     .welcome{
-        margin-top: 28em;
-    }
-}
-
-@media only screen and (orientation:portrait) {
-    .welcome{
-        margin-top: 35em;
+        margin-top: 24em;
     }
 }
