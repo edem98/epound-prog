@@ -2,16 +2,28 @@
 {% load static %}
 
 {% block add_css %}
-	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
- 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 {% endblock %}
 
 {% block addjs %}
-	<script src="{% static 'js/autoplay-new-product.js' %}"></script>
+<script src="{% static 'js/autoplay-new-product.js' %}"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.2.min.js"></script>
 {% endblock %}
+
 
 {% block content %}
 	<!-- Slider -->

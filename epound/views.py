@@ -2,7 +2,7 @@ from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
-from ecommerce.models import ExpressionBesoin, Produit
+from ecommerce.models import ExpressionBesoin, Produit, Categorie
 from epound import settings
 from membre.models import EntrepriseCommerciale, Partenaire
 from . import settings
@@ -11,14 +11,22 @@ from django.contrib.staticfiles.views import serve
 
 
 def view_function(request):
-   return serve(request, '../static/encryptkey')
+    return serve(request, '../static/encryptkey')
 
-def envoyer_sms(message,destinataire,expediteur="epound Corp"):
 
-    url = "http://sms.easysbyskegroup.com:8080/sendsms?username=ysms-epound&password=70011777&type=0&dlr=1&destination="+destinataire+"&source="+expediteur+"&message="+message
-    resp = requests.request("POST",url)
-    print(resp.status_code,resp.reason)
-    print(resp.text[:300]+'...')
+def envoyer_sms(message, destinataire, expediteur="epound Corp"):
+    """
+        Cet controlleur envoie le mot de passe et code membre auc nouveaux utilisateurs
+    :type message: string
+    :param message: message to send
+    :param destinataire: le destinataire du message
+    :param expediteur: l4expediteur (Epound corp)
+    """
+    url = "http://sms.easysbyskegroup.com:8080/sendsms?username=ysms-epound&password=70011777&type=0&dlr=1&destination=" + destinataire + "&source=" + expediteur + "&message=" + message
+    resp = requests.request("POST", url)
+    print(resp.status_code, resp.reason)
+    print(resp.text[:300] + '...')
+
 
 def acceuil(request):
     context = {}
@@ -28,7 +36,10 @@ def acceuil(request):
     context['besoins'] = besoins
     context['produits'] = new_produits
     context['partenaires'] = partenaires
+    categories = Categorie.objects.all()
+    context['categories'] = categories
     return render(request, 'index.html', context)
+
 
 class ListEntreprise(ListView):
     model = EntrepriseCommerciale
@@ -42,14 +53,20 @@ class ListEntreprise(ListView):
         context = super().get_context_data(**kwargs)
         partenaires = Partenaire.objects.all()
         context['partenaires'] = partenaires
+        categories = Categorie.objects.all()
+        context['categories'] = categories
         return context
+
 
 def about(request):
     context = {}
     new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:30]
     partenaires = Partenaire.objects.all()[:4]
+    categories = Categorie.objects.all()
+    context['categories'] = categories
     context['partenaires'] = partenaires
     return render(request, 'about.html', context)
+
 
 def contact(request):
     if request.method == "POST":
@@ -59,19 +76,22 @@ def contact(request):
         sujet = "Information sur la epound Corp"
         if nom and message and mail_de:
             try:
-                send_mail(sujet, message, mail_de, ['epoundcorporationtg@gmail.com'],fail_silently=False)
+                send_mail(sujet, message, mail_de, ['epoundcorporationtg@gmail.com'], fail_silently=False)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
         else:
             return HttpResponse('Make sure all fields are entered and valid.')
     return render(request, 'contact.html')
 
+
 def partenaires(request):
     context = {}
     partners = Partenaire.objects.all()
     context['partenaires'] = partners
+    categories = Categorie.objects.all()
+    context['categories'] = categories
     return render(request, 'partenaire.html', context)
 
 
 def politique(request):
-    return render(request, 'politique-de-confidentialite.html',)
+    return render(request, 'politique-de-confidentialite.html', )

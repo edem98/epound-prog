@@ -43,6 +43,8 @@ def troc_home(request):
         produits = ProduitTroc.objects.filter(disponible=True).exclude(vendeur=consommateur)
         context['consommateur'] = consommateur
         context['produits'] = produits
+        categories = Categorie.objects.all()
+        context['categories'] = categories
         return render(request, 'ecommerce/troc_home.html', context)
     except Exception as e:
         print(e)
@@ -71,6 +73,8 @@ def specification_besoin(request, besoin):
     context['produits'] = new_produits
     partenaires = Partenaire.objects.all()[:4]
     context['partenaires'] = partenaires
+    categories = Categorie.objects.all()
+    context['categories'] = categories
     return render(request, 'ecommerce/specification.html', context)
 
 
@@ -86,6 +90,23 @@ def specification_besoin_json(request):
         })
     data = {'specifications': specification_retournees}
     return JsonResponse(data)
+
+
+def rechercher_produit(request):
+    """
+    Ce controlleur renvoie les produits correspondant au parametre specifier dans
+    le formulaire apres formatage en donnees Json
+    :param request:
+    :return: JsonResponse de produit correspondant
+    """
+    produit = request.GET.get('produit')
+    categorie = request.GET.get('categorie')
+    print(categorie)
+    if categorie:
+        categorie = int(categorie)
+    produits = Produit.objects.filter(nom__icontains=produit,categorie=categorie)
+    context = {'produits': produits}
+    return render(request, 'ecommerce/product_found.html', context)
 
 
 def categorie_specification(request, id_specification):
@@ -110,11 +131,15 @@ def produit_par_specification(request, specification):
         context['produits'] = produits
         context['specification'] = specification
         context['partenaires'] = partenaires
+        categories = Categorie.objects.all()
+        context['categories'] = categories
         return render(request, 'ecommerce/products-specification.html', context)
     else:
         print(specification)
         entreprises = EntrepriseCommerciale.objects.filter(besoin_gere__spécification=specification)
         context['entreprises'] = entreprises
+        categories = Categorie.objects.all()
+        context['categories'] = categories
         return render(request, 'entreprise.html', context)
 
 
