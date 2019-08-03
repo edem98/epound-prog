@@ -32,6 +32,8 @@ def login_troc(request):
             return render(request, 'ecommerce/troc_login.html', context)
     else:
         form = LoginForm()
+        categories = Categorie.objects.all()
+        context['categories'] = categories
         context['form'] = form
     return render(request, 'ecommerce/troc_login.html', context)
 
@@ -104,7 +106,7 @@ def rechercher_produit(request):
     print(categorie)
     if categorie:
         categorie = int(categorie)
-    produits = Produit.objects.filter(nom__icontains=produit,categorie=categorie)
+    produits = Produit.objects.filter(nom__icontains=produit, categorie=categorie)
     context = {'produits': produits}
     categories = Categorie.objects.all()
     context['categories'] = categories
