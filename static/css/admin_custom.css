@@ -78,7 +78,7 @@ table thead th {
 }
 
 .button, .button:visited, .button:hover, input[type="submit"], input[type="submit"]:visited, input[type="submit"]:hover, input[type="button"], input[type="button"]:visited, input[type="button"]:hover, .object-tools a, .object-tools a:visited, .object-tools a:hover {
-    background-color: #47bac1;
+    background-color: #426f8f;
     color: #ffffff;
     transition: background .3s;
     cursor: grab;
