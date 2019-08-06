@@ -186,3 +186,7 @@ fieldset.module a {
     margin-right: 3px;
     margin-right: 0.21429rem;
 }
+
+.checkbox-row input[type=checkbox]+label:before {
+    color: #426f8f;
+}
