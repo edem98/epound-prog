@@ -44,7 +44,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="11" />
+          <entry key="css" value="13" />
           <entry key="html" value="30" />
           <entry key="py" value="155" />
           <entry key="txt" value="86" />
@@ -52,7 +52,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="11" />
+          <entry key="CSS" value="13" />
           <entry key="HTML" value="30" />
           <entry key="PLAIN_TEXT" value="86" />
           <entry key="Python" value="155" />
