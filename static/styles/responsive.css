@@ -705,10 +705,10 @@
 14. 400px
 ************/
 
-@media only screen and (max-width: 400px)
+@media only screen and (max-width: 539px)
 {
 	.welcome{
-        margin-top: 35em;
+        margin-top: 30em;
     }
 }
 
