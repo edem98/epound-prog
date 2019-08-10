@@ -73,8 +73,6 @@ urlpatterns = [
     path('membre/', include('membre.urls'),),
     path('api/', include(router.urls)),
     path('ecommerce/', include('ecommerce.urls')),
-    path('api-auth/', include('rest_framework.urls')),
-    path('.well-known/acme-challenge/Bb28gXPkiX4IFQtrlDwUSJNtKDAhjDbX2VmyVvwQ6tA', views.view_function),
 
 ]
 
