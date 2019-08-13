@@ -49,7 +49,7 @@ class MembreAdmin(PolymorphicParentModelAdmin):
 @admin.register(Trader)
 class TraderAdmin(PolymorphicChildModelAdmin):
 	base_model = Trader
-	search_fields = ['nom', 'choix_personne', 'actif', ]
+	search_fields = ['nom', 'actif', ]
 	list_display = ['nom_membre', 'code_membre', 'date_expiration']
 	readonly_fields = ['numero_compte_trader', 'solde_compte_trader',
 					   'date_expiration_compte_trader', 'activiter_compte_trader', 'code_membre']
