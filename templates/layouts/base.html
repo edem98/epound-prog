@@ -33,6 +33,12 @@
 					  <option value="{{ cat.pk }}">{{ cat.nom_categorie }}</option>
 					  {% endfor %}
 				  </select>
+				  <select class="form-control mb-2 mr-sm-2" name="emplacement">
+					  <option value="" disabled selected>Selectionner un emplacement</option>
+					  {% for emplacement in emplacements %}
+					  <option value="{{ emplacement.pk }}">{{ emplacement.nom }}</option>
+					  {% endfor %}
+				  </select>
 				  <input type="text" class="form-control mb-2 mr-sm-2" id="product" name="produit">
 				  <button type="submit" class="btn btn-primary mb-2">Rechercher</button>
 			  </form>

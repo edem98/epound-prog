@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
 from ecommerce.models import ExpressionBesoin, Produit, Categorie
+from membre.models import Quartier
 from epound import settings
 from membre.models import EntrepriseCommerciale, Partenaire
 from . import settings
@@ -37,6 +38,8 @@ def acceuil(request):
     context['produits'] = new_produits
     context['partenaires'] = partenaires
     categories = Categorie.objects.all()
+    emplacements = Quartier.objects.all()
+    context['emplacements'] = emplacements
     context['categories'] = categories
     return render(request, 'index.html', context)
 
@@ -55,6 +58,8 @@ class ListEntreprise(ListView):
         context['partenaires'] = partenaires
         categories = Categorie.objects.all()
         context['categories'] = categories
+        emplacements = Quartier.objects.all()
+        context['emplacements'] = emplacements
         return context
 
 
@@ -63,6 +68,8 @@ def about(request):
     new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:30]
     partenaires = Partenaire.objects.all()[:4]
     categories = Categorie.objects.all()
+    emplacements = Quartier.objects.all()
+    context['emplacements'] = emplacements
     context['categories'] = categories
     context['partenaires'] = partenaires
     return render(request, 'about.html', context)
@@ -90,6 +97,8 @@ def partenaires(request):
     context['partenaires'] = partners
     categories = Categorie.objects.all()
     context['categories'] = categories
+    emplacements = Quartier.objects.all()
+    context['emplacements'] = emplacements
     return render(request, 'partenaire.html', context)
 
 
