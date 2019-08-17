@@ -110,12 +110,15 @@ def rechercher_produit(request):
     produit = request.GET.get('produit')
     categorie = request.GET.get('categorie')
     emplacement = request.GET.get('emplacement')
-    print(categorie)
+    produits = Produit.objects.all()
+    if produit:
+        produits = Produit.objects.filter(nom__icontains=produit)
     if categorie:
         categorie = int(categorie)
+        produits = Produit.objects.filter(categorie=categorie)
     if emplacement:
         emplacement = int(emplacement)
-    produits = Produit.objects.filter(nom__icontains=produit, categorie=categorie, vendeur__emplacement=emplacement)
+        produits = Produit.objects.filter(vendeur__emplacement=emplacement)
     context = {'produits': produits}
     categories = Categorie.objects.all()
     context['categories'] = categories
