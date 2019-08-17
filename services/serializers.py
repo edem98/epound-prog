@@ -1,7 +1,7 @@
 from docutils.nodes import transition
 from rest_framework import serializers
 from archive.models import *
-from emision.models import CreationParticulierParTrader
+from emision.models import CreationParticulierParTrader, CreationParticulierParTraderEtIntegrateur
 from membre.models import *
 from compte.models import *
 from ecommerce.models import *
@@ -384,6 +384,36 @@ class CreationParticulierParTraderSerializer(serializers.HyperlinkedModelSeriali
             print(client)
             data = {}
             data["echec"] = "Ce client est deja enregistré"
+            raise serializers.ValidationError(data)
+
+
+class CreationParticulierParTraderEtIntegrateurSerializer(serializers.HyperlinkedModelSerializer):
+    trader = TraderSerializer(read_only=True)
+    integrateur = ConsommateurSerializer(read_only=True)
+    consommateur = ConsommateurSerializer(read_only=True)
+
+    class Meta:
+        model = CreationParticulierParTraderEtIntegrateur
+        fields = ('id', 'numero_trader', 'telephone', 'numero_integrateur','trader', 'consommateur', 'integrateur',)
+
+    def create(self, validated_data):
+        data = {}
+        numero_trader = validated_data.get('numero_trader')
+        telephone = validated_data.get('telephone')
+        numero_integrateur = validated_data.get('numero_integrateur')
+        integrateur = ConsommateurParticulier.objects.filter(telephone=numero_integrateur)
+        if integrateur.exists():
+            client = ConsommateurParticulier.objects.filter(telephone=telephone)
+            if not client.exists():
+                trader = Trader.objects.get(telephone=numero_trader)
+                return CreationParticulierParTrader.objects.create(numero_trader=numero_trader,telephone=telephone,
+                                                                   numero_integrateur=numero_integrateur,trader=trader,
+                                                                   integrateur=integrateur)
+            else:
+                data["echec"] = "Ce client est deja enregistré"
+                raise serializers.ValidationError(data)
+        else:
+            data["echec"] = "Le numero de l' integrateur ne correspond a aucun membre epound"
             raise serializers.ValidationError(data)
 
 
