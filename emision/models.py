@@ -178,9 +178,13 @@ class CreationParticulierParTraderEtIntegrateur(models.Model):
         if self.id == None:
             with transaction.atomic():
                 if ConsommateurParticulier.objects.filter(pk=self.integrateur.pk).exists():
+                    # prelevement sur compte trader
                     self.solde_initial = self.trader.compte_trader.solde
                     self.trader.compte_trader.solde -= 1000
                     self.trader.compte_trader.save()
+                    # bonus de 500 epounds pour l'integrateur
+                    self.integrateur.compte_consomateur.solde += 500
+                    self.integrateur.compte_consomateur.save()
                     # Génération du code membre et du password du nouveau client
                     code_membre = Membre.objects.all().order_by("-id")[0]
                     code_membre = code_membre.id + 1
