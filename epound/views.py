@@ -23,10 +23,10 @@ def envoyer_sms(message, destinataire, expediteur="epound Corp"):
     :param destinataire: le destinataire du message
     :param expediteur: l4expediteur (Epound corp)
     """
-    url = "http://sms.skegrouptogo.com:8080/sendsms?username=epound&password=Epound@2019&type=0&dlr=1&destination=" + destinataire + "&source=" + expediteur + "&message=" + message
-    resp = requests.request("POST", url)
-    print(resp.status_code, resp.reason)
-    print(resp.text[:300] + '...')
+    url = "http://sms.skegrouptogo.com:8080/sendsms?username=epound&password=Password@123&type=0&dlr=1&destination=" + destinataire + "&source=" + expediteur + "&message=" + message
+    requests.request("POST", url)
+    # print(resp.status_code, resp.reason)
+    # print(resp.text[:300] + '...')
 
 
 def acceuil(request):

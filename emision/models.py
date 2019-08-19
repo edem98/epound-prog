@@ -182,6 +182,10 @@ class CreationParticulierParTraderEtIntegrateur(models.Model):
                     self.solde_initial = self.trader.compte_trader.solde
                     self.trader.compte_trader.solde -= 1000
                     self.trader.compte_trader.save()
+                    # Retrait de 500 epounds du tradeur integrateur
+                    tradeur_integrateur = Trader.objects.get(code_membre=367)
+                    tradeur_integrateur.compte_trader.solde -= 500
+                    tradeur_integrateur.compte_trader.save()
                     # bonus de 500 epounds pour l'integrateur
                     self.integrateur.compte_consomateur.solde += 500
                     self.integrateur.compte_consomateur.save()
