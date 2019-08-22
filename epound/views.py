@@ -1,21 +1,15 @@
+import requests
+from django.contrib.staticfiles.views import serve
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
 from ecommerce.models import ExpressionBesoin, Produit, Categorie
-from membre.models import Quartier
-from epound import settings
 from membre.models import EntrepriseCommerciale, Partenaire
-from . import settings
-import requests
-from django.contrib.staticfiles.views import serve
+from membre.models import Quartier
 
 
-def view_function(request):
-    return serve(request, '../static/encryptkey')
-
-
-def envoyer_sms(message, destinataire, expediteur="epound Corp"):
+def envoyer_sms(message, destinataire, expediteur="Epound Corporation"):
     """
         Cet controlleur envoie le mot de passe et code membre auc nouveaux utilisateurs
     :type message: string
@@ -23,10 +17,20 @@ def envoyer_sms(message, destinataire, expediteur="epound Corp"):
     :param destinataire: le destinataire du message
     :param expediteur: l4expediteur (Epound corp)
     """
-    url = "http://sms.skegrouptogo.com:8080/sendsms?username=epound&password=Password@123&type=0&dlr=1&destination=" + destinataire + "&source=" + expediteur + "&message=" + message
-    requests.request("POST", url)
-    # print(resp.status_code, resp.reason)
-    # print(resp.text[:300] + '...')
+    url = "https://nexmo-nexmo-messaging-v1.p.rapidapi.com/send-sms"
+
+    querystring = {"text": message, "from": expediteur, "to": destinataire}
+
+    payload = ""
+    headers = {
+        'x-rapidapi-host': "nexmo-nexmo-messaging-v1.p.rapidapi.com",
+        'x-rapidapi-key': "48fb167c5dmsh0e4eec0a01639efp1352e8jsn154c9a663649",
+        'content-type': "application/x-www-form-urlencoded"
+    }
+
+    response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
+
+    print(response.text)
 
 
 def acceuil(request):
