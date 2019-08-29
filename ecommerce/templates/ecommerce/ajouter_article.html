@@ -1,0 +1,53 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="margin-top: 10em;">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <!-- Material form contact -->
+            <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <strong>Nouvel Article</strong>
+                </h5>
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+                    <!-- Form -->
+                    <form style="color: #757575;"  method="post" id="articleAddForm">{% csrf_token %}
+                        <!-- Title -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormName">Prix de l'aricle</label>
+                            {{ form.prix }}
+                        </div>
+                        <!-- Description -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormMessage">Nom de l'aricle</label>
+                             {{ form.nom }}
+                        </div>
+                        <!-- Image -->
+                        <div class="md-form mt-4">
+                            <label style="text-align: left;">Image de l'article</label>
+                            <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" style="margin: 15px; color: green:" id="inputGroupFileAddon01">Upload</span>
+                                  </div>
+                                  <div class="custom-file form-control">
+                                    {{ form.image_produit }}
+                                    <label class="custom-file-label">{{ form.image_produit.url }}</label>
+                                  </div>
+                            </div>
+                        </div>
+                        <!-- Send button -->
+                        <input id="submitInput" class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+                               type="submit" value="Save"/>
+                    </form>
+                    <!-- Form -->
+                </div>
+
+            </div>
+            <!-- Material form contact -->
+        </div>
+    </div>
+</div>
+{% endblock  %}
