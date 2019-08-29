@@ -187,8 +187,8 @@ class CreationParticulierParTraderEtIntegrateur(models.Model):
                     tradeur_integrateur.compte_trader.solde -= 500
                     tradeur_integrateur.compte_trader.save()
                     # bonus de 500 epounds pour l'integrateur
-                    self.integrateur.compte_consomateur.solde += 500
-                    self.integrateur.compte_consomateur.save()
+                    self.integrateur.compte_consommateur.solde += 500
+                    self.integrateur.compte_consommateur.save()
                     # Génération du code membre et du password du nouveau client
                     code_membre = Membre.objects.all().order_by("-id")[0]
                     code_membre = code_membre.id + 1
