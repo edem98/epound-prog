@@ -403,6 +403,7 @@ class CreationParticulierParTraderEtIntegrateurSerializer(serializers.Hyperlinke
         numero_integrateur = validated_data.get('numero_integrateur')
         integrateur = ConsommateurParticulier.objects.filter(telephone=numero_integrateur)
         if integrateur.exists():
+            integrateur = ConsommateurParticulier.objects.get(telephone=numero_integrateur)
             client = ConsommateurParticulier.objects.filter(telephone=telephone)
             if not client.exists():
                 trader = Trader.objects.get(telephone=numero_trader)
