@@ -203,7 +203,7 @@ class CreationParticulierParTraderEtIntegrateur(models.Model):
                     to = "228" + self.telephone
                     envoyer_sms(message, to)
                     # Retourner l'élément creer
-                    super(CreationParticulierParTrader, self).save(*args, **kwargs)
+                    super(CreationParticulierParTraderEtIntegrateur, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = "Adhésion par membre"
