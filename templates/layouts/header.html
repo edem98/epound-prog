@@ -57,11 +57,14 @@
             <ul class="navbar_menu" style="color: rgb(75, 75, 241)">
               <li><a href="{% url 'acceuil' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Accueil</a></li>
               <li><a href="{% url 'vendeurs' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Nos entreprises commerciales</a></li>
-              <li><a href="{% url 'ecommerce:troc-login' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Espace Troc</a></li>
               <li><a href="{% url 'about' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">A propos</a></li>
               <li><a href="{% url 'partenaires' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Nos Partenaires</a></li>
               <li><a href="{% url 'faqs' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">FAQs</a></li>
               <li><a href="{% url 'contact' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Contact</a></li>
+              <li><a href="{% url 'ecommerce:troc-login' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Espace Troc</a></li>
+              {% if request.user.is_authenticated %}
+              <li><a href="{% url 'ecommerce:troc-gerer-article' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Gerer vos articles</a></li>
+              {% endif %}
               <li>
                   <a href data-toggle="modal" data-target="#search-modal">
                       <i style="font-size: 1.8em;color: #28a745;" class="fa fa-search"></i>

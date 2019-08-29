@@ -3,11 +3,12 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.hashers import check_password
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
-from .forms import LoginForm
-
+from django.views.generic import ListView, CreateView
+from .forms import LoginForm, AddProductTrocForm
+from django.contrib.auth.decorators import login_required
 from ecommerce.models import *
 from membre.models import EntrepriseCommerciale, Partenaire, ConsommateurParticulier, Quartier
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def login_troc(request):
@@ -31,13 +32,15 @@ def login_troc(request):
             print(form.errors)
             return render(request, 'ecommerce/troc_login.html', context)
     else:
+        if request.user.is_authenticated:
+            return redirect('ecommerce:troc-home')
         form = LoginForm()
         categories = Categorie.objects.all()
         context['categories'] = categories
         context['form'] = form
     return render(request, 'ecommerce/troc_login.html', context)
 
-
+@login_required
 def troc_home(request):
     context = {}
     try:
@@ -53,6 +56,24 @@ def troc_home(request):
     except Exception as e:
         print(e)
         return redirect('ecommerce:troc-login')
+
+
+class AddTrocProduct(CreateView,LoginRequiredMixin):
+    model = ProduitTroc
+    form_class = AddProductTrocForm
+    template_name = 'ecommerce/ajouter_article.html'
+
+    def form_valid(self, form):
+        product = form.save(commit=False)
+        vendeur = ConsommateurParticulier.objects.get(user=self.request.user)
+        product.vendeur = vendeur
+        product.save()
+        return super(AddTrocProduct, self).form_valid(form)
+
+    def form_invalid(self, form):
+        print("invalid form")
+        print(form.errors)
+        return super(AddTrocProduct, self).form_invalid(form)
 
 
 def gerer_mes_articles(request):

@@ -6,6 +6,8 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Hover css-->
+<link href="{% static 'css/hover-min.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block addjs %}
@@ -25,16 +27,6 @@
 			<div class="row align-items-center fill_height">
 				<div class="col">
 					<div class="main_slider_content">
-						<!--<h3 style="color: #03a5ea;font-family: 'Permanent Marker', cursive; font-size:30px;-->
-							<!--font-weight: 900px;-->
-							<!--text-align: center;">Une monnaie alternative et son économie au service de sa communauté</h3>-->
-						<h1 style="color: #ffffff; margin-top: 18em;
-						font-family: 'Permanent Marker', cursive; font-size: 30px; font-weight: 700">Bienvenue</h1>
-						<div class="red_button shop_now_button">
-							<a href="{% url 'vendeurs' %}" style="font-family: 'Permanent Marker', cursive;padding-left:2%;padding-right:2%; font-weight: 900;font-size: 15px;">
-								Nos valeurs
-							</a>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -45,7 +37,7 @@
     <div class="container-fluid">
         {% if produits|length > 0 %}
         <div class="mb-3 mt-5 text-center">
-            <h2 > Nouveaux Articles </h2>
+            <h2 style="color: #43a426;"> Nouveaux Articles </h2>
         </div>
         <div class="row mb-5 mt-5">
         {% for produit in produits %}
@@ -53,8 +45,7 @@
           <div class="col-lg-3 col-md-6 mb-4">
 
               <!--Card-->
-              <div class="card align-items-center">
-
+              <div class="card align-items-center hvr-bob">
                   <!--Card image-->
                   <div class="view overlay">
                       <img src="{{ produit.image_produit.url }}" class="img-fluid" alt="">
@@ -63,13 +54,12 @@
                       </a>
                   </div>
                   <!--Card image-->
-
                   <!--Card content-->
                   <div class="card-body text-center">
                       <!--Category & Title-->
                       <h5>
                           <strong>
-                              <a href="" class="dark-grey-text">{{ produit.nom }}</a>
+                              <a href="" class="dark-grey-text" style="color: #43a426;">{{ produit.nom }}</a>
                           </strong>
                       </h5>
 
@@ -81,10 +71,8 @@
 
                   </div>
                   <!--Card content-->
-
               </div>
               <!--Card-->
-
           </div>
           <!--Fourth column-->
         {% endfor  %}
