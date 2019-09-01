@@ -78,6 +78,17 @@ class Produit(models.Model):
 
 
 class ProduitTroc(models.Model):
+
+    EN_VENTE = 'EN VENTE'
+    VENDU = 'VENDU'
+    RETIRER = 'RETIRER'
+
+    STATUS_CHOICES = [
+        (EN_VENTE, 'EN VENTE'),
+        (VENDU, 'VENDU'),
+        (RETIRER, 'RETIRER'),
+    ]
+
     nom = models.CharField(max_length=100, verbose_name="Nom de l'article")
     vendeur = models.ForeignKey(ConsommateurParticulier, on_delete=models.CASCADE, null=True)
     code_article = models.CharField(max_length=100, verbose_name="Code de l'article", unique=True, blank=True)
@@ -87,7 +98,7 @@ class ProduitTroc(models.Model):
     description = models.TextField(null=True, blank=True)
     image_produit = models.ImageField(upload_to='produitsTroques/', verbose_name="Image", null=True, )
     date_ajout = models.DateTimeField(auto_now_add=True, )
-    disponible = models.BooleanField(default=True)
+    status = models.CharField(max_length=150,choices=STATUS_CHOICES, default=EN_VENTE)
 
     def save(self, *args, **kwargs):
         # recuperation de l'entreprise associér a ce compte
@@ -100,6 +111,10 @@ class ProduitTroc(models.Model):
 
     def __str__(self):
         return self.nom
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('ecommerce:troc-gerer-article')
 
     class Meta:
         verbose_name = "Article Troqué"

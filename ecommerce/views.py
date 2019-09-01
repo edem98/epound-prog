@@ -1,5 +1,5 @@
 from PIL.PngImagePlugin import _idat
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.hashers import check_password
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -40,12 +40,26 @@ def login_troc(request):
         context['form'] = form
     return render(request, 'ecommerce/troc_login.html', context)
 
+
+@login_required
+def logout_troc(request):
+    logout(request)
+    return redirect('ecommerce:troc-login')
+
+
+@login_required
+def profile_troc(request):
+    consommateur = ConsommateurParticulier.objects.get(user=request.user)
+    context = {'consommateur': consommateur,}
+    return render(request,'ecommerce/profile.html', context)
+
+
 @login_required
 def troc_home(request):
     context = {}
     try:
         consommateur = ConsommateurParticulier.objects.get(user=request.user)
-        produits = ProduitTroc.objects.filter(disponible=True).exclude(vendeur=consommateur)
+        produits = ProduitTroc.objects.filter(status=ProduitTroc.EN_VENTE).exclude(vendeur=consommateur)
         context['consommateur'] = consommateur
         context['produits'] = produits
         categories = Categorie.objects.all()
@@ -76,17 +90,43 @@ class AddTrocProduct(CreateView,LoginRequiredMixin):
         return super(AddTrocProduct, self).form_invalid(form)
 
 
+class ArticleVendu(ListView,LoginRequiredMixin):
+    model = ProduitTroc
+    queryset = ProduitTroc.objects.filter(status=ProduitTroc.VENDU)
+    context_object_name = 'articles'
+    paginate_by = 10
+    template_name = 'ecommerce/article_troquer.html'
+
+    def get_queryset(self):
+        consommateur = ConsommateurParticulier.objects.get(user=self.request.user)
+        queryset = ProduitTroc.objects.filter(vendeur=consommateur)
+        queryset = queryset.filter(status=ProduitTroc.VENDU)
+        return queryset
+
+
+class AllArticle(ListView,LoginRequiredMixin):
+    model = ProduitTroc
+    context_object_name = 'articles'
+    paginate_by = 10
+    template_name = 'ecommerce/tous_les_articles.html'
+
+    def get_queryset(self):
+        consommateur = ConsommateurParticulier.objects.get(user=self.request.user)
+        return ProduitTroc.objects.filter(vendeur=consommateur)
+
+
 def gerer_mes_articles(request):
     context = {}
     try:
         consommateur = ConsommateurParticulier.objects.get(user=request.user)
-        produit_dispo = ProduitTroc.objects.filter(vendeur=consommateur, disponible=True)
+        produit_dispo = ProduitTroc.objects.filter(vendeur=consommateur, status=ProduitTroc.EN_VENTE)
         context['consommateur'] = consommateur
         context['produit_dispo'] = produit_dispo
         emplacements = Quartier.objects.all()
         context['emplacements'] = emplacements
         return render(request, 'ecommerce/gerer_articles.html', context)
-    except Exception:
+    except Exception as e:
+        print(e)
         return redirect('ecommerce:troc-login')
 
 

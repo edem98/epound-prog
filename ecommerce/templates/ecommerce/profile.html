@@ -15,7 +15,7 @@
                     <p>Profile</p>
                 </div>
                 <div class="action">
-                    <p><a href="{% url 'ecommerce:troc-profile' %}" class="action-link">Consulter Votre Compte</a></p>
+                    <p><a href="#" class="action-link">Consulter Votre Compte</a></p>
                     <p><a href="#" class="action-link">Mettre A Jour Votre Compte</a></p>
                     <p><a href="{% url 'ecommerce:troc-logout' %}" class="action-link">Se Deconnecter</a></p>
                 </div>
@@ -32,40 +32,13 @@
             </div>
         </div>
         <div class="col-lg-9 col-md-9">
-            {% if produit_dispo|length == 0 %}
-            <div class="data-section">
-                <h2>Aucun Articles En Vente</h2>
+            <div class="row profile-info">
+                <img width="200" height="200" class="img-fluid" src="https://media.licdn.com/dms/image/C4E03AQGQihJJrDuRmA/profile-displayphoto-shrink_200_200/0?e=1573084800&v=beta&t=IfulGzcxdO6Xo_cdkQ3rtuxgVrwe_LoxCOj3B4ssmzA"/>
+                <div class="user-data">
+                    <span> Prenoms et Nom: {{ consommateur.prenoms }} {{ consommateur.nom }}</span>
+                    <span> Email: {{ consommateur.email }}</span>
+                </div>
             </div>
-            {% else %}
-            <div class="data-section">
-                <h2>Articles En Ventes</h2>
-            </div>
-            <div>
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">Code produit</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Prix</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for prod in produit_dispo %}
-                    <tr>
-                        <td><img class="img-thumbnail" width="150" height="150" src="{{ prod.image_produit.url }}"></td>
-                        <th scope="row">{{ prod.code_article }}</th>
-                        <td>{{ prod.nom }}</td>
-                        <td>{{ prod.prix }}</td>
-                        <td>{{ prod.description }}</td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            {% endif %}
-
         </div>
     </div>
 </div>

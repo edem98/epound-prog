@@ -1,6 +1,17 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 
+{% block addjs %}
+    <script>
+        $(document).ready(function(){
+    //recuperer le formulaire
+        $('#id_image_produit').on('change',function(e){
+            $('#img-label').text(e.currentTarget.files['0']['name'])
+        })
+    });
+    </script>
+
+{% endblock %}
 
 {% block content %}
 <div class="container" style="margin-top: 10em;">
@@ -14,7 +25,7 @@
                 <!--Card content-->
                 <div class="card-body px-lg-5 pt-0">
                     <!-- Form -->
-                    <form style="color: #757575;"  method="post" id="articleAddForm">{% csrf_token %}
+                    <form style="color: #757575;" enctype="multipart/form-data" method="post" id="articleAddForm">{% csrf_token %}
                         <!-- Title -->
                         <div class="md-form mt-4">
                             <label for="materialContactFormName">Prix de l'aricle</label>
@@ -27,12 +38,12 @@
                         </div>
                         <!-- Image -->
                         <div class="md-form mt-4">
-                            <label style="text-align: left;">Image de l'article</label>
+                            <label style="text-align: left;">Image de l'article: <label id="img-label"></label></label>
                             <div class="input-group">
                                   <div class="input-group-prepend">
-                                    <span class="input-group-text" style="margin: 15px; color: green:" id="inputGroupFileAddon01">Upload</span>
+                                    <span class="input-group-text" style="color: green:" id="inputGroupFileAddon01">Upload</span>
                                   </div>
-                                  <div class="custom-file form-control">
+                                  <div class="custom-file form-control" style="margin-left: 5px;">
                                     {{ form.image_produit }}
                                     <label class="custom-file-label">{{ form.image_produit.url }}</label>
                                   </div>

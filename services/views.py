@@ -321,6 +321,7 @@ class PayementInterCommercialViewSet(viewsets.ModelViewSet):
         data["payements"] = serializer.data
         return Response(data)
 
+
 class PayementInterCommercialAvecCompteConsommationViewSet(viewsets.ModelViewSet):
     queryset = PayementInterCommercialAvecCompteConsommation.objects.all()
     serializer_class = PayementInterCommercialAvecCompteConsommationSerializer
@@ -343,6 +344,7 @@ class CreationParticulierParTraderEtIntegrateurViewSet(viewsets.ModelViewSet):
     queryset = CreationParticulierParTraderEtIntegrateur.objects.all()
     serializer_class = CreationParticulierParTraderEtIntegrateurSerializer
     lookup_field = "id"
+
 
 class ReactivationClientViewSet(viewsets.ModelViewSet):
     queryset = ReactivationClient.objects.all()

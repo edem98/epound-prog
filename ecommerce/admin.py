@@ -70,9 +70,9 @@ class CategorieAdmin(admin.ModelAdmin):
 
 
 class ProductTrocAdmin(admin.ModelAdmin):
-    list_display = ['nom', 'vendeur', 'code_article', 'prix', 'disponible', 'date_ajout']
+    list_display = ['nom', 'vendeur', 'code_article', 'prix', 'status', 'date_ajout']
     search_fields = ['nom', 'code_article', 'prix', ]
-    list_filter = ['disponible', 'date_ajout', 'vendeur',]
+    list_filter = ['status', 'date_ajout', 'vendeur',]
 
     def desactiver_produit(self, request, queryset):
         produits = queryset.update(disponible=False)

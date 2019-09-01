@@ -60,7 +60,7 @@ class AddProductTrocForm(forms.ModelForm):
                     'id': 'id_prix',
                 }
             ),
-            'image_produit': forms.FileInput(
+            'image_produit': forms.ClearableFileInput(
                 attrs={
                     'class': 'custom-file-input',
                     'id': 'id_image_produit',

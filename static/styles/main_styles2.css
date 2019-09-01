@@ -272,7 +272,8 @@ section
 {
 	width: 100%;
 	height: 50px;
-	background: #1e1e27;
+	background: #337fab;
+	color: white;
 }
 .top_nav_left
 {
@@ -297,7 +298,8 @@ section
 	padding-left: 20px;
 	text-align: center;
 	vertical-align: middle;
-	background: #1e1e27;
+	background: #337fab;
+	color: white;
 }
 .currency > a
 {

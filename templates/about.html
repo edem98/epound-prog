@@ -5,140 +5,202 @@
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 	<link href="{% static 'css/hover-min.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/jquery-ui-1.12.1.custom/jquery-ui.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/contact_styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/contact_responsive.css' %}">
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+{% endblock %}
+
+{% block addjs %}
+	<script src="{% static 'js/send_mail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 	<!-- Slider -->
-
+<div class="super_container">
 	<div class="main_slider"
-		 style="background-image:url({% static 'images/about.jpg' %}); margin: auto;" >
-		<div class="container fill_height">
-			<div class="row align-items-center fill_height">
-				<div class="col">
-					<div class="main_slider_content">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Banner -->
-
-	<div class="row">
-		<div class="col text-center">
-			<div class="section_title nessw_arrivals_title">
-				<h2 style="font-family: 'Permanent Marker', cursive; margin-top: 20px;" >Qui sommes nous ?</h2>
-			</div>
-		</div>
-	</div>
-
-	<div class="banner">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about19.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-						<a href="#"></a>
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about18.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about17.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about16.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about15.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about14.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about13.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about12.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about11.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about10.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-                <div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about9.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-				<div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about8.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-				<div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about7.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-				<div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about6.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-				<div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about5.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-				<div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about4.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-				<div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about3.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-				<div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about2.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-				<div class="col-md-4  hvr-overline-from-left">
-					<div class="banner_item align-items-center" style="background-image:url({% static 'images/about1.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Benefit -->
-	<div class="row">
-		<div class="col text-center">
-			<div class="section_title new_arrivals_title">
-				<h2>Nos partenaires</h2>
-			</div>
-		</div>
-	</div>
-	<div class="benefit">
-		<div class="container">
-			<div class="row benefit_row">
-				{% for partenaire in partenaires %}
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-                            <img src="{{ partenaire.logo.url }}" alt="logo de {{ partenaire }}" style="height: 40px;width: 40px;">
+			 style="background-image:url({% static 'images/about.jpg' %}); margin: auto;" >
+			<div class="container fill_height">
+				<div class="row align-items-center fill_height">
+					<div class="col">
+						<div class="main_slider_content">
 						</div>
 					</div>
 				</div>
-				{% endfor %}
+			</div>
+		</div>
+	<div class="container contact_container">
+
+		<!-- Banner -->
+		<div class="row">
+			<div class="col text-center">
+				<div class="section_title nessw_arrivals_title">
+					<h2 style="font-family: 'Permanent Marker', cursive; margin-top: 20px;" >Qui sommes nous ?</h2>
+				</div>
+			</div>
+		</div>
+		<div class="banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about19.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+							<a href="#"></a>
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about18.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about17.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about16.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about15.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about14.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about13.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about12.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about11.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about10.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about9.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about8.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about7.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about6.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about5.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about4.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about3.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about2.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+					<div class="col-md-4  hvr-overline-from-left">
+						<div class="banner_item align-items-center" style="background-image:url({% static 'images/about1.jpg' %});margin-bottom: 2em;background-size: 310px 260px;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- contact -->
+		<div class="row">
+			<div class="col text-center">
+				<div class="section_title new_arrivals_title">
+					<h2>Contact</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-5">
+			<div class="col-lg-6 contact_col">
+				<div class="contact_contents">
+					<h1>Contactez-nous</h1>
+					<p>Il y'a plusieurs moyens de nous contacter.Vous pouvez nous envoyez un mail ou nous appellez directement.</p>
+					<div>
+						<p>(228) 96169610/70011777</p>
+						<p><a href="mailto:epoundcorporationtg@gmail.com">epoundcorporationtg@gmail.com</a></p>
+					</div>
+					<div>
+						<p>Heures d'ouvertures: 8h00-18h00 Lundi-Vendredi</p>
+						<p>Dimanche: Fermé</p>
+					</div>
+				</div>
+				<!-- Follow Us -->
+				<div class="follow_us_contents">
+					<h1>Suivez-nous sur</h1>
+					<ul class="social d-flex flex-row">
+						<li><a href="https://www.facebook.com/epoundtogo/" style="background-color: #3a61c9"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="https://twitter.com/EpoundC" style="background-color: #41a1f6"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="https://plus.google.com/u/1/" style="background-color: #fb4343"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+						<li><a href="https://www.instagram.com/explore/locations/349184102562306/epound-corporation-togo/" style="background-color: #8f6247"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+
+			</div>
+			<div class="col-lg-6 get_in_touch_col">
+				<div class="get_in_touch_contents">
+					<h2>Envoyer-nous un email</h2>
+					<p style="margin-top: 1em;">Remplissez les informations ci-dessous pour vos inquiétudes</p>
+					<form method="POST" action="{% url 'contact' %}" id="mail_form">
+						{% csrf_token %}
+						<div>
+							<input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Nom" required="required" data-error="Le nom est requis.">
+							<input id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="Email" required="required" data-error="L'email est requis.">
+							<textarea id="input_message" class="input_ph input_message" name="message"  placeholder="Message" rows="3" required data-error="Veuillez, écrire votre méssage."></textarea>
+						</div>
+						<div>
+							<button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">Envoyer votre message</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- Benefit -->
+		<div class="row">
+			<div class="col text-center">
+				<div class="section_title new_arrivals_title">
+					<h2>Nos partenaires</h2>
+				</div>
+			</div>
+		</div>
+		<div class="benefit">
+			<div class="container">
+				<div class="row benefit_row">
+					{% for partenaire in partenaires %}
+					<div class="col-lg-3 benefit_col">
+						<div class="benefit_item d-flex flex-row align-items-center">
+							<div class="benefit_icon">
+								<img src="{{ partenaire.logo.url }}" alt="logo de {{ partenaire }}" style="height: 40px;width: 40px;">
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
 {% endblock  %}
 
