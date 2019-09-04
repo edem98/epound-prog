@@ -1,6 +1,7 @@
 from PIL.PngImagePlugin import _idat
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.hashers import check_password
+from django.core.exceptions import ValidationError
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView
@@ -26,6 +27,10 @@ def login_troc(request):
                     if user is not None:
                         login(request, user)
                         return redirect('ecommerce:troc-home')
+                    else:
+                        print("User authentiction failed")
+                else:
+                    print("Password not checked")
             except Exception as e:
                 print(e)
         else:

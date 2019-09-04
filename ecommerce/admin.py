@@ -13,20 +13,20 @@ class ProductAdmin(admin.ModelAdmin):
         if produits == 1:
             message_bit = "Le produit sélectionner a été desactiver"
         else:
-            message_bit = "Les %s produits sélectionnées ont été desactivés." % produits
+            message_bit = "Les %s produits sélectionnés ont été desactivés." % produits
         self.message_user(request, "%s " % message_bit)
 
-    desactiver_produit.short_description = "Desactiver produits selectionners"
+    desactiver_produit.short_description = "Desactiver produits sélectionnés"
 
     def activer_produit(self, request, queryset):
         produits = queryset.update(disponible=True)
         if produits == 1:
             message_bit = "Le produit sélectionner a été activer"
         else:
-            message_bit = "Les %s produits sélectionnées ont été activés." % produits
+            message_bit = "Les %s produits sélectionnés ont été activés." % produits
         self.message_user(request, "%s " % message_bit)
 
-    activer_produit.short_description = "Activer produits selectionners"
+    activer_produit.short_description = "Activer produits sélectionnés"
 
     actions = [desactiver_produit, activer_produit, ]
 
@@ -79,20 +79,20 @@ class ProductTrocAdmin(admin.ModelAdmin):
         if produits == 1:
             message_bit = "Le produit sélectionner a été desactiver"
         else:
-            message_bit = "Les %s produits sélectionnées ont été desactivés." % produits
+            message_bit = "Les %s produits sélectionnés ont été desactivés." % produits
         self.message_user(request, "%s " % message_bit)
 
-    desactiver_produit.short_description = "Desactiver produits selectionners"
+    desactiver_produit.short_description = "Desactiver produits sélectionnés"
 
     def activer_produit(self, request, queryset):
         produits = queryset.update(disponible=True)
         if produits == 1:
             message_bit = "Le produit sélectionner a été activer"
         else:
-            message_bit = "Les %s produits sélectionnées ont été activés." % produits
+            message_bit = "Les %s produits sélectionnés ont été activés." % produits
         self.message_user(request, "%s " % message_bit)
 
-    activer_produit.short_description = "Activer produits selectionners"
+    activer_produit.short_description = "Activer produits sélectionnés"
 
     actions = [desactiver_produit, activer_produit, ]
 

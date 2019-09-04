@@ -366,22 +366,53 @@ class SpecificationViewSet(viewsets.ModelViewSet):
     serializer_class = SpecificationSerializer
 
 
+class CategogieViewSet(viewsets.ModelViewSet):
+    queryset = Categorie.objects.all()
+    serializer_class = CategorieSerializer
+
+
 class ProduitViewSet(viewsets.ModelViewSet):
     queryset = Produit.objects.all()
     serializer_class = ProduitSerializer
-    lookup_field = "code_article"
+    lookup_field = "nom"
 
     def list(self, request):
         queryset = Produit.objects.all()
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            data = {"produits": serializer.data}
+            return self.get_paginated_response(data)
+
         serializer = ProduitSerializer(queryset, many=True)
         data = {}
         data["produits"] = serializer.data
         return Response(data)
 
-    def retrieve(self, request, code_article=None):
-        queryset = Produit.objects.all()
-        produit = get_object_or_404(queryset, code_article=code_article)
-        serializer = ProduitSerializer(produit)
+    @action(methods=['get'], detail=True)
+    def product_by_categorie(self, request, nom=None):
+        categories = Produit.objects.filter(categorie__nom_categorie=nom, disponible=True).order_by('-date_ajout')
+
+        page = self.paginate_queryset(categories)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            data = {"produits": serializer.data}
+            return self.get_paginated_response(data)
+
+        serializer = ProduitSerializer(categories, many=True)
+        data = {}
+        data["produits"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, nom=None):
+        produit = Produit.objects.filter(nom__icontains=nom)
+        page = self.paginate_queryset(produit)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            data = {"produits": serializer.data}
+            return self.get_paginated_response(data)
+
+        serializer = ProduitSerializer(produit, many=True)
         data = {}
         data["produit"] = serializer.data
         return Response(data)
