@@ -181,6 +181,9 @@ class Quartier(TimeStamp):
     def __str__(self):
         return self.nom
 
+    class Meta:
+        ordering = ['nom']
+
 
 class EntrepriseCommerciale(Membre):
     """
@@ -328,15 +331,26 @@ class Trader(Membre):
                                          verbose_name='Compte e-T', null=True)
 
     def save(self, *args, **kwargs):
+        from epound.views import envoyer_sms
         # recuperation de l'entreprise associér a ce compte
         if self.id == None:
             super(Trader, self).save(*args, **kwargs)
             self.code_membre = self.id
+            self.mdp = BaseUserManager().make_random_password(5)
             self.user = User(username=str(self.nom) + "_" + str(self.code_membre),
                              last_name=str(self.nom), password=make_password(self.mdp))
             self.user.save()
             groupe = Group.objects.get(name="Trader")
             groupe.user_set.add(self.user)
-            self.save(update_fields=['code_membre', 'compte_trader', 'user'])
+            message = "Votre mot de passe Trader est: " + self.mdp
+            destinataire = "228" + self.telephone
+            try:
+                envoyer_sms(message, destinataire)
+            except Exception as e:
+                print(e)
+            finally:
+                self.save(update_fields=['code_membre', 'compte_trader', 'user', 'mdp'])
         else:
             return super(Trader, self).save(*args, **kwargs)
+
+

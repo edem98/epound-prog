@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import check_password
 from django.core.exceptions import ValidationError
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, CreateView
 from .forms import LoginForm, AddProductTrocForm
 from django.contrib.auth.decorators import login_required
@@ -109,6 +110,20 @@ class ArticleVendu(ListView,LoginRequiredMixin):
         return queryset
 
 
+class ArticleRetire(ListView,LoginRequiredMixin):
+    model = ProduitTroc
+    context_object_name = 'articles'
+    paginate_by = 10
+    template_name = 'ecommerce/articles_retires.html'
+
+    def get_queryset(self):
+        consommateur = ConsommateurParticulier.objects.get(user=self.request.user)
+        queryset = ProduitTroc.objects.filter(vendeur=consommateur)
+        queryset = queryset.filter(status=ProduitTroc.RETIRER)
+        print(queryset)
+        return queryset
+
+
 class AllArticle(ListView,LoginRequiredMixin):
     model = ProduitTroc
     context_object_name = 'articles'
@@ -120,19 +135,39 @@ class AllArticle(ListView,LoginRequiredMixin):
         return ProduitTroc.objects.filter(vendeur=consommateur)
 
 
+@csrf_exempt
 def gerer_mes_articles(request):
     context = {}
-    try:
-        consommateur = ConsommateurParticulier.objects.get(user=request.user)
-        produit_dispo = ProduitTroc.objects.filter(vendeur=consommateur, status=ProduitTroc.EN_VENTE)
-        context['consommateur'] = consommateur
-        context['produit_dispo'] = produit_dispo
-        emplacements = Quartier.objects.all()
-        context['emplacements'] = emplacements
-        return render(request, 'ecommerce/gerer_articles.html', context)
-    except Exception as e:
-        print(e)
-        return redirect('ecommerce:troc-login')
+    if request.method == 'POST':
+        if request.POST.getlist('checkboxes[]'):
+            items = request.POST.getlist('checkboxes[]')
+            for item in items:
+                produit = ProduitTroc.objects.get(id=int(item))
+                produit.status = ProduitTroc.RETIRER
+                produit.save()
+            try:
+                consommateur = ConsommateurParticulier.objects.get(user=request.user)
+                produit_dispo = ProduitTroc.objects.filter(vendeur=consommateur, status=ProduitTroc.EN_VENTE)
+                context['consommateur'] = consommateur
+                context['produit_dispo'] = produit_dispo
+                emplacements = Quartier.objects.all()
+                context['emplacements'] = emplacements
+                return render(request, 'ecommerce/gerer_articles.html', context)
+            except Exception as e:
+                print(e)
+                return redirect('ecommerce:troc-login')
+    else:
+        try:
+            consommateur = ConsommateurParticulier.objects.get(user=request.user)
+            produit_dispo = ProduitTroc.objects.filter(vendeur=consommateur, status=ProduitTroc.EN_VENTE)
+            context['consommateur'] = consommateur
+            context['produit_dispo'] = produit_dispo
+            emplacements = Quartier.objects.all()
+            context['emplacements'] = emplacements
+            return render(request, 'ecommerce/gerer_articles.html', context)
+        except Exception as e:
+            print(e)
+            return redirect('ecommerce:troc-login')
 
 
 def specification_besoin(request, besoin):
@@ -171,12 +206,12 @@ def rechercher_produit(request):
     Ce controlleur renvoie les produits correspondant au parametre specifier dans
     le formulaire apres formatage en donnees Json
     :param request:
-    :return: JsonResponse de produit correspondant
+    :return: Response de produit correspondant
     """
     produit = request.GET.get('produit')
     categorie = request.GET.get('categorie')
     emplacement = request.GET.get('emplacement')
-    produits = Produit.objects.all()
+    produits = Produit.objects.filter(disponibiliter=True)
     if produit:
         produits = Produit.objects.filter(nom__icontains=produit)
     if categorie:
@@ -191,6 +226,19 @@ def rechercher_produit(request):
     emplacements = Quartier.objects.all()
     context['emplacements'] = emplacements
     return render(request, 'ecommerce/product_found.html', context)
+
+
+def rechercher_produit_json(request):
+    """
+    Ce controlleur renvoie les produits correspondant au parametre specifier dans
+    le formulaire apres formatage en donnees Json
+    :param request:
+    :return: JsonResponse de produit correspondant
+    """
+    produit = request.GET.get('produit')
+    produits = Produit.objects.filter(nom__icontains=produit)
+    context = {'produits': produits}
+    return JsonResponse(context)
 
 
 def categorie_specification(request, id_specification):

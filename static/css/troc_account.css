@@ -58,18 +58,19 @@ html{
 .action p {
     background-color: #4686b3;
     border-radius: 15px;
-    padding: 5px;
+    padding: 1px;
 }
 
 .profile-info{
     margin-top: 2em;
     margin-left: 1em;
+    padding: 5px;
 }
 
 .profile-info img{
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
+    width: 230px;
+    height: 230px;
+    border-radius: 10px;
 }
 
 .user-data{
@@ -77,8 +78,27 @@ html{
     margin-left: 2em;
 }
 
-.user-data span {
+.user-data p {
     color: #28a745;
     font-size: 15px;
     margin-right: 10px;
+}
+
+.profile-section-separator{
+    display: inline-block;
+    width: 200px;
+    height: 3px;
+    background-color: #4686b3;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.profile-section-title{
+    color: #4686b3;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.profile-section-title h2{
+    color: #4686b3;
 }

@@ -919,11 +919,12 @@ section
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	border: solid 3px #40a62980;;
 }
 .banner_category
 {
 	height: 50px;
-	background-color: rgba(64, 166, 41,0.5);
+	background-color: rgba(0, 0, 0,0.5);
 	min-width: 180px;
 	padding-left: 25px;
 	padding-right: 25px;
@@ -945,9 +946,10 @@ section
 	-o-transition: color 0.3s ease;
 	transition: color 0.3s ease;
 }
-.banner_category a:hover
+.banner_category:hover
 {
-	color: #b5aec4;
+	color: #fff;
+	background-color: #40a62980;
 }
 
 /*********************************
@@ -1362,7 +1364,7 @@ section
 }
 .product_slider_item .product-item
 {
-	height: 260px;
+	height: 320px;
 }
 .product_slider_item
 {

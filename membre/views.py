@@ -45,8 +45,11 @@ def retourner_consommateur_info(request):
 		}
 	return JsonResponse(data)
 
+
 @csrf_exempt
-def generer_mot_de_passe(request, id):
+def generer_mot_de_passe_consommateur(request, id):
+
+
 	consommateur = ConsommateurParticulier.objects.get(id=id)
 	user = consommateur.user
 	password = BaseUserManager().make_random_password(5)
@@ -56,6 +59,50 @@ def generer_mot_de_passe(request, id):
 	user.save()
 	message = "Votre nouveau mot de passe est: "+ consommateur.mdp
 	destinataire = "228" + consommateur.telephone
+	try:
+		envoyer_sms(message, destinataire)
+	except Exception as e:
+		print(e)
+	finally:
+		data = {
+			'password': password,
+		}
+		return JsonResponse(data)
+
+@csrf_exempt
+def generer_mot_de_passe_trader(request, id):
+
+	trader = Trader.objects.get(id=id)
+	user = trader.user
+	password = BaseUserManager().make_random_password(5)
+	trader.mdp = password
+	trader.save()
+	user.set_password(password)
+	user.save()
+	message = "Votre nouveau mot de passe est: "+ trader.mdp
+	destinataire = "228" + trader.telephone
+	try:
+		envoyer_sms(message, destinataire)
+	except Exception as e:
+		print(e)
+	finally:
+		data = {
+			'password': password,
+		}
+		return JsonResponse(data)
+
+@csrf_exempt
+def generer_mot_de_passe_vendeur(request, id):
+
+	vendeur = EntrepriseCommerciale.objects.get(id=id)
+	user = vendeur.user
+	password = BaseUserManager().make_random_password(5)
+	vendeur.mdp = password
+	vendeur.save()
+	user.set_password(password)
+	user.save()
+	message = "Votre nouveau mot de passe est: "+ vendeur.mdp
+	destinataire = "228" + vendeur.telephone
 	try:
 		envoyer_sms(message, destinataire)
 	except Exception as e:

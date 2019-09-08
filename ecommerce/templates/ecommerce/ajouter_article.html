@@ -1,6 +1,10 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 
+{% block add_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/troc_account.css'  %}">
+{% endblock %}
+
 {% block addjs %}
     <script>
         $(document).ready(function(){
@@ -14,9 +18,30 @@
 {% endblock %}
 
 {% block content %}
-<div class="container" style="margin-top: 10em;">
+<div class="container-fluid" style="margin-top: 8em;">
     <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-lg-3 col-md-3 sidebar">
+            <div class="sidebar-content">
+                <div class="section-title">
+                    <p>Profile</p>
+                </div>
+                <div class="action">
+                    <p><a href="{% url 'ecommerce:troc-profile' %}" class="action-link">Consulter Votre Compte</a></p>
+                    <p><a href="{% url 'ecommerce:troc-logout' %}" class="action-link">Se Deconnecter</a></p>
+                </div>
+                <div class="section-title">
+                    <p>Gerez vos Artticles</p>
+                </div>
+                <div class="action">
+                    <p><a href="{% url 'ecommerce:troc-ajouter-article' %}" class="action-link">Ajoutez un article</a></p>
+                    <p><a href="{% url 'ecommerce:troc-gerer-article' %}" class="action-link">Articles en Ventes</a></p>
+                    <p><a href="{% url 'ecommerce:troc-article-troquer' %}" class="action-link">Articles Vendus</a></p>
+                    <p><a href="{% url 'ecommerce:troc-article-retirer' %}" class="action-link">Articles Retires de la Vente</a></p>
+                    <p><a href="{% url 'ecommerce:troc-all-article' %}" class="action-link">Tous les Articles</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 mx-auto" style="margin-top: 5em;">
             <!-- Material form contact -->
             <div class="card">
                 <h5 class="card-header info-color white-text text-center py-4">

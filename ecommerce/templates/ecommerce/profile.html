@@ -15,9 +15,9 @@
                     <p>Profile</p>
                 </div>
                 <div class="action">
-                    <p><a href="#" class="action-link">Consulter Votre Compte</a></p>
-                    <p><a href="#" class="action-link">Mettre A Jour Votre Compte</a></p>
+                    <p><a href="{% url 'ecommerce:troc-profile' %}" class="action-link">Consulter Votre Compte</a></p>
                     <p><a href="{% url 'ecommerce:troc-logout' %}" class="action-link">Se Deconnecter</a></p>
+                    <p><a href="{% url 'ecommerce:troc-home' %}" class="action-link">Retourner a l'espace Troc</a></p>
                 </div>
                 <div class="section-title">
                     <p>Gerez vos Artticles</p>
@@ -26,19 +26,51 @@
                     <p><a href="{% url 'ecommerce:troc-ajouter-article' %}" class="action-link">Ajoutez un article</a></p>
                     <p><a href="{% url 'ecommerce:troc-gerer-article' %}" class="action-link">Articles en Ventes</a></p>
                     <p><a href="{% url 'ecommerce:troc-article-troquer' %}" class="action-link">Articles Vendus</a></p>
-                    <p><a href="{% url 'ecommerce:troc-article-troquer' %}" class="action-link">Articles Retires de la Vente</a></p>
+                    <p><a href="{% url 'ecommerce:troc-article-retirer' %}" class="action-link">Articles Retires de la Vente</a></p>
                     <p><a href="{% url 'ecommerce:troc-all-article' %}" class="action-link">Tous les Articles</a></p>
                 </div>
             </div>
         </div>
         <div class="col-lg-9 col-md-9">
+            <!-- personnal information section -->
+            <div class="profile-section-title">
+                <h2>Informations Personnels</h2>
+            </div>
             <div class="row profile-info">
-                <img width="200" height="200" class="img-fluid" src="https://media.licdn.com/dms/image/C4E03AQGQihJJrDuRmA/profile-displayphoto-shrink_200_200/0?e=1573084800&v=beta&t=IfulGzcxdO6Xo_cdkQ3rtuxgVrwe_LoxCOj3B4ssmzA"/>
-                <div class="user-data">
-                    <span> Prenoms et Nom: {{ consommateur.prenoms }} {{ consommateur.nom }}</span>
-                    <span> Email: {{ consommateur.email }}</span>
+                <div class="col-lg-3 col-md-3">
+                    <img width="200" height="200" class="img-fluid" src="{% static 'images/profile.jpg' %}"/>
+                </div>
+                <div class="col-lg-4 col-md-3 user-data">
+                    <p> Nom: {{ consommateur.nom }}</p>
+                    <p> Prenoms: {{ consommateur.prenoms }}</p>
+                    <p> Telephone: {{ consommateur.telephone }}</p>
+                    <p> Email: {{ consommateur.email }}</p>
+                </div>
+                <div class="col-lg-4 col-md-3 user-data">
+                    <p> Date de desactivation: {{ consommateur.date_desactivation }}</p>
+                    <p> Date d'expiration: {{ consommateur.date_expiration }}</p>
                 </div>
             </div>
+            <!-- end personnal information section -->
+            <div style="text-align: center;">
+                <span class="profile-section-separator"></span>
+            </div>
+            <!-- account information section -->
+            <div class="profile-section-title">
+                <h2>Informations Relatives au Compte</h2>
+            </div>
+            <div class="row profile-info">
+                <div class="col-lg-5 col-md-5 user-data">
+                    <p> Solde: {{ consommateur.compte_consommateur.solde }}</p>
+                    <p> Depense realiser ce mois: {{ consommateur.compte_consommateur.depense_epound_mensuel }}</p>
+                    <p> Depense autoriser pour le reste du mois: {{ consommateur.compte_consommateur.depense_epound_mensuel }}</p>
+                    <p> Status: {% if consommateur.compte_consommateur.actif is True %}Compte Actif{% else %}Compte Desactive{% endif %}</p>
+                </div>
+                <div class="col-lg-5 col-md-5 user-data">
+                    <p> Date d'expiration: {{ consommateur.compte_consommateur.date_expiration }}</p>
+                </div>
+            </div>
+            <!-- end account information section -->
         </div>
     </div>
 </div>

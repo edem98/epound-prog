@@ -52,9 +52,24 @@ class MembreAdmin(PolymorphicParentModelAdmin):
 class TraderAdmin(admin.ModelAdmin):
     base_model = Trader
     search_fields = ['nom', 'actif', ]
-    list_display = ['nom_membre', 'code_membre', 'date_expiration']
+    list_display = ['nom_membre', 'code_membre', 'telephone', 'emplacement', 'date_expiration', 'generer_mot_de_passe']
     readonly_fields = ['numero_compte_trader', 'solde_compte_trader',
                        'date_expiration_compte_trader', 'activiter_compte_trader', 'code_membre']
+
+    class Media:
+        js = (
+            'https://code.jquery.com/jquery-3.4.1.min.js',
+            'js/reset_password.js',  # project static folder
+        )
+
+    def generer_mot_de_passe(self, obj):
+        return format_html('<a type="button" href="{}" id={} class="password" style="background-color: green; color: '
+                           'white;padding: 5px;border: solid 1px white; text-align: center;border-radius: 15px;'
+                           ' margin: 1px; display: inline-block;">Générer mot de passe''</a>',
+                           reverse_lazy('membre:generer-trader-password', kwargs={'id': obj.id}), obj.id, )
+
+    generer_mot_de_passe.short_description = "Généreration de mot de passe"
+
     fieldsets = (
         ('Informations Relatifs au Trader', {
             'fields': (
@@ -179,7 +194,7 @@ class ConsommateurParticulierAdmin(admin.ModelAdmin):
         return format_html('<a type="button" href="{}" id={} class="password" style="background-color: green; color: '
                            'white;padding: 5px;border: solid 1px white; text-align: center;border-radius: 15px;'
                            ' margin: 1px; display: inline-block;">Générer mot de passe''</a>',
-                           reverse_lazy('membre:generer', kwargs={'id': obj.id}), obj.id, )
+                           reverse_lazy('membre:generer-consommateur-passord', kwargs={'id': obj.id}), obj.id, )
 
     generer_mot_de_passe.short_description = "Généreration de mot de passe"
 
@@ -298,11 +313,25 @@ class EntrepriseCommercialeAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("nom",)}
     search_fields = ['nom', 'code_membre', 'telephone', 'nif', 'num_cfe', 'numero_cnss']
     list_filter = ['actif', 'emplacement', 'type_market', 'nature_jurique']
-    list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'email', ]
+    list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'email', 'generer_mot_de_passe']
     readonly_fields = ['numero_compte_consommateur', 'solde_compte_consommateur',
                        'date_expiration_compte_consommateur', 'activiter_compte_consommateur',
                        'numero_compte_business', 'solde_compte_business',
                        'date_expiration_compte_business', 'activiter_compte_business', 'code_membre']
+    class Media:
+        js = (
+            'https://code.jquery.com/jquery-3.4.1.min.js',
+            'js/reset_password.js',  # project static folder
+        )
+
+    def generer_mot_de_passe(self, obj):
+        return format_html('<a type="button" href="{}" id={} class="password" style="background-color: green; color: '
+                           'white;padding: 5px;border: solid 1px white; text-align: center;border-radius: 15px;'
+                           ' margin: 1px; display: inline-block;">Générer mot de passe''</a>',
+                           reverse_lazy('membre:generer-vendeur-password', kwargs={'id': obj.id}), obj.id, )
+
+    generer_mot_de_passe.short_description = "Généreration de mot de passe"
+
     fieldsets = (
         ("Compte d'entreprise", {
             'fields': ('compte_entreprise_commercial',),

@@ -13,7 +13,13 @@ urlpatterns = [
     path('retourner-consommateur-info/', views.retourner_consommateur_info,
          name="rechercher-consommateur-info"),
 
-    path('generer-mot-de-passe/<int:id>', views.generer_mot_de_passe,
-         name="generer"),
+    path('generer-mot-de-passe-consommateur/<int:id>', views.generer_mot_de_passe_consommateur,
+         name="generer-consommateur-passord"),
+
+    path('generer-mot-de-passe-trader/<int:id>', views.generer_mot_de_passe_trader,
+         name="generer-trader-password"),
+
+    path('generer-mot-de-passe-vendeur/<int:id>', views.generer_mot_de_passe_vendeur,
+         name="generer-vendeur-password"),
 
 ]

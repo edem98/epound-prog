@@ -27,19 +27,19 @@
 		  </div>
 		  <div class="modal-body mx-3">
 			  <form class="form-inline" action="{% url 'ecommerce:rechercher-produit' %}">
-				  <select class="form-control mb-2 mr-sm-2" name="categorie">
+				  <select class="form-control mb-2 mr-sm-2" name="categorie" style="border-radius: 15px;border: solid 1px #3b82af;">
 					  <option value="" disabled selected>Selectionner une catégorie</option>
 					  {% for cat in categories %}
 					  <option value="{{ cat.pk }}">{{ cat.nom_categorie }}</option>
 					  {% endfor %}
 				  </select>
-				  <select class="form-control mb-2 mr-sm-2" name="emplacement">
+				  <select class="form-control mb-2 mr-sm-2" name="emplacement" style="border-radius: 15px;border: solid 1px #3b82af;">
 					  <option value="" disabled selected>Selectionner un emplacement</option>
 					  {% for emplacement in emplacements %}
 					  <option value="{{ emplacement.pk }}">{{ emplacement.nom }}</option>
 					  {% endfor %}
 				  </select>
-				  <input type="text" class="form-control mb-2 mr-sm-2" id="autoComplete" name="produit">
+				  <input type="text" class="form-control mb-2 mr-sm-2" style="border-radius: 15px;border: solid 1px #3b82af;"  id="autoComplete" name="produit">
 				  <button type="submit" class="btn btn-primary mb-2">Rechercher</button>
 			  </form>
 		  </div>
