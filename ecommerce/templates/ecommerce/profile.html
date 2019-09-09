@@ -38,7 +38,7 @@
             </div>
             <div class="row profile-info">
                 <div class="col-lg-3 col-md-3">
-                    <img width="200" height="200" class="img-fluid" src="{% static 'images/profile.jpg' %}"/>
+                    <img width="200" height="200" class="img-fluid" src="{{ consommateur.picture.url }}"/>
                 </div>
                 <div class="col-lg-4 col-md-3 user-data">
                     <p> Nom: {{ consommateur.nom }}</p>

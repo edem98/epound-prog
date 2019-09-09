@@ -52,7 +52,7 @@ class ListEntreprise(ListView):
     model = EntrepriseCommerciale
     template_name = "entreprise.html"
     context_object_name = "entreprises"
-    paginate_by = 15
+    paginate_by = 100
     queryset = EntrepriseCommerciale.objects.all()
 
     def get_context_data(self, **kwargs):
