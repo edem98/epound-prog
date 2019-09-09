@@ -36,7 +36,7 @@ def envoyer_sms(message, destinataire, expediteur="Epound Corporation"):
 def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
-    new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:20]
+    new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:60]
     partenaires = Partenaire.objects.all()
     context['besoins'] = besoins
     context['produits'] = new_produits
