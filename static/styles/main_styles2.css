@@ -919,12 +919,11 @@ section
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
-	border: solid 3px #40a62980;;
 }
 .banner_category
 {
 	height: 50px;
-	background-color: rgba(0, 0, 0,0.5);
+	background-color: #40a62980;
 	min-width: 180px;
 	padding-left: 25px;
 	padding-right: 25px;
