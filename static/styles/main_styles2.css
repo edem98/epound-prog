@@ -1726,3 +1726,19 @@ section
 .welcome{
     margin-top: 26em;
 }
+
+#product_list{
+    diplay: block;
+    position: relative;
+}
+
+.ui-autocomplete{
+    position: absolute;
+    margin-top: 40px !important;
+}
+
+#autoComplete{
+    display: block;
+    border-radius: 15px;
+    border: solid 1px #3b82af;
+}

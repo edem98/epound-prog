@@ -211,7 +211,7 @@ def rechercher_produit(request):
     produit = request.GET.get('produit')
     categorie = request.GET.get('categorie')
     emplacement = request.GET.get('emplacement')
-    produits = Produit.objects.filter(disponibiliter=True)
+    produits = Produit.objects.filter(disponible=True)
     if produit:
         produits = Produit.objects.filter(nom__icontains=produit)
     if categorie:
@@ -235,9 +235,12 @@ def rechercher_produit_json(request):
     :param request:
     :return: JsonResponse de produit correspondant
     """
-    produit = request.GET.get('produit')
-    produits = Produit.objects.filter(nom__icontains=produit)
-    context = {'produits': produits}
+    nom = request.GET.get('produit')
+    produits = Produit.objects.filter(nom__icontains=nom)
+    produit_list = []
+    for item in produits:
+        produit_list.append(item.nom)
+    context = {'produits': list(produit_list)}
     return JsonResponse(context)
 
 

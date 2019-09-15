@@ -39,7 +39,9 @@
 					  <option value="{{ emplacement.pk }}">{{ emplacement.nom }}</option>
 					  {% endfor %}
 				  </select>
-				  <input type="text" class="form-control mb-2 mr-sm-2" style="border-radius: 15px;border: solid 1px #3b82af;"  id="autoComplete" name="produit">
+				  <div id="product_list">
+					  <input type="text" class="form-control mb-2 mr-sm-2"  id="autoComplete" name="produit">
+				  </div>
 				  <button type="submit" class="btn btn-primary mb-2">Rechercher</button>
 			  </form>
 		  </div>
