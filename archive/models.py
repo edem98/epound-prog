@@ -1,4 +1,5 @@
 from django.db import models
+from django.http import JsonResponse
 from rest_framework.response import Response
 from ecommerce.models import Produit
 from membre.models import *
@@ -495,12 +496,12 @@ class CommandeClient(models.Model):
                     print(msg)
                     data = {}
                     data['msg'] = msg
-                    return Response(data['msg'])
+                    return JsonResponse(data['msg'])
                 else:
                     self.client.compte_consommateur.solde -= self.quantite * self.produit.prix
                     self.client.compte_consommateur.save()
                 if self.a_livrer:
-                    self.vendeur = EntrepriseCommerciale.objects.get(telephone="70253154")
+                    self.vendeur = EntrepriseCommerciale.objects.get(telephone="70011777")
                 super(CommandeClient, self).save(*args, **kwargs)
         else:
             return super(CommandeClient, self).save(*args, **kwargs)

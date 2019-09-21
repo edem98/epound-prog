@@ -5,6 +5,8 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import ListView, CreateView
+
+from archive.models import CommandeClient
 from .forms import LoginForm, AddProductTrocForm
 from django.contrib.auth.decorators import login_required
 from ecommerce.models import *
@@ -279,7 +281,27 @@ def gerer_mes_articles(request):
 @login_required
 def commander_article(request, id_produit):
     produit = Produit.objects.get(id=id_produit)
-    return render(request,'ecommerce/single-product.html', {'produit': produit,})
+    consommateur = ConsommateurParticulier.objects.get(user=request.user)
+    return render(request,'ecommerce/single-product.html', {'produit': produit, 'consommateur': consommateur,})
+
+
+@csrf_exempt
+def valider_commande(request):
+    if request.method == 'POST':
+        consommateur = int(request.POST.get('consommateur'))
+        quantite = int(request.POST.get('quantite'))
+        produit = int(request.POST.get('produit'))
+        # get reel element
+        try:
+            consommateur = ConsommateurParticulier.objects.get(id=consommateur)
+            produit = Produit.objects.get(id=produit)
+            commande = CommandeClient(numero_client=consommateur.telephone, numero_vendeur=produit.vendeur.telephone,
+                                      code_produit=produit.code_article, quantite=quantite, a_livrer=True)
+            commande.save()
+            return JsonResponse({'success': "Votre commande a été valider avec succes."})
+        except Exception as e:
+            print(e)
+            return JsonResponse({'error': "Vous ne disposez du montant nécéssaire pour effectuer cette commande."})
 
 
 class AddTrocProduct(CreateView,LoginRequiredMixin):
