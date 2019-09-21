@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/logo_partenaire/IMG-20181129-WA0081.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/logo_partenaire/Sainthonore.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/logo_partenaire/Suivre-son-chantier-de-construction-632x519.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/logo_partenaire/vvh18pakito_noir-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/produits/vvh18prudy_bleu-a_1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/product_found.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/product_found.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles/main_styles2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/main_styles2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/responsive.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,8 +66,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="14" />
-          <entry key="html" value="66" />
+          <entry key="css" value="15" />
+          <entry key="html" value="69" />
           <entry key="jpg" value="6" />
           <entry key="js" value="13" />
           <entry key="png" value="5" />
@@ -70,8 +76,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="14" />
-          <entry key="HTML" value="66" />
+          <entry key="CSS" value="15" />
+          <entry key="HTML" value="69" />
           <entry key="Image" value="11" />
           <entry key="JavaScript" value="13" />
           <entry key="Python" value="107" />
@@ -80,19 +86,19 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="155" />
-          <entry key="css" value="1095" />
-          <entry key="html" value="2949" />
+          <entry key="css" value="1431" />
+          <entry key="html" value="3052" />
           <entry key="js" value="261" />
           <entry key="py" value="5131" />
-          <entry key="txt" value="935" />
+          <entry key="txt" value="964" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1095" />
-          <entry key="HTML" value="2949" />
+          <entry key="CSS" value="1431" />
+          <entry key="HTML" value="3052" />
           <entry key="JavaScript" value="261" />
-          <entry key="PLAIN_TEXT" value="935" />
+          <entry key="PLAIN_TEXT" value="964" />
           <entry key="Python" value="5286" />
         </counts>
       </usages-collector>
@@ -100,20 +106,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/styles/main_styles2.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="1095" column="1" lean-forward="true" selection-start-line="1095" selection-start-column="1" selection-end-line="1095" selection-end-column="1" />
+            <state relative-caret-position="108">
+              <caret line="1082" column="24" lean-forward="true" selection-start-line="1082" selection-start-column="24" selection-end-line="1082" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#28376#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="46" column="89" lean-forward="true" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+            <state relative-caret-position="-6">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+              <folding>
+                <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="26" column="111" selection-start-line="26" selection-start-column="111" selection-end-line="26" selection-end-column="111" />
+              <folding>
+                <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,10 +145,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="107" column="46" lean-forward="true" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
+            <state relative-caret-position="279">
+              <caret line="106" column="119" lean-forward="true" selection-start-line="106" selection-start-column="56" selection-end-line="106" selection-end-column="119" />
               <folding>
-                <element signature="e#3858#4898#0" />
+                <element signature="e#4038#4401#0" />
               </folding>
             </state>
           </provider>
@@ -169,13 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>particulier</find>
-      <find>create</find>
-      <find>rows_updated</find>
-      <find>product_slider</find>
-      <find>product_slider_container</find>
-      <find>o</find>
-      <find>nouv</find>
       <find>nos</find>
       <find>Produit.objects.all().order_by</find>
       <find>Produit.objects.all()</find>
@@ -191,14 +208,21 @@
       <find>ExpressionBesoin</find>
       <find>Produit</find>
       <find>span</find>
-      <find>hover</find>
       <find>320</find>
       <find>banner</find>
-      <find>product-item</find>
       <find>product_name</find>
       <find>product_price</find>
       <find>style=&quot;font-size:12px;color: green;margin-top: -0.5em;font-family: 'Titillium Web', sans-serif;&quot;</find>
       <find>product_info</find>
+      <find>hover</find>
+      <find>product-item</find>
+      <find>-190</find>
+      <find>product_image</find>
+      <find>discount</find>
+      <find>none</find>
+      <find>120</find>
+      <find>product</find>
+      <find>product_detail</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -217,7 +241,6 @@
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/specification.html" />
         <option value="$PROJECT_DIR$/epound/prod_settings.py" />
         <option value="$PROJECT_DIR$/compte/admin.py" />
-        <option value="$PROJECT_DIR$/static/styles/responsive.css" />
         <option value="$PROJECT_DIR$/membre/migrations/0094_membre_code_qr.py" />
         <option value="$PROJECT_DIR$/static/css/troc_login.css" />
         <option value="$PROJECT_DIR$/emision/models.py" />
@@ -229,7 +252,6 @@
         <option value="$PROJECT_DIR$/templates/contact.html" />
         <option value="$PROJECT_DIR$/templates/layouts/header.html" />
         <option value="$PROJECT_DIR$/templates/about.html" />
-        <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html" />
         <option value="$PROJECT_DIR$/epound/urls.py" />
         <option value="$PROJECT_DIR$/services/serializers.py" />
         <option value="$PROJECT_DIR$/epound/settings.py" />
@@ -260,9 +282,11 @@
         <option value="$PROJECT_DIR$/templates/entreprise.html" />
         <option value="$PROJECT_DIR$/static/js_/main.js" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/static/styles/main_styles2.css" />
+        <option value="$PROJECT_DIR$/static/styles/responsive.css" />
+        <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/product_found.html" />
         <option value="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html" />
+        <option value="$PROJECT_DIR$/static/styles/main_styles2.css" />
       </list>
     </option>
   </component>
@@ -559,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568617041743</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="set product style base">
+      <created>1569057435202</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1569057435202</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -622,23 +653,10 @@
     <MESSAGE value="ajout de l'autocompletion au niveau de la recherche" />
     <MESSAGE value="ajout de jquery ui" />
     <MESSAGE value="bordure sur besoin humain" />
-    <option name="LAST_COMMIT_MESSAGE" value="bordure sur besoin humain" />
+    <MESSAGE value="set product style base" />
+    <option name="LAST_COMMIT_MESSAGE" value="set product style base" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ecommerce/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="27" column="12" lean-forward="true" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="68" column="57" lean-forward="true" selection-start-line="63" selection-start-column="4" selection-end-line="68" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/apps.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -896,34 +914,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/styles/responsive.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="83" column="20" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="107" column="46" lean-forward="true" selection-start-line="107" selection-start-column="46" selection-end-line="107" selection-end-column="46" />
+        <state relative-caret-position="279">
+          <caret line="106" column="119" lean-forward="true" selection-start-line="106" selection-start-column="56" selection-end-line="106" selection-end-column="119" />
           <folding>
-            <element signature="e#3858#4898#0" />
+            <element signature="e#4038#4401#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="111" selection-start-line="26" selection-start-column="111" selection-end-line="26" selection-end-column="111" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/product_found.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="43" column="42" lean-forward="true" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/styles/main_styles2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="1095" column="1" lean-forward="true" selection-start-line="1095" selection-start-column="1" selection-end-line="1095" selection-end-column="1" />
+        <state relative-caret-position="175">
+          <caret line="25" column="111" selection-start-line="25" selection-start-column="111" selection-end-line="25" selection-end-column="111" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="46" column="89" lean-forward="true" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+        <state relative-caret-position="-6">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/styles/main_styles2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="1082" column="24" lean-forward="true" selection-start-line="1082" selection-start-column="24" selection-end-line="1082" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#28376#0" />
+          </folding>
         </state>
       </provider>
     </entry>
