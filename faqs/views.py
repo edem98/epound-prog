@@ -22,9 +22,11 @@ class ListeSujetReponse(ListView):
 def ask_question(request):
 	if request.method == 'POST':
 		question = request.POST.get('question')
-		if question is not None:
+		if question != "":
 			question = Question(question=question)
 			question.save()
-			JsonResponse({'success': 'Votre question a ete soumis'})
+			return JsonResponse({'success': 'Votre question a ete soumis'})
 		else:
-			JsonResponse({'erroe': "Votre question n'a pas pu etre soumis"})
+			return JsonResponse({'error': "Votre question n'a pas pu etre soumis"})
+	else:
+		return JsonResponse({'error': "Votre question n'a pas pu etre soumis"})

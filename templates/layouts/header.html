@@ -59,7 +59,7 @@
               <li><a href="{% url 'vendeurs' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Entreprises</a></li>
               <li><a href="{% url 'about' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">A Propos</a></li>
               <li><a href="{% url 'partenaires' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Partenaires</a></li>
-              <li><a href="{% url 'faqs' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">FAQs</a></li>
+              <li><a href="{% url 'faqs:index' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">FAQs</a></li>
               <li><a href="{% url 'ecommerce:troc-login' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Espace Troc</a></li>
               {% if request.user.is_authenticated %}
               <li><a href="{% url 'ecommerce:troc-gerer-article' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Gerer votre Compte</a></li>
@@ -96,7 +96,7 @@
                 <li style="display: block;" class="menu_item"><a href="{% url 'ecommerce:troc-login' %}" style="font-family: 'Righteous', cursive;color: #28a745;">Espace Troc</a></li>
 				<li style="display: block;" class="menu_item"><a href="{% url 'about' %}" style="font-family: 'Righteous', cursive;color: #28a745;" >A Propos</a></li>
 				<li style="display: block;" class="menu_item"><a href="{% url 'partenaires' %}" style="font-family: 'Righteous', cursive;color: #28a745;" >Partenaires</a></li>
-				<li style="display: block;" class="menu_item"><a href="{% url 'faqs' %}" style="font-family: 'Righteous', cursive;color: #28a745;">FAQs</a></li>
+				<li style="display: block;" class="menu_item"><a href="{% url 'faqs:index' %}" style="font-family: 'Righteous', cursive;color: #28a745;">FAQs</a></li>
 			</ul>
 		</div>
 	</div>

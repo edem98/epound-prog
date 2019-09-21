@@ -31,7 +31,7 @@ class Question(models.Model):
     """
         Cette classe gere les question posees par les utilisateur
     """
-    question = models.TextField(verbose_name="Réponse",null= True)
+    question = models.TextField(verbose_name="Questions Utilisateurs",null= True)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

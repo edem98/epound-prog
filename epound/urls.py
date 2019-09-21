@@ -67,7 +67,7 @@ urlpatterns = [
     path('vendeurs', ListEntreprise.as_view(), name="vendeurs"),
     path('about', about, name="about"),
     path('partenaires', partenaires, name="partenaires"),
-    path('faqs', ListeSujetReponse.as_view(), name="faqs"),
+    path('faqs', include('faqs.urls'), name="faqs"),
     path('contact/',contact, name="contact"),
     path('politique-confidentialite/', politique, name="politique"),
     path('membre/', include('membre.urls'), ),
