@@ -15,11 +15,11 @@
 		<!-- Deal of the week -->
 		<div class="container" style="margin-top:20%;">
 			<h2 class="text-center">Posez nous vos Questions ici.</h2>
-			<div class="row text-center">
+			<div class="container row text-center">
 				<div class="col-sm-12 col-lg-12 col-md-12">
 					<form action="" method="post" class="form-inline text-center" role="form">
 						{% csrf_token %}
-						<input type="text" placeholder="Que voulez vous savoir ?" class="form-control text-center">
+						<input type="text" name="question" placeholder="Que voulez vous savoir ?" class="form-control text-center">
 						<input type="submit" value="Envoyer" class="btn btn-success " style="color: white;">
 					</form>
 				</div>

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Sujet(models.Model):
     """
         Cette class définit les sujets qui intéressent
@@ -24,3 +25,14 @@ class ProblemeSolution(models.Model):
 
     def __str__(self):
         return self.probleme
+
+
+class Question(models.Model):
+    """
+        Cette classe gere les question posees par les utilisateur
+    """
+    question = models.TextField(verbose_name="Réponse",null= True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.question
