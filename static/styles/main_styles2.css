@@ -1094,10 +1094,20 @@ section
 	padding-right: 10px;
 
 }
+.product_info p {
+	font-size:12px;
+	color: #2091ea;
+	margin-top: -1.5em;
+	font-family: 'Titillium Web', sans-serif;
+}
+
 .product_name
 {
-	color: #5ae23f
+	margin-top: 8px;
+	color: black;
+	font-family: 'Permanent Marker', cursive;
 }
+
 .product_name a
 {
 	color: #1e1e27;
@@ -1116,6 +1126,7 @@ section
 	font-size: 16px;
 	color: #40A629;
 	font-weight: 600;
+	margin-top: 20px;
 }
 .product_price span
 {
