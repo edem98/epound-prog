@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7b9e646-bba3-42bc-9e1b-2a3e7e97f472" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/logo_partenaire/IMG-20181129-WA0081.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/logo_partenaire/Sainthonore.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/logo_partenaire/Suivre-son-chantier-de-construction-632x519.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/logo_partenaire/vvh18pakito_noir-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/produits/vvh18prudy_bleu-a_1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/product_found.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/product_found.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-categorie.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/templates/ecommerce/products-specification.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles/main_styles2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/main_styles2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/responsive.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +76,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="155" />
-          <entry key="css" value="1431" />
+          <entry key="css" value="1433" />
           <entry key="html" value="3052" />
           <entry key="js" value="261" />
           <entry key="py" value="5131" />
@@ -95,7 +85,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1431" />
+          <entry key="CSS" value="1433" />
           <entry key="HTML" value="3052" />
           <entry key="JavaScript" value="261" />
           <entry key="PLAIN_TEXT" value="964" />
@@ -109,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/styles/main_styles2.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="1082" column="24" lean-forward="true" selection-start-line="1082" selection-start-column="24" selection-end-line="1082" selection-end-column="24" />
+            <state relative-caret-position="138">
+              <caret line="1084" column="1" lean-forward="true" selection-start-line="1084" selection-start-column="1" selection-end-line="1084" selection-end-column="1" />
               <folding>
                 <element signature="e#0#28376#0" />
               </folding>
@@ -606,7 +596,7 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.22412509" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6306306" visible="true" weight="0.22412509" />
       <window_info id="Structure" order="1" sideWeight="0.36936936" side_tool="true" weight="0.23676324" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -617,7 +607,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952693" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32952693" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.30179444" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.30179444" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.3284553" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -963,8 +953,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/styles/main_styles2.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="1082" column="24" lean-forward="true" selection-start-line="1082" selection-start-column="24" selection-end-line="1082" selection-end-column="24" />
+        <state relative-caret-position="138">
+          <caret line="1084" column="1" lean-forward="true" selection-start-line="1084" selection-start-column="1" selection-end-line="1084" selection-end-column="1" />
           <folding>
             <element signature="e#0#28376#0" />
           </folding>
