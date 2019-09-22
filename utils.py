@@ -1,5 +1,5 @@
 from django.db import models
-
+import requests
 
 """ from compte import CompteBusiness
 from dashboard.models import Creance
@@ -7,12 +7,38 @@ from dashboard.models import Creance
 COMPTEBUSINESS = CompteBusiness
 CREANCE = Creance """
 
+
+def envoyer_sms(message, destinataire, expediteur="Epound Corporation"):
+    """
+        Cet controlleur envoie le mot de passe et code membre auc nouveaux utilisateurs
+    :type message: string
+    :param message: message to send
+    :param destinataire: le destinataire du message
+    :param expediteur: l4expediteur (Epound corp)
+    """
+    url = "https://nexmo-nexmo-messaging-v1.p.rapidapi.com/send-sms"
+
+    querystring = {"text": message, "from": expediteur, "to": destinataire}
+
+    payload = ""
+    headers = {
+        'x-rapidapi-host': "nexmo-nexmo-messaging-v1.p.rapidapi.com",
+        'x-rapidapi-key': "48fb167c5dmsh0e4eec0a01639efp1352e8jsn154c9a663649",
+        'content-type': "application/x-www-form-urlencoded"
+    }
+
+    response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
+
+    print(response.text)
+
+
 class TimeStamp(models.Model):
 	date_add = models.DateTimeField(auto_now_add = True,verbose_name = "Date d'ajout")
 	date_update = models.DateTimeField(auto_now = True,verbose_name = "Dernière mise à jour")
 
 	class Meta():
 		abstract = True
+
 
 class SingletonModel(models.Model):
 	class Meta:
@@ -29,6 +55,7 @@ class SingletonModel(models.Model):
 		if not created:
 			return obj
 		return created
+
 
 class CorrespondanceMois():
 	"""

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from .views import about, acceuil, partenaires, contact, ListEntreprise, politique
 from rest_framework import routers
 from services.views import *
 from . import settings
@@ -63,13 +63,13 @@ urlpatterns = [
         name='password_reset_complete',
     ),
     path('admin/', admin.site.urls),
-    path('', views.acceuil, name="acceuil"),
-    path('vendeurs', views.ListEntreprise.as_view(), name="vendeurs"),
-    path('about', views.about, name="about"),
-    path('partenaires', views.partenaires, name="partenaires"),
+    path('', acceuil, name="acceuil"),
+    path('vendeurs', ListEntreprise.as_view(), name="vendeurs"),
+    path('about', about, name="about"),
+    path('partenaires', partenaires, name="partenaires"),
     path('faqs', ListeSujetReponse.as_view(), name="faqs"),
-    path('contact/', views.contact, name="contact"),
-    path('politique-confidentialite/', views.politique, name="politique"),
+    path('contact/',contact, name="contact"),
+    path('politique-confidentialite/', politique, name="politique"),
     path('membre/', include('membre.urls'), ),
     path('api/', include(router.urls)),
     path('ecommerce/', include('ecommerce.urls')),

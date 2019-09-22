@@ -48,7 +48,7 @@
 										<p>Vendeur: {{ produit.vendeur }}</p>
 										<p>Téléphone: {{ produit.vendeur.telephone }}</p>
 										<p>Emplacement: {{ produit.vendeur.emplacement }}</p>
-										<a type="button" href="#" class="btn btn-success">Commander</a>
+										<a href="{% url 'ecommerce:commander-produit' produit.id %}" class="btn btn-success order-button">Commander</a>
 									</div>
 								</div>
 							</div>

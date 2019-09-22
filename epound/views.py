@@ -1,36 +1,11 @@
-import requests
-from django.contrib.staticfiles.views import serve
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from ecommerce.models import ExpressionBesoin, Produit, Categorie
-from membre.models import EntrepriseCommerciale, Partenaire
+from membre.models import EntrepriseCommerciale, Partenaire, ConsommateurParticulier
 from membre.models import Quartier
 
-
-def envoyer_sms(message, destinataire, expediteur="Epound Corporation"):
-    """
-        Cet controlleur envoie le mot de passe et code membre auc nouveaux utilisateurs
-    :type message: string
-    :param message: message to send
-    :param destinataire: le destinataire du message
-    :param expediteur: l4expediteur (Epound corp)
-    """
-    url = "https://nexmo-nexmo-messaging-v1.p.rapidapi.com/send-sms"
-
-    querystring = {"text": message, "from": expediteur, "to": destinataire}
-
-    payload = ""
-    headers = {
-        'x-rapidapi-host': "nexmo-nexmo-messaging-v1.p.rapidapi.com",
-        'x-rapidapi-key': "48fb167c5dmsh0e4eec0a01639efp1352e8jsn154c9a663649",
-        'content-type': "application/x-www-form-urlencoded"
-    }
-
-    response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
-
-    print(response.text)
 
 
 def acceuil(request):
