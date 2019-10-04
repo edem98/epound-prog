@@ -50,24 +50,75 @@
 					</div>
 				</div>
 			</div>
-			<div>
-				{% for entreprise in entreprises %}
-				{% if entreprise.banniere_principal %}
-					<div class="row">
-					<div class="col-lg-3 col-md-3">
-						<div class="product_image">
-							<img src="{{ entreprise.banniere_principal.url }}" alt="">
-						</div>
-					</div>
-					<div class="col-lg-9 col-md-9">
-						<h3>{{ entreprise.nom }}</h3>
-						<p>tel: {{ entreprise.telephone }}</p>
-						<p>siège: {{ entreprise.emplacement }}</p>
-						<p>{{ entreprise.email }}</p>
+			<div class="row"">
+				<div class="col">
+					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+						{% for entreprise in entreprises %}
+							{% if entreprise.banniere_principal %}
+								<div class="product-item {{ entreprise.slug }}">
+									<div class="product discount product_filter">
+										<div class="product_image">
+											<img src="{{ entreprise.banniere_principal.url }}" alt="">
+										</div>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
+									</div>
+								</div>
+							{% endif %}
+							{% if entreprise.banniere_secondaire %}
+								<div class="product-item {{ entreprise.slug }}">
+									<div class="product discount product_filter">
+										<div class="product_image">
+											<img src="{{ entreprise.banniere_secondaire.url }}" alt="">
+										</div>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
+									</div>
+								</div>
+							{% endif %}
+							{% if entreprise.banniere_trois %}
+								<div class="product-item {{ entreprise.slug }}">
+									<div class="product discount product_filter">
+										<div class="product_image">
+											<img src="{{ entreprise.banniere_trois.url }}" alt="">
+										</div>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
+									</div>
+								</div>
+							{% endif %}
+							{% if entreprise.banniere_quatre %}
+								<div class="product-item {{ entreprise.slug }}">
+									<div class="product discount product_filter">
+										<div class="product_image">
+											<img src="{{ entreprise.banniere_quatre.url }}" alt="">
+										</div>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
+									</div>
+								</div>
+							{% endif %}
+							{% if entreprise.banniere_cinq %}
+								<div class="product-item {{ entreprise.slug }}">
+									<div class="product discount product_filter">
+										<div class="product_image">
+											<img src="{{ entreprise.banniere_cinq.url }}" alt="">
+										</div>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+
 					</div>
 				</div>
-				{% endif %}
-				{% endfor %}
 			</div>
 		</div>
 	</div>
