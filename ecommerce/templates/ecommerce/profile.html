@@ -38,7 +38,7 @@
                 <div class="col-lg-5 col-md-5 user-data">
                     <p> Solde: {{ consommateur.compte_consommateur.solde }}</p>
                     <p> Depense realiser ce mois: {{ consommateur.compte_consommateur.depense_epound_mensuel }}</p>
-                    <p> Depense autoriser pour le reste du mois: {{ consommateur.compte_consommateur.depense_epound_mensuel }}</p>
+                    <p> Depense autoriser pour le reste du mois: {{ depense_autoriser }}</p>
                     <p> Status: {% if consommateur.compte_consommateur.actif is True %}Compte Actif{% else %}Compte Desactive{% endif %}</p>
                 </div>
                 <div class="col-lg-5 col-md-5 user-data">

@@ -221,7 +221,8 @@ def logout_troc(request):
 @login_required
 def profile_troc(request):
     consommateur = ConsommateurParticulier.objects.get(user=request.user)
-    context = {'consommateur': consommateur,}
+    depense_autoriser = 60000 - consommateur.compte_consommateur.depense_epound_mensuel
+    context = {'consommateur': consommateur, 'depense_autoriser': depense_autoriser, }
     return render(request,'ecommerce/profile.html', context)
 
 
