@@ -46,6 +46,9 @@ class AddProductTrocForm(forms.ModelForm):
             'image_produit',
             'nom',
             'prix',
+            'premier_produit_souhaite',
+            'second_produit_souhaite',
+            'dernier_produit_souhaite'
         ]
         widgets = {
             'nom': forms.TextInput(
@@ -65,6 +68,24 @@ class AddProductTrocForm(forms.ModelForm):
                     'class': 'custom-file-input',
                     'id': 'id_image_produit',
                     'type': 'file',
+                }
+            ),
+            'premier_produit_souhaite': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'id': 'id_premier_produit_souhaite',
+                }
+            ),
+            'second_produit_souhaite': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'id': 'id_second_produit_souhaite',
+                }
+            ),
+            'dernier_produit_souhaite': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'id': 'id_dernier_produit_souhaite',
                 }
             ),
         }

@@ -98,6 +98,9 @@ class ProduitTroc(models.Model):
     modele = models.CharField(max_length=50, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     image_produit = models.ImageField(upload_to='produitsTroques/', verbose_name="Image", null=True, )
+    premier_produit_souhaite = models.CharField(max_length=255, verbose_name="Premier Produit Souhaite", null=True)
+    second_produit_souhaite = models.CharField(max_length=255, verbose_name="Second Produit Souhaite", null=True)
+    dernier_produit_souhaite = models.CharField(max_length=255, verbose_name="Dernier Produit Souhaite", null=True)
     date_ajout = models.DateTimeField(auto_now_add=True, )
     status = models.CharField(max_length=150,choices=STATUS_CHOICES, default=EN_VENTE)
 

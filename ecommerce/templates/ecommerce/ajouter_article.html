@@ -74,6 +74,24 @@
                                   </div>
                             </div>
                         </div>
+
+                        <h3 class="text-center mt-3">Produits Souhaites pour le troc</h3>
+
+                        <!-- Premier Article Souhaite -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormMessage">Premier Article Souhaite</label>
+                             {{ form.premier_produit_souhaite }}
+                        </div>
+                        <!-- Second Article Souhaite -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormMessage">Second Article Souhaite</label>
+                             {{ form.second_produit_souhaite }}
+                        </div>
+                        <!-- Dernier Article Souhaite -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormMessage">Dernier Article Souhaite</label>
+                             {{ form.dernier_produit_souhaite }}
+                        </div>
                         <!-- Send button -->
                         <input id="submitInput" class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
                                type="submit" value="Save"/>
