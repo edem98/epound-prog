@@ -9,51 +9,83 @@
 
 {% block addjs %}
 <script src="{% static 'js_/modernizr.js' %}"></script>
+<script>
+	$(document).ready(function(){
+    //recuperer le formulaire
+    $('#form-question').on('submit',function(e){
+        e.preventDefault();
+		var question = $('#question');
+		question = question.val()
+		token = $('[name="csrfmiddlewaretoken"]').val()
+
+		$.post($(this).attr('action'),{'question': question,'csrfmiddlewaretoken': token,}
+		 )
+		.done(function(data,text,jqxhr){
+				if(data.error != undefined){
+					alert(data.error)
+				}else{
+					alert(data.success)
+				}
+		})
+		.fail(function(jqxhr, data){
+			alert(data.error)
+		 })
+    })
+	});
+</script>
 {% endblock %}
 
 {% block content %}
-		<!-- Deal of the week -->
-		<div class="container" style="margin-top:20%;">
-			<section class="cd-faq">
-			<ul class="cd-faq-categories">
-				{% for sujet in sujets %}
-					{% if forloop.first %}
-					<li><a class="selected" style="font-family: 'Gugi', cursive;text-transform: uppercase;" href="#{{ sujet.slug }}">{{ sujet.sujet }}</a></li>
-					{% else %}
-					<li><a href="#{{ sujet.slug }}" style="font-family: 'Gugi', cursive;text-transform: uppercase;">{{ sujet.sujet }}</a></li>
-					{% endif %}
-				{% endfor %}
-			</ul> <!-- cd-faq-categories -->
-
-			<div class="cd-faq-items">
-				{% for sujet in sujets %} 
-				<ul id="{{ sujet.slug }}" class="cd-faq-group">
-					<li class="cd-faq-title">
-						<h2 style="font-family: 'Righteous', cursive;">{{ sujet.sujet }}</h2></li>
-					{% for item in sujet_items %}
-						{% if item.sujet == sujet %}
-							<li>
-								<a class="cd-faq-trigger" href="#0">{{ item.probleme }}</a>
-								<div class="cd-faq-content">
-									<p style="font-family: 'Righteous', cursive;">{{ item.solution }}</p>
-									{% if item.manuel.url != None %}
-										{% if ".apk" in item.manuel.url %}
-											<a href="{{ item.manuel.url }}" class="lien_manuel">Télécharger</a>
-										{% else %}
-											<p>Pour plus d'informations
-												<a style="font-family: 'Righteous', cursive;" href="{{ item.manuel.url }}" class="lien_manuel">Manuel complet en pdf </a>
-											</p>
-										{% endif %}
-									{% endif %}
-								</div> <!-- cd-faq-content -->
-							</li>
-						{% endif %}
-					{% endfor%}
-				</ul> <!-- cd-faq-group -->
-				{% endfor %}
-			</div> <!-- cd-faq-items -->
-			<a href="#0" class="cd-close-panel">Close</a>
-		</section> <!-- cd-faq -->
+<!-- Deal of the week -->
+<div class="container" style="margin-top:20%;">
+	<h2 class="text-center">Posez nous vos Questions ici.</h2>
+	<div class="container row text-center">
+		<div class="col-sm-12 col-lg-12 col-md-12">
+			<form action="{% url 'faqs:ask-question' %}" method="post" class="form-inline text-center" role="form" id="form-question">
+				{% csrf_token %}
+				<input type="text" id="question" name="question" placeholder="Que voulez vous savoir ?" class="form-control text-center">
+				<input type="submit" value="Envoyer" class="btn btn-success " style="color: white;">
+			</form>
 		</div>
+	</div>
+	<section class="cd-faq">
+		<ul class="cd-faq-categories">
+		{% for sujet in sujets %}
+			{% if forloop.first %}
+			<li><a class="selected" style="font-family: 'Gugi', cursive;text-transform: uppercase;" href="#{{ sujet.slug }}">{{ sujet.sujet }}</a></li>
+			{% else %}
+			<li><a href="#{{ sujet.slug }}" style="font-family: 'Gugi', cursive;text-transform: uppercase;">{{ sujet.sujet }}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul> <!-- cd-faq-categories -->
+		<div class="cd-faq-items">
+		{% for sujet in sujets %}
+		<ul id="{{ sujet.slug }}" class="cd-faq-group">
+			<li class="cd-faq-title">
+				<h2 style="font-family: 'Righteous', cursive;">{{ sujet.sujet }}</h2></li>
+			{% for item in sujet_items %}
+				{% if item.sujet == sujet %}
+					<li>
+						<a class="cd-faq-trigger" href="#{{ sujet.slug }}">{{ item.probleme }}</a>
+						<div class="cd-faq-content">
+							<p style="font-family: 'Righteous', cursive;">{{ item.solution }}</p>
+							{% if item.manuel.url != None %}
+								{% if ".apk" in item.manuel.url %}
+									<a href="{{ item.manuel.url }}" class="lien_manuel">Télécharger</a>
+								{% else %}
+									<p>Pour plus d'informations
+										<a style="font-family: 'Righteous', cursive;" href="{{ item.manuel.url }}" class="lien_manuel">Manuel complet en pdf </a>
+									</p>
+								{% endif %}
+							{% endif %}
+						</div> <!-- cd-faq-content -->
+					</li>
+				{% endif %}
+			{% endfor%}
+		</ul> <!-- cd-faq-group -->
+		{% endfor %}
+	</div> <!-- cd-faq-items -->
+		<a href="#0" class="cd-close-panel">Close</a>
+	</section> <!-- cd-faq -->
+</div>
 {% endblock %}
-

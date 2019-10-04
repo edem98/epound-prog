@@ -5,9 +5,8 @@ from django.contrib.auth.models import User
 from compte.models import CompteAlpha
 from django.db import transaction
 from django.contrib.auth.hashers import check_password
-from epound.views import envoyer_sms
 from django.contrib.auth.base_user import BaseUserManager
-import string
+from utils import envoyer_sms
 
 
 class EmissionUnites(models.Model):

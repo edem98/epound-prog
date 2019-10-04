@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title new_arrivals_title">
-						<h2 style="font-family: 'Orbitron', sans-serif;text-transform: uppercase;color: #007bff">Produits</h2>
+						<h2 style="font-family: 'Orbitron', sans-serif;text-transform: uppercase;color: #337fab">Produits</h2>
 					</div>
 				</div>
 			</div>
@@ -38,13 +38,16 @@
 								</div>
 								<div class="product_info">
 									<h6 class="product_name">{{ produit.nom }}</h6>
-									<div class="product_price">
+									<div class="product_detail">
+										<div class="product_price">
 											<p>Prix: {{ produit.prix }} epounds</p>
 											<p>Code article: {{ produit.code_article }}</p>
+										</div>
+										<p>Vendeur: {{ produit.vendeur }}</p>
+										<p>Téléphone: {{ produit.vendeur.telephone }}</p>
+										<p>Emplacement: {{ produit.vendeur.emplacement }}</p>
+										<a href="{% url 'ecommerce:commander-produit' produit.id %}" class="btn btn-success order-button">Commander</a>
 									</div>
-									<p>Vendeur: {{ produit.vendeur }}</p>
-									<p>Téléphone: {{ produit.vendeur.telephone }}</p>
-									<p>Emplacement: {{ produit.vendeur.emplacement }}</p>
 								</div>
 							</div>
 						</div>
