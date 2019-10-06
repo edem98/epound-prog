@@ -51,10 +51,8 @@
                             <div class="product_info">
                                 <div class="product_detail">
                                     <div class="product_price">
-                                        <h5>
-                                          <strong>
-                                              <a href="" class="dark-grey-text" style="color: #fff;">{{ produit.nom }}</a>
-                                          </strong>
+                                        <h5 class="font-weight-bold" style="color: #fff;">
+                                          <strong> {{ produit.nom }}</strong>
                                         </h5>
                                         <h5 class="font-weight-bold" style="color: #fff;">
                                           <strong>{{ produit.prix }} epounds</strong>
@@ -63,19 +61,19 @@
                                         <h5 style="color: #fff;">Produits souhaites</h5>
                                         {% if produit.premier_produit_souhaite %}
                                         <h5>
-                                          <a href="" class="dark-grey-text" style="color: #fff;">{{ produit.premier_produit_souhaite }}</a>
+                                          <a href="" style="color: #fff;">{{ produit.premier_produit_souhaite }}</a>
                                         </h5>
                                         {% endif %}
 
                                         {% if produit.second_produit_souhaite %}
                                         <h5>
-                                          <a href="" class="dark-grey-text" style="color: #fff;">{{ produit.second_produit_souhaite }}</a>
+                                          <a href="" style="color: #fff;">{{ produit.second_produit_souhaite }}</a>
                                         </h5>
                                         {% endif %}
 
                                         {% if produit.dernier_produit_souhaite %}
                                         <h5>
-                                          <a href="" class="dark-grey-text" style="color: #fff;">{{ produit.dernier_produit_souhaite }}</a>
+                                          <a href="" style="color: #fff;">{{ produit.dernier_produit_souhaite }}</a>
                                         </h5>
                                         {% endif %}
 

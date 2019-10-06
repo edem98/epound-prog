@@ -1081,7 +1081,7 @@ section
 .product-item:hover .product_detail
 {
 	visibility: visible;
-    transform: translateY(-130%);
+    transform: translateY(-120%);
 }
 
 .product
