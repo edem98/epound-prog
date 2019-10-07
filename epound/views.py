@@ -7,11 +7,10 @@ from membre.models import EntrepriseCommerciale, Partenaire, ConsommateurParticu
 from membre.models import Quartier
 
 
-
 def acceuil(request):
     context = {}
     besoins = ExpressionBesoin.objects.all()
-    new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:60]
+    new_produits = Produit.objects.filter(disponible=True).order_by('?')[:60]
     partenaires = Partenaire.objects.all()
     context['besoins'] = besoins
     context['produits'] = new_produits
