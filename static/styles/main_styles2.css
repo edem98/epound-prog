@@ -1077,6 +1077,7 @@ section
 {
 	visibility: visible;
     transform: translateY(-120%);
+    pointer-events: none;
 }
 
 .product
@@ -1116,7 +1117,7 @@ section
     -webkit-transition: all 1s;
 }
 
-.product_image:hover:after {
+.product_image:hover:after{
     opacity: 1;
 }
 
