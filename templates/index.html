@@ -104,7 +104,9 @@
 														<p>Vendeur: {{ produit.vendeur }}</p>
 														<p>Téléphone: {{ produit.vendeur.telephone }}</p>
 														<p>Emplacement: {{ produit.vendeur.emplacement }}</p>
-														<a href="{% url 'ecommerce:commander-produit' produit.id %}" class="btn btn-success order-button">Commander</a>
+													</div>
+													<div class="commander">
+														<a href="{% url 'ecommerce:commander-produit' produit.id %}" class="btn btn-success order-button commander">Commander</a>
 													</div>
 												</div>
 											</div>

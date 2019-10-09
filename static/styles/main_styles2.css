@@ -1062,6 +1062,12 @@ section
     height: 220px;
 }
 
+.commander{
+    position: relative;
+    visibility: hidden;
+    transition: all 0.5s ease-in;
+}
+
 .product-item:hover span
 {
 	display: block;
@@ -1078,6 +1084,12 @@ section
 	visibility: visible;
     transform: translateY(-120%);
     pointer-events: none;
+}
+
+.product-item:hover .commander
+{
+	visibility: visible;
+    transform: translateY(-420%);
 }
 
 .product
