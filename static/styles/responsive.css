@@ -503,7 +503,7 @@
 	}
 	.main_slider
 	{
-		height: calc(60vh - 70px);
+		height: calc(60vh - 200px);
 		/*height: 80vw;*/
 		margin-top: 70px;
 
