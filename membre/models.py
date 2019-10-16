@@ -333,7 +333,7 @@ class Trader(Membre):
         if self.id == None:
             super(Trader, self).save(*args, **kwargs)
             self.code_membre = self.id
-            self.user = User.objects.create(username=str(self.nom) + "_" + str(self.code_membre),
+            self.user = User(username=str(self.nom) + "_" + str(self.code_membre),
                              last_name=str(self.nom), password=make_password(self.mdp))
             self.user.save()
             groupe = Group.objects.get(name="Trader")
