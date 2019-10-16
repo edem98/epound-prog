@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <div class="top_nav_left" style="font-family: 'Righteous', cursive;">Un réseau qui boost votre pouvoir d'achat</div>
+          <div class="top_nav_left" style="font-family: 'Righteous', cursive;color: white;">Un réseau qui boost votre pouvoir d'achat</div>
         </div>
         <div class="col-md-6 text-right">
           <div class="top_nav_right">
@@ -24,7 +24,7 @@
               <!-- Currency / Language / My Account -->
 
               <li class="currency">
-                <a href="" style="font-family: 'Righteous', cursive;color: #28a745;">
+                <a href="" style="font-family: 'Righteous', cursive;color: #28a745;color: white;">
                   Contactez-nous sur +22896169610 / +22870011777
                 </a>
               </li>
@@ -53,14 +53,22 @@
                 <span style="color: rgb(63, 236, 63);font-size: 25px;">Pounds</span>
             </div>
           </a> -->
-          <nav class="navbar">
+          <nav class="navbar" style="box-shadow: 0px 0px;">
             <ul class="navbar_menu" style="color: rgb(75, 75, 241)">
               <li><a href="{% url 'acceuil' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Accueil</a></li>
-              <li><a href="{% url 'vendeurs' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Nos entreprises commerciales</a></li>
-              <li><a href="{% url 'about' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Apropos</a></li>
-              <li><a href="{% url 'partenaires' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Nos Partenaires</a></li>
-              <li><a href="{% url 'faqs' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">FAQs</a></li>
-              <li><a href="{% url 'contact' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Contact</a></li>
+              <li><a href="{% url 'vendeurs' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Entreprises</a></li>
+              <li><a href="{% url 'about' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">A Propos</a></li>
+              <li><a href="{% url 'partenaires' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Partenaires</a></li>
+              <li><a href="{% url 'faqs:index' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">FAQs</a></li>
+              <li><a href="{% url 'ecommerce:troc-login' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Espace Troc</a></li>
+              {% if request.user.is_authenticated %}
+              <li><a href="{% url 'ecommerce:troc-gerer-article' %}" style="font-family: 'Righteous', cursive;padding: 8px;color: white; background-color: #28a745; border-radius: 8px;">Gerer votre Compte</a></li>
+              {% endif %}
+              <li>
+                  <a href data-toggle="modal" data-target="#search-modal">
+                      <i style="font-size: 1.8em;color: #28a745;" class="fa fa-search"></i>
+                  </a>
+              </li>
             </ul>
             <div class="hamburger_container">
               <i class="fa fa-bars" aria-hidden="true"></i>
@@ -72,23 +80,23 @@
   </div>
 
 </header>
-
 	<div class="fs_menu_overlay"></div>
 	<div class="hamburger_menu">
 		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
 		<div class="hamburger_menu_content text-right">
 			<ul class="menu_top_nav">
-				<li class="menu_item has-children">
-					<a href="{% url 'contact' %}" style="font-family: 'Righteous', cursive;color: #28a745; display: block;">
-						  Contactez-nous sur (+228) 96169610/70011777
-					</a>
-				</li>
-				<li class="menu_item"><a href="{% url 'acceuil' %}" style="font-family: 'Righteous', cursive;color: #28a745;">Accueil</a></li>
-				<li class="menu_item"><a href="{% url 'vendeurs' %}" style="font-family: 'Righteous', cursive;color: #28a745;">Nos entreprises commerciales</a></li>
-				<li class="menu_item"><a href="{% url 'about' %}" style="font-family: 'Righteous', cursive;color: #28a745;" >Apropos</a></li>
-				<li class="menu_item"><a href="{% url 'partenaires' %}" style="font-family: 'Righteous', cursive;color: #28a745;" >Nos Partenaires</a></li>
-				<li class="menu_item"><a href="{% url 'faqs' %}" style="font-family: 'Righteous', cursive;color: #28a745;">FAQs</a></li>
-				<li class="menu_item"><a href="{% url 'contact' %}" style="font-family: 'Righteous', cursive;color: #28a745;">Contact</a></li>
+				<li style="display: block;" class="menu_item">
+                  <a href data-toggle="modal" data-target="#search-modal">
+                      <i style="font-size: 1em;color: #28a745;" class="fa fa-search"></i>
+                      <span style="font-family: 'Righteous', cursive;color: #28a745;">Rechercher un article</span>
+                  </a>
+                </li>
+				<li style="display: block;" class="menu_item"><a href="{% url 'acceuil' %}" style="font-family: 'Righteous', cursive;color: #28a745;">Accueil</a></li>
+				<li style="display: block;" class="menu_item"><a href="{% url 'vendeurs' %}" style="font-family: 'Righteous', cursive;color: #28a745;">Entreprises</a></li>
+                <li style="display: block;" class="menu_item"><a href="{% url 'ecommerce:troc-login' %}" style="font-family: 'Righteous', cursive;color: #28a745;">Espace Troc</a></li>
+				<li style="display: block;" class="menu_item"><a href="{% url 'about' %}" style="font-family: 'Righteous', cursive;color: #28a745;" >A Propos</a></li>
+				<li style="display: block;" class="menu_item"><a href="{% url 'partenaires' %}" style="font-family: 'Righteous', cursive;color: #28a745;" >Partenaires</a></li>
+				<li style="display: block;" class="menu_item"><a href="{% url 'faqs:index' %}" style="font-family: 'Righteous', cursive;color: #28a745;">FAQs</a></li>
 			</ul>
 		</div>
 	</div>

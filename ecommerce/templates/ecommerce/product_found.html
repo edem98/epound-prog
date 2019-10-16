@@ -1,0 +1,63 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block add_css %}
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+ 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="super_container">
+
+	<div style="margin-top: 10em; text-align: center;">
+
+	</div>
+
+	<!-- New Arrivals -->
+
+	<div class="new_arrivals">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title new_arrivals_title">
+						<h2 style="font-family: 'Orbitron', sans-serif;text-transform: uppercase;color: #337fab">Articles Correspondants</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-bottom: 100px;">
+				<div class="col">
+					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+						{% for produit in produits %}
+						<div class="product-item">
+							<div class="product discount" >
+								<div class="product_image img-fluid">
+									<img class="img-fluid" src="{{ produit.image_produit.url }}" alt="">
+								</div>
+								<div class="product_info">
+									<h6 class="product_name">{{ produit.nom }}</h6>
+									<div class="product_detail">
+										<div class="product_price">
+											<p>Prix: {{ produit.prix }} epounds</p>
+											<p>Code article: {{ produit.code_article }}</p>
+										</div>
+										<p>Vendeur: {{ produit.vendeur }}</p>
+										<p>Téléphone: {{ produit.vendeur.telephone }}</p>
+										<p>Emplacement: {{ produit.vendeur.emplacement }}</p>
+									</div>
+									<div class="commander">
+										<a href="{% url 'ecommerce:commander-produit' produit.id %}" class="btn btn-success order-button commander">Commander</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Benefit -->
+	{% endblock  %}

@@ -1,0 +1,192 @@
+.sidebar-header-wrapper {
+    background-color: #3da027;
+    color: #39485f;
+}
+.sidebar-header-menu, .sidebar-header-menu:visited, .sidebar-header-menu:hover {
+    color: #fff;
+}
+.sidebar-header-wrapper.sidebar-opened {
+    background-color: #426f8f;
+}
+.sidebar-header-menu-icon.icon-cross {
+    color: #fff;
+}
+#branding {
+    background-color: #426f8f;
+    color: #fff;
+}
+.sidebar {
+    background-color: #3da027;
+    color: #fff;
+}
+.sidebar-link-icon {
+    color: #ffffff;
+}
+.sidebar-link, .sidebar-link:visited, .sidebar-link:hover {
+    color: #ffffff;
+}
+.ps-rail:hover>.ps-scrollbar-y {
+    background-color: #426f8f;
+}
+.ps-container>.ps-scrollbar-y-rail>.ps-scrollbar-y {
+    background-color: #426f8f;
+}
+.ps-container.ps-in-scrolling.ps-y>.ps-scrollbar-y-rail>.ps-scrollbar-y {
+    background-color: #426f8f;
+    border-color: #fff;
+}
+body {
+    background: #ffffff;
+    color: #426f8f;
+}
+.module ul.actionlist {
+    background: #426f8f;
+}
+table {
+    background: #426f8f;
+}
+a {
+    color: #fff;
+}
+a:visited, a:hover, a:focus {
+    color: #ffffff;
+}
+.sidebar-right-arrow {
+    color: #ffffff;
+}
+.sidebar-title {
+    color: #ffffff;
+}
+table thead th {
+    background: #378027;
+    box-shadow: 0 2px 0 0 #fff;
+    box-shadow: 0 0.14286rem 0 0 #fff;
+    margin-bottom: 2px;
+    margin-bottom: 0.14286rem;
+}
+
+#changelist .actions .button, #changelist .actions .button:visited, #changelist .actions .button:hover {
+    background-color: #489437;
+}
+
+#toolbar form input[type="submit"], #toolbar form input[type="submit"]:visited, #toolbar form input[type="submit"]:hover {
+    background-color: #489437;
+}
+.button:hover, .button:focus, input[type="submit"]:hover, input[type="submit"]:focus, input[type="button"]:hover, input[type="button"]:focus, .object-tools a:hover, .object-tools a:focus {
+    background-color: #378027;
+    color: #fff;
+}
+
+.button, .button:visited, .button:hover, input[type="submit"], input[type="submit"]:visited, input[type="submit"]:hover, input[type="button"], input[type="button"]:visited, input[type="button"]:hover, .object-tools a, .object-tools a:visited, .object-tools a:hover {
+    background-color: #426f8f;
+    color: #ffffff;
+    transition: background .3s;
+    cursor: grab;
+}
+input[type=checkbox]+label:before {
+    color: #ffffff;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="url"], input[type="number"], textarea, select, .vTextField {
+    border: 1px solid #426f8f;
+
+}
+#changelist table tbody tr.selected {
+    border-color: #f4f4f4;
+    background-color: #378027;
+}
+.changelist-footer {
+    background: #ffffff;
+}
+#content-main {
+    color: #426f8f;
+}
+
+table a{
+    color: #fff;
+}
+tr {
+    color: #fff;
+}
+
+th a {
+    color: #fff;
+}
+.changeform-tabs-item.selected a, .changeform-tabs-item.selected a:hover, .changeform-tabs-item.selected a:visited {
+    color: #426f8f;
+    border-color: #426f8f;
+}
+fieldset.module {
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-radius: 0.28571rem;
+    padding: 14px;
+    padding: 1rem;
+    border: 0;
+}
+
+fieldset.module a {
+    color: #426f8f;
+}
+
+#recent-actions-module h2{
+    color: #426f8f;
+}
+.changelink:before, .inlinechangelink:before {
+    font-family: 'jet-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    content: "";
+    vertical-align: middle;
+    margin-right: 4px;
+    margin-right: 0.28571rem;
+    color: #ffffff;
+}
+.addlink:before {
+    font-family: 'jet-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    content: "";
+    vertical-align: middle;
+    margin-right: 4px;
+    margin-right: 0.28571rem;
+    color: #ffffff;
+}
+.object-tools a.addlink:before {
+    font-family: 'jet-icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 13px;
+    font-size: 0.92857rem;
+    content: "";
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-top: -0.21429rem;
+    margin-right: 3px;
+    margin-right: 0.21429rem;
+}
+
+.checkbox-row input[type=checkbox]+label:before {
+    color: #426f8f;
+}

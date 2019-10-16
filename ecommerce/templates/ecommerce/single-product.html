@@ -1,0 +1,82 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block add_css %}
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+ 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 15em;">
+	<div class="text-center">
+		<div class="row">
+			<div class="col-lg-5 col-md-5 col-sm-12">
+				<div class="single-product">
+					<img src="{{ produit.image_produit.url }}">
+				</div>
+			</div>
+			<div class="col-lg-7 col-md-7 col-sm-12">
+				<form method="post">
+					{% csrf_token %}
+					<h2 class="product-title">{{ produit.nom }}</h2>
+					<h3 class="product-price" id="price" prix="{{ produit.prix }}" produit="{{ produit.id }}">Prix: {{ produit.prix }} epounds</h3>
+					<div class="product-description">
+						<h3 style="color: #337fab; text-align: left;font-family: 'Righteous';">Description:</h3>
+						{% if produit.description  %}
+						<p style="font-size: 17px;color: #337fab; text-align: left;font-family: 'Righteous';">{{ produit.description }}</p>
+						{% else %}
+						<p style="font-size: 17px;color: #337fab; text-align: left;font-family: 'Righteous';">No description.</p>
+						{% endif %}
+					</div>
+					<div class="product-seller">
+						Vendeur: {{ produit.vendeur }}
+					</div>
+					<div class="product-quantity">
+						<input style="width: 230px;" id="quantity" class="form-control" type="number" value="1" min="1" step="1">
+					</div>
+					<a class="btn btn-success product-order" href="{% url 'ecommerce:valider-commande' %}" id="buy">Commander</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock  %}
+
+{% block addjs %}
+<script>
+	$(document).ready(function(){
+    //recuperer le formulaire
+    $('#buy').on('click',function(e){
+        e.preventDefault();
+        var article = document.getElementById('price');
+		prix = parseInt(article.getAttribute("prix"));
+		article_id = parseInt(article.getAttribute("produit"));
+		var quantite = $('#quantity');
+		quantite = parseInt(quantite.val());
+		token = $('[name="csrfmiddlewaretoken"]').val()
+
+		var resp = confirm("Confirmez vous cette commande ?\n Votre compte sera débiter de "+prix*quantite+" epounds.")
+        if (resp == true){
+			$.post($(this).attr('href'),{'produit': article_id, 'quantite': quantite,
+			 		'consommateur': {{ consommateur.id }}, 'csrfmiddlewaretoken': token,}
+			 )
+			.done(function(data,text,jqxhr){
+			        if(data.error != undefined){
+			        	alert(data.error)
+			        }else{
+			        	alert(data.success)
+			        }
+			})
+			.fail(function(jqxhr, data){
+			  	alert(data.error)
+			 })
+			}
+        else{
+        	alert("Opération avorter");
+        }
+    })
+	});
+</script>
+{% endblock %}

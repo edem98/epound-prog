@@ -13,11 +13,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 from celery.schedules import crontab
 import djcelery
+
 djcelery.setup_loader()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -29,7 +29,6 @@ SECRET_KEY = '6fa9=4*i(v8!zcjf%1@1=#gf4=8fnl!^qd-%(hxuh^hsv6!@z%'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -55,7 +54,7 @@ INSTALLED_APPS = [
     'storages',
     'sorl.thumbnail',
     # 'django_extensions',
-    #mes apps
+    # mes apps
     'archive.apps.ArchiveConfig',
     'compte.apps.CompteConfig',
     'dashboard.apps.DashboardConfig',
@@ -68,9 +67,6 @@ INSTALLED_APPS = [
     'recette.apps.RecetteConfig',
     'faqs.apps.FaqsConfig',
 ]
-
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,7 +84,7 @@ ROOT_URLCONF = 'epound.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates',],
+        'DIRS': ['templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,30 +102,37 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'epound.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "epound",
-        'USER': "postgres",
-        'PASSWORD': "root",
+        'NAME': "epound_prog",
+        'USER': "serge",
+        'PASSWORD': "sergedem92639417",
         'HOST': '127.0.0.1',
         'PORT': '5432',
+        'TEST': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': "epound_prog",
+            'USER': "serge",
+            'PASSWORD': "sergedem",
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        },
     }
 }
 
-#Static files
+# Static files
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
-MEDIA_URL =  '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -149,7 +152,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -165,7 +167,7 @@ USE_TZ = True
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
-HOST_SCHEME= "http://"
+HOST_SCHEME = "http://"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -182,7 +184,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    )
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20,
 }
 
 BROKER_URL = 'redis://localhost:6379'
@@ -194,8 +198,7 @@ CELERY_TIMEZONE = 'Europe/London'
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 CELERY_BROKER_URL = 'redis://localhost:6379'
 
-
-ADMINS = [('Serge', 'edemserge.kossi@gmail.com'),('Serge', 'edems.kossi@gmail.com'),]
+ADMINS = [('Serge', 'edemserge.kossi@gmail.com'), ('Serge', 'edems.kossi@gmail.com'), ]
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -220,6 +223,8 @@ NEWSLETTER_BATCH_DELAY = 60
 # Number of emails in one batch
 NEWSLETTER_BATCH_SIZE = 100
 
-#twilo sms credentials
+# twilo sms credentials
 TWILIO_ACCOUNT_SID = 'ACfff60f15de8fe247009c9b9986b0aa97'
 TWILIO_AUTH_TOKEN = '31aaff118a5b772185dc425695c54d82'
+
+LOGIN_URL = "/ecommerce/order-login-home"

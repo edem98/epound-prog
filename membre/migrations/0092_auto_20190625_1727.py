@@ -14,9 +14,4 @@ class Migration(migrations.Migration):
             name='consommateur',
             options={'verbose_name': 'Consommateur', 'verbose_name_plural': 'Consommateurs'},
         ),
-        migrations.AddField(
-            model_name='membre',
-            name='code_qr',
-            field=models.CharField(blank=True, max_length=30, null=True, verbose_name='Qr code'),
-        ),
     ]

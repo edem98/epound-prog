@@ -1,0 +1,97 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block add_css %}
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Hover css-->
+<link href="{% static 'css/hover-min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block addjs %}
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<!-- Slider -->
+	<div class="main_slider"
+		 style="background-image:url({% static 'images/slider_principale.jpeg' %}); margin: auto;" >
+		<div class="container fill_height">
+			<div class="row align-items-center fill_height">
+				<div class="col">
+					<div class="main_slider_content">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- End Slider -->
+<!-- Product display -->
+    <div class="container-fluid">
+        {% if produits|length > 0 %}
+        <div class="mb-3 mt-5 text-center">
+            <h2 style="color: #43a426;"> Nouveaux Articles </h2>
+        </div>
+        <div class="row" style="margin-bottom: 100px;">
+            <div class="col">
+                <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+                    {% for produit in produits %}
+                    <div class="product-item">
+                        <div class="product discount" >
+                            <div class="product_image img-fluid">
+                                <img class="img-fluid" src="{{ produit.image_produit.url }}" alt="">
+                            </div>
+                            <div class="product_info">
+                                <div class="product_detail">
+                                    <div class="product_price">
+                                        <h5 class="font-weight-bold" style="color: #fff;">
+                                          <strong> {{ produit.nom }}</strong>
+                                        </h5>
+                                        <h5 class="font-weight-bold" style="color: #fff;">
+                                          <strong>{{ produit.prix }} epounds</strong>
+                                        </h5>
+                                    </div>
+                                        <h5 style="color: #fff;">Produits souhaites</h5>
+                                        {% if produit.premier_produit_souhaite %}
+                                        <h5>
+                                          <a href="" style="color: #fff;">{{ produit.premier_produit_souhaite }}</a>
+                                        </h5>
+                                        {% endif %}
+
+                                        {% if produit.second_produit_souhaite %}
+                                        <h5>
+                                          <a href="" style="color: #fff;">{{ produit.second_produit_souhaite }}</a>
+                                        </h5>
+                                        {% endif %}
+
+                                        {% if produit.dernier_produit_souhaite %}
+                                        <h5>
+                                          <a href="" style="color: #fff;">{{ produit.dernier_produit_souhaite }}</a>
+                                        </h5>
+                                        {% endif %}
+
+                                        <a href="#" class="btn btn-success btn-sm" style="border-radius: 15px; width: 100px;">Troquer</a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div>
+            <h2 style="text-align: center;color: green; margin-top: 15px;"> Aucun Articles Disponible</h2>
+        </div>
+        {% endif %}
+    </div>
+
+<!--end Product display -->
+{% endblock  %}

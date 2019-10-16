@@ -13,7 +13,7 @@
 
 {% block content %}
 	<!-- Slider -->
-	<div class="main_slider" style="background-image:url({% static 'images/epound-entreprise-commerciale.jpg' %}); margin: auto; background-size: cover;">
+	<div class="main_slider" style="background-image:url({% static 'images/vendeurs.jpeg' %}); margin: auto; background-size: cover;">
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height">
 				<div class="col">
@@ -27,7 +27,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="new_arrivals">
 		<div class="container">
 			<div class="row">
@@ -64,6 +63,9 @@
 										</div>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										{% if entreprise.localisation is not None %}
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
+										{% endif %}
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
 									</div>
 								</div>
@@ -76,6 +78,9 @@
 										</div>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										{% if entreprise.localisation is not None %}
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
+										{% endif %}
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
 									</div>
 								</div>
@@ -88,6 +93,9 @@
 										</div>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										{% if entreprise.localisation is not None %}
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
+										{% endif %}
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
 									</div>
 								</div>
@@ -100,6 +108,9 @@
 										</div>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										{% if entreprise.localisation is not None %}
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
+										{% endif %}
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
 									</div>
 								</div>
@@ -112,18 +123,19 @@
 										</div>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">tel: {{ entreprise.telephone }}</p>
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
+										{% if entreprise.localisation is not None %}
+										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
+										{% endif %}
 										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
 									</div>
 								</div>
 							{% endif %}
 						{% endfor %}
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- Benefit -->
 	<div class="row">
 		<div class="col text-center">

@@ -1,0 +1,81 @@
+{% extends 'ecommerce/layouts/base.html' %}
+{% load static %}
+
+{% block add_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/troc_account.css'  %}">
+{% endblock %}
+
+{% block addjs %}
+    <script>
+        $(document).ready(function(){
+    //recuperer le formulaire
+        $('#id_image_produit').on('change',function(e){
+            $('#img-label').text(e.currentTarget.files['0']['name'])
+        })
+    });
+    </script>
+
+{% endblock %}
+
+
+{% block page_content %}<div class="col-md-9 mx-auto" style="margin-top: 5em;">
+            <!-- Material form contact -->
+            <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <strong>Nouvel Article</strong>
+                </h5>
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+                    <!-- Form -->
+                    <form style="color: #757575;" enctype="multipart/form-data" method="post" id="articleAddForm">{% csrf_token %}
+                        <!-- Title -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormName">Prix de l'aricle</label>
+                            {{ form.prix }}
+                        </div>
+                        <!-- Description -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormMessage">Nom de l'aricle</label>
+                             {{ form.nom }}
+                        </div>
+                        <!-- Image -->
+                        <div class="md-form mt-4">
+                            <label style="text-align: left;">Image de l'article: <label id="img-label"></label></label>
+                            <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" style="color: green:" id="inputGroupFileAddon01">Upload</span>
+                                  </div>
+                                  <div class="custom-file form-control" style="margin-left: 5px;">
+                                    {{ form.image_produit }}
+                                    <label class="custom-file-label">{{ form.image_produit.url }}</label>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-center mt-3">Produits Souhaites pour le troc</h3>
+
+                        <!-- Premier Article Souhaite -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormMessage">Premier Article Souhaite</label>
+                             {{ form.premier_produit_souhaite }}
+                        </div>
+                        <!-- Second Article Souhaite -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormMessage">Second Article Souhaite</label>
+                             {{ form.second_produit_souhaite }}
+                        </div>
+                        <!-- Dernier Article Souhaite -->
+                        <div class="md-form mt-4">
+                            <label for="materialContactFormMessage">Dernier Article Souhaite</label>
+                             {{ form.dernier_produit_souhaite }}
+                        </div>
+                        <!-- Send button -->
+                        <input id="submitInput" class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+                               type="submit" value="Save"/>
+                    </form>
+                    <!-- Form -->
+                </div>
+
+            </div>
+            <!-- Material form contact -->
+        </div>{% endblock  %}

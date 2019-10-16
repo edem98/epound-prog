@@ -267,8 +267,9 @@ class EntrepriseCommerciale(Membre):
         if self.code_membre == None:
             super(EntrepriseCommerciale, self).save(*args, **kwargs)
             self.code_membre = self.id
-            self.user = User.objects.create(username=str(self.nom) + "-" + str(self.code_membre), last_name=str(self.nom),
+            self.user = User(username=str(self.nom) + "-" + str(self.code_membre), last_name=str(self.nom),
                              password=make_password(self.mdp))
+            self.user.save()
             groupe = Group.objects.get(name="Commercial")
             groupe.user_set.add(self.user)
             creance = Creance.objects.create(entreprise_associer=self)
@@ -332,8 +333,9 @@ class Trader(Membre):
         if self.id == None:
             super(Trader, self).save(*args, **kwargs)
             self.code_membre = self.id
-            self.user = User.objects.create(username=str(self.nom) + "_" + str(self.code_membre),
+            self.user = User(username=str(self.nom) + "_" + str(self.code_membre),
                              last_name=str(self.nom), password=make_password(self.mdp))
+            self.user.save()
             groupe = Group.objects.get(name="Trader")
             groupe.user_set.add(self.user)
             self.save(update_fields=['code_membre', 'compte_trader', 'user'])

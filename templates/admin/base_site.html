@@ -1,59 +1,36 @@
 {% extends "admin/base.html" %}
-{% load admin_static %}
+{% load static i18n %}
 
-{#Additional <head> content here, some extra meta tags or favicon #}
-{#{% block extrahead %}#}
-{#{% endblock %}#}
+{% block title %}Epound || Administration{% endblock %}
 
+{% block branding %}
+    <h1 id="site-name">
+        <span class="icon-jet"></span> {% trans "Epound Corporation" %}
+    </h1>
+{% endblock %}
 
-{# Additional CSS includes #}
 {% block extrastyle %}
-    <!--<link rel="stylesheet" type="text/css" href="{% static 'css/my_project.css' %}" media="all">-->
-    <style>
-
-    </style>
-{% endblock %}
-
-
-{# Additional JS files in footer, right before </body> #}
-{% block extrajs %}
-  <!--<script type="text/javascript" src="{% static 'js/my_project.js' %}"></script>-->
-{% endblock %}
-
-
-{# Footer links (left side) #}
-{#{% block footer_links %}#}
-{#  <a href="/docs/" class="icon"><i class="icon-question-sign"></i>Documentation</a>#}
-{#{% endblock %}#}
-
-{# Additional header content like notifications or language switcher #}
-{% block header_content %}
     {{ block.super }}
-    <div class="header-content">
-        <!-- First icon column -->
-        <div class="header-column icon">
-            <i class="icon-home"></i><br>
-            <i class="icon-cog"></i>
-        </div>
-        <div class="header-column" style="margin-right: 20px">
-            <a href="/" class="grey">Front-end</a><br>
-            <a href="" class="grey">One more link</a>
-        </div>
-        <!-- Second icon column -->
-        <div class="header-column icon">
-            <i class="icon-comment"></i>
-        </div>
-        <div class="header-column">
-            <a href="" class="grey">5 new messages</a>
-        </div>
-    </div>
+    <link rel="stylesheet" type="text/css" href="{% static "core/css/branding.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "core/css/icons/style.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/admin_custom.css" %}" />
 {% endblock %}
 
-{# Footer branding name (center) #}
-{#{% block footer_branding %}#}
-{#{% endblock %}#}
+{% block nav-global %}
+    <!--<a href="https://github.com/geex-arts/django-jet" class="sidebar-link icon">-->
+        <!--<span class="sidebar-link-label">-->
+            <!--<span class="sidebar-link-icon jet-demo-icon-github"></span>-->
+            <!--{% trans 'Visit GitHub page' %}-->
+        <!--</span>-->
+    <!--</a>-->
+    <!--<a href="https://github.com/geex-arts/django-jet-demo" class="sidebar-link icon">-->
+        <!--<span class="sidebar-link-label">-->
+            <!--<span class="sidebar-link-icon jet-demo-icon-github"></span>-->
+            <!--{% trans 'Demo site source code' %}-->
+        <!--</span>-->
+    <!--</a>-->
+{% endblock %}
 
-
-{% block copyright %}
- Copyright &copy; 2018 epound Corporation<br>Developed by <a href="http://metamorphoo.com" target="_blank">Metamorphoo Consulting</a>
+{% block userlinks %}
+    <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
 {% endblock %}

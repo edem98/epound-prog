@@ -1,8 +1,4 @@
 {% load static %}
-
-<script src="{% static  'js_/jquery-2.1.1.js' %}"></script>
-<script src="{% static  'js_/jquery.mobile.custom.min.js' %}"></script>
-<script src="{% static  'js_/main.js' %}"></script> <!-- Resource jQuery -->
 <script src="{% static  'js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static  'styles/bootstrap4/popper.js' %}"></script>
 <script src="{% static  'styles/bootstrap4/bootstrap.min.js' %}"></script>
@@ -10,3 +6,39 @@
 <script src="{% static  'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
 <script src="{% static  'plugins/easing/easing.js' %}"></script>
 <script src="{% static  'js/custom.js' %}"></script>
+<script src="{% static  'js/jquery-ui.min.js' %}"></script>
+<script src="{% static  'js_/main.js' %}"></script> <!-- Resource jQuery -->
+<script>
+$("#autoComplete").autocomplete({
+      minLength: 3, // le nombre de lettres mini à saisir pour afficher la liste
+      delay: 200,  // le délai en ms d'affichage de la liste
+      appendTo: "#product_list",
+      source: function(request,response){// source des données de la liste avec gestion du trie
+          nom =  $('#autoComplete').val();
+          $.ajax({
+             type: 'GET',
+             url: '/ecommerce/rechercher-produit-nom',
+             data:{
+                'produit': nom,
+             },
+             success: function(data,textStatus, jqxhr){
+                response(data.produits)
+             },
+             error: function(data){
+                console.log(data)
+             }
+          })
+      },
+      open : function (evt) { // ajout d'une animation
+         var $oList = $(this).autocomplete ("widget");
+         $oList.hide().slideDown (350); // en ms
+
+      } ,
+
+      // écoute événement fermture de la liste
+      close : function (evt) { // ajout d'une animation
+         var $oList = $(this).autocomplete ("widget");
+         $oList.show().slideUp (350); // en ms
+      }
+}).focus (function (evt) {$(this).autocomplete ("search", "");});
+</script>

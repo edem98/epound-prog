@@ -1,4 +1,5 @@
 #from django.shortcuts import render
+from django.http import JsonResponse
 from django.views.generic import ListView
 from .models import *
 
@@ -16,3 +17,16 @@ class ListeSujetReponse(ListView):
 		question_reponse = ProblemeSolution.objects.all()
 		context['sujet_items'] = question_reponse
 		return context
+
+
+def ask_question(request):
+	if request.method == 'POST':
+		question = request.POST.get('question')
+		if question != "":
+			question = Question(question=question)
+			question.save()
+			return JsonResponse({'success': 'Votre question a ete soumis'})
+		else:
+			return JsonResponse({'error': "Votre question n'a pas pu etre soumis"})
+	else:
+		return JsonResponse({'error': "Votre question n'a pas pu etre soumis"})
