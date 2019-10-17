@@ -242,6 +242,7 @@ class EntrepriseCommerciale(Membre):
                                                         )
 
     objet_social = models.TextField(verbose_name="Objet social", null=True, blank=True, )
+    localisation = models.URLField(max_length=200, null=True, blank=True)
     emplacement = models.ForeignKey(Quartier, on_delete=models.CASCADE, related_name="quartier_entreprise", null=True)
     slug = models.SlugField(verbose_name="Etiquette", null=True, max_length=80)
     banniere_principal = models.ImageField(upload_to='banniere principal/', null=True, blank=True)
