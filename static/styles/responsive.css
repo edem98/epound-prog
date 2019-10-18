@@ -62,7 +62,7 @@
 {
 	.main_slider
 	{
-		min-height: 475px;
+		min-height: 400px;
 		height: calc(100vw / 1.714);
 		background-size: 100% 100%;
 	}
@@ -708,7 +708,7 @@
 @media only screen and (max-width: 539px)
 {
 	.welcome{
-        margin-top: 25em;
+        margin-top: 20em;
     }
 }
 
