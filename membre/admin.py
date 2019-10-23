@@ -52,7 +52,7 @@ class MembreAdmin(PolymorphicParentModelAdmin):
 class TraderAdmin(admin.ModelAdmin):
     base_model = Trader
     search_fields = ['nom', 'actif', ]
-    list_display = ['nom_membre', 'code_membre', 'telephone', 'emplacement', 'date_expiration', 'generer_mot_de_passe']
+    list_display = ['nom_membre', 'code_membre', 'telephone', 'mdp', 'emplacement', 'date_expiration', 'generer_mot_de_passe']
     readonly_fields = ['numero_compte_trader', 'solde_compte_trader',
                        'date_expiration_compte_trader', 'activiter_compte_trader', 'code_membre']
 
@@ -313,7 +313,7 @@ class EntrepriseCommercialeAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("nom",)}
     search_fields = ['nom', 'code_membre', 'telephone', 'nif', 'num_cfe', 'numero_cnss']
     list_filter = ['actif', 'emplacement', 'type_market', 'nature_jurique']
-    list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'email', 'generer_mot_de_passe']
+    list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'mdp', 'email', 'generer_mot_de_passe']
     readonly_fields = ['numero_compte_consommateur', 'solde_compte_consommateur',
                        'date_expiration_compte_consommateur', 'activiter_compte_consommateur',
                        'numero_compte_business', 'solde_compte_business',
