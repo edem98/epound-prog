@@ -21,6 +21,9 @@ class MembreViewSet(viewsets.ModelViewSet):
             particulier = ConsommateurParticulier.objects.filter(telephone=telephone)
             if str(particulier) != "<PolymorphicQuerySet []>":
                 particulier = particulier[0]
+                user = particulier.user
+                user.set_password(password)
+                user.save()
                 particulier.mdp = password
                 particulier.save()
                 resultat = "succes"
@@ -31,6 +34,9 @@ class MembreViewSet(viewsets.ModelViewSet):
             entreprise = ConsommateurEntreprise.objects.filter(telephone=telephone)
             if str(entreprise) != "<PolymorphicQuerySet []>":
                 entreprise = entreprise[0]
+                user = entreprise.user
+                user.set_password(password)
+                user.save()
                 entreprise.mdp = password
                 entreprise.save()
                 resultat = "succes"
@@ -41,6 +47,9 @@ class MembreViewSet(viewsets.ModelViewSet):
             vendeur = EntrepriseCommerciale.objects.filter(telephone=telephone)
             if str(vendeur) != "<PolymorphicQuerySet []>":
                 vendeur = vendeur[0]
+                user = vendeur.user
+                user.set_password(password)
+                user.save()
                 vendeur.mdp = password
                 vendeur.save()
                 resultat = "succes"
@@ -51,6 +60,9 @@ class MembreViewSet(viewsets.ModelViewSet):
             trader = Trader.objects.filter(telephone=telephone)
             if str(trader) != "<PolymorphicQuerySet []>":
                 trader = trader[0]
+                user = trader.user
+                user.set_password(password)
+                user.save()
                 trader.mdp = password
                 trader.save()
                 resultat = "succes"
