@@ -145,8 +145,8 @@ class CommandeClientAdmin(admin.ModelAdmin):
 
 
 class VendeurVenteAdmin(admin.ModelAdmin):
-    readonly_fields = ['vendeur', 'acheteur', 'montant', ]
-    list_display = ['vendeur', 'acheteur', 'montant', ]
+    readonly_fields = ['vendeur', 'numero_acheteur', 'montant', ]
+    list_display = ['vendeur', 'numero_acheteur', 'montant', ]
 
     def has_add_permission(self, request):
         return False
