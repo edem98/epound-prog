@@ -16,15 +16,18 @@ def update_total_epound_taux_absortion(montant):
     absorbtion.epound_consommer += montant
     absorbtion.save()
 
+
 def update_consommation_mensuel_moyenne_consommateur_actuel(montant):
     conso_moy = ConsommationMensuelMoyenneConsommateurActuel.load()
     conso_moy.epound_utiliser += montant
     conso_moy.save()
 
+
 def update_consommation_mensuel_moyenne_vendeur_actuel(montant):
     conso_moy = ConsommationMensuelMoyenneVendeurActuel.load()
     conso_moy.epound_utiliser += montant
     conso_moy.save()
+
 
 class TransactionInterComsommateur(models.Model):
     """
