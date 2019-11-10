@@ -3,6 +3,7 @@ from django.contrib.admin.models import LogEntry, DELETION
 from django.utils.html import escape
 from django.urls import reverse
 from archive.models import *
+from membre.models import ConsommateurParticulier
 
 
 class LogEntryAdmin(admin.ModelAdmin):
@@ -145,8 +146,12 @@ class CommandeClientAdmin(admin.ModelAdmin):
 
 
 class VendeurVenteAdmin(admin.ModelAdmin):
-    readonly_fields = ['vendeur', 'numero_acheteur', 'montant', ]
-    list_display = ['vendeur', 'numero_acheteur', 'montant', ]
+    readonly_fields = ['vendeur', 'nom_acheteur', 'montant', ]
+    list_display = ['vendeur', 'nom_acheteur', 'montant', ]
+
+    def nom_acheteur(self, obj):
+        particulier = ConsommateurParticulier.objects.get(telephone=obj.numero_acheteur)
+        return str(particulier.nom) + " " + str(particulier.prenoms)
 
     def has_add_permission(self, request):
         return False
