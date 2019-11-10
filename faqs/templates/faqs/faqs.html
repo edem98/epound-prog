@@ -5,6 +5,7 @@
 {% block add_css %}
 <link rel="stylesheet" href="{% static 'css_/mystyle.css' %}"> <!-- Resource style -->
 <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 {% endblock %}
 
 {% block addjs %}
@@ -28,7 +29,7 @@
 				}
 		})
 		.fail(function(jqxhr, data){
-			alert(data.error)
+			console.log(data.error)
 		 })
     })
 	});
@@ -38,7 +39,7 @@
 {% block content %}
 <!-- Deal of the week -->
 <div class="container" style="margin-top:20%;">
-	<h2 class="text-center">Posez nous vos Questions ici.</h2>
+	<h2 class="text-center" style="font-family: 'Permanent Marker', cursive;">Posez nous vos Questions ici.</h2>
 	<div class="text-center mt-5">
 			<form class="form-inline justify-content-center" action="{% url 'faqs:ask-question' %}"
 				  method="post" role="form" id="form-question">
