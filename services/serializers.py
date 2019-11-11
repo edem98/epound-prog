@@ -288,7 +288,7 @@ class EntrepriseCommercialeSerializer(serializers.HyperlinkedModelSerializer):
                   'actif', 'compte_entreprise_commercial',
                   'type_market', 'nature_jurique', 'numero_rccm',
                   'regime_fiscal', 'nif', 'siege_social', 'numero_cnss',
-                  'responsable',)
+                  'responsable', 'localisation', )
 
     def create(self, validated_data):
         compte_entreprise_commercial = validated_data.pop('compte_entreprise_commercial')
