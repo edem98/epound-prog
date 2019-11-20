@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.admindocs',
     'rest_framework',
+    'django_filters',
     'gunicorn',
     'djcelery',
     'django_celery_beat',
