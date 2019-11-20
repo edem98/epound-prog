@@ -388,6 +388,8 @@ class ProduitViewSet(viewsets.ModelViewSet):
     queryset = Produit.objects.all()
     serializer_class = ProduitSerializer
     lookup_field = "nom"
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['nom', 'code_article', ]
 
     def list(self, request):
         queryset = Produit.objects.all()
