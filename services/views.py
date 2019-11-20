@@ -6,6 +6,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from archive.models import ReactivationClient
 from services.serializers import ReactivationClientSerializer
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class MembreViewSet(viewsets.ModelViewSet):
