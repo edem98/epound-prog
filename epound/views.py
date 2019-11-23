@@ -12,13 +12,17 @@ def acceuil(request):
     besoins = ExpressionBesoin.objects.all()
     new_produits = Produit.objects.filter(disponible=True).order_by('?')[:60]
     partenaires = Partenaire.objects.all()
+
+    categories = Categorie.objects.all()
+    emplacements = Quartier.objects.all()
+
+    context['emplacements'] = emplacements
+    context['categories'] = categories
     context['besoins'] = besoins
     context['produits'] = new_produits
     context['partenaires'] = partenaires
-    categories = Categorie.objects.all()
-    emplacements = Quartier.objects.all()
-    context['emplacements'] = emplacements
-    context['categories'] = categories
+    vendeurs = EntrepriseCommerciale.objects.all()
+    context['vendeurs'] = vendeurs
     return render(request, 'index.html', context)
 
 
@@ -38,6 +42,8 @@ class ListEntreprise(ListView):
         context['categories'] = categories
         emplacements = Quartier.objects.all()
         context['emplacements'] = emplacements
+        vendeurs = EntrepriseCommerciale.objects.all()
+        context['vendeurs'] = vendeurs
         return context
 
 
@@ -50,6 +56,8 @@ def about(request):
     context['emplacements'] = emplacements
     context['categories'] = categories
     context['partenaires'] = partenaires
+    vendeurs = EntrepriseCommerciale.objects.all()
+    context['vendeurs'] = vendeurs
     return render(request, 'about.html', context)
 
 
@@ -77,6 +85,8 @@ def partenaires(request):
     context['categories'] = categories
     emplacements = Quartier.objects.all()
     context['emplacements'] = emplacements
+    vendeurs = EntrepriseCommerciale.objects.all()
+    context['vendeurs'] = vendeurs
     return render(request, 'partenaire.html', context)
 
 

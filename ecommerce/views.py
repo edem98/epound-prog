@@ -103,6 +103,8 @@ def specification_besoin(request, besoin):
     context['categories'] = categories
     emplacements = Quartier.objects.all()
     context['emplacements'] = emplacements
+    vendeurs = EntrepriseCommerciale.objects.all()
+    context['vendeurs'] = vendeurs
     return render(request, 'ecommerce/specification.html', context)
 
 
@@ -130,6 +132,7 @@ def rechercher_produit(request):
     produit = request.GET.get('produit')
     categorie = request.GET.get('categorie')
     emplacement = request.GET.get('emplacement')
+    vendeur = request.GET.get('vendeur')
     produits = Produit.objects.filter(disponible=True)
     if produit:
         produits = produits.filter(nom__icontains=produit)
@@ -139,11 +142,18 @@ def rechercher_produit(request):
     if emplacement:
         emplacement = int(emplacement)
         produits = produits.filter(vendeur__emplacement=emplacement)
+    if vendeur:
+        vendeur = int(vendeur)
+        print("----------")
+        print(vendeur)
+        produits = produits.filter(vendeur=vendeur)
     context = {'produits': produits}
     categories = Categorie.objects.all()
     context['categories'] = categories
     emplacements = Quartier.objects.all()
     context['emplacements'] = emplacements
+    vendeurs = EntrepriseCommerciale.objects.all()
+    context['vendeurs'] = vendeurs
     return render(request, 'ecommerce/product_found.html', context)
 
 
@@ -175,6 +185,8 @@ def categorie_specification(request, id_specification):
     context['produits'] = new_produits
     partenaires = Partenaire.objects.all()[:4]
     context['partenaires'] = partenaires
+    vendeurs = EntrepriseCommerciale.objects.all()
+    context['vendeurs'] = vendeurs
     return render(request, 'ecommerce/categorie.html', context)
 
 
@@ -191,6 +203,8 @@ def produit_par_specification(request, specification):
         context['categories'] = categories
         emplacements = Quartier.objects.all()
         context['emplacements'] = emplacements
+        vendeurs = EntrepriseCommerciale.objects.all()
+        context['vendeurs'] = vendeurs
         return render(request, 'ecommerce/products-specification.html', context)
     else:
         print(specification)
@@ -198,6 +212,8 @@ def produit_par_specification(request, specification):
         context['entreprises'] = entreprises
         categories = Categorie.objects.all()
         context['categories'] = categories
+        vendeurs = EntrepriseCommerciale.objects.all()
+        context['vendeurs'] = vendeurs
         return render(request, 'entreprise.html', context)
 
 
@@ -209,6 +225,8 @@ def produit_par_categorie(request, id_categorie):
     context['categorie'] = categorie
     partenaires = Partenaire.objects.all()[:4]
     context['partenaires'] = partenaires
+    vendeurs = EntrepriseCommerciale.objects.all()
+    context['vendeurs'] = vendeurs
     return render(request, 'ecommerce/products-categorie.html', context)
 
 
@@ -238,6 +256,8 @@ def troc_home(request):
         context['categories'] = categories
         emplacements = Quartier.objects.all()
         context['emplacements'] = emplacements
+        vendeurs = EntrepriseCommerciale.objects.all()
+        context['vendeurs'] = vendeurs
         return render(request, 'ecommerce/troc_home.html', context)
     except Exception as e:
         print(e)
@@ -273,6 +293,8 @@ def gerer_mes_articles(request):
             context['produit_dispo'] = produit_dispo
             emplacements = Quartier.objects.all()
             context['emplacements'] = emplacements
+            vendeurs = EntrepriseCommerciale.objects.all()
+            context['vendeurs'] = vendeurs
             return render(request, 'ecommerce/gerer_articles.html', context)
         except Exception as e:
             print(e)
@@ -360,8 +382,3 @@ class AllArticle(ListView,LoginRequiredMixin):
     def get_queryset(self):
         consommateur = ConsommateurParticulier.objects.get(user=self.request.user)
         return ProduitTroc.objects.filter(vendeur=consommateur)
-
-
-
-
-

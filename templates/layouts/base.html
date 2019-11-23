@@ -39,6 +39,12 @@
 					  <option value="{{ emplacement.pk }}" style="font-family: Righteous;font-size: 12px;">{{ emplacement.nom }}</option>
 					  {% endfor %}
 				  </select>
+				  <select class="form-control mb-2 mr-sm-2" name="vendeur" style="border-radius: 15px;border: solid 1px #3b82af;">
+					  <option value="" disabled selected>Selectionner un vendeur</option>
+					  {% for vendeur in vendeurs %}
+					  <option value="{{ vendeur.pk }}" style="font-family: Righteous;font-size: 12px;">{{ vendeur.nom }}</option>
+					  {% endfor %}
+				  </select>
 				  <div id="product_list">
 					  <input type="text" class="form-control mb-2 mr-sm-2"  id="autoComplete" name="produit">
 				  </div>
