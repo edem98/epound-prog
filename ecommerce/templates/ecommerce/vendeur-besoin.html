@@ -1,0 +1,105 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block add_css %}
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<link href="{% static 'css/ripple-loading.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block addjs %}
+    <script src="{% static  'js/refresh-sellers-list.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+	<!-- Slider -->
+	<div class="main_slider" style="background-image:url({% static 'images/vendeur.jpg' %}); margin: auto;">
+		<div class="container fill_height">
+			<div class="row align-items-center fill_height">
+				<div class="col">
+					<div class="main_slider_content">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="new_arrivals">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_title new_arrivals_title">
+						<h2 style="font-family: 'Orbitron', sans-serif;">Entreprises Commerciales</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-12 text-center mt-5">
+					<h5 style="color: green;text-transform: uppercase;">Domaines d'activités</h5>
+					<div class="list-group mt-4 ">
+					{% for besoin in besoins %}
+					  <a href="{% url 'ecommerce:besoin-vendeur-json' besoin.pk %}" class="list-group-item list-group-item-action needs" style="color: #327ca7;">{{besoin.besoin}}</a>
+					{% endfor %}
+					</div>
+				</div>
+				<div class="col-lg-10 col-md-10 col-sm-12">
+					<div class="row align-items-center">
+			        </div>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <div class="text-center mt-5">
+                                    <div class="lds-ripple text-center mt-5" id="search-animation" style="display: none;">
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <ul class="list-group" id="sellers">
+                                  {% for entreprise in entreprises %}
+                                  {% if entreprise.banniere_principal %}
+                                  <li class="list-group-item align-items-center">
+                                      <div class="row">
+                                          <div class="col-lg-3 col-md-3 col-sm-12 text-center">
+                                              <img
+                                                src="{{ entreprise.banniere_principal.url }}"
+                                                alt="Sellers image"
+                                                style="border-radius: 10px;max-width: 200px; max-height: 120px;width: 100%;height: auto;"
+
+                                              />
+                                              <h6 class="mt-3">{{ entreprise.nom }}</h6>
+                                          </div>
+                                          <div class="mt-2 col-lg-3 col-md-3 col-sm-12">
+                                            <p style="font-family: 'Ubuntu', sans-serif;color: green;">Tel: {{ entreprise.telephone }}</p>
+                                              <p style="font-family: 'Ubuntu', sans-serif;color: green;">{{ entreprise.email }}</p>
+                                              <p style="font-family: 'Ubuntu', sans-serif;color: green;">siège: {{ entreprise.emplacement }}</p>
+                                            {% if entreprise.localisation is not None %}
+                                            <p style="font-family: 'Ubuntu', sans-serif;color: green;">
+                                            <a href="{{entreprise.localisation}}" style="text-decoration: none;" target="_blank">Voir sur google maps</a>
+                                            </p>
+                                            {% endif %}
+                                          </div>
+                                          <div class="col-lg-6 col-md-6 col-sm-12 text-success">
+                                              {% if entreprise.objet_social != "" %}
+                                              <p style="font-family: 'Ubuntu', sans-serif;color: green; text-align: justify;">
+                                              <h5>Object social:</h5> {{ entreprise.objet_social }}
+                                              </p>
+                                              {% endif %}
+                                          </div>
+                                      </div>
+
+                                </li>
+                                  {% endif %}
+                                  {% endfor %}
+                              </ul>
+                            </div>
+                          </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock  %}

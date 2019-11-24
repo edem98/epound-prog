@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	<div class="new_arrivals">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title new_arrivals_title">
@@ -33,130 +33,67 @@
 					</div>
 				</div>
 			</div>
-			<div class="row align-items-center">
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-12 text-center mt-5">
+					<h5 style="color: green;text-transform: uppercase;">Domaines d'activités</h5>
+					<div class="list-group">
+					{% for besoin in besoins %}
+					  <a href="{% url 'ecommerce:besoin-vendeur' besoin.pk %}" class="list-group-item list-group-item-action" style="color: #327ca7;">{{besoin.besoin}}</a>
+					{% endfor %}
+					</div>
+				</div>
+				<div class="col-lg-10 col-md-10 col-sm-12">
+					<div class="row align-items-center">
 				<div class="col text-center">
-					<div class="new_arrivals_sorting">
-						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-							<!--<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">Tous</li>-->
-							{% for entreprise in entreprises %}
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".{{ entreprise.slug }}" style="text-transform: uppercase;font-family: 'Righteous', cursive;">
-								{{ entreprise.nom }}
-							</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row"">
-				<div class="col">
-					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
-						{% for entreprise in entreprises %}
-							{% if entreprise.banniere_principal %}
-								<div class="product-item {{ entreprise.slug }}">
-									<div class="product discount product_filter">
-										<div class="product_image">
-											<img src="{{ entreprise.banniere_principal.url }}" alt="">
-										</div>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">Tel: {{ entreprise.telephone }}</p>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
-										{% if entreprise.localisation is not None %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
-										{% endif %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
-									</div>
-								</div>
-							{% endif %}
-							{% if entreprise.banniere_secondaire %}
-								<div class="product-item {{ entreprise.slug }}">
-									<div class="product discount product_filter">
-										<div class="product_image">
-											<img src="{{ entreprise.banniere_secondaire.url }}" alt="">
-										</div>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">Tel: {{ entreprise.telephone }}</p>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
-										{% if entreprise.localisation is not None %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
-										{% endif %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
-									</div>
-								</div>
-							{% endif %}
-							{% if entreprise.banniere_trois %}
-								<div class="product-item {{ entreprise.slug }}">
-									<div class="product discount product_filter">
-										<div class="product_image">
-											<img src="{{ entreprise.banniere_trois.url }}" alt="">
-										</div>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">Tel: {{ entreprise.telephone }}</p>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
-										{% if entreprise.localisation is not None %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
-										{% endif %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
-									</div>
-								</div>
-							{% endif %}
-							{% if entreprise.banniere_quatre %}
-								<div class="product-item {{ entreprise.slug }}">
-									<div class="product discount product_filter">
-										<div class="product_image">
-											<img src="{{ entreprise.banniere_quatre.url }}" alt="">
-										</div>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">Tel: {{ entreprise.telephone }}</p>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
-										{% if entreprise.localisation is not None %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
-										{% endif %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
-									</div>
-								</div>
-							{% endif %}
-							{% if entreprise.banniere_cinq %}
-								<div class="product-item {{ entreprise.slug }}">
-									<div class="product discount product_filter">
-										<div class="product_image">
-											<img src="{{ entreprise.banniere_cinq.url }}" alt="">
-										</div>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: 5px;">Tel: {{ entreprise.telephone }}</p>
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">siège: {{ entreprise.emplacement }}</p>
-										{% if entreprise.localisation is not None %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;"><a href="{{entreprise.localisation}}" target="_blank">Voir sur google maps</a></p>
-										{% endif %}
-										<p style="font-family: 'Ubuntu', sans-serif;color: green;text-align: center;margin-top: -18px;">{{ entreprise.email }}</p>
-									</div>
-								</div>
-							{% endif %}
-						{% endfor %}
-					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<!-- Benefit -->
-	<div class="row">
-		<div class="col text-center">
-			<div class="section_title new_arrivals_title">
-				<h2 style="font-family: 'Orbitron', sans-serif;">Nos partenaires</h2>
-			</div>
-		</div>
-	</div>
-	<div class="benefit">
-		<div class="container">
-			<div class="row benefit_row">
-				{% for partenaire in partenaires %}
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon">
-                            <img src="{{ partenaire.logo.url }}" alt="logo de {{ partenaire }}" style="height: 40px;width: 40px;">
-						</div>
-						<div class="benefit_content">
-							<h6 style="font-family: 'Righteous', cursive;">{{ partenaire.nom }}</h6>
-						</div>
+					<div class="container mt-5">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-lg-12">
+					  <ul class="list-group">
+						  {% for entreprise in entreprises %}
+						  {% if entreprise.banniere_principal %}
+						  <li class="list-group-item align-items-center">
+							  <div class="row">
+								  <div class="col-lg-3 col-md-3 col-sm-12 text-center">
+									  <img
+										src="{{ entreprise.banniere_principal.url }}"
+										alt="Sellers image"
+										style="border-radius: 10px;max-width: 200px; max-height: 120px;width: 100%;height: auto;"
+
+									  />
+									  <h6 class="mt-3">{{ entreprise.nom }}</h6>
+								  </div>
+								  <div class="mt-2 col-lg-3 col-md-3 col-sm-12">
+								  	<p style="font-family: 'Ubuntu', sans-serif;color: green;">Tel: {{ entreprise.telephone }}</p>
+									  <p style="font-family: 'Ubuntu', sans-serif;color: green;">{{ entreprise.email }}</p>
+									  <p style="font-family: 'Ubuntu', sans-serif;color: green;">siège: {{ entreprise.emplacement }}</p>
+									{% if entreprise.localisation is not None %}
+									<p style="font-family: 'Ubuntu', sans-serif;color: green;">
+									<a href="{{entreprise.localisation}}" style="text-decoration: none;" target="_blank">Voir sur google maps</a>
+									</p>
+									{% endif %}
+								  </div>
+								  <div class="col-lg-6 col-md-6 col-sm-12 text-success">
+									  {% if entreprise.objet_social != "" %}
+									  <p style="font-family: 'Ubuntu', sans-serif;color: green; text-align: justify;">
+									  <h5>Object social:</h5> {{ entreprise.objet_social }}
+									  </p>
+									  {% endif %}
+								  </div>
+							  </div>
+
+						</li>
+						  {% endif %}
+						  {% endfor %}
+					  </ul>
 					</div>
-				</div>
-				{% endfor %}
+				  </div>
 			</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 

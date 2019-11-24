@@ -2,7 +2,7 @@ from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from ecommerce.models import ExpressionBesoin, Produit, Categorie
+from ecommerce.models import ExpressionBesoin, Produit, Categorie, SpécificationBesoin
 from membre.models import EntrepriseCommerciale, Partenaire, ConsommateurParticulier
 from membre.models import Quartier
 
@@ -36,14 +36,14 @@ class ListEntreprise(ListView):
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        partenaires = Partenaire.objects.all()
-        context['partenaires'] = partenaires
         categories = Categorie.objects.all()
         context['categories'] = categories
         emplacements = Quartier.objects.all()
         context['emplacements'] = emplacements
         vendeurs = EntrepriseCommerciale.objects.all()
         context['vendeurs'] = vendeurs
+        besoins = ExpressionBesoin.objects.all().order_by('besoin')
+        context['besoins'] = besoins
         return context
 
 

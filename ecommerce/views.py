@@ -1,6 +1,7 @@
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.hashers import check_password
 from django.core.exceptions import ValidationError
+import json
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -228,6 +229,37 @@ def produit_par_categorie(request, id_categorie):
     vendeurs = EntrepriseCommerciale.objects.all()
     context['vendeurs'] = vendeurs
     return render(request, 'ecommerce/products-categorie.html', context)
+
+
+def besoin_vendeur(request, id_besoin):
+    context = {}
+    categories = Categorie.objects.all()
+    context['categories'] = categories
+    emplacements = Quartier.objects.all()
+    context['emplacements'] = emplacements
+    vendeurs = EntrepriseCommerciale.objects.filter(besoin_fondamental=id_besoin)
+    context['entreprises'] = vendeurs
+    besoins = ExpressionBesoin.objects.all().order_by('besoin')
+    context['besoins'] = besoins
+    return render(request, 'ecommerce/vendeur-besoin.html', context)
+
+
+def besoin_vendeur_json(request, id_besoin):
+
+    vendeurs = EntrepriseCommerciale.objects.filter(besoin_fondamental=id_besoin)
+    returned_vendeurs = []
+    for item in vendeurs:
+        returned_vendeurs.append({
+            'banniere_principal': '/media/' + str(item.banniere_principal),
+            'nom': item.nom,
+            'telephone': item.telephone,
+            'email': item.email,
+            'emplacement': str(item.emplacement),
+            'localisation': item.localisation,
+            'objet_social': item.objet_social,
+        })
+    context = {'vendeurs': returned_vendeurs}
+    return JsonResponse(context)
 
 
 @login_required

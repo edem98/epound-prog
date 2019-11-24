@@ -1,7 +1,6 @@
 from django.urls import path, include
 from . import views
 
-app_name = 'ecommerce'
 urlpatterns = [
     # Troc urls
     path('troc/login', views.login_troc, name ="troc-login"),
@@ -25,7 +24,10 @@ urlpatterns = [
     path('order-login-home/', views.login_home, name="login-home"),
     path('valider-commande/', views.valider_commande, name="valider-commande"),
     path('commander-produit/<int:id_produit>', views.commander_article, name="commander-produit"),
-
+    # sort sellers by need
+    path('besoin-vendeur-json/<int:id_besoin>', views.besoin_vendeur_json, name="besoin-vendeur-json"),
+    path('besoin-vendeur/<int:id_besoin>', views.besoin_vendeur, name="besoin-vendeur"),
 
 ]
+app_name = 'ecommerce'
 
