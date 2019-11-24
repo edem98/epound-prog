@@ -250,7 +250,7 @@ def besoin_vendeur_json(request, id_besoin):
     returned_vendeurs = []
     for item in vendeurs:
         returned_vendeurs.append({
-            'banniere_principal': '/media/' + str(item.banniere_principal),
+            'banniere_principal': str(item.banniere_principal.url),
             'nom': item.nom,
             'telephone': item.telephone,
             'email': item.email,
