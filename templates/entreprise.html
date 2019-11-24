@@ -7,8 +7,11 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<link href="{% static 'css/ripple-loading.css' %}" rel="stylesheet">
+{% endblock %}
 
-
+{% block addjs %}
+    <script src="{% static  'js/refresh-sellers-list.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -38,7 +41,7 @@
 					<h5 style="color: green;text-transform: uppercase;">Domaines d'activités</h5>
 					<div class="list-group">
 					{% for besoin in besoins %}
-					  <a href="{% url 'ecommerce:besoin-vendeur' besoin.pk %}" class="list-group-item list-group-item-action" style="color: #327ca7;">{{besoin.besoin}}</a>
+					  <a href="{% url 'ecommerce:besoin-vendeur-json' besoin.pk %}" class="list-group-item list-group-item-action needs" style="color: #327ca7;">{{besoin.besoin}}</a>
 					{% endfor %}
 					</div>
 				</div>
@@ -51,7 +54,13 @@
 					<div class="container mt-5">
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-lg-12">
-					  <ul class="list-group">
+						<div class="text-center mt-5">
+							<div class="lds-ripple text-center mt-5" id="search-animation" style="display: none;">
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+					  <ul class="list-group" id="sellers">
 						  {% for entreprise in entreprises %}
 						  {% if entreprise.banniere_principal %}
 						  <li class="list-group-item align-items-center">
