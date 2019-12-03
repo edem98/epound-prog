@@ -352,15 +352,23 @@ class ConversionTrader(models.Model):
             with transaction.atomic():
                 # Opération sur le trader
                 self.trader = Trader.objects.get(telephone=self.numero_trader)
-                self.consommateur = Consommateur.objects.get(telephone=self.numero_receveur)
                 self.trader.compte_trader.solde = self.trader.compte_trader.solde - self.montant_converti
                 self.trader.compte_trader.save()
                 # Opération sur le consommateur
-                self.epounds_transferer = int(
-                    self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
-                self.consommateur.compte_consommateur.solde += self.epounds_transferer
-                self.solde_apres_conversion = self.consommateur.compte_consommateur.solde
-                self.consommateur.compte_consommateur.save()
+                try:
+                    self.consommateur = Consommateur.objects.get(telephone=self.numero_receveur)
+                    self.epounds_transferer = int(self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
+                    self.consommateur.compte_consommateur.solde += self.epounds_transferer
+                    self.solde_apres_conversion = self.consommateur.compte_consommateur.solde
+                    self.consommateur.compte_consommateur.save()
+                except:
+                    self.consommateur = EntrepriseCommercial.objects.get(telephone=self.numero_receveur)
+                    self.epounds_transferer = int(self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
+                    self.consommateur.compte_entreprise_commercial.compte_consommateur.solde += self.epounds_transferer
+                    self.solde_apres_conversion = self.consommateur.compte_entreprise_commercial.compte_consommateur.solde
+                    self.consommateur.compte_entreprise_commercial.compte_consommateur.save()
+                    self.consommateur.compte_entreprise_commercial.save()
+
                 # Mise a jour de la création monétaire
                 creance_monetaire = CreanceMonetaire.load()
                 creance_monetaire.cumul_bonification += int(self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
