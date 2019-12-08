@@ -56,7 +56,7 @@ def login_home(request):
     return render(request, 'login.html', context)
 
 
-"""def login_home(request):
+def login_home(request):
     next = request.GET.get('next')
     context = {}
     if request.method == "POST":
@@ -68,8 +68,8 @@ def login_home(request):
             password = form.cleaned_data['password']
             try:
                 consomateur = ConsommateurParticulier.objects.get(telephone=phone)
-                if check_password(password, consomateur.user.password):
-                    user = authenticate(request, username=consomateur.user.username, password=password)
+                if consomateur.mdp == password:
+                    user = authenticate(request, username=consomateur.user.username, password=consomateur.user.password)
                     if user is not None:
                         login(request, user)
                         print(next)
@@ -95,8 +95,8 @@ def login_home(request):
         context['form'] = form
         context['next'] = next
     return render(request, 'login.html', context)
-"""
 
+"""
 def login_troc(request):
     context = {}
     if request.method == "POST":
@@ -129,7 +129,7 @@ def login_troc(request):
         context['categories'] = categories
         context['form'] = form
     return render(request, 'ecommerce/troc_login.html', context)
-
+"""
 
 def specification_besoin(request, besoin):
     context = {}
