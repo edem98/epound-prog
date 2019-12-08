@@ -19,65 +19,22 @@ class MembreViewSet(viewsets.ModelViewSet):
         data = {}
         resultat = "echec"
         try:
-            particulier = ConsommateurParticulier.objects.filter(telephone=telephone)
-            if str(particulier) != "<PolymorphicQuerySet []>":
-                particulier = particulier[0]
-                particulier.mdp = password
-                particulier.save()
-                particulier = ConsommateurParticulier.objects.get(pk=particulier.pk)
-                user = particulier.user
-                user.set_password(password)
-                user.save()
+            membre = Membre.objects.get(telephone=telephone)
+            membre = particulier[0]
+            membre.mdp = password
+            membre.save()
+            user = membre.user
+            user.set_password(password)
+            user.save()
 
-                resultat = "succes"
-                data["resultat"] = resultat
-                data["mdp"] = password
-                return Response(data)
-
-            entreprise = ConsommateurEntreprise.objects.filter(telephone=telephone)
-            if str(entreprise) != "<PolymorphicQuerySet []>":
-                entreprise = entreprise[0]
-                entreprise.mdp = password
-                entreprise.save()
-                user = entreprise.user
-                user.set_password(password)
-                user.save()
-                resultat = "succes"
-                data["resultat"] = resultat
-                data["mdp"] = password
-                return Response(data)
-
-            vendeur = EntrepriseCommerciale.objects.filter(telephone=telephone)
-            if str(vendeur) != "<PolymorphicQuerySet []>":
-                vendeur = vendeur[0]
-                vendeur.mdp = password
-                vendeur.save()
-                user = vendeur.user
-                user.set_password(password)
-                user.save()
-                resultat = "succes"
-                data["resultat"] = resultat
-                data["mdp"] = password
-                return Response(data)
-
-            trader = Trader.objects.filter(telephone=telephone)
-            if str(trader) != "<PolymorphicQuerySet []>":
-                trader = trader[0]
-                trader.mdp = password
-                trader.save()
-                user = trader.user
-                user.set_password(password)
-                user.save()
-                resultat = "succes"
-                data["resultat"] = resultat
-                data["mdp"] = password
-                return Response(data)
+            resultat = "succes"
+            data["resultat"] = resultat
+            data["mdp"] = password
+            return Response(data)
 
         except Exception as e:
             print('error --------------------', e)
             return Response(status=status.HTTP_404_NOT_FOUND)
-        data["resultat"] = resultat
-        return Response(data)
 
     @action(methods=['get'], detail=True)
     def get_by_telephone(self, request, telephone=None):
