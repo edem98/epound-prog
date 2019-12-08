@@ -249,8 +249,18 @@ def besoin_vendeur_json(request, id_besoin):
     vendeurs = EntrepriseCommerciale.objects.filter(besoin_fondamental=id_besoin)
     returned_vendeurs = []
     for item in vendeurs:
+        banniere = item.banniere_principal
+        if banniere is None:
+            banniere = item.banniere_secondaire
+        if banniere is None:
+            banniere = item.banniere_trois
+        if banniere is None:
+            banniere = item.banniere_quatre
+        if banniere is None:
+            banniere = item.banniere_cinq
+
         returned_vendeurs.append({
-            'banniere_principal': str(item.banniere_principal.url),
+            'banniere_principal': str(banniere.url),
             'nom': item.nom,
             'telephone': item.telephone,
             'email': item.email,
