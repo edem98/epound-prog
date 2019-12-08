@@ -28,7 +28,7 @@ class LoginForm(forms.Form):
         try:
             user = ConsommateurParticulier.objects.get(telephone=telephone)
         except ConsommateurParticulier.DoesNotExist:
-            raise ValidationError(("Ce compte n'est pas enregistrer"))
+            raise ValidationError(("Désolé, ce compte n'appartient à aucun membre."))
         return telephone
 
     def clean_password(self):
@@ -36,7 +36,7 @@ class LoginForm(forms.Form):
         if password:
             return password
         else:
-            raise ValidationError(('Votre mot de passe est incorrect'))
+            raise ValidationError(('Votre mot de passe est incorrect.'))
 
 
 class AddProductTrocForm(forms.ModelForm):
