@@ -24,6 +24,7 @@ class MembreViewSet(viewsets.ModelViewSet):
                 particulier = particulier[0]
                 particulier.mdp = password
                 particulier.save()
+                particulier = ConsommateurParticulier.objects.get(pk=particulier.pk)
                 user = particulier.user
                 user.set_password(password)
                 user.save()
