@@ -49,7 +49,6 @@ def retourner_consommateur_info(request):
 @csrf_exempt
 def generer_mot_de_passe_consommateur(request, id):
 
-
 	consommateur = ConsommateurParticulier.objects.get(id=id)
 	user = consommateur.user
 	password = BaseUserManager().make_random_password(5)

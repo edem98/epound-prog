@@ -72,7 +72,8 @@ class MembreViewSet(viewsets.ModelViewSet):
                 data["mdp"] = password
                 return Response(data)
 
-        except Membre.DoesNotExist:
+        except Exception as e:
+            print('error --------------------', e)
             return Response(status=status.HTTP_404_NOT_FOUND)
         data["resultat"] = resultat
         return Response(data)
