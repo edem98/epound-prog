@@ -56,7 +56,7 @@ def login_home(request):
     return render(request, 'login.html', context)
 
 
-def login_home(request):
+"""def login_home(request):
     next = request.GET.get('next')
     context = {}
     if request.method == "POST":
@@ -95,7 +95,7 @@ def login_home(request):
         context['form'] = form
         context['next'] = next
     return render(request, 'login.html', context)
-
+"""
 
 def login_troc(request):
     context = {}
