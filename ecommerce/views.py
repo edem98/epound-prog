@@ -27,6 +27,47 @@ def login_home(request):
             password = form.cleaned_data['password']
             try:
                 consomateur = ConsommateurParticulier.objects.get(telephone=phone)
+                if password == consomateur.mdp:
+                    user = authenticate(request, username=consomateur.user.username, password=consomateur.user.password)
+                    if user is not None:
+                        login(request, user)
+                        print(next)
+                        return redirect(next)
+                    else:
+                        error_message = "User authentiction failed"
+                        context['error_message'] = error_message
+                        return render(request, 'login.html', context)
+                else:
+                    error_message = "Password not checked"
+                    context['error_message'] = error_message
+                    return render(request, 'login.html', context)
+            except Exception as e:
+                print("------------------")
+                print(e)
+        else:
+            context['errors'] = form.errors
+            return render(request, 'login.html', context)
+    else:
+        form = LoginForm()
+        categories = Categorie.objects.all()
+        context['categories'] = categories
+        context['form'] = form
+        context['next'] = next
+    return render(request, 'login.html', context)
+
+
+def login_home(request):
+    next = request.GET.get('next')
+    context = {}
+    if request.method == "POST":
+        print(request.path)
+        form = LoginForm(request.POST)
+        context['form'] = form
+        if form.is_valid():
+            phone = form.cleaned_data['telephone']
+            password = form.cleaned_data['password']
+            try:
+                consomateur = ConsommateurParticulier.objects.get(telephone=phone)
                 if check_password(password, consomateur.user.password):
                     user = authenticate(request, username=consomateur.user.username, password=password)
                     if user is not None:
