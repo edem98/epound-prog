@@ -19,7 +19,7 @@ class MembreViewSet(viewsets.ModelViewSet):
         user = instance.user
         user.set_password(instance.mdp)
         user.save()
-        serializer = MembreViewSet(
+        serializer = MembreSerializer(
             instance=instance,
             data=request.data
         )
