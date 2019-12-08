@@ -14,13 +14,25 @@ class MembreViewSet(viewsets.ModelViewSet):
     serializer_class = MembreSerializer
     lookup_field = "telephone"
 
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        user = instance.user
+        user.set_password(instance.mdp)
+        user.save()
+        serializer = MembreViewSet(
+            instance=instance,
+            data=request.data
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
     @action(methods=['post'], detail=True)
     def set_password(self, request, password, telephone=None):
         data = {}
         resultat = "echec"
         try:
             membre = Membre.objects.get(telephone=telephone)
-            membre = particulier[0]
             membre.mdp = password
             membre.save()
             user = membre.user
