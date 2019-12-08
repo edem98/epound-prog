@@ -28,15 +28,9 @@ def login_home(request):
             try:
                 consomateur = ConsommateurParticulier.objects.get(telephone=phone)
                 if consomateur.mdp == password:
-                    user = authenticate(request, username=consomateur.user.username, password=consomateur.user.password)
-                    if user is not None:
-                        login(request, user)
-                        print(next)
-                        return redirect(next)
-                    else:
-                        error_message = "User authentiction failed"
-                        context['error_message'] = error_message
-                        return render(request, 'login.html', context)
+                    login(request, consomateur.user)
+                    print(next)
+                    return redirect(next)
                 else:
                     error_message = "Password not checked"
                     context['error_message'] = error_message
@@ -67,12 +61,8 @@ def login_troc(request):
             try:
                 consomateur = ConsommateurParticulier.objects.get(telephone=phone)
                 if password == consomateur.mdp:
-                    user = authenticate(request, username=consomateur.user.username, password=consomateur.user.password)
-                    if user is not None:
-                        login(request, user)
-                        return redirect('ecommerce:troc-home')
-                    else:
-                        print("User authentiction failed")
+                    login(request, consomateur.user)
+                    return redirect('ecommerce:troc-home')
                 else:
                     print("Password not checked")
             except Exception as e:
