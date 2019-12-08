@@ -15,7 +15,7 @@ from membre.models import EntrepriseCommerciale, Partenaire, ConsommateurParticu
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-def login_home(request):
+def login_troc(request):
     next = request.GET.get('next')
     context = {}
     if request.method == "POST":
