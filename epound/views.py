@@ -31,7 +31,7 @@ class ListEntreprise(ListView):
     template_name = "entreprise.html"
     context_object_name = "entreprises"
     paginate_by = 100
-    queryset = EntrepriseCommerciale.objects.all()
+    queryset = EntrepriseCommerciale.objects.filter(actif=True)
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
