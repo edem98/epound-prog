@@ -236,7 +236,7 @@ def besoin_vendeur(request, id_besoin):
 
 def besoin_vendeur_json(request, id_besoin):
 
-    vendeurs = EntrepriseCommerciale.objects.filter(besoin_fondamental=id_besoin)
+    vendeurs = EntrepriseCommerciale.objects.filter(besoin_fondamental=id_besoin, actif=True)
     returned_vendeurs = []
     for item in vendeurs:
         banniere = item.banniere_principal
