@@ -258,6 +258,7 @@ def besoin_vendeur_json(request, id_besoin):
             'localisation': item.localisation,
             'objet_social': item.objet_social,
         })
+        print(banniere.url)
     context = {'vendeurs': returned_vendeurs}
     return JsonResponse(context)
 

@@ -41,7 +41,7 @@
 					<h5 style="color: green;text-transform: uppercase;">Domaines d'activités</h5>
 					<div class="list-group">
 					{% for besoin in besoins %}
-					  <a href="{% url 'ecommerce:besoin-vendeur-json' besoin.pk %}" class="list-group-item list-group-item-action needs" style="color: #327ca7;">{{besoin.besoin}}</a>
+					  <a href="{% url 'ecommerce:besoin-vendeur-json' besoin.pk %}" class="list-group-item list-group-item-action needs" style="color: #327ca7;text-transform: uppercase;">{{besoin.besoin}}</a>
 					{% endfor %}
 					</div>
 				</div>
