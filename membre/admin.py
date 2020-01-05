@@ -312,7 +312,7 @@ class EntrepriseCommercialeAdmin(admin.ModelAdmin):
     base_model = EntrepriseCommerciale
     prepopulated_fields = {"slug": ("nom",)}
     search_fields = ['nom', 'code_membre', 'telephone', 'nif', 'num_cfe', 'numero_cnss']
-    list_filter = ['actif', 'emplacement', 'type_market', 'nature_jurique']
+    list_filter = ['actif', 'emplacement', 'besoin_fondamental', 'nature_jurique']
     list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'mdp', 'email', 'generer_mot_de_passe']
     readonly_fields = ['numero_compte_consommateur', 'solde_compte_consommateur',
                        'date_expiration_compte_consommateur', 'activiter_compte_consommateur',
@@ -454,7 +454,7 @@ class EntrepriseCommercialeAdmin(admin.ModelAdmin):
     desactiver_membre.short_description = "Désactiver les Vendeur"
 
     def activer_membre(self, request, queryset):
-        users = queryset.update(actif=False)
+        users = queryset.update(actif=True)
         if users == 1:
             message_bit = "Le vendeur sélectionner a été activer"
         else:
