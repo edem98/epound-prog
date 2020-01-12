@@ -376,6 +376,10 @@ class ConversionTrader(models.Model):
                                      on_delete=models.CASCADE,
                                      null=True, )
 
+    vendeur = models.ForeignKey(EntrepriseCommerciale, verbose_name="Consommateur",
+                                     on_delete=models.CASCADE,
+                                     null=True, )
+
     montant_converti = models.PositiveIntegerField(verbose_name="Somme Converti",
                                                    null=True)
 
@@ -404,7 +408,7 @@ class ConversionTrader(models.Model):
                     self.solde_apres_conversion = self.consommateur.compte_consommateur.solde
                     self.consommateur.compte_consommateur.save()
                 except:
-                    self.consommateur = EntrepriseCommerciale.objects.get(telephone=self.numero_receveur)
+                    self.vendeur = EntrepriseCommerciale.objects.get(telephone=self.numero_receveur)
                     self.epounds_transferer = int(
                         self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
                     self.consommateur.compte_entreprise_commercial.compte_consommateur.solde += self.epounds_transferer
