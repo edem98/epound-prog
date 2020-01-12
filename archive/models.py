@@ -412,7 +412,7 @@ class ConversionTrader(models.Model):
                     self.epounds_transferer = int(
                         self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
                     self.vendeur.compte_entreprise_commercial.compte_consommateur.solde += self.epounds_transferer
-                    self.solde_apres_conversion = self.consommateur.compte_entreprise_commercial.compte_consommateur.solde
+                    self.solde_apres_conversion = self.vendeur.compte_entreprise_commercial.compte_consommateur.solde
                     self.vendeur.compte_entreprise_commercial.compte_consommateur.save()
                     self.vendeur.compte_entreprise_commercial.save()
                     self.vendeur.save()
