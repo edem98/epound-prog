@@ -411,13 +411,13 @@ class ConversionTrader(models.Model):
                     self.vendeur = EntrepriseCommerciale.objects.get(telephone=self.numero_receveur)
                     self.epounds_transferer = int(
                         self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
-                    self.consommateur.compte_entreprise_commercial.compte_consommateur.solde += self.epounds_transferer
+                    self.vendeur.compte_entreprise_commercial.compte_consommateur.solde += self.epounds_transferer
                     self.solde_apres_conversion = self.consommateur.compte_entreprise_commercial.compte_consommateur.solde
-                    self.consommateur.compte_entreprise_commercial.compte_consommateur.save()
-                    self.consommateur.compte_entreprise_commercial.save()
-                    self.consommateur.save()
+                    self.vendeur.compte_entreprise_commercial.compte_consommateur.save()
+                    self.vendeur.compte_entreprise_commercial.save()
+                    self.vendeur.save()
                 finally:
-                    print(self.consommateur)
+                    print(self.vendeur)
 
                 # Mise a jour de la création monétaire
                 creance_monetaire = CreanceMonetaire.load()
