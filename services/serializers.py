@@ -489,7 +489,7 @@ class TransfertCompteVendeurSurCompteConsommateurSerializer(serializers.Hyperlin
         transfert = TransfertCompteVendeurSurCompteConsommateur.objects.create(numero_vendeur=numero_vendeur,
                                                                        vendeur=vendeur,
                                                                        montant_transferer=montant_transferer,
-                                                                       numero_receveur=numero_vendeur)
+                                                                       numero_vendeur=numero_vendeur)
         if str(transfert) != "TransfertCompteVendeurSurCompteConsommateur object (None)":
             return transfert
         else:
