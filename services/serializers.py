@@ -475,6 +475,30 @@ class TransactionCommercialComsommateurSerializer(serializers.HyperlinkedModelSe
             raise serializers.ValidationError(data)
 
 
+class TransfertCompteVendeurSurCompteConsommateurSerializer(serializers.HyperlinkedModelSerializer):
+    vendeur = EntrepriseCommercialeSerializer()
+
+    class  Meta:
+        model = TransfertCompteVendeurSurCompteConsommateur
+        fields = ('numero_vendeur', 'vendeur', 'montant_transferer', 'date_transfert',)
+
+    def create(self, validated_data):
+        numero_vendeur = validated_data.get('numero_vendeur')
+        vendeur = EntrepriseCommerciale.objects.get(telephone=numero_vendeur)
+        montant_transferer = validated_data.get('montant_transferer')
+        transfert = TransfertCompteVendeurSurCompteConsommateur.objects.create(numero_vendeur=numero_vendeur,
+                                                                       vendeur=vendeur,
+                                                                       montant_transferer=montant_transferer,
+                                                                       numero_receveur=numero_receveur)
+        if str(transfert) != "TransfertCompteVendeurSurCompteConsommateur object (None)":
+            return transfert
+        else:
+            data = {}
+            data['echec'] = "Montant insuffisant"
+            print("Montant insuffisant")
+            raise serializers.ValidationError(data)
+
+
 class PayementInterCommercialSerializer(serializers.HyperlinkedModelSerializer):
     envoyeur = EntrepriseCommercialeSerializer(read_only=True)
     recepteur = EntrepriseCommercialeSerializer(read_only=True)

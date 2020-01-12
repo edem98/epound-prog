@@ -88,6 +88,14 @@ class TransactionCommercialComsommateurAdmin(admin.ModelAdmin):
         return False
 
 
+class TransfertCompteVendeurSurCompteConsommateurAdmin(admin.ModelAdmin):
+
+    readonly_fields = ['numero_vendeur','vendeur','montant_transferer','date_transfert']
+    list_display = ['numero_vendeur','vendeur','montant_transferer','date_transfert']
+
+    def has_add_permission(self, request):
+        return False
+
 class ConversionTraderAdmin(admin.ModelAdmin):
     readonly_fields = ['trader', 'consommateur',
                        'montant_converti', 'epounds_transferer',
@@ -179,6 +187,8 @@ admin.site.register(PayementInterCommercial, PayementInterCommercialAdmin)
 admin.site.register(TransactionInterComsommateur, TransactionInterComsommateurAdmin)
 
 admin.site.register(TransactionCommercialComsommateur, TransactionCommercialComsommateurAdmin)
+
+admin.site.register(TransfertCompteVendeurSurCompteConsommateur, TransfertCompteVendeurSurCompteConsommateurAdmin)
 
 admin.site.register(ConversionTrader, ConversionTraderAdmin)
 

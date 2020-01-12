@@ -231,6 +231,27 @@ class TransactionCommercialComsommateurViewSet(viewsets.ModelViewSet):
         return Response(data)
 
 
+class TransfertCompteVendeurSurCompteConsommateurViewSet(viewsets.ModelViewSet):
+    queryset = TransfertCompteVendeurSurCompteConsommateur.objects.all()
+    serializer_class = TransfertCompteVendeurSurCompteConsommateurSerializer
+    lookup_field = "pk"
+
+    def list(self, request):
+        queryset = TransfertCompteVendeurSurCompteConsommateur.objects.all()
+        serializer = TransfertCompteVendeurSurCompteConsommateurSerializer(queryset, many=True)
+        data = {}
+        data["transferts"] = serializer.data
+        return Response(data)
+
+    def retrieve(self, request, pk=None):
+        queryset = TransfertCompteVendeurSurCompteConsommateur.objects.all()
+        transfert = get_object_or_404(queryset, pk=pk)
+        serializer = TransfertCompteVendeurSurCompteConsommateurSerializer(transfert)
+        data = {}
+        data["transfert"] = serializer.data
+        return Response(data)
+
+
 class ConversionTraderViewSet(viewsets.ModelViewSet):
     queryset = ConversionTrader.objects.all()
     serializer_class = ConversionTraderSerializer

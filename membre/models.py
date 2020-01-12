@@ -20,7 +20,7 @@ class Membre(PolymorphicModel, TimeStamp):
     email = models.EmailField(max_length=254, null=True, unique=False)
     date_desactivation = models.DateField(verbose_name="Date de desactivation", null=True, blank=True)
     date_expiration = models.DateField(verbose_name="Date d'expiration", null=True, blank=True)
-    actif = models.BooleanField(verbose_name='En activité', default=True, )
+    actif = models.BooleanField(verbose_name='En activité', default=True,)
 
     def __str__(self):
         return str(self.code_membre)

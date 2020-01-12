@@ -140,6 +140,47 @@ class TransactionCommercialComsommateur(models.Model):
         verbose_name_plural = 'Transferts Commercials vers Consommateurs'
 
 
+class TransfertCompteVendeurSurCompteConsommateur(models.Model):
+    """
+        La classe Transaction gere les transactions
+        effectuées du compte consommateur
+        d'un commerciale à un particulier
+    """
+    numero_vendeur = models.CharField(max_length=8, verbose_name="Numéro de l'envoyeur", null=True)
+    vendeur = models.ForeignKey(EntrepriseCommerciale, verbose_name="Vendeur", on_delete=models.CASCADE, null=True,)
+    montant_transferer = models.PositiveIntegerField(verbose_name="Montant transférer", null=True)
+    date_transfert = models.DateTimeField(auto_now_add=True, verbose_name="Date de transfert")
+
+    def save(self, *args, **kwargs):
+        if self.id == None:
+            with transaction.atomic():
+                self.vendeur = EntrepriseCommerciale.objects.get(telephone=self.numero_vendeur)
+                if self.vendeur.compte_entreprise_commercial.compte_business.solde >= self.montant_transferer:
+                    # retrait de la somme du compte vendeur
+                    self.vendeur.compte_entreprise_commercial.compte_business.solde -= self.montant_transferer
+                    self.vendeur.compte_entreprise_commercial.compte_business.save()
+                    # ajout de la somme au compte consommateur
+                    self.vendeur.compte_entreprise_commercial.compte_consommateur.solde -= self.montant_transferer
+                    self.vendeur.compte_entreprise_commercial.compte_consommateur.save()
+                    # mise a jour de la creance
+                    self.vendeur.save()
+                    # mettre à jour le total des epound dispo sur compte e-c pour le taux d'absorbtion
+                    update_total_epound_taux_absortion(self.montant_transferer)
+                    # mise a jour de la creance total
+                    creance_total = CreanceTotal.load()
+                    creance_total.total_epounds_consommateur += self.montant_transferer
+                    creance_total.total_epounds -= self.montant_transferer
+                    creance_total.save()
+                    # sauvegarder le transfert
+                    return super(TransfertCompteVendeurSurCompteConsommateur, self).save(*args, **kwargs)
+        else:
+            return super(TransfertCompteVendeurSurCompteConsommateur, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Transfert Compte Vendeur vers Compte Consommateur du Vendeur'
+        verbose_name_plural = 'Transferts Comptes Vendeur vers Comptes Consommateur des Vendeurs'
+
+
 class TransactionConsommateurCommercial(models.Model):
     """
         Cette classe gère les payement effectués par
@@ -357,17 +398,22 @@ class ConversionTrader(models.Model):
                 # Opération sur le consommateur
                 try:
                     self.consommateur = Consommateur.objects.get(telephone=self.numero_receveur)
-                    self.epounds_transferer = int(self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
+                    self.epounds_transferer = int(
+                        self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
                     self.consommateur.compte_consommateur.solde += self.epounds_transferer
                     self.solde_apres_conversion = self.consommateur.compte_consommateur.solde
                     self.consommateur.compte_consommateur.save()
                 except:
                     self.consommateur = EntrepriseCommercial.objects.get(telephone=self.numero_receveur)
-                    self.epounds_transferer = int(self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
+                    self.epounds_transferer = int(
+                        self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
                     self.consommateur.compte_entreprise_commercial.compte_consommateur.solde += self.epounds_transferer
                     self.solde_apres_conversion = self.consommateur.compte_entreprise_commercial.compte_consommateur.solde
                     self.consommateur.compte_entreprise_commercial.compte_consommateur.save()
                     self.consommateur.compte_entreprise_commercial.save()
+                    self.consommateur.save()
+                finally:
+                    print(self.consommateur)
 
                 # Mise a jour de la création monétaire
                 creance_monetaire = CreanceMonetaire.load()

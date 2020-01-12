@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.base_user import BaseUserManager
 from django.urls import reverse, reverse_lazy
 from django.utils.html import format_html
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
@@ -11,8 +12,8 @@ class MembreAdmin(PolymorphicParentModelAdmin):
     base_model = Membre
     child_models = (EntrepriseCommerciale, Trader, ConsommateurParticulier, ConsommateurEntreprise)
     list_filter = (PolymorphicChildModelFilter, 'date_expiration', 'actif',)
-    search_fields = ['nom', 'code_membre', 'actif', ]
-    list_display = ['nom_membre', 'code_membre', 'date_expiration', ]
+    search_fields = ['nom', 'code_membre', "code_qr",'actif', ]
+    list_display = ['nom_membre', 'code_membre', "code_qr",'date_expiration', ]
 
     def nom_membre(self, obj):
         membre = Membre.objects.get(id=obj.id)
@@ -45,7 +46,39 @@ class MembreAdmin(PolymorphicParentModelAdmin):
 
     activer_membre.short_description = "Activer les Utilisateurs"
 
-    actions = [desactiver_membre, activer_membre]
+    def rollback_qr_code(self, request, queryset):
+        queryset = Membre.objects.all()
+        for membre in queryset:
+            if membre.code_qr is not None:
+                membre.code_qr = BaseUserManager().make_random_password(20)
+                membre.save()
+                self.message_user(request, "Code Qr regenerer avec succes")
+
+    rollback_qr_code.short_description = "Rollback des qr code des membres"
+
+    def reformater_qr_code(self, request, queryset):
+        queryset = Membre.objects.all()
+        for membre in queryset:
+            if membre.code_qr is not None:
+                if len(membre.code_qr) > 20:
+                    membre.code_qr = membre.code_qr[0:20:1]
+                    membre.save()
+                    self.message_user(request, "Code Qr regenerer avec succes")
+
+    reformater_qr_code.short_description = "Reformater le qr code des membres"
+
+    def regenerer_qr_code(self, request, queryset):
+        queryset = Membre.objects.all()
+        for membre in queryset:
+            if membre.code_qr is not None:
+                if membre.telephone not in membre.code_qr:
+                    membre.code_qr = str(membre.telephone)+"-"+str(membre.code_qr)
+                    membre.save()
+                    self.message_user(request, "Code Qr regenerer avec succes")
+
+    regenerer_qr_code.short_description = "Regenerer le qr code des membres"
+
+    actions = [desactiver_membre, activer_membre, reformater_qr_code, regenerer_qr_code,]
 
 
 @admin.register(Trader)
