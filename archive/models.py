@@ -147,7 +147,7 @@ class TransfertCompteVendeurSurCompteConsommateur(models.Model):
         d'un commerciale à un particulier
     """
     numero_vendeur = models.CharField(max_length=8, verbose_name="Numéro de l'envoyeur", null=True)
-    vendeur = models.ForeignKey(EntrepriseCommerciale, verbose_name="Vendeur", on_delete=models.CASCADE, null=True,)
+    vendeur = models.ForeignKey(EntrepriseCommerciale, verbose_name="Vendeur", on_delete=models.CASCADE, null=True, blank=True)
     montant_transferer = models.PositiveIntegerField(verbose_name="Montant transférer", null=True)
     date_transfert = models.DateTimeField(auto_now_add=True, verbose_name="Date de transfert")
 

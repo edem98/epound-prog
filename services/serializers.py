@@ -476,7 +476,7 @@ class TransactionCommercialComsommateurSerializer(serializers.HyperlinkedModelSe
 
 
 class TransfertCompteVendeurSurCompteConsommateurSerializer(serializers.HyperlinkedModelSerializer):
-    vendeur = EntrepriseCommercialeSerializer()
+    vendeur = EntrepriseCommercialeSerializer(read_only=True)
 
     class  Meta:
         model = TransfertCompteVendeurSurCompteConsommateur
@@ -484,7 +484,7 @@ class TransfertCompteVendeurSurCompteConsommateurSerializer(serializers.Hyperlin
 
     def create(self, validated_data):
         numero_vendeur = validated_data.get('numero_vendeur')
-        vendeur = EntrepriseCommerciale.objects.get(telephone=numero_vendeur)
+        vendeur = EntrepriseCommerciale.objects.get(telephone=numero_vendeur,)
         montant_transferer = validated_data.get('montant_transferer')
         transfert = TransfertCompteVendeurSurCompteConsommateur.objects.create(numero_vendeur=numero_vendeur,
                                                                        vendeur=vendeur,
