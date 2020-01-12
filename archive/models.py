@@ -404,7 +404,7 @@ class ConversionTrader(models.Model):
                     self.solde_apres_conversion = self.consommateur.compte_consommateur.solde
                     self.consommateur.compte_consommateur.save()
                 except:
-                    self.consommateur = EntrepriseCommercial.objects.get(telephone=self.numero_receveur)
+                    self.consommateur = EntrepriseCommerciale.objects.get(telephone=self.numero_receveur)
                     self.epounds_transferer = int(
                         self.montant_converti + self.montant_converti * CompteConsommateur.TAUX_GAIN / 100)
                     self.consommateur.compte_entreprise_commercial.compte_consommateur.solde += self.epounds_transferer
