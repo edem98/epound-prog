@@ -147,7 +147,8 @@ class TransfertCompteVendeurSurCompteConsommateur(models.Model):
         d'un commerciale à un particulier
     """
     numero_vendeur = models.CharField(max_length=8, verbose_name="Numéro de l'envoyeur", null=True)
-    vendeur = models.ForeignKey(EntrepriseCommerciale, verbose_name="Vendeur", on_delete=models.CASCADE, null=True, blank=True)
+    vendeur = models.ForeignKey(EntrepriseCommerciale, verbose_name="Vendeur", on_delete=models.CASCADE, null=True,
+                                blank=True)
     montant_transferer = models.PositiveIntegerField(verbose_name="Montant transférer", null=True)
     date_transfert = models.DateTimeField(auto_now_add=True, verbose_name="Date de transfert")
 
@@ -377,8 +378,8 @@ class ConversionTrader(models.Model):
                                      null=True, )
 
     vendeur = models.ForeignKey(EntrepriseCommerciale, verbose_name="Consommateur",
-                                     on_delete=models.CASCADE,
-                                     null=True, )
+                                on_delete=models.CASCADE,
+                                null=True, )
 
     montant_converti = models.PositiveIntegerField(verbose_name="Somme Converti",
                                                    null=True)
@@ -645,3 +646,37 @@ class MessageClient(models.Model):
     telephone = models.CharField(max_length=8, verbose_name="Téléphone du client", null=True)
     message = models.TextField(verbose_name="Contenu du méssage", null=True)
     date_envoye = models.DateTimeField(auto_now_add=True, null=True)
+
+
+class CreditCompteClient(models.Model):
+    tx_reference = models.CharField(max_length=255, verbose_name="Identifiant Unique générée", unique=True, null=True)
+    identifier = models.CharField(max_length=255, verbose_name="Identifiant interne de la transaction de l’e-commerce",
+                                  unique=True,
+                                  null=True
+                                  )
+    payment_reference = models.CharField(max_length=255, verbose_name="Code de référence de paiement généré par Flooz",
+                                         null=True)
+    amount = models.PositiveIntegerField(verbose_name="Montant payé par le client")
+    epound_transferer = models.PositiveIntegerField(verbose_name="Montant payé par le client", null=True)
+    datetime = models.DateFieldTime(null=True)
+    payment_method = models.CharField(max_length=10, verbose_name="Méthode de paiement utilisée par le client",
+                                      null=True)
+    phone_number = models.CharField(max_length=15, verbose_name="Numéro de téléphone du client", null=True)
+
+    def save(self, *args, **kwargs):
+        if self.id == None:
+            with transaction.atomic():
+                self.client = Consommateur.objects.get(telephone=self.numero_acheteur)
+                self.vendeur = EntrepriseCommerciale.objects.get(telephone=self.numero_vendeur)
+                if self.client.compte_consommateur.solde >= self.montant:
+                    self.client.compte_consommateur.solde -= self.montant
+                    self.client.compte_consommateur.depense_epound_mensuel += self.montant
+                    self.client.compte_consommateur.save()
+                    self.vendeur.compte_entreprise_commercial.compte_business.solde += self.montant
+                    self.vendeur.compte_entreprise_commercial.compte_business.save()
+                    # mise a jour de la creance total
+                    creance_total = CreanceTotal.load()
+                    creance_total.total_epounds_consommateur -= self.montant
+                    creance_total.total_epounds += self.montant
+                    creance_total.save()
+                    super(CreditCompteClient, self).save(*args, **kwargs)
