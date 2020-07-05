@@ -5,7 +5,7 @@ import os
 DEBUG = False
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['epound-prog.herokuapp.com','epoundtogo.com','www.epoundtogo.com']
+ALLOWED_HOSTS = ['epound-prog.herokuapp.com','epoundtogo.com','www.epoundtogo.com',]
 
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 
@@ -23,8 +23,6 @@ SESSION_COOKIE_SECURE = True
 DEFAULT_FILE_STORAGE = 'epound.storage_backends.MediaStorage'
 
 MEDIA_URL = ''
-
-DATABASES['default'] = dj_database_url.config()
 
 DEBUG = True
 TEMPLATE_DEBUG = True
