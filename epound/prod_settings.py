@@ -5,7 +5,11 @@ import os
 DEBUG = False
 TEMPLATE_DEBUG = False
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['epound-prog.herokuapp.com','epoundtogo.com','www.epoundtogo.com',]
+=======
+ALLOWED_HOSTS = ['epoundtogo.com','www.epoundtogo.com']
+>>>>>>> 65e1e810085ad1cffb6e86cf5a29f67c1d2ce883
 
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 

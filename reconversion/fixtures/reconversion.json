@@ -1,0 +1,18 @@
+[
+  
+  {
+    "model": "reconversion.reconversionentreprisecommerciale",
+    "pk": 1,
+    "fields": {
+      "operateur": 1,
+      "beneficiaire": 21,
+      "epounds_disponible": 100000,
+      "epounds_a_reconvertir": 50000,
+      "montant_a_prelever": 2378,
+      "montant_en_cfa": 33335,
+      "montant_virer_sur_compte_conso": 14287,
+      "mot_de_passe": "epound2018"
+    }
+  }
+  
+]
