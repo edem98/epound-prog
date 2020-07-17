@@ -1,0 +1,48 @@
+[{
+    "model": "emision.emissionsurcompteconsommateur",
+    "pk": 1,
+    "fields": {
+      "trader": null,
+      "consommateur": 50,
+      "montant": 119000,
+      "bonification": 59500,
+      "password": "tresorpassword",
+      "date_emission": "2018-10-25T15:51:00.927Z"
+    }
+  },
+  {
+    "model": "emision.emissionsurcompteconsommateur",
+    "pk": 2,
+    "fields": {
+      "trader": null,
+      "consommateur": 50,
+      "montant": 200000,
+      "bonification": 100000,
+      "password": "tresorpassword",
+      "date_emission": "2018-10-25T15:52:22.617Z"
+    }
+  },
+  {
+    "model": "emision.creationparticulierpartrader",
+    "pk": 1,
+    "fields": {
+      "solde_initial": 800000,
+      "trader": 3,
+      "consommateur": 51,
+      "telephone": "98502920",
+      
+      "date_emission": "2018-10-25T17:24:40.004Z"
+    }
+  },
+  {
+    "model": "emision.creationparticulierpartrader",
+    "pk": 2,
+    "fields": {
+      "solde_initial": 797000,
+      "trader": 3,
+      "consommateur": 52,
+      "telephone": "93554740",
+      
+      "date_emission": "2018-10-25T15:25:57.821Z"
+    }
+  }]

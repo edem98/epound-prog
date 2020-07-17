@@ -1,0 +1,19 @@
+[
+	{
+    	"model": "octroi.octroicredit",
+    	"pk": 1,
+	    "fields": {
+	      "operateur": 1,
+	      "beneficiaire": 4,
+	      "montant_pret": 100000,
+	      "montant_prelever_sur_grenier": 100000,
+	      "montant_prelever_sur_beta": 0,
+	      "delais_rembousement": 6,
+	      "reste": null,
+	      "mot_de_passe": "epound2018",
+	      "date_butoir_payement": "2019-04-25T14:42:01.199Z",
+	      "date_octroi": "2018-10-27T14:42:01.200Z",
+	      "reboursser": false
+    	}
+  	}
+ ]

@@ -1,0 +1,530 @@
+[
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "compte",
+      "model": "compte"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "compte",
+      "model": "comptealpha"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "compte",
+      "model": "comptebeta"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "compte",
+      "model": "comptegrenier"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "compte",
+      "model": "comptebusiness"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "compte",
+      "model": "compteconsommateur"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "compte",
+      "model": "compteentreprisecommerciale"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "compte",
+      "model": "comptetrader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "emision",
+      "model": "emissionunites"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "membre",
+      "model": "membre"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "membre",
+      "model": "consommateur"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "membre",
+      "model": "entreprisecommerciale"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+      "app_label": "membre",
+      "model": "trader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 20,
+    "fields": {
+      "app_label": "octroi",
+      "model": "octroicredit"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 21,
+    "fields": {
+      "app_label": "reconversion",
+      "model": "reconversionconsommateur"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 22,
+    "fields": {
+      "app_label": "reconversion",
+      "model": "reconversionentreprisecommerciale"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 23,
+    "fields": {
+      "app_label": "dashboard",
+      "model": "creance"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 24,
+    "fields": {
+      "app_label": "dashboard",
+      "model": "creancetotal"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 25,
+    "fields": {
+      "app_label": "membre",
+      "model": "consommateurentreprise"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 26,
+    "fields": {
+      "app_label": "membre",
+      "model": "consommateurparticulier"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 27,
+    "fields": {
+      "app_label": "services",
+      "model": "conversiontrader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 28,
+    "fields": {
+      "app_label": "services",
+      "model": "reconversiontrader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 29,
+    "fields": {
+      "app_label": "services",
+      "model": "transactioncommercialcomsommateur"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 30,
+    "fields": {
+      "app_label": "services",
+      "model": "transactionintercomsommateur"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 31,
+    "fields": {
+      "app_label": "archive",
+      "model": "conversiontrader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 32,
+    "fields": {
+      "app_label": "archive",
+      "model": "reconversiontrader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 33,
+    "fields": {
+      "app_label": "archive",
+      "model": "transactioncommercialcomsommateur"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 34,
+    "fields": {
+      "app_label": "archive",
+      "model": "transactionintercomsommateur"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 35,
+    "fields": {
+      "app_label": "archive",
+      "model": "notification"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 36,
+    "fields": {
+      "app_label": "ecommerce",
+      "model": "categorie"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 37,
+    "fields": {
+      "app_label": "ecommerce",
+      "model": "product"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 38,
+    "fields": {
+      "app_label": "ecommerce",
+      "model": "productitem"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 39,
+    "fields": {
+      "app_label": "archive",
+      "model": "payementconsomateur"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 40,
+    "fields": {
+      "app_label": "archive",
+      "model": "payementintercommercial"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 41,
+    "fields": {
+      "app_label": "archive",
+      "model": "creationparticulierpartrader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 42,
+    "fields": {
+      "app_label": "archive",
+      "model": "creationentreprisepartrader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 43,
+    "fields": {
+      "app_label": "ecommerce",
+      "model": "expressionbesoin"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 44,
+    "fields": {
+      "app_label": "ecommerce",
+      "model": "sp\u00e9cificationbesoin"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 45,
+    "fields": {
+      "app_label": "ecommerce",
+      "model": "produit"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 46,
+    "fields": {
+      "app_label": "emision",
+      "model": "emissionsurcomptealpha"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 47,
+    "fields": {
+      "app_label": "emision",
+      "model": "emissionsurcomptetrader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 48,
+    "fields": {
+      "app_label": "emision",
+      "model": "emissionsurcompteconsommateur"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 49,
+    "fields": {
+      "app_label": "emision",
+      "model": "creationparticulierpartrader"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 50,
+    "fields": {
+      "app_label": "dashboard",
+      "model": "creancemonetaire"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 51,
+    "fields": {
+      "app_label": "octroi",
+      "model": "remboursement"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 52,
+    "fields": {
+      "app_label": "dashboard",
+      "model": "remboursement"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 53,
+    "fields": {
+      "app_label": "dashboard",
+      "model": "indicedeconversion"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 54,
+    "fields": {
+      "app_label": "django_celery_beat",
+      "model": "crontabschedule"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 55,
+    "fields": {
+      "app_label": "django_celery_beat",
+      "model": "intervalschedule"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 56,
+    "fields": {
+      "app_label": "django_celery_beat",
+      "model": "periodictask"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 57,
+    "fields": {
+      "app_label": "django_celery_beat",
+      "model": "periodictasks"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 58,
+    "fields": {
+      "app_label": "django_celery_beat",
+      "model": "solarschedule"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 59,
+    "fields": {
+      "app_label": "djcelery",
+      "model": "periodictask"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 60,
+    "fields": {
+      "app_label": "djcelery",
+      "model": "crontabschedule"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 61,
+    "fields": {
+      "app_label": "djcelery",
+      "model": "intervalschedule"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 62,
+    "fields": {
+      "app_label": "djcelery",
+      "model": "periodictasks"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 63,
+    "fields": {
+      "app_label": "djcelery",
+      "model": "taskmeta"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 64,
+    "fields": {
+      "app_label": "djcelery",
+      "model": "tasksetmeta"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 65,
+    "fields": {
+      "app_label": "djcelery",
+      "model": "taskstate"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 66,
+    "fields": {
+      "app_label": "djcelery",
+      "model": "workerstate"
+    }
+  }
+]

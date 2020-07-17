@@ -42,7 +42,6 @@ router.register(r'message-client', MessageClientViewSet)
 urlpatterns = [
 
     path('admin/doc/', include('django.contrib.admindocs.urls')),
-    path('jet/', include('jet.urls', 'jet')),
     path(
         'admin/password_reset/',
         auth_views.PasswordResetView.as_view(),
@@ -74,8 +73,4 @@ urlpatterns = [
     path('membre/', include('membre.urls'), ),
     path('api/', include(router.urls)),
     path('ecommerce/', include('ecommerce.urls')),
-
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

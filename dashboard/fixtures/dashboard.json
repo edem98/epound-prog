@@ -1,0 +1,85 @@
+[
+	{
+    "model": "dashboard.creancetotal",
+    "pk": 1,
+    "fields": {
+      "total_epounds_consommateur": 1000000,
+      "total_epounds": 843331,
+      "epounds_retrancher": 42166,
+      "voulume_convertible": 560815,
+      "volume_retransferer": 240349
+    }
+  },
+  {
+    "model": "dashboard.creance",
+    "pk": 5,
+    "fields": {
+      "entreprise_associer": 4,
+      "epounds_retrancher": 9166,
+      "voulume_convertible": 121915,
+      "volume_retransferer": 52249
+    }
+  },
+  {
+    "model": "dashboard.creance",
+    "pk": 7,
+    "fields": {
+      "entreprise_associer": 9,
+      "epounds_retrancher": 3000,
+      "voulume_convertible": 39900,
+      "volume_retransferer": 17100
+    }
+  },
+  {
+    "model": "dashboard.creance",
+    "pk": 8,
+    "fields": {
+      "entreprise_associer": 10,
+      "epounds_retrancher": 15000,
+      "voulume_convertible": 199500,
+      "volume_retransferer": 85500
+    }
+  },
+  {
+    "model": "dashboard.creance",
+    "pk": 12,
+    "fields": {
+      "entreprise_associer": 15,
+      "epounds_retrancher": 10000,
+      "voulume_convertible": 133000,
+      "volume_retransferer": 57000
+    }
+  },
+  {
+    "model": "dashboard.creance",
+    "pk": 13,
+    "fields": {
+      "entreprise_associer": 21,
+      "epounds_retrancher": 5000,
+      "voulume_convertible": 70000,
+      "volume_retransferer": 30000
+    }
+  },
+  {
+    "model": "dashboard.creancemonetaire",
+    "pk": 1,
+    "fields": {
+      "cumul_bonification": 10000000,
+      "compte_beta": 42923568,
+      "compte_grenier": 10000000,
+      "solde": 42923568
+    }
+  },
+  {
+    "model": "dashboard.remboursement",
+    "pk": 1,
+    "fields": {
+      "entreprise": 4,
+      "montant_emprunter": 100000,
+      "credit_actuel": 0,
+      "montant_rembourser": 16666,
+      "reste": 0,
+      "date_remboursement": "2018-10-29T18:04:49.835Z"
+    }
+  }
+]

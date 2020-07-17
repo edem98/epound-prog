@@ -1,0 +1,336 @@
+[
+  {
+    "model": "ecommerce.expressionbesoin",
+    "pk": 1,
+    "fields": {
+      "besoin": "Alimentation",
+      "image_illustratif": "besoins/alimentation.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.expressionbesoin",
+    "pk": 2,
+    "fields": {
+      "besoin": "Sant\u00e9",
+      "image_illustratif": "besoins/sante.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.expressionbesoin",
+    "pk": 3,
+    "fields": {
+      "besoin": "Habillement",
+      "image_illustratif": "besoins/banner_3.jpg"
+    }
+  },
+  {
+    "model": "ecommerce.expressionbesoin",
+    "pk": 4,
+    "fields": {
+      "besoin": "Logement",
+      "image_illustratif": "besoins/logement.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.expressionbesoin",
+    "pk": 5,
+    "fields": {
+      "besoin": "Communication",
+      "image_illustratif": "besoins/communication.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.expressionbesoin",
+    "pk": 6,
+    "fields": {
+      "besoin": "Divertissement",
+      "image_illustratif": "besoins/divertissement.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.expressionbesoin",
+    "pk": 7,
+    "fields": {
+      "besoin": "Education",
+      "image_illustratif": "besoins/education.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.expressionbesoin",
+    "pk": 8,
+    "fields": {
+      "besoin": "D\u00e9placement",
+      "image_illustratif": "besoins/deplacement_4yxyUcW.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 4,
+    "fields": {
+      "besoin_fondamental": 1,
+      "sp\u00e9cification": "Restauration",
+      "image_illustratif": "specifications_besoins/restauration.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 5,
+    "fields": {
+      "besoin_fondamental": 1,
+      "sp\u00e9cification": "Alimentation g\u00e9n\u00e9ral",
+      "image_illustratif": "specifications_besoins/alimentation_general.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 6,
+    "fields": {
+      "besoin_fondamental": 1,
+      "sp\u00e9cification": "Liqueurs Et Boissons",
+      "image_illustratif": "specifications_besoins/liqueur.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 7,
+    "fields": {
+      "besoin_fondamental": 2,
+      "sp\u00e9cification": "Pharmacie",
+      "image_illustratif": "specifications_besoins/pharmacie.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 8,
+    "fields": {
+      "besoin_fondamental": 2,
+      "sp\u00e9cification": "Clinique",
+      "image_illustratif": "specifications_besoins/clinique.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 9,
+    "fields": {
+      "besoin_fondamental": 2,
+      "sp\u00e9cification": "M\u00e9decine Traditionnelle",
+      "image_illustratif": "specifications_besoins/medecine_tradi.jpg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 10,
+    "fields": {
+      "besoin_fondamental": 2,
+      "sp\u00e9cification": "M\u00e9decine Chinoise",
+      "image_illustratif": "specifications_besoins/medecine-chinoise-1024x448.jpg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 11,
+    "fields": {
+      "besoin_fondamental": 3,
+      "sp\u00e9cification": "Haute Couture",
+      "image_illustratif": "specifications_besoins/IMG-20171214-WA0271.jpg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 12,
+    "fields": {
+      "besoin_fondamental": 3,
+      "sp\u00e9cification": "Lingerie Et Pagnes",
+      "image_illustratif": "specifications_besoins/slider_1.jpg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 13,
+    "fields": {
+      "besoin_fondamental": 3,
+      "sp\u00e9cification": "Pr\u00eats \u00e0 Porter",
+      "image_illustratif": "specifications_besoins/pret_a_porter.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 14,
+    "fields": {
+      "besoin_fondamental": 5,
+      "sp\u00e9cification": "Agence",
+      "image_illustratif": "specifications_besoins/agence_com.jpg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 15,
+    "fields": {
+      "besoin_fondamental": 5,
+      "sp\u00e9cification": "Magazine",
+      "image_illustratif": "specifications_besoins/magazine.jpg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 16,
+    "fields": {
+      "besoin_fondamental": 5,
+      "sp\u00e9cification": "Presse",
+      "image_illustratif": "specifications_besoins/presse.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 17,
+    "fields": {
+      "besoin_fondamental": 6,
+      "sp\u00e9cification": "Bar",
+      "image_illustratif": "specifications_besoins/bar.jpg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 18,
+    "fields": {
+      "besoin_fondamental": 6,
+      "sp\u00e9cification": "Discoth\u00e8que",
+      "image_illustratif": "specifications_besoins/disco.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 19,
+    "fields": {
+      "besoin_fondamental": 6,
+      "sp\u00e9cification": "Piscine",
+      "image_illustratif": "specifications_besoins/piscine.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 20,
+    "fields": {
+      "besoin_fondamental": 6,
+      "sp\u00e9cification": "Parc D'attraction",
+      "image_illustratif": "specifications_besoins/parc.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 21,
+    "fields": {
+      "besoin_fondamental": 7,
+      "sp\u00e9cification": "Cabinets de Formations",
+      "image_illustratif": "specifications_besoins/cabinet.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 22,
+    "fields": {
+      "besoin_fondamental": 7,
+      "sp\u00e9cification": "Ecoles et Instituts",
+      "image_illustratif": "specifications_besoins/ecole.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 23,
+    "fields": {
+      "besoin_fondamental": 7,
+      "sp\u00e9cification": "Apprentissage",
+      "image_illustratif": "specifications_besoins/apprentissage.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 24,
+    "fields": {
+      "besoin_fondamental": 7,
+      "sp\u00e9cification": "Artisanat",
+      "image_illustratif": "specifications_besoins/artisanat.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 25,
+    "fields": {
+      "besoin_fondamental": 8,
+      "sp\u00e9cification": "V\u00e9hicule",
+      "image_illustratif": "specifications_besoins/vehicule.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 26,
+    "fields": {
+      "besoin_fondamental": 8,
+      "sp\u00e9cification": "Motocycle",
+      "image_illustratif": "specifications_besoins/moto.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 27,
+    "fields": {
+      "besoin_fondamental": 8,
+      "sp\u00e9cification": "V\u00e9lo",
+      "image_illustratif": "specifications_besoins/velo.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 28,
+    "fields": {
+      "besoin_fondamental": 8,
+      "sp\u00e9cification": "Agence de Voyage",
+      "image_illustratif": "specifications_besoins/agence_voyage.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 29,
+    "fields": {
+      "besoin_fondamental": 4,
+      "sp\u00e9cification": "BTP",
+      "image_illustratif": "specifications_besoins/btp.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 30,
+    "fields": {
+      "besoin_fondamental": 4,
+      "sp\u00e9cification": "Etude Architecture et Construction",
+      "image_illustratif": "specifications_besoins/construction.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 31,
+    "fields": {
+      "besoin_fondamental": 4,
+      "sp\u00e9cification": "Immobilier",
+      "image_illustratif": "specifications_besoins/immobilier.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 32,
+    "fields": {
+      "besoin_fondamental": 4,
+      "sp\u00e9cification": "Mat\u00e9riaux et Mat\u00e9riels",
+      "image_illustratif": "specifications_besoins/materiaux.jpeg"
+    }
+  },
+  {
+    "model": "ecommerce.sp\u00e9cificationbesoin",
+    "pk": 33,
+    "fields": {
+      "besoin_fondamental": 6,
+      "sp\u00e9cification": "Equipement Sportif",
+      "image_illustratif": "specifications_besoins/sport.jpeg"
+    }
+  }
+]
