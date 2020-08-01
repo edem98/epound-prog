@@ -82,21 +82,25 @@ def login_troc(request):
 
 def specification_besoin(request, besoin):
     context = {}
-    besoin = ExpressionBesoin.objects.get(besoin=besoin)
-    specifications = SpécificationBesoin.objects.filter(besoin_fondamental=besoin)
-    new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:20]
-    context['besoin'] = besoin
-    context['specifications'] = specifications
-    context['produits'] = new_produits
-    partenaires = Partenaire.objects.all()[:4]
-    context['partenaires'] = partenaires
-    categories = Categorie.objects.all()
-    context['categories'] = categories
-    emplacements = Quartier.objects.all()
-    context['emplacements'] = emplacements
-    vendeurs = EntrepriseCommerciale.objects.all()
-    context['vendeurs'] = vendeurs
-    return render(request, 'ecommerce/specification.html', context)
+    try:
+        besoin = ExpressionBesoin.objects.get(besoin=besoin)
+        specifications = SpécificationBesoin.objects.filter(besoin_fondamental=besoin)
+        new_produits = Produit.objects.filter(disponible=True).order_by('-date_ajout')[:20]
+        context['besoin'] = besoin
+        context['specifications'] = specifications
+        context['produits'] = new_produits
+        partenaires = Partenaire.objects.all()[:4]
+        context['partenaires'] = partenaires
+        categories = Categorie.objects.all()
+        context['categories'] = categories
+        emplacements = Quartier.objects.all()
+        context['emplacements'] = emplacements
+        vendeurs = EntrepriseCommerciale.objects.all()
+        context['vendeurs'] = vendeurs
+        return render(request, 'ecommerce/specification.html', context)
+    except Exception as e:
+        print(e)
+
 
 
 def specification_besoin_json(request):

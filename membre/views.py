@@ -51,7 +51,7 @@ def generer_mot_de_passe_consommateur(request, id):
 
 	consommateur = ConsommateurParticulier.objects.get(id=id)
 	user = consommateur.user
-	password = BaseUserManager().make_random_password(5)
+	password = BaseUserManager().make_random_password(4)
 	consommateur.mdp = password
 	consommateur.save()
 	user.set_password(password)
@@ -73,7 +73,7 @@ def generer_mot_de_passe_trader(request, id):
 
 	trader = Trader.objects.get(id=id)
 	user = trader.user
-	password = BaseUserManager().make_random_password(5)
+	password = BaseUserManager().make_random_password(4)
 	trader.mdp = password
 	trader.save()
 	user.set_password(password)
@@ -95,7 +95,7 @@ def generer_mot_de_passe_vendeur(request, id):
 
 	vendeur = EntrepriseCommerciale.objects.get(id=id)
 	user = vendeur.user
-	password = BaseUserManager().make_random_password(5)
+	password = BaseUserManager().make_random_password(4)
 	vendeur.mdp = password
 	vendeur.save()
 	user.set_password(password)
