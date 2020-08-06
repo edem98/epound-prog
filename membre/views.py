@@ -5,7 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from utils import envoyer_sms
-from membre.models import Membre,EntrepriseCommerciale, ConsommateurParticulier
+from membre.models import Membre,EntrepriseCommerciale, ConsommateurParticulier, Trader
 
 
 def retourner_taux_membre(request):
