@@ -658,7 +658,7 @@ class CreditCompteClient(models.Model):
                                          null=True)
     amount = models.PositiveIntegerField(verbose_name="Montant payé par le client")
     epound_transferer = models.PositiveIntegerField(verbose_name="Montant payé par le client", null=True)
-    datetime = models.DateFieldTime(null=True)
+    datetime = models.DateTimeField(null=True)
     payment_method = models.CharField(max_length=10, verbose_name="Méthode de paiement utilisée par le client",
                                       null=True)
     phone_number = models.CharField(max_length=15, verbose_name="Numéro de téléphone du client", null=True)
