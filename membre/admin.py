@@ -13,7 +13,7 @@ class MembreAdmin(PolymorphicParentModelAdmin):
     child_models = (EntrepriseCommerciale, Trader, ConsommateurParticulier, ConsommateurEntreprise)
     list_filter = (PolymorphicChildModelFilter, 'date_expiration', 'actif',)
     search_fields = ['nom', 'code_membre', "code_qr",'actif', ]
-    list_display = ['nom_membre', 'code_membre', "code_qr",'date_expiration', ]
+    list_display = ['nom_membre', 'code_membre', "mdp", "code_qr",'date_expiration', ]
 
     def nom_membre(self, obj):
         membre = Membre.objects.get(id=obj.id)
@@ -85,7 +85,7 @@ class MembreAdmin(PolymorphicParentModelAdmin):
 class TraderAdmin(admin.ModelAdmin):
     base_model = Trader
     search_fields = ['nom', 'actif', ]
-    list_display = ['nom_membre', 'code_membre', 'telephone', 'mdp', 'emplacement', 'date_expiration', 'generer_mot_de_passe']
+    list_display = ['nom_membre', "mdp",'code_membre', 'telephone', 'mdp', 'emplacement', 'date_expiration', 'generer_mot_de_passe']
     readonly_fields = ['numero_compte_trader', 'solde_compte_trader',
                        'date_expiration_compte_trader', 'activiter_compte_trader', 'code_membre']
 
@@ -181,7 +181,7 @@ class ConsommateurAdmin(PolymorphicParentModelAdmin, PolymorphicChildModelAdmin)
     search_fields = ['nom', 'code_membre', 'actif', 'telephone']
     child_models = (ConsommateurParticulier, ConsommateurEntreprise)
     list_filter = (PolymorphicChildModelFilter,)
-    list_display = ['nom_membre', 'telephone', 'code_membre', 'nationalite', 'compte_consommateur', ]
+    list_display = ['nom_membre', 'telephone', "mdp",'code_membre', 'nationalite', 'compte_consommateur', ]
 
     def nom_membre(self, obj):
         membre = Membre.objects.get(id=obj.id)
