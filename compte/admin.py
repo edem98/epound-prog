@@ -8,7 +8,7 @@ from membre.models import EntrepriseCommerciale, Consommateur, Trader
 @admin.register(Compte)
 class CompteAdmin(PolymorphicParentModelAdmin):
 	base_model = Compte
-	child_models = (CompteTrader, CompteConsommateur, CompteEntrepriseCommerciale)
+	child_models = (CompteTrader, CompteConsommateur, CompteBusiness, CompteEntrepriseCommerciale)
 	list_filter = (PolymorphicChildModelFilter, 'actif', 'date_expiration')
 	list_display = ['titulaire', 'solde', 'date_expiration',]
 	search_fields = ['id']
