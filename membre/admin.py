@@ -378,14 +378,15 @@ class EntrepriseCommercialeAdmin(admin.ModelAdmin):
                        'banniere_cinq', 'date_expiration', 'actif', 'type_market',
                        )
         }),
+        ('Informations  Compte e-B', {
+            'fields' : ('numero_compte_business', 'solde_compte_business',
+                        'date_expiration_compte_business', 'activiter_compte_business',),
+        }),
         ('Informations  Compte e-C', {
             'fields': ('numero_compte_consommateur', 'solde_compte_consommateur',
                        'date_expiration_compte_consommateur', 'activiter_compte_consommateur',),
         }),
-        ('Informations  Compte e-B', {
-            'fields': ('numero_compte_business', 'solde_compte_business',
-                       'date_expiration_compte_business', 'activiter_compte_business',),
-        }),
+
     )
 
     # fonction traitant l'affichage du compte consommateurs lié
