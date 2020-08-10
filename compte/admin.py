@@ -52,7 +52,7 @@ class CompteAdmin(PolymorphicParentModelAdmin):
 
 
 @admin.register(CompteTrader)
-class CompteTraderAdmin(PolymorphicChildModelAdmin):
+class CompteTraderAdmin(admin.ModelAdmin):
 	base_model = CompteTrader
 	search_fields = ['id']
 	list_filter = ['date_expiration', 'actif', ]
@@ -106,7 +106,7 @@ class CompteTraderAdmin(PolymorphicChildModelAdmin):
 
 
 @admin.register(CompteConsommateur)
-class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
+class CompteConsommateurAdmin(admin.ModelAdmin):
 	base_model = CompteConsommateur
 	search_fields = ['date_expiration', 'depense_epound_mensuel','id']
 	list_filter = ['date_expiration', 'actif', ]
@@ -164,7 +164,7 @@ class CompteConsommateurAdmin(PolymorphicChildModelAdmin):
 
 
 @admin.register(CompteBusiness)
-class CompteBusinessAdmin(PolymorphicChildModelAdmin):
+class CompteBusinessAdmin(admin.ModelAdmin):
 	base_model = CompteBusiness
 	search_fields = ['id']
 	list_filter = ['actif', 'date_expiration', ]
@@ -215,7 +215,7 @@ class CompteBusinessAdmin(PolymorphicChildModelAdmin):
 
 
 @admin.register(CompteEntrepriseCommerciale)
-class CompteEntrepriseCommercialeAdmin(PolymorphicChildModelAdmin):
+class CompteEntrepriseCommercialeAdmin(admin.ModelAdmin):
 	base_model = CompteEntrepriseCommerciale
 	search_fields = ['id', 'taux_rembourssement', ]
 	list_display = ["titulaire", 'compte_consommateur_solde',
