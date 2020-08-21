@@ -370,7 +370,7 @@ class EntrepriseCommercialeAdmin(admin.ModelAdmin):
             'fields': ('compte_entreprise_commercial',),
         }),
         ("Informations entreprise", {
-            'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'localisation',
+            'fields': ('user','besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'localisation',
                        'telephone', 'contact_1', 'contact_2', 'email', 'slug', 'objet_social', 'nature_jurique',
                        'numero_rccm', 'regime_fiscal', 'nif', 'siege_social',
                        'numero_cnss', 'responsable', 'banniere_principal',
