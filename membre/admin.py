@@ -346,7 +346,7 @@ class EntrepriseCommercialeAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("nom",)}
     search_fields = ['nom', 'code_membre', 'telephone', 'nif', 'num_cfe', 'numero_cnss']
     list_filter = ['actif', 'emplacement', 'besoin_fondamental', 'nature_jurique']
-    list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'mdp', 'email', 'generer_mot_de_passe']
+    list_display = ['user','nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'mdp', 'email', 'generer_mot_de_passe']
     readonly_fields = ['numero_compte_consommateur', 'solde_compte_consommateur',
                        'date_expiration_compte_consommateur', 'activiter_compte_consommateur',
                        'numero_compte_business', 'solde_compte_business',
