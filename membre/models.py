@@ -17,7 +17,7 @@ class Membre(PolymorphicModel, TimeStamp):
     mdp = models.CharField(max_length=80, verbose_name='Mot de passe', null=True)
     code_qr = models.CharField(max_length=30,verbose_name="Qr code",null=True,blank=True)
     telephone = models.CharField(max_length=8, verbose_name="Téléphone", null=True, unique=True)
-    email = models.EmailField(max_length=254, null=True, unique=False)
+    email = models.EmailField(max_length=254, null=True, blank=True, unique=False)
     date_desactivation = models.DateField(verbose_name="Date de desactivation", null=True, blank=True)
     date_expiration = models.DateField(verbose_name="Date d'expiration", null=True, blank=True)
     actif = models.BooleanField(verbose_name='En activité', default=True,)
