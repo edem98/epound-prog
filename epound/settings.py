@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['142.93.122.54','epoundtogo.com','www.epoundtogo.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
     'dal',
     'dal_select2',
     'polymorphic',
