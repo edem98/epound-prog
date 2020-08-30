@@ -64,7 +64,7 @@ class Compte(PolymorphicModel, TimeStamp):
         if self.id == None:
             super(Compte, self).save(*args, **kwargs)
             self.date_expiration = self.date_add.date() + datetime.timedelta(720)
-            self.save()
+            super(Compte, self).save(*args, **kwargs)
         else:
             self.save()
             return super(Compte, self).save(*args, **kwargs)
