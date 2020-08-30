@@ -28,7 +28,7 @@ SECRET_KEY = '6fa9=4*i(v8!zcjf%1@1=#gf4=8fnl!^qd-%(hxuh^hsv6!@z%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['142.93.122.54','epoundtogo.com','www.epoundtogo.com']
+ALLOWED_HOSTS = ['142.93.122.54','epoundtogo.com','www.epoundtogo.com', '127.0.0.1']
 
 # Application definition
 
