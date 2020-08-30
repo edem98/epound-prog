@@ -1,15 +1,12 @@
-from epound.settings import *
-import dj_database_url
+from .settings import *
 import os
 
-DEBUG = False
+SECRET_KEY = '9gr3=4*i(v8!zcjf%1@1=#gf4=8fnl!^qd-%(hxuh^hsv6!@z%'
+
+DEBUG = True
 TEMPLATE_DEBUG = False
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ['epound-prog.herokuapp.com','epoundtogo.com','www.epoundtogo.com',]
-=======
-ALLOWED_HOSTS = ['epoundtogo.com','www.epoundtogo.com']
->>>>>>> 65e1e810085ad1cffb6e86cf5a29f67c1d2ce883
+ALLOWED_HOSTS = ['142.93.122.54','epoundtogo.com','www.epoundtogo.com']
 
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 
@@ -21,8 +18,19 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': "epound",
+        'USER': "serge",
+        'PASSWORD': "sergedem92639417",
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
 
 DEFAULT_FILE_STORAGE = 'epound.storage_backends.MediaStorage'
 
@@ -31,7 +39,18 @@ MEDIA_URL = ''
 DEBUG = True
 TEMPLATE_DEBUG = True
 
-DATABASES['default'] = dj_database_url.config()
+
+ADMINS = [('Serge', 'edemserge.kossi@gmail.com'), ('Serge', 'edems.kossi@gmail.com'), ]
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'epoundtg'
+SEND_GRID_API_KEY = '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'
+EMAIL_HOST_PASSWORD = 'epoundscorp2018'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 CACHES = {
     "default": {

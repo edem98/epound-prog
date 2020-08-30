@@ -28,7 +28,7 @@ SECRET_KEY = '6fa9=4*i(v8!zcjf%1@1=#gf4=8fnl!^qd-%(hxuh^hsv6!@z%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['142.93.122.54','epoundtogo.com','www.epoundtogo.com', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -102,15 +102,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'epound.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': "epound",
         'USER': "serge",
-        'PASSWORD': "sergedem92639417",
+        'PASSWORD': "",
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -177,87 +176,12 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
-BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Europe/London'
-CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
-CELERY_BROKER_URL = 'redis://localhost:6379'
-
-ADMINS = [('Serge', 'edemserge.kossi@gmail.com'), ('Serge', 'edems.kossi@gmail.com'), ]
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'epoundtg'
-SEND_GRID_API_KEY = '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'
-EMAIL_HOST_PASSWORD = 'epoundscorp2018'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
 SITE_ID = 1
 
-# Using django-imperavi
-NEWSLETTER_RICHTEXT_WIDGET = "suit_ckeditor.widgets.CKEditorWidget"
-
-# Amount of seconds to wait between each email. Here 100ms is used.
-NEWSLETTER_EMAIL_DELAY = 0.1
-
-# Amount of seconds to wait between each batch. Here one minute is used.
-NEWSLETTER_BATCH_DELAY = 60
-
-# Number of emails in one batch
-NEWSLETTER_BATCH_SIZE = 100
-
-# twilo sms credentials
-TWILIO_ACCOUNT_SID = 'ACfff60f15de8fe247009c9b9986b0aa97'
-TWILIO_AUTH_TOKEN = '31aaff118a5b772185dc425695c54d82'
-
 LOGIN_URL = "/ecommerce/order-login-home"
 
-DEBUG = False
-TEMPLATE_DEBUG = False
-
-
-MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
-
-AWS_ACCESS_KEY_ID = 'AKIAZCEUNS6HSFVNYVME'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'epound-prog'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-
-#SECURE_SSL_REDIRECT = True
-#SESSION_COOKIE_SECURE = True
-
-DEFAULT_FILE_STORAGE = 'epound.storage_backends.MediaStorage'
-
-MEDIA_URL = ''
-
-
-DEBUG = True
-TEMPLATE_DEBUG = True
-
-#DATABASES['default'] = dj_database_url.config()
-
-CACHES = {
-    "default": {
-         "BACKEND": "redis_cache.RedisCache",
-         "LOCATION": os.environ.get('REDIS_URL'),
-    }
-}
-
-celery_url = 'redis://h:pbbd2da2ab291ec09b122ec68ae11a84ccc97a8991f727b8a87fdaa9774eac775@ec2-54-209-190-123.compute-1.amazonaws.com:62509'
-
-BROKER_URL = celery_url
-CELERY_RESULT_BACKEND = celery_url
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Europe/London'
-CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
-CELERY_BROKER_URL = celery_url
+try:
+    from .prod_settings import *
+except ImportError:
+    pass
