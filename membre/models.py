@@ -280,10 +280,8 @@ class EntrepriseCommerciale(Membre):
             # mise a jour de la Creance
             creance = Creance.objects.get(entreprise_associer=self)
             creance.epounds_retrancher = (self.compte_entreprise_commercial.compte_business.solde * 5) / 100
-            creance.voulume_convertible = ((
-                                                       self.compte_entreprise_commercial.compte_business.solde - creance.epounds_retrancher) * 70) / 100
-            creance.volume_retransferer = ((
-                                                       self.compte_entreprise_commercial.compte_business.solde - creance.epounds_retrancher) * 30) / 100
+            creance.voulume_convertible = ((self.compte_entreprise_commercial.compte_business.solde - creance.epounds_retrancher) * 70) / 100
+            creance.volume_retransferer = ((self.compte_entreprise_commercial.compte_business.solde - creance.epounds_retrancher) * 30) / 100
             creance.save()
             return super(EntrepriseCommerciale, self).save(*args, **kwargs)
 
