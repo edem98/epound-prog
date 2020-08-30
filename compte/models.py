@@ -94,17 +94,6 @@ class CompteBusiness(Compte):
     class Meta():
         verbose_name = 'Compte Vente'
 
-# def titulaire(self):
-# 	print(self.id)
-# 	from membre.models import EntrepriseCommerciale
-# 	compte_entreprise = CompteEntrepriseCommerciale.objects.get(compte_business__id=self.id)
-# 	entreprise = EntrepriseCommerciale.objects.get(compte_entreprise_commercial=compte_entreprise)
-# 	return entreprise.nom
-#
-# def __str__(self):
-# 	s = self.titulaire()
-# 	return s
-
 
 class CompteEntrepriseCommerciale(Compte):
     compte_consommateur = models.OneToOneField(CompteConsommateur,

@@ -106,7 +106,7 @@ class TraderAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Informations Relatifs au Trader', {
             'fields': (
-                'user', 'code_membre', 'nom', 'prenoms', 'telephone', 'email', 'emplacement', 'date_expiration',
+                'code_membre', 'nom', 'prenoms', 'telephone', 'email', 'emplacement', 'date_expiration',
                 'actif')
         }),
         ('Informations Relatifs au Compte e-T', {
@@ -213,7 +213,7 @@ class ConsommateurParticulierAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ("Informations Relatifs à l'utilisateur", {
-            'fields': ('user', 'code_membre', 'nom', 'prenoms', 'date_naissance',
+            'fields': ('code_membre', 'nom', 'prenoms', 'date_naissance',
                        'lieu_residence', 'telephone', 'email', 'num_carte', 'formation',
                        'profession', 'situation_matrimoniale', 'nationalite', 'date_expiration'),
         }),
@@ -301,7 +301,7 @@ class ConsommateurEntrepriseAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ("Informations Relatifs à l'Entreprise", {
-            'fields': ('user', 'raison_social', 'telephone', 'statut_juridique', 'objet_social',
+            'fields': ('raison_social', 'telephone', 'statut_juridique', 'objet_social',
                        'capital_social', 'numero_rccm', 'regime_fiscal', 'nif',
                        'siege_social', 'numero_compte_bancaire', 'responsable', 'date_expiration'),
         }),
@@ -346,7 +346,7 @@ class EntrepriseCommercialeAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("nom",)}
     search_fields = ['nom', 'code_membre', 'telephone', 'nif', 'num_cfe', 'numero_cnss']
     list_filter = ['actif', 'emplacement', 'besoin_fondamental', 'nature_jurique']
-    list_display = ['user','nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'mdp', 'email', 'generer_mot_de_passe']
+    list_display = ['nom', 'besoin_gere', 'recette', 'prelevement', 'creance_dues', 'telephone', 'mdp', 'email', 'generer_mot_de_passe']
     readonly_fields = ['numero_compte_consommateur', 'solde_compte_consommateur',
                        'date_expiration_compte_consommateur', 'activiter_compte_consommateur',
                        'numero_compte_business', 'solde_compte_business',
@@ -370,7 +370,7 @@ class EntrepriseCommercialeAdmin(admin.ModelAdmin):
             'fields': ('compte_entreprise_commercial',),
         }),
         ("Informations entreprise", {
-            'fields': ('user','besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'localisation',
+            'fields': ('besoin_fondamental', 'besoin_gere', 'nom', 'emplacement', 'localisation',
                        'telephone', 'contact_1', 'contact_2', 'email', 'slug', 'objet_social', 'nature_jurique',
                        'numero_rccm', 'regime_fiscal', 'nif', 'siege_social',
                        'numero_cnss', 'responsable', 'banniere_principal',

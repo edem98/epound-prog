@@ -181,7 +181,7 @@ SITE_ID = 1
 
 LOGIN_URL = "/ecommerce/order-login-home"
 
-try:
-    from .prod_settings import *
-except ImportError:
-    pass
+# try:
+#     from .prod_settings import *
+# except ImportError:
+#     pass

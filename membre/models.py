@@ -86,8 +86,10 @@ class Consommateur(Membre, PolymorphicModel):
         if self.id == None:
             super(Consommateur, self).save(*args, **kwargs)
             self.code_membre = self.id
-            self.user = User.objects.create(username=self.telephone + "_" + str(self.code_membre)
-                                            , password=make_password(self.mdp))
+            new_user = User(username=str(self.nom) + "_" + str(self.code_membre),
+                            last_name=str(self.nom), password=make_password(self.mdp))
+            new_user.save()
+            self.user = new_user
             self.compte_consommateur = CompteConsommateur.objects.create()
             groupe = Group.objects.get(name="Consommateur")
             groupe.user_set.add(self.user)
@@ -268,9 +270,10 @@ class EntrepriseCommerciale(Membre):
         if self.code_membre == None:
             super(EntrepriseCommerciale, self).save(*args, **kwargs)
             self.code_membre = self.id
-            self.user = User(username=str(self.nom) + "-" + str(self.code_membre), last_name=str(self.nom),
-                             password=make_password(self.mdp))
-            self.user.save()
+            new_user = User(username=str(self.nom) + "_" + str(self.code_membre),
+                            last_name=str(self.nom), password=make_password(self.mdp))
+            new_user.save()
+            self.user = new_user
             groupe = Group.objects.get(name="Commercial")
             groupe.user_set.add(self.user)
             creance = Creance.objects.create(entreprise_associer=self)
@@ -332,11 +335,12 @@ class Trader(Membre):
         if self.id == None:
             super(Trader, self).save(*args, **kwargs)
             self.code_membre = self.id
-            self.user = User(username=str(self.nom) + "_" + str(self.code_membre),
+            new_user = User(username=str(self.nom) + "_" + str(self.code_membre),
                              last_name=str(self.nom), password=make_password(self.mdp))
-            self.user.save()
+            new_user.save()
+            self.user = new_user
             groupe = Group.objects.get(name="Trader")
             groupe.user_set.add(self.user)
-            self.save(update_fields=['code_membre', 'compte_trader', 'user'])
+            super(Trader, self).save(*args, **kwargs)
         else:
             return super(Trader, self).save(*args, **kwargs)
