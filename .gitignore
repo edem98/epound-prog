@@ -4,7 +4,7 @@ staticfiles
 media
 .idea
 .vscode
-prod_settinds.py
+prod_settings.py
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
