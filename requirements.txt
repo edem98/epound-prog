@@ -39,7 +39,7 @@ django-tables2==1.21.2
 django-timezone-field==3.0
 django-treebeard==4.3
 django-widget-tweaks==1.4.3
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 docker==4.2.2
 docker-compose==1.25.5
 dockerpty==0.4.1
