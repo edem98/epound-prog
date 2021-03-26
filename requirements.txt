@@ -76,7 +76,7 @@ python-card-me==0.9.3
 python-crontab==2.3.5
 python-dateutil==2.7.3
 pytz==2018.5
-PyYAML==5.3.1
+PyYAML==5.4
 redis==2.10.6
 requests==2.21.0
 s3transfer==0.1.13
