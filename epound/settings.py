@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-from celery.schedules import crontab
-import djcelery
+# from celery.schedules import crontab
+# import djcelery
 
-djcelery.setup_loader()
+# djcelery.setup_loader()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -48,10 +48,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'gunicorn',
-    'djcelery',
-    'django_celery_beat',
-    'daterange_filter',
-    'storages',
     'sorl.thumbnail',
     # 'django_extensions',
     # mes apps
@@ -106,12 +102,8 @@ WSGI_APPLICATION = 'epound.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "epound",
-        'USER': "serge",
-        'PASSWORD': "",
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'epound.db'),
     }
 }
 
@@ -123,20 +115,7 @@ MEDIA_URL = '/media/'
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    # {
-    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    # },
-    # {
-    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    # },
-    # {
-    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    # },
-    # {
-    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    # },
-]
+AUTH_PASSWORD_VALIDATORS = []
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
