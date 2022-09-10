@@ -1,4 +1,5 @@
 from .settings import *
+import dj_database_url
 
 SECRET_KEY = '9gr3=4*i(v8!zcjf%1@1=#gf4=8fnl!^qd-%(hxuh^hsv6!@z%'
 
@@ -29,3 +30,7 @@ SEND_GRID_API_KEY = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+## Database conf
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
