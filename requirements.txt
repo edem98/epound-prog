@@ -31,6 +31,7 @@ pbr==5.1.0
 phonenumbers==8.10.2
 phonenumberslite==8.12.54
 Pillow==9.2.0
+psycopg2==2.9.3
 purl==1.4
 pycparser==2.20
 PyJWT==1.7.1
