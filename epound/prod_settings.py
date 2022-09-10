@@ -6,7 +6,7 @@ SECRET_KEY = '9gr3=4*i(v8!zcjf%1@1=#gf4=8fnl!^qd-%(hxuh^hsv6!@z%'
 DEBUG = True
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['142.93.122.54','epoundtogo.com','www.epoundtogo.com','127.0.0.1']
+ALLOWED_HOSTS = ['142.93.122.54','epoundtogo.com','www.epoundtogo.com','127.0.0.1', 'epound.herokuapp.com']
 
 MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 
